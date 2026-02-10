@@ -7,17 +7,17 @@ Complete the following steps after creating your project from this template to c
 - [ ] **Enable GitHub Security Alerts**: Navigate to your repository's "Security" tab on GitHub and enable Dependabot alerts and security updates to monitor vulnerabilities in dependencies.
 - [ ] **Protect the Main Branch**: In repository settings under "Branches", add a branch protection rule for `main` to require pull request reviews before merging and prevent force pushes.
 - [ ] **Update Project Details**: Replace all placeholder values in the following files with your actual project information:
-  - `FULLNAME` → Your full name (e.g., "Jane Doe")
-  - `USERNAME` → Your GitHub username (e.g., "janedoe")
-  - `REPO_NAME` → Your repository name (e.g., "my-research-data")
-  - `SHORT_DESCRIPTION` → Brief description of your project (e.g., "Analysis of climate data from 2020-2024")
-  - `[INSERT CONTACT METHOD]` → Your contact email or preferred method
-  - `GITHUB_REPO_ID` → Your GitHub repository ID (e.g., "123456789")
+  - `Moritz Twente` → Your full name (e.g., "Jane Doe")
+  - `mtwente` → Your GitHub mtwente (e.g., "janedoe")
+  - `counting-to-90` → Your repository name (e.g., "my-research-data")
+  - `Analysis of Voting Behaviour of MPs from Greenland and the Faroe Islands in Folketinget` → Brief description of your project (e.g., "Analysis of climate data from 2020-2024")
+  - `mtwente@unibas.ch` → Your contact email or preferred method
+  - `1154420296` → Your GitHub repository ID (e.g., "123456789")
   - `ZENODO_RECORD` → Your Zenodo record number (e.g., "1234567") after first release or manually create a Zenodo deposit
   - `DOI` → Your DOI after first release (e.g., "10.5281/zenodo.1234567")
   - Files to update: `.github/ISSUE_TEMPLATE/config.yml`, `_brand.yml`, `CODE_OF_CONDUCT.md`, `package.json`, `pyproject.toml`, `README.template.md`, and `SECURITY.md`
 - [ ] **Set Up Zenodo Integration**: Follow the [GitHub guide for Zenodo integration](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content) to enable automatic archiving and obtain a DOI for your repository.
-- [ ] **Set Up Zenodo DOI Badge**: Replace `GITHUB_REPO_ID` with the repository ID from `https://api.github.com/repos/USERNAME/REPO_NAME` (look for the `id` field in the JSON response). The badge will automatically display your Zenodo DOI after the first release.
+- [ ] **Set Up Zenodo DOI Badge**: Replace `1154420296` with the repository ID from `https://api.github.com/repos/mtwente/counting-to-90` (look for the `id` field in the JSON response). The badge will automatically display your Zenodo DOI after the first release.
 - [ ] **Add Zenodo DOI to README**: After creating your first release and obtaining a Zenodo DOI, replace `ZENODO_RECORD` in README.md with your actual Zenodo record number (found in your Zenodo deposit URL).
 - [ ] **Add Favicons**: Generate and add favicon files to the root directory using [favicon.io](https://favicon.io/) or a similar service. Include `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, and Android icons.
 - [ ] **Address TODO Comments**: Search for `TODO` comments throughout all project files using `grep -r "TODO" .` and complete or remove each task as appropriate for your project.

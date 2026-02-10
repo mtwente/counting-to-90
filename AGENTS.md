@@ -18,7 +18,7 @@ This repository is a **GitHub template** for FAIR and open research data documen
 
 ## 2) Placeholder Policy (Template vs Project)
 
-This template includes placeholders like: `USERNAME`, `REPO_NAME`, `FULLNAME`, `SHORT_DESCRIPTION`, `ZENODO_RECORD`, `[INSERT CONTACT METHOD]`, `GITHUB_REPO_ID`, `DOI`.
+This template includes placeholders like: `mtwente`, `counting-to-90`, `Moritz Twente`, `Analysis of Voting Behaviour of MPs from Greenland and the Faroe Islands in Folketinget`, `ZENODO_RECORD`, `mtwente@unibas.ch`, `1154420296`, `DOI`.
 
 - **Template maintenance**:
   - Keep placeholders intact across all files so downstream users can replace them.
@@ -117,7 +117,7 @@ Place new files accordingly.
 - **Enable Zenodo–GitHub integration** to archive releases and mint DOIs.
 - After first release:
   - Record your **`ZENODO_RECORD`** and **`DOI`**.
-  - **Zenodo DOI badge**: replace `GITHUB_REPO_ID` with the numeric repo ID from `https://api.github.com/repos/USERNAME/REPO_NAME` (`id` field). Badge will display your DOI after Zenodo links the release.
+  - **Zenodo DOI badge**: replace `1154420296` with the numeric repo ID from `https://api.github.com/repos/mtwente/counting-to-90` (`id` field). Badge will display your DOI after Zenodo links the release.
 - Add the DOI to the README once available.
 
 ## 11) Website Publishing with GitHub Pages (Project instances)

@@ -1,5 +1,15 @@
 ---
-title: Open Research Data
+title: Counting to 90 in Greenlandic and Faroese
+lang: en
+authors:
+  - name: Moritz Twente
+    email: moritz.twente@unibas.ch
+    affiliation: Universität Basel
+    orcid: 0009-0005-7187-9774
+format:
+  html:
+    filters:
+      - filter-h1.lua
 ---
 
 {{< include README.md >}}

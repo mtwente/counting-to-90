@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.5.2",
+    "Version": "4.4.3",
     "Repositories": [
       {
         "Name": "P3M",
@@ -13,18 +13,6 @@
     ]
   },
   "Packages": {
-    "languageserver": {
-      "Package": "languageserver",
-      "Version": "0.3.16",
-      "Source": "Repository",
-      "Repository": "P3M"
-    },
-    "lintr": {
-      "Package": "lintr",
-      "Version": "3.2.0",
-      "Source": "Repository",
-      "Repository": "P3M"
-    },
     "renv": {
       "Package": "renv",
       "Version": "1.1.5",
@@ -78,12 +66,6 @@
       "Author": "Kevin Ushey [aut, cre] (ORCID: <https://orcid.org/0000-0003-2880-7407>), Hadley Wickham [aut] (ORCID: <https://orcid.org/0000-0003-4757-117X>), Posit Software, PBC [cph, fnd]",
       "Maintainer": "Kevin Ushey <kevin@rstudio.com>",
       "Repository": "RSPM"
-    },
-    "styler": {
-      "Package": "styler",
-      "Version": "1.11.0",
-      "Source": "Repository",
-      "Repository": "P3M"
     }
   }
 }
