@@ -1,9 +1,9 @@
 meta:
-  name: REPO_NAME
+  name: counting-to-90
   link:
-    home: https://USERNAME.github.io/REPO_NAME
-    github: https://github.com/USERNAME
+    home: https://mtwente.github.io/counting-to-90
+    github: https://github.com/mtwente
   description: |
-    SHORT_DESCRIPTION
+    Analysis of Voting Behaviour of MPs from Greenland and the Faroe Islands in Folketinget
 
 # Go to https://quarto.org/docs/authoring/brand.html to learn more about multiformat branding with brand.yml

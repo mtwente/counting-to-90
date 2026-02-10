@@ -1,8 +1,8 @@
 [project]
-name = "REPO_NAME"
+name = "counting-to-90"
 version = "0.1.0"
-description = "SHORT_DESCRIPTION"
-authors = [{ name = "FULLNAME", email = "[INSERT CONTACT METHOD]" }]
+description = "Analysis of Voting Behaviour of MPs from Greenland and the Faroe Islands in Folketinget"
+authors = [{ name = "Moritz Twente", email = "mtwente@unibas.ch" }]
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
@@ -36,7 +36,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["REPO_NAME"]
+known-first-party = ["counting-to-90"]
 
 [tool.ruff.format]
 quote-style = "double"

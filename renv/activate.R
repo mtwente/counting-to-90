@@ -615,7 +615,7 @@ local({
       "RemoteType: github",
       "RemoteHost: api.github.com",
       "RemoteRepo: renv",
-      "RemoteUsername: rstudio",
+      "Remotemtwente: rstudio",
       "RemotePkgRef: rstudio/renv",
       paste("RemoteRef: ", sha),
       paste("RemoteSha: ", sha)

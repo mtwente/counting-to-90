@@ -1,6 +1,6 @@
-Package: "REPO_NAME"
+Package: "counting-to-90"
 Type: Project
-Title: "REPO_NAME"
+Title: "counting-to-90"
 Version: 0.1.0
 Suggests:
     languageserver,

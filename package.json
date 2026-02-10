@@ -1,8 +1,8 @@
 {
-	"name": "REPO_NAME",
-	"description": "SHORT_DESCRIPTION",
-	"author": "FULLNAME <[INSERT CONTACT METHOD]>",
-	"url": "https://github.com/USERNAME/REPO_NAME/issues",
+	"name": "counting-to-90",
+	"description": "Analysis of Voting Behaviour of MPs from Greenland and the Faroe Islands in Folketinget",
+	"author": "Moritz Twente <mtwente@unibas.ch>",
+	"url": "https://github.com/mtwente/counting-to-90/issues",
 	"license": "AGPL-3.0",
 	"scripts": {
 		"check": "prettier --check .",
