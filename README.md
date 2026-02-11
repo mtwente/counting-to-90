@@ -1,6 +1,6 @@
 # counting-to-90
 
-This repository contains an analysis of voting behaviour of MPs from Greenland and the Faroe Islands in Folketinget. The data in this repository is openly available to everyone and is intended to support reproducible research.
+This repository contains an analysis of voting behaviour of MPs from Greenland and the Faroe Islands in Folketinget, based on the [nordatlantisk-ft](https://mtwente.github.io/nordatlantisk-ft) dataset. The content of this repository is openly available to everyone and is intended to support reproducible research.
 
 [![GitHub issues](https://img.shields.io/github/issues/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/issues)
 [![GitHub forks](https://img.shields.io/github/forks/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/network)
