@@ -1,1 +1,29 @@
-# Go to https://citation-file-format.github.io/ to learn more about the Citation File Format.
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Counting to 90 in Greenlandic and Faroese
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Moritz
+    family-names: Twente
+    email: moritz.twente@unibas.ch
+    affiliation: University of Basel
+    orcid: 'https://orcid.org/0009-0005-7187-9774'
+repository-code: 'https://github.com/mtwente/counting-to-90'
+url: 'https://mtwente.github.io/counting-to-90'
+repository: 'https://mtwente.github.io/nordatlantisk-ft'
+abstract: >-
+  Analysis of voting behaviour of MPs from Greenland and the
+  Faroe Islands in Folketinget
+keywords:
+  - folketinget
+  - parliament
+  - political science
+  - greenland
+  - faroe islands
+  - voting behavior
+license: CC-BY-4.0
