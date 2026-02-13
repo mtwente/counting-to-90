@@ -27,6 +27,7 @@ format:
         \pagestyle{fancy}
         \fancyhf{} % clear all header and footer fields
 
+        % first page footer
         \fancypagestyle{plain}{
         \fancyhf{}
         \fancyfoot[L]{\footnotesize Moritz Twente, 19-911-940, moritz.twente@unibas.ch}
