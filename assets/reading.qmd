@@ -1,0 +1,218 @@
+---
+title: "Reading Notes"
+author: "Moritz Twente"
+date: last-modified
+date-format: long
+bibliography: nordatlantisk-ft.bib
+csl: apa-cv.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false
+lang: en
+output-file: notes.pdf
+format: 
+  pdf: 
+    documentclass: article
+    mainfont: Jost
+    filters: [quotation-marks.lua]
+    quot-lang: de-CH
+    colorlinks: true
+    toc: true
+    geometry:
+      - top=22mm
+      - bottom=18mm
+    include-in-header:
+      text: |
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{} % clear all header and footer fields
+
+        % Right-justified header (smaller font)
+        \fancyfoot[L]{\footnotesize Moritz Twente, 19-911-940, moritz.twente@unibas.ch}
+
+        % Page number in footer (centered)
+        \fancyfoot[R]{\footnotesize \thepage}
+
+        % Remove header line (optional, cleaner look)
+        \renewcommand{\headrulewidth}{0pt}
+
+        % reduce whitespace below header
+        \setlength{\headsep}{9pt}
+---
+
+
+# Rigsfællesskabet/Folketing
+
+- @ackrenExploringRoleRegional2019
+- @cleggParliamentaryRepresentationOverseas2022
+- @green-pedersenPartySystemOpen2020
+- @harderFaeroskeOgGronlandske2022
+- @harderSupplerendeMaterialeFaeroske2022
+- @skaale20sporgsmalUS182021
+- @statsministerietValgdatoPaFaeroerne2022
+- @billeGronlandskeFolketingsmedlemmer2025
+- @gadGronlandskeFolketingsmedlemmer2022
+
+# Folketing/DK in General
+
+- @arndtFolketingswahlDanemarkVom2019
+- @arterNordicParliamentsMuchofamuchness2016
+- @christensenFolketingsvalgSiden19392022
+- @christiansenPolarizationLegislativeParty2021
+- @green-pedersenDetRadikaleVenstres2003
+- @green-pedersenBlokpolitikOgNye2020
+- @green-pedersenBlocPoliticsVs2005
+- @hansenCommitteeAssignmentPolitics2010
+- @klintDanishLegislatorsDatabase2023
+- @kurrild-klitgaardElectionInversionsCoalitions2013
+- @nannestadPolitischeSystemDanemarks2004
+- @skjaevelandGovernmentFormationDenmark2003
+- @skjaevelandModellingGovernmentFormation2009
+- @straubingerResultsDanishGeneral2022
+- @kjaerDanskeFolketingsmedlemmerParlamentarisk2004
+- @christiansenMinorityCoalitionGovernance2014
+
+# Rigsfællesskabet in General
+
+- @coatesIndigenousPeoplesArctic2020
+- @coatesIntroductionCircumpolarDimensions2020
+- @gadPostcolonialIdentityGreenland2009
+- @gadGreenlandFaroeIslands2020
+- @grydehojGovernmentPoliciesPriorities2020
+- @hornPolitischeSystemDaenemarks2019
+- @jacobsenDanmarksArktiskeUdenrigspolitik2021
+- @jacobsenKalaallitPilluaritsiPerspektiver2019
+- @jacobsenTemaredaktorensForordArktiske2021
+- @naumIntroductionSituatingScandinavian2013
+- @naumScandinavianColonialismRise2013
+- @rahbek-clemmensenArcticGreatPower2016
+- @rahbek-clemmensenArcticTurnHow2017
+- @stephenInternationalePolitikUnd2018
+- @westDanishRealmArctic2025
+
+# Political Parties in GL/FO
+
+- @ackrenPoliticalPartiesGreenland2015
+- @ahlnessNunattaQitornaiParty2020
+- @michelsenGronlandPartisystemUdvikling1979
+- @westMPFirefightingWhen2018
+- @westFaeroskPolitikMellem2020
+- @westSkipanarligarFortreytirOg2022
+
+# Voting Behavior/Power
+- @felsenthalVotingPowerMeasurement2005
+- @gelmanStandardVotingPower2004
+- @hillerDistributionPowerGoverning2013
+- @hugParliamentaryVoting2013
+- @hugRollcallVotingBehaviour2020
+- @laneAnalysisVotingPower2007
+- @leechPowerIndicesLarge2013
+- @penroseElementaryStatisticsMajority1946
+- @raunioControllingOutcomesVoting2002
+- @vandeemenParadoxesVotingPower2003
+- @weberThoughtsVotingPower2020
+- @hugSelectionEffectsRoll2010
+- @butikoferStrategicBehaviourParliament2015
+- @hugPartyPressureEuropean2016
+- @baileyTwodimensionalAnalysisSeventy2018
+- @fjelstulDecisionmakingUnitedNations2025
+- @lucasPoliticiansTheoriesVoting2025
+- @comanDimensionsPoliticalConflict2017
+
+# Second-Order Parliaments
+
+- @harderArcticIndigenousRepresentation2024
+
+# Cross-Parliamentary Control
+
+- @harderCrossparliamentaryControl2025
+- @staehrharderCaseInnovativeParliamentary2022
+
+# Parliamentary (Open) Data
+
+- @benoitDataScienceMeets2025
+- @berntzenParliamentaryOpenData2019
+- @mahrOneTemplateRule2025a
+- @twenteNordatlantiskft2024
+- @mahrOneTemplateRule2025a
+- @doringParlGov2022Release2022
+- @folketingetFolketingetsAbneData2026
+- @weissLatinAmericanLegislators2025
+
+# Newspaper Reports
+
+- @almerFolketingetVilDrofte2023
+- @berthelsenFormandsopgorSiumutHoeghDam2023
+- @buggeRegeringensIndenrigspolitiskeFlertal2023
+- @djorupViVaelterIkke2012
+- @frostLokkeRaserNordatlantiske2022
+- @hviidVittusQujaukitsoqMelder2025
+- @joensenLagtingsformandenVilAfskaffe2019
+- @joensenNordatlantiskePartierVil2022
+- @kamstrupNuHarVi2017
+- @kristensenTolkemangelFolketingetFamiliemedlem2023
+- @kuitseKunoFenckerOnsker2025
+- @larsenSkatteministerTilNytarskur2017
+- @lutzenForoyskuFolkatingsumbodiniElva2025
+- @mansoAnalyseMinisterstormEndte2025
+- @ritzauOmstridtGronlandskPolitiker2016
+- @ritzauForvirringFolketingssalenAkiMatilda2023
+- @ritzauFaeroskeFolketingsmedlemmerEfter2023
+- @ritzauLokkeErMallos2023
+- @ritzauKommentatorRegeringenKommer2023
+- @schultz-lorentzenNordatlantenFaellesFront2011
+- @skaaleFaeroskMFerNordatlantiske2022
+- @skaaleUppspunnidPartapolitisktKrut2025
+- @skouKaareFireMandater2008
+- @sorensenEfterBrokBla2022
+- @sorensenMedieAkiMatildaHoeghDam2023
+- @svendsenDramaOmMistillid2025
+- @synnestvedtSiumutVilBlande2021
+- @turnowskySkatteministerBeklagerGronlaenderudtalelse2017
+- @valentinFaeroskPolitikerNordatlantiske2025
+- @valentinMedieTolkeFolketinget2025
+- @veirumForskerNordatlantiskIndflydelse2022
+- @veirumMarkusOlsenFolketinget2023
+- @vollerGronlandskMFerVil2008
+- @corfixenAkiMatildaHoeghDamEr2025
+- @dallGronlandOgFaeroerne2022
+- @djurhuusAajaStudlarStjornini2025
+- @einarssonUndrastForoyskOg2025
+- @frigaardSadanTaellerMan2022
+- @friisTiArSiden2025
+- @hansenTalePaGronlandsk2023
+- @hansenSaraOlsvigStiller2013
+- @hyldalSiumutpolitikersKlageEr2024
+- @jacobsenLogdUndirBlanda2025
+- @jenvallAkiMatildaHoeghDamHar2025
+- @jenvallSprogstridFolketingetSplitter2024
+- @jersildGronlandskProfilSmider2025
+- @jorgensenStortFremmodeTil2025
+- @kirkebaek-johanssonStemmeslugerForladerGronlandsk2025
+- @klingeGronlandskFolketingssalenSplitter2024
+- @lindstromAajaPegerPa2022
+- @mollerAkiMatildaHoeghDamKlager2024
+- @mollerDanskFinanslovsforslagMange2025
+- @mollerAajaChemnitzMilliarder2025
+- @nathanGronlandskMferSer2024
+- @okkelsHvemSkalNu2025
+- @pabstMetteFrederiksenReagerer2024
+- @raatzDagensSidsteTaler2013
+- @rasmussenGronlandsMFereGennem2022
+- @raunwesthAkiMatildaHoeghDamSoger2025
+- @raunwesthAkiMatildaHoeghDamsAfloser2025
+- @ritzauFaeroskMandatVil2022
+- @ritzauPaGronlandskLanger2023
+- @ritzauGronlandsRegeringspartiTruer2024
+- @ritzauAkiMatildaHoeghDamSoger2025
+- @ritzauMarkusOlsenTakker2025
+- @sermitsiaq.agLundOlsenErstatter2013
+- @skaerbaekFolketingstolkeHarSagt2025
+- @sommerNordatlantiskeMandaterKan2007
+- @sorensenArEfterAkiMatilda2024
+- @thiemannRodeFarDet2022
+
+# Other
+
+- @hazanCentrePartiesPolarisation1997
+- @nolanStrexExtraString2024
