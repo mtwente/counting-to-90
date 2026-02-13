@@ -40,8 +40,7 @@ format:
         \setlength{\headsep}{9pt}
 ---
 
-
-# Rigsfællesskabet/Folketing
+# Folketing/Rigsfællesskabet
 
 - @ackrenExploringRoleRegional2019
 - @cleggParliamentaryRepresentationOverseas2022
@@ -53,7 +52,7 @@ format:
 - @billeGronlandskeFolketingsmedlemmer2025
 - @gadGronlandskeFolketingsmedlemmer2022
 
-# Folketing/DK in General
+# Folketing/Danish Politics in General
 
 - @arndtFolketingswahlDanemarkVom2019
 - @arterNordicParliamentsMuchofamuchness2016
@@ -71,6 +70,11 @@ format:
 - @straubingerResultsDanishGeneral2022
 - @kjaerDanskeFolketingsmedlemmerParlamentarisk2004
 - @christiansenMinorityCoalitionGovernance2014
+- @skjaevelandMindretalsregeringerDanmarkFor2003
+- @skjaevelandPartyCohesionDanish2001
+- @westPoliticalPartiesParliamentary2025
+- @thuerkFlexibelStabilUnd2023
+- @damgaardPoliticalRolesDanish1997
 
 # Rigsfællesskabet in General
 
@@ -98,6 +102,7 @@ format:
 - @westMPFirefightingWhen2018
 - @westFaeroskPolitikMellem2020
 - @westSkipanarligarFortreytirOg2022
+- @westLogtingidOgTingnevndirnar2025
 
 # Voting Behavior/Power
 - @felsenthalVotingPowerMeasurement2005
@@ -118,6 +123,15 @@ format:
 - @fjelstulDecisionmakingUnitedNations2025
 - @lucasPoliticiansTheoriesVoting2025
 - @comanDimensionsPoliticalConflict2017
+- @maiVotingPartyLine2023
+- @maiDivisionLabourDissenting2024
+- @carrubbaLegislativeVotingBehavior2008
+- @louwerseReachingAisleExplaining2017
+- @pourebrahimiDyadicMethodInvestigate2025
+- @hugParliamentaryVotingProcedures2015
+- @siebererRollCallVotesGerman2020
+- @cencigVotingBehaviourEuropean2017
+- @wuestRollCallVotes2016
 
 # Second-Order Parliaments
 
@@ -138,6 +152,8 @@ format:
 - @doringParlGov2022Release2022
 - @folketingetFolketingetsAbneData2026
 - @weissLatinAmericanLegislators2025
+- @louwerseDutchParliamentaryBehaviour2018
+- @sanchez-nielsenSuDaMaSustainableOpen2021
 
 # Newspaper Reports
 
