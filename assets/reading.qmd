@@ -233,6 +233,7 @@ format:
 - @sommerNordatlantiskeMandaterKan2007
 - @sorensenArEfterAkiMatilda2024
 - @thiemannRodeFarDet2022
+- @veirumPartilederePatalerGronlandsk2022
 
 # Other
 
