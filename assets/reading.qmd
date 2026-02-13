@@ -155,7 +155,6 @@ format:
 - @berntzenParliamentaryOpenData2019
 - @mahrOneTemplateRule2025a
 - @twenteNordatlantiskft2024
-- @mahrOneTemplateRule2025a
 - @doringParlGov2022Release2022
 - @folketingetFolketingetsAbneData2026
 - @weissLatinAmericanLegislators2025
