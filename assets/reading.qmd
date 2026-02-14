@@ -51,18 +51,43 @@ format:
 # Folketing/Rigsfællesskabet
 
 - @ackrenExploringRoleRegional2019
+  + "National politics does not trigger islanders to the ballot box in the same manner as in the rest of Denmark and Finland. The difference is large, with some occasional exceptions when the difference is less than ten percent. Generally, the gap is 20 or more than 30 percent." [21]
+  + "Representation in core state parliaments has never been a main issue for the self-ruled regions. The lack of conflict between the core state governments and the regional governments on how seats are distributed in national parliaments indicates its low importance in enhancing regional aims." [22]
+  + "There is no formal hindrance that an incumbent elected from the islands could be included in national cabinet, yet it has not happened. A silent agreement keeps them out as it could give too much advantage to the self-ruled regions, which is not in line with a unitary state. Fears have been raised in Denmark that the four incumbents from the two self-ruled regions could utilize their mandate if the two-party blocks in parliament are of equal strength." [24]
+  + "The unitary core states of Denmark and Finland systematically exclude their self-ruled regions from the national nucleus of government." [24]
+  + "Legislatures from the Faroe Islands and Greenland have the role of distinct ethnic regional parties in the Danish Folketing. They form a parliamentary party of their own, usually representing the two largest parties from the two regions separately. The one- member parliamentary parties are members of the Faroe Islands committee and the Greenland committee respectively, together with 27 other members representing the core state parties in the Danish Folketing." [25]
 - @cleggParliamentaryRepresentationOverseas2022
+  + "But there are areas of policy in which the Faroes and Greenland cannot decide independently. These are foreign, defence and security policy, the constitution, citizenship, and currency, as well as the high courts. Additionally, there are some policy areas in which the Faroes and Greenland have not yet assumed control, most notably the police, judiciary, prison and probation services, aviation, and regulation of the financial sector." [235]
+  + "Nevertheless, as we demonstrate below, in times of less rmly constituted parliamentary majorities, one or two of the North Atlantic members may play a key role in determining the political majority in the parliament. However, though Denmark has a strong tradition for minority coalition governments, the most common parliamentary situation is one in which none of these four members is important for the building of a parliamentary majority, and the subsequent making of policy. This way, although there have been times in which the Faroese and Greenlandic members become politically important and though they may be invited to participate in negotiations of special interest to their constituency, their general importance is probably best understood in terms of their symbolic presence and in their ability to articulate viewpoints and pass on knowledge of the northern parts of the Realm within the epicentre of Danish politics." [237]"
+  + "Thus, moving to the question of whom these members represent, there is no question that they represent the people living in their geographical constituency, their home countries. However, a question of some disagreement among the current Greenlandic parliamen- tary members, in particular, is whether they are also expected to represent Greenlanders who live in Denmark. While Greenlandic and Faroese members have previously acted on behalf of their fellow citizens living in Denmark (e.g. via the asking of parliamentary questions), the current member of the Greenlandic Social Democratic Party believes that their rep- resentation should only be the concern of those MPs who represent the Danish district in which they live (interview with MP, Aki-Matilda Høegh-Dam, October 30, 2019)." [238]
+  + "... it is custom in Danish legislative studies to use parliamentarians’ membership of legislative committees as an indicator of their political activities" [238]"
+  + "An issue that has occasionally caused political debate is the question of whether the Greenlandic and Faroese MPs are only to concern themselves with questions related to their territories, and therefore staying out of mainland Danish political debates. According to the Danish Constitution, there is no doubt that these members may engage in any issue they wish. When governments have clear majorities North Atlantic members can vote on mainland Danish issues with no political consequence and attracting little notice, but when the parliament is more evenly split their votes can cause controversy. For example, in 2007, two Greenlandic members announced that they would vote with the opposition to allow asylum seekers with children not to be placed in detention centres, and this threatened the government’s majority. Hence, although Greenlandic members had previously voted on such issues without causing any concern, their vote at this point became an issue of much-heated debate. The spokesperson of one government party characterised their threat as 'two Greenlandic politicians have suddenly decided to come down from the ice and interfere in Danish politics' (Sjølie, 2008), while the vice-chairman of the Danish People’s Party announced that such behaviour would not go unpunished in the forthcoming negotiations on the future independence of Greenland (Henriksen, 2008). Not surprisingly, the post-colonial remarks, as well as the threat of sanctions, were interpreted in wider, symbolic ways, and heightened tensions between Greenland and the metropole. Eventually, a political majority behind the government was established and so the Greenlandic vote did not turn out to be decisive." [239]
+  + "There are examples, particularly in relation to Greenland, when relations have soured if the MPs indicate a different view or set of interests to the metropolitan consensus and this certainly has the potential to harm relations." [248]
 - @green-pedersenPartySystemOpen2020
+  + not mentioning GL/FO parties at all when talking about DK party system
 - @harderFaeroskeOgGronlandske2022
 - @harderSupplerendeMaterialeFaeroske2022
 - @skaale20sporgsmalUS182021
-- @statsministerietValgdatoPaFaeroerne2022
+  + "vi nordatlantere, som ordningen er, kan komme flyvende syd over Atlanten"
 - @billeGronlandskeFolketingsmedlemmer2025
+  + "Der har gennem årene været skiftende praksis, både med hensyn til om de grønlandske repræsentanter helt tilslutter sig en af de danske partiers folketingsgrupper, og hvorvidt de deltager i afstemningen om "rent indre danske" anliggender. Når valgresultatet er endt tæt mellem de politiske blokke, har grønlandske folketingsmedlemmer indimellem været afgørende for, hvem der kunne danne regering."
+- @billeFaeroskeFolketingsmedlemmer2025
+  + "Det har vekslet ved hvert folketingsvalg, hvilke to af de fire store partier på Færøerne, som opnår mandaterne."
 - @gadGronlandskeFolketingsmedlemmer2022
+  + "Siumut har stort set haft det ene af de grønlandske mandater siden partiets oprettelse i 1977. Det andet havde Atassut indtil 2001, hvor IA overtog det."
+  + "Som folketingsmedlemmer har grønlandske politikere også haft mulighed for at påvirke dansk politik, ikke mindst i de tilfælde, hvor de har været afgørende for at bygge et parlamentarisk flertal: Efter valget i 1971 var Moses Olsen og Knud Hertling med til at sikre den socialdemokratiske regering. I 2007 så det en overgang ud til, at de grønlandske medlemmer kunne blive afgørende for, at den borgerlige regering kom i mindretal i en sag om asylfamiliers mulighed for at bo uden for asylcentre. I sådanne situationer har rimeligheden af, at grønlandske mandater tælles med på lige fod, været anfægtet."
+- @harderArcticIndigenousRepresentation2024
+  + "Since the focus of Arctic Indigenous peoples’ political mobilisation has not been the national parliaments, the literature has not been much concerned with national parliaments as arenas of Indigenous politics" [130]
+  + "In the election for the Danish parliament, the Greenlandic people currently vote as one large constituency, and the amount of citizens that a Greenlandic representative represents is approximately equal to the number of citizens that a Danish representative represents on average [Clegg et al., 10--11]" [135]
+  + "In the Nordic countries, there is no tradition of grouping people – nor elected officials – into their ethnicity or indigeneity. Therefore, there are no official statistics on the number of Indigenous MPs in the four Nordic, national parliaments. Yet, due to the demographic characteristics of Greenland, the two MPs elected by Greenland to the Danish parliament (with 179 seats) are generally Inuits. In turn, Danish constituencies have occasionally elected Inuits who live in Denmark to represent them, yet there is no statistical information on this." [137]
+  + "In posing these questions the Greenlandic MPs carry out what Mansbridge terms surrogate representation, that is, representing people who do not live in the district of the representative." [139], referring to Harder 2022
+  + "However, in the Danish parliament, the Greenlandic MPs may occasionally find themselves in situations where Danish representatives do not think it is appropriate that they interfere in so-called ‘Danish’ political matters. Hence, in situations where the actions of one or both of the Greenlandic representatives may influence the construction of the majority within the chamber, Greenlandic representatives have been bullied by representatives from Danish parties, who have publicly stated that due to the circumstance that Greenland has a large degree of self-government, the Greenlandic representatives ought to keep out of so-called 'Danish politics'." [141], referring to Clegg et al. 2022
+  + "An interesting difference between the struggles that Indigenous representatives in the Danish and Canadian parliaments meet is that where the Canadian Indigenous representatives are self-regulating that they are not acting too much for Indigenous peoples only (because this may hurt their chances of re-election), Danish representatives are sometimes harassed for interfering in issues that are not of importance to Greenlanders only." [143]
 
 # Folketing/Danish Politics in General
 
 - @arndtFolketingswahlDanemarkVom2019
+  + erwähnt nordatl. Mandate nur in Fussnote, Artikel zur Wahl 2015 auch nicht trotz Knappheit (?)
 - @arterNordicParliamentsMuchofamuchness2016
 - @christensenFolketingsvalgSiden19392022
 - @christiansenPolarizationLegislativeParty2021
@@ -83,6 +108,8 @@ format:
 - @westPoliticalPartiesParliamentary2025
 - @thuerkFlexibelStabilUnd2023
 - @damgaardPoliticalRolesDanish1997
+- @valenGeographyPoliticalRepresentation2000
+  + "Our research problem involves a focus on the contrast between central and peripheral areas within the Nordic countries. [...] For Denmark and Sweden, the concept of a periphery is scarcely recognized. [table with Center: 'The capital with surrounding areas', In-between: 'The islands', Periphery: 'Jutland']" [113]
 
 # Rigsfællesskabet in General
 
@@ -105,7 +132,9 @@ format:
 # Political Parties in GL/FO
 
 - @ackrenPoliticalPartiesGreenland2015
-- @ahlnessNunattaQitornaiParty2020
+- @ackrenExploringRoleRegional2019
+  + "However, the overwhelming cleavage goes between separatism and unionism, which either unite or open rifts between people on the islands." [27]
+- ~~@ahlnessNunattaQitornaiParty2020~~
 - @michelsenGronlandPartisystemUdvikling1979
 - @westMPFirefightingWhen2018
 - @westFaeroskPolitikMellem2020
@@ -117,6 +146,13 @@ format:
 - @gelmanStandardVotingPower2004
 - @hillerDistributionPowerGoverning2013
 - @hugParliamentaryVoting2013
+  + "VanDoren (1990), studying how legislative proposals are delat with by committees and which proposals are voted upon in roll call votes, notes that many never leave the committee stage." [141]
+  + "Thus, it cannot surprise that two reviews of the literature on parliamentary votingput political parties [and not individual MPs] more or less at center stage. Collie (1984) argues that the literature has essentially focused on research questions dealing with the collective [...] or individuals." [140]
+  + "As the data scholars can use is related both to the visibility and thus to the possibility of monitoring, some caution is advised when using information on parliamentary voting. [...] Thus, as in many quasi-experimental studies, we need to be wary about possible selection issues." [142]
+  + three main areas of research dominating the field: "First, explaining votes in parliament, either specific ones or a whole set of votes, has been a main thread in the literature. A major preoccupation in this research area is to determine which of the (possibly many) principals influence the MPs' voting behavior. Second [...] research dealing with the cohesion of political parties and sometimes other groups has proved an active field. Finally, determining what conflict lines and cleavages characterize the work in parliament has preoccupied scholars to a considerable extent." [142]
+  + "While Rice's (1925) index to measure cohesiveness still plays a central role, several scholars have proposed modifications and extensions. As Rice's (1925) index only considers the yes- and no-votes, some authors suggest that abstentions should also be considered. [...] Hix et al. (2006) propose an 'agreement index' that also considers the third option an MP may have when considering voting, namely to abstain. Their measure, however, will always yield positive values, contrary to Attina's (1990)."
+  + "[...] the main problems in the study of parliamentary voting, namely that the latter are often only partially observable and subject to considerable agenda influences." [149]
+  + "Related to this issue of partial observability is the more general question how votes in parliament have to be conceived in the larger context of parliamentary decision making. Londregan (2000b), for instance, shows that parliamentary voting is related ot the various previous stages leading up to a parliamentary decision." [150]
 - @hugRollcallVotingBehaviour2020
 - @laneAnalysisVotingPower2007
 - @leechPowerIndicesLarge2013
@@ -142,22 +178,43 @@ format:
 - @wuestRollCallVotes2016
 
 # Second-Order Parliaments
-
-- @harderArcticIndigenousRepresentation2024
+- for second order definition, see 10.1017/S000712349800026X
 
 # Cross-Parliamentary Control
 
 - @harderCrossparliamentaryControl2025
+  + "I define cross-parliamentary control as parliamentary control in which representatives in one government system engage in control activities that control a government in another." [3]
+  + "To the Greenlandic people, the Danish parliament constitutes a second-order parliament and, for this reason, the Danish Realm constitutes a suitable case to explore the yet unconceptualized notion of cross-parliamentary control." [3]
+  + "Thus far, cross-parliamentary control as I define it here has only been observed by Jensen et al. (2013)." [5]
+  + "Despite the formal equal participation of the Greenlandic representatives, voter participation in Greenland is higher at national elections than at the Folketing elections (Supplementary Figure A). Hence, in general, local voters seem to be more concerned with local politics than the politics, which is decided in and by the Realm, and from a Greenlandic perspective, the Danish Folketing appears as a second-order parliament." [8]
+  + "From a Greenlandic perspective, as mentioned above, the Danish parliament is considered a second-order parliament. For this reason, it constitutes a particularly likely case for the yet unexplored concept of cross-parliamentary control. However, gaining more knowledge about the case is also important in its own right: In the current ‘Race to the North’ for exploitation of hydrocarbon and mineral wealth and access to cargo transport which increases as the ice melts, Greenland is an important actor." [9]
+  + "This study contributes with new knowledge concerning the dynamics between the Greenlandic representation in the Danish parliament and the Greenlandic government." [9]
+  + "The questions in the dataset were hand-coded through a two-step process. First, they were divided into questions that were posed while the representative’s party was in opposition at home (i.e. in Greenland) and questions that were posed while the representative’s party was in government. After this, questions were coded as either ‘involving oversight of government at home’ or ‘not involving oversight of government at home.’ Unless questions directly address the actions or inactions of the Greenlandic government, these were coded as ‘not involving oversight of government at home’." [9]
+  + "they offer valuable insights into the case and Greenlandic representation in the Danish parliament, an area that has yet to be thoroughly researched (see, however, Harder, 2022)." [10]
+  + "Of importance, almost all the questions that carry out cross-parliamentary control are posed by one of the two parties, Inuit Ataqatigiit (IA) (52 of the 56 questions). Hence, in the study, cross-parliamentary control seems to be a one-party phenomenon." [10]
+  + "In addition, as I show below, being in opposition at home seems to be a general prerequisite for posing questions that control at home, and SIU spends considerably less time in opposition at home during the period." [11]
+  + "Moving to the interesting question of government status, as anticipated, most of the questions that carry out cross-parliamentary control (52 of the 56) are posed by representatives that belong to opposition parties in Greenland (H3)." [11]
+  + "Finally – and of importance for the theory building – all but one of the questions which carry out cross-parliamentary control were posed from 2011 and onwards. As I initially explained, from 2001–2011 the Greenlandic members of the Danish parliament belonged to the same North Atlantic [SEITENUMBRUCH] party group. Therefore, it seems that a prerequisite for cross-parliamentary control is that representatives find themselves in a relation of party competition within the parliament that questions are posed." [11-12]
+  + "Hence, in the contexts that are of relevance here, representatives who belong to parties that compete at one government level (usually the more local one) may find themselves in a situation of cooperation at another level." [12]
+  + formulated thesis based on observations: "Representatives will especially engage in cross-parliamentary control when they belong to parties that are in opposition within the government system where they seek to control the government." [12]
 - @staehrharderCaseInnovativeParliamentary2022
+  + "If applied this way, the Folketing could act as an alternative arena for control of the national periphery government, and we would be witnessing an example of what we term cross-parliamentary control."
+  + "Thus far, this type of control in which representatives use the control tool of another country’s parliament to control their home government has not yet been an issue of much attention in the legislative literature."
+  + "Corresponding to our expectations, our analyses show that most of the questions posed by the North Atlantic members of the Danish parliament, who are in opposition at home, concern the actions or inactions of the Danish government. Nevertheless, 7.8 pct. of these questions concern the actions or inactions of the members’ home government. Hence, they enact cross-parliamentary control."
+  + "Moreover, in line with our initial expectations, which are based on the former findings of Harder and West (Harder 2021; West 2019), we find that Greenlandic MPs make use of this possibility to a much larger extent than the Faroese members do. However, contrary to our expectations, it is the members from the parties that are most critical towards the Danish Realm, which makes the most use of the opportunity to gain information on the actions of their home-governments from the Danish Authorities. Especially, this tendency is particularly strong for Faroese members. We believe this to be a sign that partisan motives at home are more important to North Atlantic politicians in the Danish parliament than we initially expected them to be."
+- @jensenParliamentaryQuestionsOversight2013
 
 # Parliamentary (Open) Data
 
 - @benoitDataScienceMeets2025
-- @berntzenParliamentaryOpenData2019
-- @mahrOneTemplateRule2025a
-- @twenteNordatlantiskft2024
+  + "In recent years, legislative institutions across the world have experienced a 'transparency rush' that has led to the opening of large and extremely diversified deposits of data. This trend has been paralleled by easier access to these deposits due to their increasing digitalisation" [41]
+- ~~@berntzenParliamentaryOpenData2019~~
+- ~~@mahrOneTemplateRule2025a~~
+- ~~@twenteNordatlantiskft2024~~
 - @doringParlGov2022Release2022
-- @folketingetFolketingetsAbneData2026
+  + provides basic info for FO/GL parties that were at least once elected to FT.
+  + for elections, only seat numbers, not vote shares are provided for FO/GL parties
+- ~~@folketingetFolketingetsAbneData2026~~
 - @weissLatinAmericanLegislators2025
 - @louwerseDutchParliamentaryBehaviour2018
 - @sanchez-nielsenSuDaMaSustainableOpen2021
@@ -235,8 +292,11 @@ format:
 - @sorensenArEfterAkiMatilda2024
 - @thiemannRodeFarDet2022
 - @veirumPartilederePatalerGronlandsk2022
+- @sjolieDanmarkManglerOpgor2008
+  + ned fra indlandsisen-quote
 
 # Other
 
 - @hazanCentrePartiesPolarisation1997
 - @nolanStrexExtraString2024
+- @statsministerietValgdatoPaFaeroerne2022
