@@ -97,7 +97,9 @@ format:
 - @hansenCommitteeAssignmentPolitics2010
 - @klintDanishLegislatorsDatabase2023
 - @kurrild-klitgaardElectionInversionsCoalitions2013
-- @nannestadPolitischeSystemDanemarks2004
+- @nannestadPolitischeSystemDanemarks2009
+  + "Bei vielen Gesetzentwürfen der Regierung ist die Mehrheitsbeschaffung unproblematisch, da sie unstrittig sind und von (fast) allen Fraktionen unterstützt werden." [84], Anteil von der Regierung eingebrachter Vorschläge seit 1984 nicht <70% (bis 2000) [82]
+  + GL/FO wird erwähnt, aber in Erläuterungen im Wesentlichen nicht enthalten
 - @skjaevelandGovernmentFormationDenmark2003
 - @skjaevelandModellingGovernmentFormation2009
 - @straubingerResultsDanishGeneral2022
