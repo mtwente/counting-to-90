@@ -146,6 +146,7 @@ format:
   + "However, the [SEITENUMBRUCH] Danish parties are not the only relevant actors in relation to Danish government formation." [722-723]
   + "the more important their votes, the more involved they have become. They were most important in 1971 and in 1998 when their votes could decide who would be able to form the government. In both cases they clearly stated their preferences and in both cases they did so fully in accordance with their basic political orientation." [723]
 - @kjaerDanskeFolketingsmedlemmerParlamentarisk2004
+  + "Siden 1849 har der siddet et medlem valgt på Færøerne, fra 1947 forhøjet til to medlemmer, i det danske folketing, og fra 1953 har der ligeledes siddet to medlemmer valgt på Grønland. For disse nordatlantiske mandater gælder det, at de på mange måder er forskellige fra de resterende medlemmer af Folketinget i relation til deres rekrutteringsveje, og det er derfor valgt at udelade dem af analysen. Eksempelvis eksisterer der på Færøerne og i Grønland et andet partisystem, den fysiske afstand mellem kredsen og Folketinget er betragtelig større osv." > nicht inkludiert [32]
 - @christiansenMinorityCoalitionGovernance2014
   + not mentioning GL/FO at all
 - @skjaevelandMindretalsregeringerDanmarkFor2003
@@ -160,11 +161,23 @@ format:
   + "The literature often focuses on parliamentary questions as the most relevant tool for oversight activity (Wiberg, 1994)." [967]
   + removes FO/GL (and Aaland) from dataset [974 n. 5]
 - @thuerkFlexibelStabilUnd2023
+  + "In Dänemark variieren legislative Koalitionen stärker. Ein zentrales Instrument für die Mehrheitsbildung sind hier legislative policy-Abkommen, sogenannte forlig. Diese schriftlichen und öffentlichen Abkommen werden zwischen Regierungs- und Oppositionsparteien für die Dauer einer Legislaturperiode (oder gar länger) abge- schlossen und konzentrieren sich jeweils auf einen bestimmten Politikbereich, z. B. auf eine Rentenreform oder ein Migrationsabkommen. So können verschiedene par- teiliche Koalitionen ein stabiles Regieren ermöglichen." [305]
+  + "Ähnlich argumentieren Kefford and Weeks (2020) ihrer Analyse Irlands und Australiens: in beiden Fällen haben sich Minderheitsregierungen ihre Zusammenarbeit mit parteilosen Abgeordneten „erkauft“, indem diese von policy-Zugeständnissen für ihre Wahlkreise profitiert haben. Anghel und Thürk (2021) zeigen, dass in Rumänien eine ethnisch basierte Spielart dieser Strategie auftritt: ethnische Minderheitsparteien verhandeln Zugeständnisse für ihre Gruppe und unterstützen im Gegenzug dienationale Minderheitsregierung." [306]
 - ~~@damgaardPoliticalRolesDanish1997~~
 - @valenGeographyPoliticalRepresentation2000
   + "Our research problem involves a focus on the contrast between central and peripheral areas within the Nordic countries. [...] For Denmark and Sweden, the concept of a periphery is scarcely recognized. [table with Center: 'The capital with surrounding areas', In-between: 'The islands', Periphery: 'Jutland']" [113]
 - @ejnarhansenReconsideringPartyDistances2008
+  + "However, in many of the West European parliaments, including Denmark, party discipline is very tight.19 Thus analysing individual legislator behaviour is of little use, and in such cases we should shift our focus to the parliamentary party groups and use these as the actors to be analysed." [266]
+  + "The data excludes the representatives for Greenland and the Faroe Islands, since it is often unclear when they voted on a bill and what they voted." [277 Fn. 29]
 - @pedersenPartyDistancesDanish1971
+  + no mention of GL/FO
+- @millerFriendsRivals1996
+  + "[after 1957 election] There were four 'non-political' members -- two from Greenland, one [sic] from the Faroes, and the M.F. of the Slesvig party, representing the German minority." [71]
+  + "The putative Social Democratic-Radical coalition had 84 of the 175 'political' seats in the Folketing, four short of a bare majority." [72]
+  + "On March 1, 1960, the Folketing approved the EFTA Treaty, with the Government parties, the Conservatives, Aksel Larsen, and Thorkil Kristensen voting in favor, the Communists and the Slesvig party voting against, and the Liberals, one Conservative, and the two Greenlanders abstaining." [79]
+  + "The retiring minister for Greenland, Kai Lindberg, a Social Democrat, recommended to Prime Minister Kampmann that he name as his successor a well-qualified Greenlander, Mikael Gam, a newly-elected member of the Folketing. Kampmann jumped at the idea and was in touch with Gam on the day after the election. Hitherto, the two Greenland M.F.s had been considered neutral or non-political, sitting in parliament to represent the interests of Greenland but avoiding controversial issues in Danish domestic politics. Gam saw in the offer of a cabinet post an opportunity to help his homeland and, after consulting with and gaining the approval of the other Greenland member, he agreed to accept it. This unexpected development gave the Social Democrats and Radicals the one vote they needed for a bare parliamentary majority of 89 seats. Though Gam -- who said he felt a little like 'a joker in a new card game' -- made no commitment to vote always with the Government, it was plain that as a minister, he would support the Government whenever necessary, especially since he would share in its cabinet decisions." [83]
+- @hansen_real_2020
+  + "In practice the actual number of votes in favour and against a bill is not important, as the passage or defeat is known in advance and the presence of members negotiated between the party whips." [3]
 
 # Rigsfællesskabet in General
 
@@ -183,6 +196,10 @@ format:
 - @rahbek-clemmensenArcticTurnHow2017
 - @stephenInternationalePolitikUnd2018
 - @westDanishRealmArctic2025
+  + "The increasing international attention that Greenland and the Faroe Islands are receiving is opening the ‘black box’ of the Danish state and questioning the viability of the external dimension of the two sub-state units’ self-government systems." [589]
+  + "... it is worth stressing that distinct elections select the North Atlantic MPs for the Folketing seats. This means that there is no institutional link between the North Atlantic parliamentarians in the Folketing and the national parliaments, and there is no institutional link between the North Atlantic parliamentarians in the Folketing and their respective national governments." [602]
+  + "... Folketing allocates central Arctic-related parliamentary seats to North Atlantic MPs to legitimate the Arctic state position." [589]
+
 
 # Political Parties in GL/FO
 
@@ -191,10 +208,12 @@ format:
   + "However, the overwhelming cleavage goes between separatism and unionism, which either unite or open rifts between people on the islands." [27]
 - ~~@ahlnessNunattaQitornaiParty2020~~
 - @michelsenGronlandPartisystemUdvikling1979
-- @westMPFirefightingWhen2018
-- @westFaeroskPolitikMellem2020
-- @westSkipanarligarFortreytirOg2022
-- @westLogtingidOgTingnevndirnar2025
+  + "Ved folketingsvalg var Grønland indtil valget 9. januar 1975 opdelt i to valgkredse med hver 1 mandat: en nord-  og østgrønlandsk kreds og en sydgrønlandsk kreds. Med valget i 1975 blev Grønland 1 kreds med 2 mandater." [52]
+  + "De to grønlandske MFere deltager i lovgivningen, men det er kun sjældent, de har haft betydning for flertalsdannelsen, og i grønlandsspørgsmål er folketinget sjældent delt midt over, så grønlændernes stemmeafgivning får direkte betydning for Grønland. Endelig kan to mandater ikke få afgørende indflydelse på lovudformningen. I to tilfælde har grønlandsk valgte MFere opnået ministerposten, men her opstår let den fare at blive gidsel for andres politik." [55]
+- ~~@westMPFirefightingWhen2018~~
+- ~~@westFaeroskPolitikMellem2020~~
+- ~~@westSkipanarligarFortreytirOg2022~~
+- ~~@westLogtingidOgTingnevndirnar2025~~
 
 # Voting Behavior/Power
 - @felsenthalVotingPowerMeasurement2005
@@ -233,6 +252,8 @@ format:
 - @siebererRollCallVotesGerman2020
 - @cencigVotingBehaviourEuropean2017
 - @wuestRollCallVotes2016
+- @anghelInfluencePayOffsLegislative2021
+  + "The results of our two-part empirical analysis indicate that ethno-regional parties try to achieve more group-specific policies and are less interested than mainstream parties in securing office positions or policy pay-offs on the traditional socioeconomic dimension. We observe that, through their strategy of offering legislative support, minorities benefited from a constant increase in funding and attention to their specific needs." [136]
 
 # Second-Order Parliaments
 - for second order definition, see 10.1017/S000712349800026X
