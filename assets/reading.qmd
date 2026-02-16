@@ -66,7 +66,25 @@ format:
 - @green-pedersenPartySystemOpen2020
   + not mentioning GL/FO parties at all when talking about DK party system
 - @harderFaeroskeOgGronlandske2022
+  + "Debatten er i særlig grad opstået i forbindelse med situationer, hvor det har været sandsynligt, at mandaterne kunne afgøre det parlamentariske flertal." [5]
+  + "På trods af at Folketinget har dannet scene for denne forhandling de seneste godt og vel 70 år, ved vi kun meget lidt om, hvordan repræsentanterne fra Grønland og Færøerne agerer i Folketinget." [5]
+  + "Med sit fokus på den nordatlantiske repræsentation i Folketinget udgør ar- tiklen her et første systematisk forsøg på at afdække et empirisk hul i rigsfællesskabets historie." [6]
+  + "Ifølge Skjæveland, der undersøger perioden 1953-1998, har den generelle opfat- telse af disse mandater været, at de ikke blander sig i (syd)dansk politik, omend der samtidig hersker en opfattelse af, at de i stigende grad er blevet involveret heri." [7]
+  + "Skjævelands undersøgelse viser således, at de nordatlantiske medlemmer er blevet involveret i regeringsdannelser hver eneste gang, dette var bare en smule nødvendigt. Særligt vigtige var de i 1971 og 1998 (Skjæveland, 2003: 122)." [7]
+  + "I dag har Færøerne overtaget langt størstedelen af de mulige sagsområder på nær retsvæsenet, politiet, kriminalforsorgen, ud- lændingeområdet og grænsekontrollen samt områderne vedrørende den finansielle sektor og luftfartsområdet (Statsministeriet, 2020)." [8]
+  + "Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau." [9]
+  + "Umiddelbart ser hverken det forhold, at et nordatlantisk medlem er fra et parti, der har rege- [SEITENUMBRUCH] ringsmagten hjemme, eller er fra en partifamilie, der har regeringsmagten i Danmark, ud til at påvirke medlemmets spørgeaktivitet signifikant (regeringsmagt hjemme: t-test, uens varians, P = 0,23; regeringsmagt i Danmark: t-test, uens varians, P = 0,83)." [10-11]
+  + "I tråd med den tidligere litteraturs konklusioner viser den kvantitative indholdsanalyse af de parlamentariske spørgsmål, at de nordatlantiske mandater i perioden 2005-2019 hovedsageligt stiller spørgsmål af specifik relevans for Færøerne eller Grønland." [13]
+  + kategorisering af spøgsmål: 1. Udenrigs-/forsvarspolitik, 2. overordn. forhold, Rigsfællesskabet, 3. ikke-hjemtagne områder, 4. færinger/grønlændere i DK, 5. øvrigt [13]
+  + "en større andel af både de færøske og grønlandske spørgsmål angår enten færinger eller grønlænderes forhold i Danmark eller oplysning om Færøerne eller Grønland i Danmark." [15]
+  + "Generelt kan det således konkluderes, at de nordatlantiske mandater overordnet set har anvendt Folketingets spørgefunktion til at få information om specifikke forhold og indgå i kritisk dialog om specifikke problemstillinger, snarere end til at føre diskussioner om det overordnede eller fremtidige forhold mellem medlemmerne af rigsfællesskabet." [15]
+  + "For så vidt angår den måde, hvorpå de nordatlantiske mandater i perioden 1998-2019 er indgået i de parlamentariske flertal, er den umiddelbare konklusion meget lig den, som Skjæveland finder for perioden 1953-1998: Når man har kunnet, har man påvirket tingenes tilstand. Desuden har man – ikke overraskende – overordnet set støttet regeringer, hvis partifarve man har delt." [18]
+  + "Efter valgene i 2011 og særligt i 2007 og 2015 var de nordatlantiske medlemmer imidlertid mere betydningsfulde for dannelsen af det parlamentariske flertal." [19]
+  + "Overordnet set kan det fastslås, at de grønlandske medlemmer nu som før deltager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [19]
+  + "En yderligere lighed er, at både færøske og grønlandske medlemmer hovedsageligt engagerer sig i de sagsområder, der berører hjemlandet direkte." [20]
+  + "På samme måde har man forholdt sig forholdsvis ens til dannelsen af parlamentariske flertal: Nordatlantiske medlemmer har generelt 'spillet deres parlamentariske chance', når den er opstået." [20]
 - @harderSupplerendeMaterialeFaeroske2022
+  + MFer liste op til inkl. 2015, også udvalgsmedlemskab
 - @skaale20sporgsmalUS182021
   + "vi nordatlantere, som ordningen er, kan komme flyvende syd over Atlanten"
 - @billeGronlandskeFolketingsmedlemmer2025
@@ -88,30 +106,65 @@ format:
 
 - @arndtFolketingswahlDanemarkVom2019
   + erwähnt nordatl. Mandate nur in Fussnote, Artikel zur Wahl 2015 auch nicht trotz Knappheit (?)
+  + "Der von den Sozialdemokraten angeführte rote Block erreichte auch ohne die Partei Alternative und nordatlantische Mandate 91 Sitze, so dass eine Regierung erstmals nach 2007 wieder eine deutlichere Mehrheit von mehr als 90 Sitzen ohne Einbe- rechnung der nordatlantischen Mandate hat" [785]
 - @arterNordicParliamentsMuchofamuchness2016
+  + "All the Nordic parliaments can be considered ‘working parliaments’ in that the significant policy deliberations take place outside plenary sessions, which are mostly poorly attended" [214]
 - @christensenFolketingsvalgSiden19392022
+  + Artikel zu den einzelnen Wahlen zeigen Ergebnisse ohne GL/FO
 - @christiansenPolarizationLegislativeParty2021
+  + "In Denmark, most bills originate from the government. The oppositions prefer to suggest ‘decisions’ (cf. Christiansen, 2018). Furthermore, most government bills pass, and the government rarely finds itself on the losing side in a vote." [749]
+  + calculating disagreement with government parties per period [752] -> apply for GL/FO parties!
 - @green-pedersenDetRadikaleVenstres2003
+  + looking at political parties with a lot of influence on gvt formation: it's rather Radikale Venstre, no mention of GL/FO 
 - @green-pedersenBlokpolitikOgNye2020
+  + berücksichtigt GL/FO gar nicht, "Folketingsvalget i 2019 gav plads til ti partier" [311] > zählt nicht GL/FO mit
+  + "Samarbejdsmønstrene kan belyses på forskellige måder, men en central tilgang, som denne artikel følger, er at se på, hvem der stemmer sammen med hvem i Folketinget." [312]
+  + "Lægger man disse forskellige analyser sammen, er konklusionen, at rød og blå blok, og den endimensionelle opfattelse der ligger i disse begreber, er konstituerende for samarbejdet i Folketinget." [312]
+  + "Som regel (jf. Green-Pedersen og Thomsen, 2005; Christiansen og Skjæveland, 2016; Kurrild-Klitgaard, Klemmensen og Hansen, 2006) studeres spørgsmålet ved 3. behandling af lovforslag, hvilket også er gjort nedenfor." [315]
+  + "Sagt på en anden måde, så skal man i tolkningen af tabel 1 inddrage, at regeringen stort set kun fremsætter lovforslag, den ved kan vedtages. Tabellen siger ikke noget om politiske initiativer fra regeringen, der ikke bliver til noget." [316]
 - @green-pedersenBlocPoliticsVs2005
+  + "whichever bloc in the Danish parliament gains government power depends on who controls or gets the support of the median legislator, which is often [SEITENUMBRUCH] controlled by the small centre parties." [155/156]
+  + "The unit of analysis is what we label ‘government periods’. By a government period, we mean a coherent period of years with the same government. [...] [SEITENUMBRUCH] The reason why sessions of the Danish parliament have not been chosen as a unit for analysis is the autocorrelation problem that this would create in the statistical analyses." [159/160]
+  + "For instance, government formation in Denmark can almost always be explained using the same median legislator model, but the analysis of this article shows that the functioning of the parliamentary system nevertheless varies considerably depending on the internal cohesion of the party blocs which determines the possibilities of actually pursuing bloc politics after the government formation process." [166]
 - @hansenCommitteeAssignmentPolitics2010
+  + "The members from Greenland and the Faroe Islands are not included in the analysis." [391]
+  + "The Danish committees are very influential and wield considerable power in the Danish parliamentary system (Damgaard 1990)." [384]
+  + "Despite the fact that the committees of the Danish parliament are important for the policy process and there is evidence that the parties use them actively to influence policy." [382]
 - @klintDanishLegislatorsDatabase2023
+  + excluding GL/FO legislators, mentioning in parentheses
 - @kurrild-klitgaardElectionInversionsCoalitions2013
+  + "The Federal Paradox is harder to detect in the real world given that the political parties running in Greenland and on the Faroe Islands are not [SEITENUMBRUCH] identical to one another, and neither are they formally identical to the parties standing for elections in ‘continental’ Denmark – not to mention that parties did not run in elections before 1977, only individual candidates did. For that reason, judgments need to be made as to what parliamentary coalitions the four North Atlantic seats would likely caucus or collaborate with. Similarly, it has often been stated by the parties of Greenland and the Faroe Islands that they do not want to interfere in ‘domestic’ Danish politics and usually claim to not to seek to be kingmakers. Indeed, until the 1960s, the North Atlantic MPs usually did not intervene to save the lives of the Danish governments with which they otherwise sympathized (Skjæveland 2003, 114–24)."[129/130]
+  + 1971 election inversion: "However, an election inversion took place relative to how the ‘continental’ Danes had cast their votes: Mr Krag could eventually form a government because he obtained support from both MPs from Greenland (with one of them being made a cabinet minister) and one of the two MPs from the Faroe Islands. That gave Krag a government with 90 of the 179 MPs supporting him (Skjæveland 2003, 116ff). In other words, a majority of the ‘continental’ Danish voters voted for a centre-right government but ended up with a Social Democrat government." [131]
 - @nannestadPolitischeSystemDanemarks2009
   + "Bei vielen Gesetzentwürfen der Regierung ist die Mehrheitsbeschaffung unproblematisch, da sie unstrittig sind und von (fast) allen Fraktionen unterstützt werden." [84], Anteil von der Regierung eingebrachter Vorschläge seit 1984 nicht <70% (bis 2000) [82]
   + GL/FO wird erwähnt, aber in Erläuterungen im Wesentlichen nicht enthalten
 - @skjaevelandGovernmentFormationDenmark2003
+  + demonstrates importance of the median voter for gvt formation
+  + book itself not accessible in Basel
 - @skjaevelandModellingGovernmentFormation2009
-- @straubingerResultsDanishGeneral2022
+  + "Danish expert observers generally agree that Danish government formation is largely a one-dimensional phenomenon, and thus great power is attributed to the median party, that is, the party that comprises the median legislator in parliament." [715]
+  + "However, the [SEITENUMBRUCH] Danish parties are not the only relevant actors in relation to Danish government formation." [722-723]
+  + "the more important their votes, the more involved they have become. They were most important in 1971 and in 1998 when their votes could decide who would be able to form the government. In both cases they clearly stated their preferences and in both cases they did so fully in accordance with their basic political orientation." [723]
 - @kjaerDanskeFolketingsmedlemmerParlamentarisk2004
 - @christiansenMinorityCoalitionGovernance2014
+  + not mentioning GL/FO at all
 - @skjaevelandMindretalsregeringerDanmarkFor2003
+  + "... den socialdemokratisk-radikale regering, der blev dannet i 1960 af Kampmann og videreført af Jens Otto Krag. Socialdemokratiet og Det Radikale Venstre kontrollerede kun til sammen 88 mandater. Ved at gøre Mikael Gam, der var valgt i Grønland, til grønlandsminister sikrede regeringen sig imidlertid et ekstra mandat." [448]
+  + "Selv om regeringen formelt var en mindretalsregering, giver det mening at overveje, om der reelt var tale om en flertalsregering. Forklaringen herpå skal findes i den anden af de to grønlandske repræsentanter, Nikolaj Rosing, og den skal findes i Slesvigsk Partis repræsentant, Hans Schmidt (se også Skjæveland, 2003: 114-124). Hvis den ene af disse reelt var medlem af regeringen, havde den et flertal. Alternativt havde den også et flertal, hvis de begge holdt sig neutrale i forhold til dansk politik, således at Folketinget kunne siges kun at bestå af 177 'relevante' mandater". [448]
 - @skjaevelandPartyCohesionDanish2001
+  + "Party cohesion in Denmark is high. Denmark is among those liberal democracies that have the highest degree of party cohesion." [35]
+  + "Furthermore, all Danish divisions are registered and as Ozbudun observes in his classic comparative work, this tends to push up party cohesion figures." [36]
+  + "Including all final votes on bills as well as the [SEITENUMBRUCH] two Danish types of resolutions" [39/40] (in contrast to Green-Pedersen/Thomsen 2005)
+  + specifically excludes GL/FO "northatlantic matters" as 'local issues' [49]
 - @westPoliticalPartiesParliamentary2025
+  + "The literature often focuses on parliamentary questions as the most relevant tool for oversight activity (Wiberg, 1994)." [967]
+  + removes FO/GL (and Aaland) from dataset [974 n. 5]
 - @thuerkFlexibelStabilUnd2023
-- @damgaardPoliticalRolesDanish1997
+- ~~@damgaardPoliticalRolesDanish1997~~
 - @valenGeographyPoliticalRepresentation2000
   + "Our research problem involves a focus on the contrast between central and peripheral areas within the Nordic countries. [...] For Denmark and Sweden, the concept of a periphery is scarcely recognized. [table with Center: 'The capital with surrounding areas', In-between: 'The islands', Periphery: 'Jutland']" [113]
+- @ejnarhansenReconsideringPartyDistances2008
+- @pedersenPartyDistancesDanish1971
 
 # Rigsfællesskabet in General
 
@@ -173,6 +226,8 @@ format:
 - @maiDivisionLabourDissenting2024
 - @carrubbaLegislativeVotingBehavior2008
 - @louwerseReachingAisleExplaining2017
+  + "We know that the distinction between opposition and government parties is crucial in explaining voting behaviour under parliamentary government." [746]
+  + using coalition-opposition and government-opposition distinction to look at both support and cabinet party effects
 - @pourebrahimiDyadicMethodInvestigate2025
 - @hugParliamentaryVotingProcedures2015
 - @siebererRollCallVotesGerman2020
@@ -219,6 +274,7 @@ format:
 - ~~@folketingetFolketingetsAbneData2026~~
 - @weissLatinAmericanLegislators2025
 - @louwerseDutchParliamentaryBehaviour2018
+  + "Comparative data availability does remain an issue, however. The step from parliamentary records to ready-to-use datasets requires some investment of time, resources and skills, and as a result comparative work is relatively scarce (but see Carey, 2007, 2008; Coman, 2016; Hix and Noury, 2016; Kam, 2009; Sieberer, 2006)." [150]
 - @sanchez-nielsenSuDaMaSustainableOpen2021
 
 # Newspaper Reports
@@ -302,3 +358,5 @@ format:
 - @hazanCentrePartiesPolarisation1997
 - @nolanStrexExtraString2024
 - @statsministerietValgdatoPaFaeroerne2022
+- @straubingerResultsDanishGeneral2022
+  + not including GL/FO mandates
