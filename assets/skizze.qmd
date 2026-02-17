@@ -1,0 +1,115 @@
+---
+title: "Counting to 90 in Greenlandic and Faroese"
+author: "Moritz Twente"
+date: last-modified
+date-format: long
+bibliography: nordatlantisk-ft.bib
+reference-section-title: References
+link-citations: true
+lang: en
+output-file: skizze.pdf
+format: 
+  pdf: 
+    documentclass: article
+    mainfont: Jost
+    filters: [quotation-marks.lua]
+    quot-lang: de-CH
+    colorlinks: true
+    toc: false
+    geometry:
+      - top=22mm
+      - bottom=18mm
+    include-in-header:
+      text: |
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{} % clear all header and footer fields
+
+        % first page footer
+        \fancypagestyle{plain}{
+        \fancyhf{}
+        \fancyfoot[L]{\footnotesize Moritz Twente, 19-911-940, moritz.twente@unibas.ch}
+        \fancyfoot[R]{\footnotesize \thepage}
+        \renewcommand{\headrulewidth}{0pt}
+        }
+
+        % Right-justified header (smaller font)
+        \fancyfoot[L]{\footnotesize Moritz Twente, 19-911-940, moritz.twente@unibas.ch}
+
+        % Page number in footer (centered)
+        \fancyfoot[R]{\footnotesize \thepage}
+
+        % Remove header line (optional, cleaner look)
+        \renewcommand{\headrulewidth}{0pt}
+
+        % reduce whitespace below header
+        \setlength{\headsep}{9pt}
+---
+
+# Gap in Literature
+
+- Northatlantic MP behaviour in general
+  - in general: Folketing/DKpol research excluding GL/FO aspect [@green-pedersenPartySystemOpen2020; @christensenFolketingsvalgSiden19392022; @green-pedersenBlokpolitikOgNye2020; @hansenCommitteeAssignmentPolitics2010; @klintDanishLegislatorsDatabase2023; @nannestadPolitischeSystemDanemarks2009; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004; @christiansenMinorityCoalitionGovernance2014; @skjaevelandPartyCohesionDanish2001; @valenGeographyPoliticalRepresentation2000; @ejnarhansenReconsideringPartyDistances2008; @pedersenPartyDistancesDanish1971]
+  - who has power in FT? median legislator/small centre parties [@green-pedersenBlocPoliticsVs2005, 155-156; @skjaevelandModellingGovernmentFormation2009, 715]. not GL/FO?
+  - also: hard to compare GL/FO systems since they have different party systmes [@kurrild-klitgaardElectionInversionsCoalitions2013, 129-130]. No institutional links between Landsting/Inatsisartut and FT, and no links between Landsstýri/Naalakkersuisut and FT [@westDanishRealmArctic2025, 602]
+
+  - even going so far as to call the four MPs "non-political" [@millerFriendsRivals1996, also including Sydlesvig in that assessment] as opposed to "political seats" [@millerFriendsRivals1996, 72]
+  - generally expected not to take part, but "samtidig hersker en opfattelse af, at de i stigende grad er blevet involveret" [@harderFaeroskeOgGronlandske2022, 7]
+  - they themselves also state that they do not want to interfere in og dk, "usually claim to not to seek to be kingmakers" [@kurrild-klitgaardElectionInversionsCoalitions2013, 130]
+  - "gennem årene [...] skiftende praksis" [@billeFaeroskeFolketingsmedlemmer2025]
+  - apart from anecdotes [@millerFriendsRivals1996 about Mikael Gam 1960]: behavior "ved vi kun meget lidt om" [@harderFaeroskeOgGronlandske2022, 5; @harderCrossparliamentaryControl2025, 10]. (cf. contribution "with new knowledge concerning the dynamics between the Greenlandic representation in the Danish parliament and the Greenlandic government." [@harderCrossparliamentaryControl2025, 9])
+
+  - if they have power, they use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]
+  + relevans efter valg 1971 [@gadGronlandskeFolketingsmedlemmer2022; @kurrild-klitgaardElectionInversionsCoalitions2013, 131; @skjaevelandModellingGovernmentFormation2009, 723], 2007 om asylcentre, but was resolved without GL/FO influence [@gadGronlandskeFolketingsmedlemmer2022; @cleggParliamentaryRepresentationOverseas2022, 239], relevans efter valg 2007, 2011, 2015 [@harderFaeroskeOgGronlandske2022, 19] and 1998 [@skjaevelandModellingGovernmentFormation2009, 723], and 1960 [@skjaevelandGovernmentFormationDenmark2003, 448], and 1957 [@millerFriendsRivals1996, 71]. 2015 not relevant after all? [@arndtFolketingswahlDanemarkVom2019, 785]
+  - "I to tilfælde har grønlandsk valgte MFere opnået ministerposten" [@michelsenGronlandPartisystemUdvikling1979, 55] > Gam og hvem?
+
+  - diskuteres efter bekvemmelighed [@veirumForskerNordatlantiskIndflydelse2022], cf. @harderFaeroskeOgGronlandske2022 [5]
+  
+  - but how do they use it exactly?
+  - Harder: looks at committees/questions, as it's custom to use committee membership of indicator of political activities  [@cleggParliamentaryRepresentationOverseas2022, 238] because that's where stuff happens [@hansenCommitteeAssignmentPolitics2010, 391] and most relevant for oversight [@westPoliticalPartiesParliamentary2025, 967] > why voting behavior instead
+  - voting: not so influential [@arterNordicParliamentsMuchofamuchness2016, 214; @nannestadPolitischeSystemDanemarks2009, 82] and individual behavior not so relevant due to high party cohesion [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3], but in the topic of voting behavior lies a lot of visibility/publicity
+
+- cross-parliamentary control
+  - "Danish Realm constitutes a suitable case to explore the yet unconceptualized notion of cross-parliamentary control." [@harderCrossparliamentaryControl2025, 3], only observed by @jensenParliamentaryQuestionsOversight2013
+  - FT is "particularly strong [...] for controlling the government" [@helboepedersenParliamentFOLKETINGETPowerful2020, 102]
+  - "Folketing could act as an alternative arena for control of the national periphery government. [...] Thus far, this type of control [...] has not yet been an issue of much attention in the legislative literature." [@staehrharderCaseInnovativeParliamentary2022]
+  - ""
+
+- can they be considered as ONE group?
+  + MFer from GL are more active than the FO MF [@harderFaeroskeOgGronlandske2022, 19]
+  + "we find that Greenlandic MPs make use of this possibility [cross-parliamentary control through questions] to a much larger extent than the Faroese members do" [@staehrharderCaseInnovativeParliamentary2022]
+
+# further relevance 
+
+- generally on relations GL/FO--DK
+  - worldwide geopolitics
+    + DK using GL/FO (and their FT membership) to legitimize themselves as Arctic state [@westDanishRealmArctic2025, 589]
+  - postcolonialism
+    + "coming down from the ice" [@sjolieDanmarkManglerOpgor2008]
+    + "Greenlandic representatives have been bullied by representatives from Danish parties" [@harderArcticIndigenousRepresentation2024, 141] cf. @cleggParliamentaryRepresentationOverseas2022
+    + national parliaments not in focus of research on "Arctic indigenous peoples' political mobilisation" [@harderArcticIndigenousRepresentation2024, 130]
+  - mechanisms of Rigsfællesskabet dynamics
+    + "et empirisk hul i rigsfællesskabets historie" [@harderFaeroskeOgGronlandske2022, 6]
+    + "opening the 'black box' of the Danish state" [@westDanishRealmArctic2025, 589]
+  - ethnic minority representation in national parliaments: Romania cf. @anghelInfluencePayOffsLegislative2021
+
+# Forschungsfrage
+
+- is home gvt membership relevant for the activites? could indicate cross-parliamentary control
+  + @harderFaeroskeOgGronlandske2022 [10-11] suggests there is no effect on spørgeaktivitet (?), but "being in opposition at home seems to be a general prerequisite for posing questions that control at home. [@harderCrossparliamentaryControl2025, 11]. Formulated hypothesis: cross-parliamentary control especially when in opposition at home [@harderCrossparliamentaryControl2025, 12]
+  +  see [-@harderFaeroskeOgGronlandske2022, 9] for variable coding
+  + cross-parliamentary control using questioning activities seems to be a one-party phenomenon in the study [@harderCrossparliamentaryControl2025, 10]
+- is party-group membership relevant for level of activity? @harderCrossparliamentaryControl2025 [11] shows that questions are almost only asked after 2011, when the Northatlantic Group was dissolved
+
+- when do they vote?
+  + @harderFaeroskeOgGronlandske2022 [13, 20]: question activity with specific relevance for GL/FO (2005--2019)
+
+- unit of analysis: gvt periods? [@green-pedersenBlocPoliticsVs2005, 159]
+
+# Known Mechanisms
+
+@cleggParliamentaryRepresentationOverseas2022 [1-5]
+
+# Available Data
+
+none
