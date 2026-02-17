@@ -289,14 +289,14 @@ format:
 - ~~@berntzenParliamentaryOpenData2019~~
 - ~~@mahrOneTemplateRule2025a~~
 - ~~@twenteNordatlantiskft2024~~
-- @doringParlGov2022Release2022
+- @doringParlGov2024Release2024
   + provides basic info for FO/GL parties that were at least once elected to FT.
   + for elections, only seat numbers, not vote shares are provided for FO/GL parties
 - ~~@folketingetFolketingetsAbneData2026~~
 - @weissLatinAmericanLegislators2025
 - @louwerseDutchParliamentaryBehaviour2018
   + "Comparative data availability does remain an issue, however. The step from parliamentary records to ready-to-use datasets requires some investment of time, resources and skills, and as a result comparative work is relatively scarce (but see Carey, 2007, 2008; Coman, 2016; Hix and Noury, 2016; Kam, 2009; Sieberer, 2006)." [150]
-- @sanchez-nielsenSuDaMaSustainableOpen2021
+- ~~@sanchez-nielsenSuDaMaSustainableOpen2021~~
 
 # Newspaper Reports
 
