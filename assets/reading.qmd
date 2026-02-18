@@ -183,6 +183,8 @@ format:
   + only passing mention of GL/FO mandates
 - @elklitElectoralSystemFair2020
   + "The two seats allocated to Greenland and the two allocated to the Faroe Islands are allocated separately, using d’Hondt in both cases. The consequence is that the two biggest parties in each of these two parts of the realm normally win a seat each." [64]
+- @skjaevelandUnderstandingPoliticalUnderstanding2020
+  + "While cooperation between these parties [Social Democrats + Liberal Party] is common on legislation, government cooperation is certainly not. The last time Denmark saw such a government was in 1978 and it lasted for less than 14 months and ended in a durable rift between the parties" [115]
 
 # Rigsfællesskabet in General
 
