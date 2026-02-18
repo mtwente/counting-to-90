@@ -249,8 +249,10 @@ format:
   + "I use here the term ‘roll call vote’ as synonymous with ‘open voting,’ i.e. voting methods where information on individual voting decisions is freely available to everyone." [214 Fn. 1]
 - @baileyTwodimensionalAnalysisSeventy2018
 - @fjelstulDecisionmakingUnitedNations2025
-- @lucasPoliticiansTheoriesVoting2025
+  + "Figure 7 summarizes the impact of these differences on a commonly used statistic, Signorino and Ritter ’s (1999) S-score that reflects the similarity between two countries’ voting records." [8] >>> METHOD, see Signorino/Ritter 1999
+- ~~@lucasPoliticiansTheoriesVoting2025~~
 - @comanDimensionsPoliticalConflict2017
+  + using data from DK for comparative study
 - @maiVotingPartyLine2023
 - @maiDivisionLabourDissenting2024
 - @carrubbaLegislativeVotingBehavior2008
@@ -258,14 +260,19 @@ format:
   + "We know that the distinction between opposition and government parties is crucial in explaining voting behaviour under parliamentary government." [746]
   + using coalition-opposition and government-opposition distinction to look at both support and cabinet party effects
 - @pourebrahimiDyadicMethodInvestigate2025
+  + using tables to display decision pairing
+  + could be worth a look again for methods
 - @hugParliamentaryVotingProcedures2015
+ + open recorded votes are standard in Folketing already between 1970--1994 according to Saalfeld 1995: 541 [951-952]
 - @siebererRollCallVotesGerman2020
+  + "RCVs are one of the most important data sources on parliamentary behavior. Beyond producing legislative output, RCVs put the positions of Members of Parliament (MPs) and party groups on the public record, serve party leaders as an instrument with which to monitor backbench behavior, and enable opposition parties to obstruct parliamentary business." [1137]
 - @cencigVotingBehaviourEuropean2017
   + "Furthermore, scholars showed that party groups, rather than nationality, have played a huge role in coalition formation in the EP from its very establishment." [4]
   + "However, when breaking down votes into more specific sub issues (such as justice or human rights), the author found the country of origin to become a better predictor in some cases, a result which is easily concealed by the pooled, large-n analyses which are standard in the literature." [5]
-- @wuestRollCallVotes2016
+- ~~@wuestRollCallVotes2016~~
 - @anghelInfluencePayOffsLegislative2021
   + "The results of our two-part empirical analysis indicate that ethno-regional parties try to achieve more group-specific policies and are less interested than mainstream parties in securing office positions or policy pay-offs on the traditional socioeconomic dimension. We observe that, through their strategy of offering legislative support, minorities benefited from a constant increase in funding and attention to their specific needs." [136]
+- @signorinoTaubNotTaub1999
 
 # Second-Order Parliaments
 - for second order definition, see 10.1017/S000712349800026X
