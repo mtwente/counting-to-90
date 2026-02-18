@@ -75,10 +75,6 @@ format:
   - "Folketing could act as an alternative arena for control of the national periphery government. [...] Thus far, this type of control [...] has not yet been an issue of much attention in the legislative literature." [@staehrharderCaseInnovativeParliamentary2022]
   - ""
 
-- can they be considered as ONE group?
-  + MFer from GL are more active than the FO MF [@harderFaeroskeOgGronlandske2022, 19]
-  + "we find that Greenlandic MPs make use of this possibility [cross-parliamentary control through questions] to a much larger extent than the Faroese members do" [@staehrharderCaseInnovativeParliamentary2022]
-
 # further relevance 
 
 - generally on relations GL/FO--DK
@@ -100,6 +96,11 @@ format:
   +  see [-@harderFaeroskeOgGronlandske2022, 9] for variable coding
   + cross-parliamentary control using questioning activities seems to be a one-party phenomenon in the study [@harderCrossparliamentaryControl2025, 10]
 - is party-group membership relevant for level of activity? @harderCrossparliamentaryControl2025 [11] shows that questions are almost only asked after 2011, when the Northatlantic Group was dissolved
+
+- can they be considered as ONE group?
+  + MFer from GL are more active than the FO MF [@harderFaeroskeOgGronlandske2022, 19]
+  + "we find that Greenlandic MPs make use of this possibility [cross-parliamentary control through questions] to a much larger extent than the Faroese members do" [@staehrharderCaseInnovativeParliamentary2022]
+  + method: S-Score? @signorinoTaubNotTaub1999, https://svmiller.com/fpsim/index.html s-score or kohen's kappa?
 
 - when do they vote?
   + @harderFaeroskeOgGronlandske2022 [13, 20]: question activity with specific relevance for GL/FO (2005--2019)
