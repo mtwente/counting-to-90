@@ -11,6 +11,7 @@ abstract: >
 date: last-modified
 date-format: long
 bibliography: ../assets/nordatlantisk-ft.bib
+#csl: ../assets/american-political-science-association.csl
 reference-section-title: References
 link-citations: true
 lang: en
