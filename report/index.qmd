@@ -54,11 +54,163 @@ format:
         \setlength{\headsep}{9pt}
 ---
 
+<!-- 8000 -- 10'000 words, 20--25 pages excl. Bibliography -->
+
+<!-- writing: 
+- every paragraph includes one argument/thought
+- structure of a paragraph: topic sentence, development of the argument (2-3 sentences that elaborate your idea, e.g. by example)
+- concluding sentence, link to the next paragraph -->
+
 # Introduction
+
+<!-- Motivation / general topic / relevance -->
+
+
+
+
+### DK politics
+
+### Rigsfællesskabet
+
+### Postcolonialism
+
+### Geopolitics on the World Stage
+
+
+- inner-Rigsfællesskabet debates very current,
+  - mechanisms of Rigsfællesskabet dynamics, but within Folketinget?
+- opens up international postcolonialism debates
+  - "coming down from the ice" [@sjolieDanmarkManglerOpgor2008]
+  -  "Greenlandic representatives have been bullied by representatives from Danish parties" [@harderArcticIndigenousRepresentation2024, 141] cf. @cleggParliamentaryRepresentationOverseas2022
+- link to general geopolitics focus on Greenland
+  + DK using GL/FO (and their FT membership) to legitimize themselves as Arctic state [@westDanishRealmArctic2025, 589]
+
+* Übergreifend hat die Beachtung dieser Abgeordneten zugenommen, seit Grönland aus geopolitischer Sicht in den Fokus gerückt ist, und nicht zuletzt auch Dänemarks Status als Akteur in der Arktis legitimiert werden soll.
+Ethnic minority representation (betrifft dann allerdings nur Grönland und nicht die Färöer)
+* Dazu kommt noch die ganze post-colonialist-Perspektive ("vi har købt os en grønlænder" etc.).
+
+## Research Questions, Relevant X/Y variables
+
+1. In general, when do the Northatlantic MPs take part in roll call votes?
+2. The 2x2 MPs are conceived as one group by DK politicians and media. Do they also vote like one group?
+3. When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs?
+4. can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control?
+
+## Previous Literature and Research Gap/Own contribution
+
+<!-- - summary of relevant literature for your research question!
+- aim of literature review: identify research gap (and by this your own contribution)
+- do not mention every paper written about your case but the most important+related ones
+- pathbreaking papers and latest developments should be included
+- Direct citations only if absolutely needed, better are paraphrasing -->
+
+<!-- DK politics -->
+
+FO/GL is discussed from time to time, mostly when majority in parliament makes the MPs relevant. -- list cases from literature. This is often reflected in news coverage.
+
+However: in research, not so much.
+
+* research on power in parliament: @green-pedersenBlocPoliticsVs2005, 155-156; @skjaevelandModellingGovernmentFormation2009, 715
+
+- @pedersenPartyDistancesDanish1971
+  + no mention of GL/FO
+
+- @green-pedersenBlokpolitikOgNye2020
+  + berücksichtigt GL/FO gar nicht, "Folketingsvalget i 2019 gav plads til ti partier" [311] > zählt nicht GL/FO mit
+
+- @christiansenMinorityCoalitionGovernance2014
+  + not mentioning GL/FO at all
+
+given the anecdotal evidence about their importance, it's striking that research on power in FT also excludes them: @helboepedersenParliamentFOLKETINGETPowerful2020; @green-pedersenDetRadikaleVenstres2003
+  + looking at political parties with a lot of influence on gvt formation: it's rather Radikale Venstre, no mention of GL/FO 
+
+The inclusion of anything related to the Greenlandic and Faroese representation within the Danish Realm into analyses of the political system of Denmark is not trivial, not least because there are no institutional links between the Northatlantic MPs and neither their national governments nor parliaments [@westDanishRealmArctic2025, 602]. Likewise, the political parties competing in elections in Denmark, Greenland and the Faroe Islands are separate entities and each party can only be voted for from within either of the three parts of the Danish Realm [@kurrild-klitgaardElectionInversionsCoalitions2013, 129-130]. It is likely in this context that the activities of the four Northatlantic MPs hardly ever are considered in research on Danish politics. <!-- superfluous after paragraph moving? This can be said for research on Folketing and its inner workings specifically, but also for adjacent topics such as research on elections and coalition formations.-->
+
+It is probably not too far-fetched to state that the activities of the Greenlandic and Faroese members of Folketinget have mostly been regarded not as a relevant aspect of the political system of Denmark that is worth considering, illustrated by Miller labelling those politicians[^slesvig], i.e. elected members of a legislative assembly, as "non-political" [-@millerFriendsRivals1996, 72].
+
+[^slesvig]: Miller, referring to the results of the 1957 election, also includes a representative for the German-speaking minority in Southern Slesvig in this group of non-political MPs. However, in this paper I will concentrate on Greenlandic and Faroese MPs only, not considering the representation of other minorities in Folketinget.
+
+If Greenlandic or Faroese political representation in Folketinget does appear in research, it is often referred to in anecdotes ["A coalition saved by Greenland", @millerFriendsRivals1996, 80] or in parentheses [e.g. @klintDanishLegislatorsDatabase2023; @elklitElectoralSystemFair2020; @hansenCommitteeAssignmentPolitics2010; @nannestadPolitischeSystemDanemarks2009; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004], not considering it for analysis implicitly or explicitly [e.g. @ejnarhansenReconsideringPartyDistances2008; @skjaevelandPartyCohesionDanish2001; @valenGeographyPoliticalRepresentation2000; @westPoliticalPartiesParliamentary2025].
+
+In conclusion, there is very little research on MPs from Greenland and the Faroe Islands and their behavior in Folketinget.
+
+but: recent content by Harder and West.
+
+  + "et empirisk hul i rigsfællesskabets historie" [@harderFaeroskeOgGronlandske2022, 6]
+  + "opening the 'black box' of the Danish state" [@westDanishRealmArctic2025, 589]
+
+ - apart from anecdotes [@millerFriendsRivals1996 about Mikael Gam 1960]: behavior "ved vi kun meget lidt om" [@harderFaeroskeOgGronlandske2022, 5; @harderCrossparliamentaryControl2025, 10]. (cf. contribution "with new knowledge concerning the dynamics between the Greenlandic representation in the Danish parliament and the Greenlandic government." [@harderCrossparliamentaryControl2025, 9])
+
+ - research stating that they do not want to and are also expected to not to interfere
+
+ - dagegen steht die Regelmässigkeit der news coverage bei knappen Mehrheitsverhältnissen
+
+but is there more?
+
+  - if they have power, they use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]
+  + relevans efter valg 1971 [@gadGronlandskeFolketingsmedlemmer2022; @kurrild-klitgaardElectionInversionsCoalitions2013, 131; @skjaevelandModellingGovernmentFormation2009, 723], 2007 om asylcentre, but was resolved without GL/FO influence [@gadGronlandskeFolketingsmedlemmer2022; @cleggParliamentaryRepresentationOverseas2022, 239], relevans efter valg 2007, 2011, 2015 [@harderFaeroskeOgGronlandske2022, 19] and 1998 [@skjaevelandModellingGovernmentFormation2009, 723], and 1960 [@skjaevelandGovernmentFormationDenmark2003, 448], and 1957 [@millerFriendsRivals1996, 71]. 2015 not relevant after all? [@arndtFolketingswahlDanemarkVom2019, 785]
+  - "I to tilfælde har grønlandsk valgte MFere opnået ministerposten" [@michelsenGronlandPartisystemUdvikling1979, 55] > Gam og hvem?
+
+However, it is still discussed sometimes. when is it discussed? when is there relevance within DK? -> link to block on research on Rigsfællesskabet
+
+
+### Rigsfællesskabet
+
+### Overseas Representation, ethnic minorities?
+
+- national parliaments not in focus of research on "Arctic indigenous peoples' political mobilisation" [@harderArcticIndigenousRepresentation2024, 130]
+- beträfe nur GL, nicht FO
+
+### Regional Parties
+
+### my own contribution
+
+* Forschung zum Folketing klammert die vier nordatlantischen Mandate idR aus, daher sehr wenig Informationen zu ihrem Verhalten/ihrer pol. Arbeit. Ihre Relevanz wird vor allem im Zshg. mit Mehrheitsbeschaffungen attestiert, aber häufig nur anekdotisch bzw. letzten Endes als Kuriosität des politischen Systems in Dänemark behandelt
+- link from @harderFaeroskeOgGronlandske2022; @harderCrossparliamentaryControl2025; @harderArcticIndigenousRepresentation2024 and @westPoliticalPartiesParliamentary2025 etc.: new data that has not been considered so far
+* Mit meinem Datensatz kann ich die wenigen existierenden Papers, die die Arbeit dieser vier Abgeordneten systematisch bearbeiten, um den Aspekt Abstimmungsverhalten ergänzen.
+
+specifically: GL/FO contributions, more generically: cross-parliamentary control, ethnic representation/Regional parties
+
+#### use of roll call votes as method
+
+
+# Research Design
+
+## Theoretical Approach
+
+<!-- - case selection/overview data (temporal and spatial), unit of analysis
+- measurement dependent variable (and data source)
+- measurement independent and control variables (and data source)
+- methodological approach (why this one?) -->
+
+### Dataset Overview
+
+## Hypotheses
+
+<!-- * Hypothesis: causal relationship between two variables: the more, the less...
+* Hypothesis in its own paragraph and in italics -->
+
+## Empirical Strategy
+
+<!-- - variables and controls
+- unit of analysis
+- method (logit model etc.) -->
+
+# Results
+
+<!-- - per hypothesis -->
+
+## Implications, Future Research
+
+## Critical Assessment
+
+<!-- * intro&conclusion should speak to each other/mirror each other -->
+
+### Introduction
 
 When the government of Denmark only has a narrow majority in parliament, four MPs regularly come into the spotlight: The so-called North Atlantic MPs -- two from Greenland, two from the Faroe Islands -- who usually abstain from voting on matters not concerning Greenland or the Faroe Islands but might be able provide four sometimes crucial votes to form a majority. In this paper, I am going to investigate what role these four MPs tend to play in Folketing: When do they capitalise on their voting power? Do they actually have as much power as the numbers suggest? Or is their influence rather a media frenzy, highlighting a rather unusual trait of day-to-day domestic politics?
 
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. Their presence in Folketinget can prove important for domestic Danish politics because not all of the four MPs join one (@fig-timeline) of the two party blocs and can thus provide decisive votes for passing legislation and even for securing the national government's stability [@harderFaeroskeOgGronlandske2022, 19]: Several times, both Danish party blocs found themselves with election results where they did not have what is called a "domestic majority" [*indenrigspolitisk flertal*, @buggeRegeringensIndenrigspolitiskeFlertal2023] but instead relied on the North Atlantic MPs to form a majority of 90 seats -- using the Danish expression: to be able to count to 90. Recently, this was the case in 2016 and 2022[^1] [@sorensenEfterBrokBla2022]: In both instances, opposition parties cried foul and called for re-evaluation of the North Atlantic MPs' roles, who have questioned these arrangements themselves as well [e.g. @skaaleFaeroskMFerNordatlantiske2022; @skaale20sporgsmalUS182021; @joensenLagtingsformandenVilAfskaffe2019], even though they have profited from them -- e.g. by being awarded chairmanship of parliamentary commissions [@harderFaeroskeOgGronlandske2022, 13]. <!-- 2023 situation mit moderaterne hinzufügen! -->
+There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. Their presence in Folketinget can prove important for domestic Danish politics because not all of the four MPs join one (@fig-timeline) of the two party blocs and can thus provide decisive votes for passing legislation and even for securing the national government's stability [@harderFaeroskeOgGronlandske2022, 19]: Several times, both Danish party blocs found themselves with election results where they did not have what is called a "domestic majority" [_indenrigspolitisk flertal_, @buggeRegeringensIndenrigspolitiskeFlertal2023] but instead relied on the North Atlantic MPs to form a majority of 90 seats -- using the Danish expression: to be able to count to 90. Recently, this was the case in 2016 and 2022[^1] [@sorensenEfterBrokBla2022]: In both instances, opposition parties cried foul and called for re-evaluation of the North Atlantic MPs' roles, who have questioned these arrangements themselves as well [e.g. @skaaleFaeroskMFerNordatlantiske2022; @skaale20sporgsmalUS182021; @joensenLagtingsformandenVilAfskaffe2019], even though they have profited from them -- e.g. by being awarded chairmanship of parliamentary commissions [@harderFaeroskeOgGronlandske2022, 13]. <!-- 2023 situation mit moderaterne hinzufügen! -->
 
 [^1]: Even though the North Atlantic MPs' role was discussed extensively in 2022, it was resolved without the North Atlantic MPs by forming an unusual cross-bloc coalition government.
 
@@ -66,84 +218,8 @@ Just as political relations between Denmark, Greenland and the Faroe Islands are
 
 ![Timeline of Mandates](../assets/fig-mandates-1.png){#fig-timeline}
 
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-"There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries" [@weberThoughtsVotingPower2020].
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-'There are 179 MPs' in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called @buggeRegeringensIndenrigspolitiskeFlertal2023 North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under @schultz-lorentzenNordatlantenFaellesFront2011 Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries [@twenteNordatlantiskft2024]. 
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-## Section zwei 
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called @ackrenExploringRoleRegional2019 North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-![Timeline of Parties](../assets/fig-party-timeline-1.png){#fig-parties fig-env="figure*"}
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries [@mahrOneTemplateRule2025a].
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North @green-pedersenBlokpolitikOgNye2020 Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-![Timeline of Votes](../assets/fig-votes-timeline-filtered-1.png){#fig-votes fig-env="figure*"}
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under @schultz-lorentzenNordatlantenFaellesFront2011 Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-# Kapitel zwei 
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under @schultz-lorentzenNordatlantenFaellesFront2011 Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-## Section drei
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-![Timeline of Votes](../assets/fig-votes-timeline-filtered-1.png){#fig-votes}
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark (@fig-overview). But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-![Share of Votes](../assets/overview-1.png){#fig-overview fig-env="figure*"}
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
-
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries.
-
+* In general, when do the Northatlantic MPs take part in roll call votes? Hypothesis: The MPs are more likely to take part in voting when the issue concerns Greenland/policy areas that GL/FO do not have authority over (e.g. Defense, based on keywords in proposal description and the ministerområde responsible for the proposal, e.g. Forsvarsministeriet, Finansministeriet etc.)
+* The 2x2 MPs are conceived as one group by DK politicians and media. Do they also vote like one group? Hypothesis: After excluding absences, similar voting behavior can not be observed across Greenlandic and Faroese MPs, but across the political blocks the MPs belong to (left/right -- in the dataset: usually 2x left from GL, and 1x each from FO, but never multiple MPs from the same party at the same time)
+* When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs? Hypothesis: The fewer FT mandates the Danish cabinet coalition parties have themselves, the more likely are GL/FO MPs to cast a vote (regardless of the content of the proposal being voted on)
+  * Based on questioning/committee activity analysis of Northatlantic MPs: Cross-parliamentary control mechanisms are especially made use of if the MP's own party is an opposition party in GL/FO. Transferring this finding onto another type of parliamentary activity, can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control? Hypothesis: MPs are more likely to engage in parliamentary activity in FT, in this case taking part in voting, if their own party is in opposition in GL/FO.
 

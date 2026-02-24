@@ -48,7 +48,7 @@ format:
 
 # Gap in Literature
 
-- Northatlantic MP behaviour in general
+- Northatlantic MP behaviour
   - in general: Folketing/DKpol research excluding GL/FO aspect [@green-pedersenPartySystemOpen2020; @christensenFolketingsvalgSiden19392022; @green-pedersenBlokpolitikOgNye2020; @hansenCommitteeAssignmentPolitics2010; @klintDanishLegislatorsDatabase2023; @nannestadPolitischeSystemDanemarks2009; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004; @christiansenMinorityCoalitionGovernance2014; @skjaevelandPartyCohesionDanish2001; @valenGeographyPoliticalRepresentation2000; @ejnarhansenReconsideringPartyDistances2008; @pedersenPartyDistancesDanish1971]
   - who has power in FT? median legislator/small centre parties [@green-pedersenBlocPoliticsVs2005, 155-156; @skjaevelandModellingGovernmentFormation2009, 715]. not GL/FO?
   - why? hard to compare GL/FO systems since they have different party systmes [@kurrild-klitgaardElectionInversionsCoalitions2013, 129-130]. No institutional links between Landsting/Inatsisartut and FT, and no links between Landsstýri/Naalakkersuisut and FT [@westDanishRealmArctic2025, 602]. but also: apparently not considered relevant?
@@ -91,6 +91,9 @@ format:
 # Forschungsfragen
 
 - unit of analysis: gvt periods? [@green-pedersenBlocPoliticsVs2005, 159]
+
+- what counts as new cabinet? budge & keman 1993:10
+- who is considered part of the government? Indridason & Bowler (2014:396)
 
 - descriptive analysis of data set: when do they vote?
   + @harderFaeroskeOgGronlandske2022 [13, 20]: question activity with specific relevance for GL/FO (2005--2019)
