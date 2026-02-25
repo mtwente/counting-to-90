@@ -67,7 +67,7 @@ format:
 <!-- Motivation / general topic / relevance -->
 
 
-
+they are usually not official members of cabinet, except for Mikael Gam [@skjaevelandMindretalsregeringerDanmarkFor2003]
 
 ### DK politics
 
@@ -97,7 +97,7 @@ Ethnic minority representation (betrifft dann allerdings nur Grönland und nicht
 3. When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs?
 4. can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control?
 
-## Previous Literature and Research Gap/Own contribution
+## Literature Review/Research Gap
 
 <!-- - summary of relevant literature for your research question!
 - aim of literature review: identify research gap (and by this your own contribution)
@@ -105,52 +105,47 @@ Ethnic minority representation (betrifft dann allerdings nur Grönland und nicht
 - pathbreaking papers and latest developments should be included
 - Direct citations only if absolutely needed, better are paraphrasing -->
 
-Over the past decades, the activity of Folketing MPs from Greenland and the Faroe Islands has been written about time and again -- usually when there are narrow majorities and the 'Northatlantic' votes might become relevant to the voting outcome, e.g. after elections in 2015, 2011 or 2007 [@harderFaeroskeOgGronlandske2022]. While situations like these are regularly reported on by journalists [e.g. @nathanGronlandskMferSer2024; @veirumPartilederePatalerGronlandsk2022; @frostLokkeRaserNordatlantiske2022; @skouKaareFireMandater2008][^zotero], the attention they have received from researchers is marginal at best.
+Over the past decades, the activity of Folketing MPs from Greenland and the Faroe Islands has been written about time and again -- usually when there are narrow majorities and the 'Northatlantic' votes might become relevant to the voting outcomes, e.g. after elections in 2022, 2015, 2011 or 2007 [@harderFaeroskeOgGronlandske2022; @sorensenEfterBrokBla2022]. While situations like these are regularly reported on by journalists [e.g. @nathanGronlandskMferSer2024; @veirumPartilederePatalerGronlandsk2022; @frostLokkeRaserNordatlantiske2022; @skouKaareFireMandater2008][^zotero], the attention they have received from researchers is marginal at best.
 
 [^zotero]: For a larger collection of reports in mostly Danish-language media from recent years, see my [nordatlantisk-ft Zotero collection](https://www.zotero.org/groups/5346749/nordatlantisk-ft).
 
-If Greenlandic or Faroese political representation in Folketinget does appear in research output, it is often referred to in anecdotes [e.g. "A coalition saved by Greenland", @millerFriendsRivals1996, 80] or in parentheses [e.g. @klintDanishLegislatorsDatabase2023; @elklitElectoralSystemFair2020; @hansenCommitteeAssignmentPolitics2010; @nannestadPolitischeSystemDanemarks2009; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004], acknowledging its existence, but mostly not considering it for analysis implicitly or explicitly [e.g. @ejnarhansenReconsideringPartyDistances2008; @skjaevelandPartyCohesionDanish2001; @valenGeographyPoliticalRepresentation2000; @westPoliticalPartiesParliamentary2025]. Given the anecdotal evidence about the Northatlantic MPs' presence and the often heated reactions to situations where roll call results are depending on votes from (at least one of) them, it is striking how research related to Folketinget and its dynamics has largely not taken up on this aspect.
+Writing about parliamentary cross-bloc cooperation, @green-pedersenBlokpolitikOgNye2020 [311] do not include political parties from Greenland and the Faroe Islands when counting the number of parties that are represented in parliament at all. Neither does @helboepedersenParliamentFOLKETINGETPowerful2020 in her investigation institutional powers of Folketinget, although she briefly mentions the existence of Northatlantic MPs. @hansenCommitteeAssignmentPolitics2010 states he is not considering these MPs in an analysis of committee assignments. In a categorisation of roll call votes, @skjaevelandPartyCohesionDanish2001 explicitly excludes matters concerning Northatlantic MPs from a category of domestic issues. A database with biographic information on Folketinget legislators by @klintDanishLegislatorsDatabase2023 also does not include anyone from Greenland and the Faroe Islands.
 
-refer to works on:
-- Folketinget
-- Coalitions/Gvt formation
+The results from a review of literature on coalition and government formation in Denmark are similar: @green-pedersenBlocPoliticsVs2005 find that gaining government power depends on the median legislator, often centre parties -- which in Denmark has traditionally been associated with Det Radikale Venstre [@green-pedersenDetRadikaleVenstres2003]. Northatlantic MPs are not touched upon in either paper, nor are they mentioned by @christiansenMinorityCoalitionGovernance2014 in their analysis of coalition agreements. @skjaevelandModellingGovernmentFormation2009, however, includes Northatlantic MPs in his research on median parties in Denmark, acknowledging their importance in some coalition life cycles. The take-away from his short digression on the North Atlantic Folketing is that "the more important their votes, the more involved they have become" [-@skjaevelandModellingGovernmentFormation2009, 723]. But even when describing situations where the voting behavior of North Atlantic MPs proved to be decisive for government formations, for some researchers they are still only partially relevant to the distribution of power in Danish politics [@skjaevelandMindretalsregeringerDanmarkFor2003].
+
+Research on political parties in Denmark, e.g. by @green-pedersenPartySystemOpen2020 or @pedersenPartyDistancesDanish1971 does not cover parties from Greenland or the Faroe Islands. This is hardly surprising, given that the political parties competing in elections in Denmark, Greenland and the Faroe Islands are separate entities and each party can only be voted for from within either of the three parts of the Danish Realm [@kurrild-klitgaardElectionInversionsCoalitions2013]. Likewise, research on political parties of Greenland and the Faroe Islands features a mostly domestic focus as well [e.g. @ahlnessNunattaQitornaiParty2020; @westSkipanarligarFortreytirOg2022; @michelsenGronlandPartisystemUdvikling1979]. Institutional associations between Greenlandic and Danish parties linked to parliamentary work in Folketinget are mentioned by @ackrenPoliticalPartiesGreenland2015, building on ideologically similar backgrounds of Siumut of Greenland and Socialdemokratiet in Denmark resp. of Attasut (GL) and Venstre (DK).
+
+ - @ackrenExploringRoleRegional2019
+
+
 - Elections
-- Party System
+  - @kurrild-klitgaardElectionInversionsCoalitions2013
 - Rigsfællesskabet?
 
-- @helboepedersenParliamentFOLKETINGETPowerful2020
-- @green-pedersenDetRadikaleVenstres2003
-  + looking at political parties with a lot of influence on gvt formation: it's rather Radikale Venstre, no mention of GL/FO
-- research on power in parliament: @green-pedersenBlocPoliticsVs2005, 155-156; @skjaevelandModellingGovernmentFormation2009, 715
+The inclusion of anything related to the Greenlandic and Faroese representation within the Danish Realm into analyses of the political system of Denmark is not trivial, not least due to the separate party systems and because there are no institutional links between the Northatlantic MPs and neither their national governments nor parliaments [@westDanishRealmArctic2025, 602]. It is likely in this context that the activities of the four Northatlantic MPs feature only in the margins of research on Danish politics. This can be said for research on Folketing and its inner workings specifically, but also for adjacent topics such as research on elections and coalition formations as summarised above.
 
-- @pedersenPartyDistancesDanish1971
-  + no mention of GL/FO
+If Greenlandic or Faroese political representation in Folketinget does appear in research output, it is often referred to in anecdotes [e.g. "A coalition saved by Greenland", @millerFriendsRivals1996, 80] or in parentheses [e.g. @klintDanishLegislatorsDatabase2023; @elklitElectoralSystemFair2020; @nannestadPolitischeSystemDanemarks2009; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004], acknowledging its existence, but mostly not considering it for analysis implicitly or explicitly [e.g. @ejnarhansenReconsideringPartyDistances2008; @skjaevelandPartyCohesionDanish2001; @valenGeographyPoliticalRepresentation2000; @westPoliticalPartiesParliamentary2025]. Given the anecdotal evidence about the Northatlantic MPs' presence and the often heated reactions to situations where roll call results are depending on votes from (at least one of) them, it is striking how research related to Folketinget and its dynamics has largely not taken up on this aspect.
 
-- @green-pedersenBlokpolitikOgNye2020
-  + berücksichtigt GL/FO gar nicht, "Folketingsvalget i 2019 gav plads til ti partier" [311] > zählt nicht GL/FO mit
-
-- @christiansenMinorityCoalitionGovernance2014
-  + not mentioning GL/FO at all
-
-
-The inclusion of anything related to the Greenlandic and Faroese representation within the Danish Realm into analyses of the political system of Denmark is not trivial, not least because there are no institutional links between the Northatlantic MPs and neither their national governments nor parliaments [@westDanishRealmArctic2025, 602]. Likewise, the political parties competing in elections in Denmark, Greenland and the Faroe Islands are separate entities and each party can only be voted for from within either of the three parts of the Danish Realm [@kurrild-klitgaardElectionInversionsCoalitions2013, 129-130]. It is likely in this context that the activities of the four Northatlantic MPs hardly ever are considered in research on Danish politics. <!-- superfluous after paragraph moving?:--> This can be said for research on Folketing and its inner workings specifically, but also for adjacent topics such as research on elections and coalition formations. With this in mind, it is not too far-fetched to state that the activities of the Greenlandic and Faroese members of Folketinget have mostly been regarded not as a relevant aspect of the political system of Denmark that is worth considering, illustrated by Miller labelling those politicians, i.e. elected members of a legislative assembly, as "non-political" [-@millerFriendsRivals1996, 72][^slesvig].
+With this in mind, I assume that the activities of the Greenlandic and Faroese members of Folketinget have mostly been regarded not as a relevant aspect of the political system of Denmark that is worth considering, illustrated by Miller labelling those politicians, i.e. elected members of a legislative assembly, as "non-political" [-@millerFriendsRivals1996, 72][^slesvig]. In conclusion, there has been very little research activity on MPs from Greenland and the Faroe Islands and their behavior in Folketinget compared to the importance that is repeatedly being attributed to their presence. This has, however, changed in recent years with publications explicitly targeting Northatlantic representation in Folketinget: 
 
 [^slesvig]: Miller, referring to the results of the 1957 election, also includes a representative for the German-speaking minority in Southern Slesvig in this group of non-political MPs. However, in this paper I will concentrate on Greenlandic and Faroese MPs only, not considering the representation of other minorities in Folketinget.
 
-In conclusion, there has been very little research activity on MPs from Greenland and the Faroe Islands and their behavior in Folketinget compared to the importance that is repeatedly being attributed to their presence. This has, however, changed in recent years with publications explicitly targeting Northatlantic representation in Folketinget. 
-
 @harderFaeroskeOgGronlandske2022
-@harderArcticIndigenousRepresentation2024
+@ackrenExploringRoleRegional2019
+
 @harderCrossparliamentaryControl2025
 @staehrharderCaseInnovativeParliamentary2022
-@ackrenExploringRoleRegional2019
+
 @cleggParliamentaryRepresentationOverseas2022
+@harderArcticIndigenousRepresentation2024
+
+literature on who is MP?
 
  - apart from anecdotes [@millerFriendsRivals1996 about Mikael Gam 1960]: behavior "ved vi kun meget lidt om" [@harderFaeroskeOgGronlandske2022, 5; @harderCrossparliamentaryControl2025, 10]. (cf. contribution "with new knowledge concerning the dynamics between the Greenlandic representation in the Danish parliament and the Greenlandic government." [@harderCrossparliamentaryControl2025, 9])
 
 but: recent content by Harder and West, a symptom of increased interest in the Arctic?
 
--- in light of growing worldwide interest in the High North from a geopolitical perspective as well as considering increased awareness for Denmark's colonialist heritage in the Arctic -- 
+-- in light of growing worldwide interest in the High North from a geopolitical perspective as well as considering increased awareness for Denmark's colonialist heritage in the Arctic --  and Rigsfællesskabet dynamics
 
 see also @cleggParliamentaryRepresentationOverseas2022
 
@@ -166,12 +161,12 @@ when is it discussed? when is there relevance within DK? -> link to block on res
   + "et empirisk hul i rigsfællesskabets historie" [@harderFaeroskeOgGronlandske2022, 6]
   + "opening the 'black box' of the Danish state" [@westDanishRealmArctic2025, 589]
 
-### Overseas Representation, ethnic minorities?
+### Overseas Representation, Regional Parties, ethnic minorities?
 
 - national parliaments not in focus of research on "Arctic indigenous peoples' political mobilisation" [@harderArcticIndigenousRepresentation2024, 130]
 - beträfe nur GL, nicht FO
 
-### Regional Parties
+### Cross-Parliamentary Control?
 
 ### my own contribution
 
