@@ -67,6 +67,113 @@ format:
 - structure of a paragraph: topic sentence, development of the argument (2-3 sentences that elaborate your idea, e.g. by example)
 - concluding sentence, link to the next paragraph -->
 
+```{r setup}
+#| echo: false
+#| message: false
+
+# Setup -----
+## Packages -----
+
+library(here)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(knitr)
+library(forcats)
+library(lubridate)
+library(scales)
+library(showtext)
+
+## Install Font -----
+
+font_add("Jost",
+  regular = here("assets", "fonts", "ttf", "Jost-400-Book.ttf"))
+
+showtext_auto()
+
+## Read Data -----
+
+### List of MPs -----
+mp_names <- readRDS(here("data", "processed", "MP_names.rds"))
+
+### List of political parties -----
+political_parties <- readRDS(here("data", "processed", "political_parties.rds"))
+
+### Voting Records Database -----
+northatlantic_ft <- readRDS(here("data", "processed", "northatlantic_ft.rds"))
+
+### Timeline of Mandates -----
+MP_dates <- readRDS(here("data", "processed", "MP_dates.rds"))
+elections <- readRDS(here("data", "processed", "election_dates.rds"))
+
+#### Convert dates
+MP_dates <- MP_dates %>%
+  mutate(
+    start = ymd(start),
+    end   = ymd(end),
+    # Replace NA in "end" with today's date
+    end   = if_else(is.na(end), Sys.Date(), end)
+  )
+
+## Manipulate Data -----
+
+### Avoid confusing MPs with the same last name
+MP_dates <- MP_dates %>%
+  mutate(
+    plotting_name = case_when(
+      MP_id == "12283" ~ "A. V. Johannesen",
+      MP_id == "6687"  ~ "K. L. Johannesen",
+      TRUE             ~ surname
+    )
+  )
+
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    plotting_name = case_when(
+      MP_id == "12283" ~ "A. V. Johannesen",
+      MP_id == "6687"  ~ "K. L. Johannesen",
+      TRUE             ~ surname
+    )
+  )
+
+### Order origin factor levels for facet order
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(origin = forcats::fct_rev(origin))
+
+### Order dataset by MP surnames for plotting
+northatlantic_ft_ordered <- northatlantic_ft %>%
+  mutate(surname = fct_reorder(surname, vote_type_id, .fun = length)) %>%
+  mutate(plotting_name = fct_reorder(plotting_name, vote_type_id, .fun = length)) %>%
+  mutate(vote_type_id = fct_relevel(vote_type_id, "1", "2", "4", "3"))
+
+### Subset only with votes that were actually cast
+northatlantic_ft_without_absences <- subset(northatlantic_ft_ordered, vote_type_id != 3) %>%
+  mutate(surname = fct_reorder(surname, vote_type_id, .fun = length)) %>%
+  mutate(plotting_name = fct_reorder(plotting_name, vote_type_id, .fun = length))
+
+### Subset Election Dates for Folketinget only
+
+elections_ft <- elections %>%
+  filter(election_type == "Folketing Election")
+
+## Set Plotting Theme -----
+
+theme_nordatlantisk_basis <- function(){
+  
+  theme_grey(base_family = "Jost") %+replace%
+    theme(axis.title = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.background = element_blank(),
+          panel.grid.major.x = element_line(color = "#000000", linewidth = 0.1),
+          panel.grid.minor.x = element_line(color = "#000000", linewidth = 0.1),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          axis.ticks.x = element_line(color = "#000000", linewidth = 0.1),
+          axis.line.y.left = element_line(color = "#000000", linewidth = 0.1))
+}
+
+```
+
 # Introduction
 
 <!-- Motivation / general topic / relevance -->
@@ -189,6 +296,251 @@ specifically: GL/FO contributions, more generically: cross-parliamentary control
 
 # Dataset
 
+I am using the [nordatlantisk-ft](https://mtwente.github.io/nordatlantisk-ft) data set I created for this project, containing voting records of Folketinget members from Greenland and the Faroe Islands. The dataset is the result of a workflow in R, taking a list of MPs as input and then scraping voting records from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. The codebook is available online [@twenteNordatlantiskft2024]. 
+
+For my analysis, I am going to use the data available as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %d, %Y")`. *nordatlantisk-ft* comprises `r length(unique(northatlantic_ft$vote_id))` records of votes cast by Northatlantic MPs between `r format(min(northatlantic_ft$date), "%B %d, %Y")` and `r format(max(northatlantic_ft$date), "%B %d, %Y")`. The dataset also contains metadata on each record -- e.g. date and topic of each vote or the overall roll call result, covering votes on `r length(unique(northatlantic_ft$roll_call_id))` proposals in Folketinget.
+
+## MPs
+
+There have been `r nrow(mp_names)` individual politicians from Greenland or the Faroe Islands who served as MPs in the time frame covered by Folketinget's Open Data Platform (@tbl-MPs). `r sum(mp_names$origin == "GL")` of them are members of Greenlandic parties, and `r sum(mp_names$origin == "FO")` are representing Faroese parties.
+
+`r sum(mp_names$substitute == TRUE)` of the politicians that are part of this data set joined Folketinget in the role of a substitute member[^subst], filling in for one of the `r sum(mp_names$substitute == FALSE)` originally elected MPs while they were on leave [cf. @harderFaeroskeOgGronlandske2022, 12-13]. @fig-mandates shows membership periods and substitute members on a timeline for the duration that is covered by this data set.
+
+[^subst]: Doris Jakobsen (SIU), Lisbeth Petersen (B), Magni Arge (E) and Sjúrður Skaale (C) all first became MPs as substitute members, but later joined as regular MPs after a general election.
+
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-mandates
+#| fig-height: 5
+#| fig-cap: Timeline of MPs from Greenland and the Faroe Islands during the timeframe covered by this data set. Substitutions shorter than three weeks are plotted as dots for better visibility.
+
+# remove pre-2000 MPs (Edmund Joensen's and Lisbeth Petersen's first terms)
+MP_dates <- MP_dates %>%
+  filter(end >= as.Date("2000-01-01")) %>%
+  mutate(origin = factor(origin, levels = c("GL", "FO")))
+
+# Order MPs by first start date for nicer plotting
+MP_dates <- MP_dates %>%
+  group_by(origin, plotting_name) %>%
+  mutate(first_start = min(start)) %>%
+  ungroup()
+
+# build facet-specific ordering
+levels_gl <- MP_dates %>%
+  filter(origin == "GL") %>%
+  distinct(plotting_name, first_start) %>%
+  arrange(desc(first_start)) %>%
+  pull(plotting_name)
+
+levels_fo <- MP_dates %>%
+  filter(origin == "FO") %>%
+  distinct(plotting_name, first_start) %>%
+  arrange(desc(first_start)) %>%
+  pull(plotting_name)
+
+MP_dates <- MP_dates %>%
+  mutate(
+    plotting_name = case_when(
+      origin == "GL" ~ factor(plotting_name, levels = levels_gl),
+      origin == "FO" ~ factor(plotting_name, levels = levels_fo)
+    )
+  )
+
+ggplot(MP_dates, aes(x = start,
+                     xend = end,
+                     y = plotting_name,
+                     yend = plotting_name,
+                     color = substitute)) +
+
+  # for correct order of MPs across facets and scales
+  geom_blank(aes(y = plotting_name)) +
+
+  # Segments for all regular MPs and long-term substitutions
+  geom_segment(
+    data = MP_dates %>%
+      filter(
+        substitute == FALSE |
+          (substitute == TRUE & !is.na(end) & as.numeric(end - start) >= 21)
+      ),
+    linewidth = 4,
+    lineend = "butt"
+  ) +
+
+  # Points for short-term substitutions
+geom_point(
+  data = MP_dates %>%
+    filter(
+      substitute == TRUE &
+        !is.na(end) &
+        as.numeric(end - start) < 21
+    ),
+  aes(
+    x = start,
+    fill = substitute
+  ),
+  shape = 21,
+  size = 1.5,
+  stroke = 0.2,
+  color = "#777777"
+  ) +
+
+  scale_color_manual(
+    values = c("FALSE" = "#6195CF", "TRUE" = "#F7CB45"),
+    labels = c("Regular", "Substitute")
+  ) +
+  scale_fill_manual(
+  values = c("FALSE" = "#6195CF", "TRUE" = "#F7CB45"),
+  guide = "none"
+  ) +
+  
+  labs(color = "Membership") +
+
+  # Folketing elections
+  geom_vline(
+    data = elections_ft,
+    aes(xintercept = as.Date(date), linetype = election_type),
+    color = "#000000",
+    linewidth = 0.2
+  ) +
+  scale_linetype_manual(
+    values = c("Folketing Election" = "longdash"),
+    name = ""
+  ) +
+
+  facet_grid(
+    origin ~ .,
+    scales = "free_y",
+    space = "free_y",
+    labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
+  ) +
+
+  coord_cartesian(xlim = c(min(northatlantic_ft$date), NA)) +
+
+  theme_nordatlantisk_basis() +
+  theme(
+    legend.position = "bottom",
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+    panel.grid.minor.x = element_blank()
+  )
+```
+
+Earlier terms served by Edmund Joensen and Lisbeth Petersen are cut off from the timeline since there are no voting records available online earlier than `r format(min(northatlantic_ft$date), "%B %d, %Y")`. For MPs representing Greenland resp. the Faroe Islands in election periods earlier than `r format(min(northatlantic_ft$date), "%B %Y")`, see the full timeline -- going back to 1953 -- provided by @harderSupplerendeMaterialeFaeroske2022.
+
+## Political Parties
+
+Since 2004, MPs from the Faroe Islands were members of `r sum(political_parties$origin == "FO")` different political parties. Voters in Greenland elected politicians from `r sum(political_parties$origin == "GL") - 2` different political parties. However, two of the Greenlandic representatives -- Aleqa Hammond and Aki-Matilda Høegh-Dam -- switched party affiliation during their time as member of Folketinget and joined two relatively young parties (Nunatta Qitornai and Naleraq[^3]).
+
+[^3]: Both parties have been formed quite recently -- Naleraq in 2014 and Nunatta Qitornai in 2017. See @ahlnessNunattaQitornaiParty2020 for general information on Nunatta Qitornai and their policies. Nunatta Qitornai has de facto been dissolved after the 2021 Inatsisartut election [@hviidVittusQujaukitsoqMelder2025].
+
+All represented political parties are listed in the [Appendix](#list-of-parties) with additional information (where available) on their positions from the ParlGov dataset [@doringParlGov2024Release2024]. @fig-party-timeline shows the allocation of Folketinget seats to political parties from Greenland and the Faroe Islands on a timeline.
+
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-party-timeline
+#| fig-cap: Timeline of political parties from Greenland and the Faroe Islands with an MP in Folketinget since 2004. Dashed lines indicate election dates.
+#| fig-env: "figure*"
+
+# collapse MP_dates timeline into non-overlapping party intervals
+party_periods <- MP_dates %>%
+  select(party, origin, start, end) %>%
+  arrange(party, origin, start, end) %>%
+  group_by(party, origin)
+
+# join colours from political_parties
+party_periods <- party_periods %>%
+  left_join(political_parties %>% select("party", "full_name", "colour"), by = "party")
+
+# sort parties with start date
+party_periods <- party_periods %>%
+  group_by(origin) %>%
+  mutate(party = factor(party, levels = rev(unique(party[order(start)])))) %>%
+  ungroup()
+
+# set party name labels including UF
+y_labels <- setNames(party_periods$full_name, party_periods$party)
+y_labels <- c(y_labels, "UF" = "No Party Affiliation")
+
+# set UF colour to grey
+party_periods$colour[party_periods$party == "UF"] <- "#777777"
+
+ggplot(party_periods, aes(x = start, xend = end, y = party, yend = party, color = colour)) +
+  geom_segment(linewidth = 8, lineend = "butt") +
+  scale_color_identity() +
+
+  scale_y_discrete(labels = y_labels) +
+  
+  # add Folketing Election dates
+  geom_vline(data = elections_ft, aes(xintercept = as.Date(date), linetype = election_type),
+             color = "#000000", linewidth = 0.2) +
+  scale_linetype_manual(values = c("Folketing Election" = "longdash"), name = "") +
+  
+  facet_grid(origin ~ ., scales = "free_y", space = "free_y",
+             labeller = labeller(origin = c("FO" = "Faroe Islands", "GL" = "Greenland"))) +
+  
+  coord_cartesian(xlim = c(min(northatlantic_ft$date), NA)) +
+  
+  theme_nordatlantisk_basis() +
+  theme(
+    legend.position = "none",
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+    panel.grid.minor.x = element_blank()
+  )
+```
+
+- data sources
+- creation process
+- data model
+- description
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-height: 1.2
+#| label: fig-absence-share
+#| fig-cap: Northatlantic MPs are listed as absent in 98% of the observations in this dataset.
+
+# Compute proportions of vote types
+vote_props <- northatlantic_ft %>%
+  count(vote_type_id) %>%
+  mutate(
+    share = n / sum(n),
+    vote_type = factor(vote_type_id,
+                       levels = c(3, 4, 2, 1),
+                       labels = c("absent", "abstention", "against", "for"))
+  )
+
+# Single horizontal bar plot
+ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
+  geom_col(width = 0.5) +
+  coord_flip() +
+  scale_fill_manual(
+    name = "Vote",
+    labels = c("for", "against", "abstention", "absent"),
+    values = c("#6195CF", "#F7CB45", "#777777", "#D1BBD7"),
+    breaks = c("for", "against", "abstention", "absent")
+  ) +
+
+  scale_y_continuous(
+    labels = scales::label_percent(),
+    breaks = c(0, 0.05, 0.25, 0.50, 0.75, 1.00),
+    expand = expansion(mult = c(0, .015))
+  ) +
+  
+  labs(x = NULL, y = NULL) +
+  theme_nordatlantisk_basis() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.ticks.x = element_line(color = "#000000", linewidth = 0.1),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
+    legend.position = "top"
+  )
+```
+
 # Research Design
 
 ## Theoretical Approach
@@ -231,19 +583,103 @@ specifically: GL/FO contributions, more generically: cross-parliamentary control
 
 When the government of Denmark only has a narrow majority in parliament, four MPs regularly come into the spotlight: The so-called North Atlantic MPs -- two from Greenland, two from the Faroe Islands -- who usually abstain from voting on matters not concerning Greenland or the Faroe Islands but might be able provide four sometimes crucial votes to form a majority. In this paper, I am going to investigate what role these four MPs tend to play in Folketing: When do they capitalise on their voting power? Do they actually have as much power as the numbers suggest? Or is their influence rather a media frenzy, highlighting a rather unusual trait of day-to-day domestic politics?
 
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. Their presence in Folketinget can prove important for domestic Danish politics because not all of the four MPs join one (@fig-timeline) of the two party blocs and can thus provide decisive votes for passing legislation and even for securing the national government's stability [@harderFaeroskeOgGronlandske2022, 19]: Several times, both Danish party blocs found themselves with election results where they did not have what is called a "domestic majority" [_indenrigspolitisk flertal_, @buggeRegeringensIndenrigspolitiskeFlertal2023] but instead relied on the North Atlantic MPs to form a majority of 90 seats -- using the Danish expression: to be able to count to 90. Recently, this was the case in 2016 and 2022[^1] [@sorensenEfterBrokBla2022]: In both instances, opposition parties cried foul and called for re-evaluation of the North Atlantic MPs' roles, who have questioned these arrangements themselves as well [e.g. @skaaleFaeroskMFerNordatlantiske2022; @skaale20sporgsmalUS182021; @joensenLagtingsformandenVilAfskaffe2019], even though they have profited from them -- e.g. by being awarded chairmanship of parliamentary commissions [@harderFaeroskeOgGronlandske2022, 13]. <!-- 2023 situation mit moderaterne hinzufügen! -->
+There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. Their presence in Folketinget can prove important for domestic Danish politics because not all of the four MPs join one of the two party blocs and can thus provide decisive votes for passing legislation and even for securing the national government's stability [@harderFaeroskeOgGronlandske2022, 19]: Several times, both Danish party blocs found themselves with election results where they did not have what is called a "domestic majority" [_indenrigspolitisk flertal_, @buggeRegeringensIndenrigspolitiskeFlertal2023] but instead relied on the North Atlantic MPs to form a majority of 90 seats -- using the Danish expression: to be able to count to 90. Recently, this was the case in 2016 and 2022[^1] [@sorensenEfterBrokBla2022]: In both instances, opposition parties cried foul and called for re-evaluation of the North Atlantic MPs' roles, who have questioned these arrangements themselves as well [e.g. @skaaleFaeroskMFerNordatlantiske2022; @skaale20sporgsmalUS182021; @joensenLagtingsformandenVilAfskaffe2019], even though they have profited from them -- e.g. by being awarded chairmanship of parliamentary commissions [@harderFaeroskeOgGronlandske2022, 13]. <!-- 2023 situation mit moderaterne hinzufügen! -->
 
 [^1]: Even though the North Atlantic MPs' role was discussed extensively in 2022, it was resolved without the North Atlantic MPs by forming an unusual cross-bloc coalition government.
 
 Just as political relations between Denmark, Greenland and the Faroe Islands are being scrutinised time and again in terms of economy, ecology, security and last but not least postcolonialism, so is the position of two MPs elected to Folketinget in Greenland and the Faroe Islands, respectively.
-
-![Timeline of Mandates](../assets/fig-mandates-1.png){#fig-timeline}
 
 * In general, when do the Northatlantic MPs take part in roll call votes? Hypothesis: The MPs are more likely to take part in voting when the issue concerns Greenland/policy areas that GL/FO do not have authority over (e.g. Defense, based on keywords in proposal description and the ministerområde responsible for the proposal, e.g. Forsvarsministeriet, Finansministeriet etc.)
 * The 2x2 MPs are conceived as one group by DK politicians and media. Do they also vote like one group? Hypothesis: After excluding absences, similar voting behavior can not be observed across Greenlandic and Faroese MPs, but across the political blocks the MPs belong to (left/right -- in the dataset: usually 2x left from GL, and 1x each from FO, but never multiple MPs from the same party at the same time)
 * When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs? Hypothesis: The fewer FT mandates the Danish cabinet coalition parties have themselves, the more likely are GL/FO MPs to cast a vote (regardless of the content of the proposal being voted on)
   * Based on questioning/committee activity analysis of Northatlantic MPs: Cross-parliamentary control mechanisms are especially made use of if the MP's own party is an opposition party in GL/FO. Transferring this finding onto another type of parliamentary activity, can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control? Hypothesis: MPs are more likely to engage in parliamentary activity in FT, in this case taking part in voting, if their own party is in opposition in GL/FO.
 
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+\onecolumn
+
+# Appendix {.appendix}
+
+## List of MPs {.appendix .unnumbered .unlisted}
+
+```{r}
+#| echo: false
+#| message: false
+#| label: tbl-MPs
+#| tbl-colwidths: [33, 33, 17, 17]
+
+MPs <- mp_names %>%
+  select(-wikidata_id) %>%
+  arrange(origin, surname)
+
+printable_names <- c("Surname(s)", "First Name(s)", "MP ID", "Origin", "Party", "Substitute")
+
+kable(MPs, caption = "List of MPs from Greenland and the Faroe Islands in Folketinget (October 2004 -- January 2026)", col.names = printable_names)
+```
+
+## List of Parties {.appendix .unnumbered .unlisted}
+
+```{r}
+#| echo: false
+#| message: false
+#| label: tbl-parties-gl
+#| tbl-colwidths: [30, 30, 10, 10, 10, 10]
+
+parties_gl <- political_parties |>
+  filter(origin == "GL") |>
+  mutate(
+    full_name_abbr = paste0(full_name, " (", party, ")")
+  ) |>
+  select(
+    full_name_abbr, party_family,
+    left_right, state_market,
+    liberty_authority, anti_pro_eu
+  )
+
+parties_fo <- political_parties |>
+  filter(origin == "FO") |>
+  mutate(
+    full_name_abbr = paste0(full_name, " (", party, ")")
+  ) |>
+  select(
+    full_name_abbr, party_family,
+    left_right, state_market,
+    liberty_authority, anti_pro_eu
+  )
+
+printable_names <- c(
+  "Party", "Party Family",
+  "Left–Right", "State–Market", "Liberty–Authority", "Anti–Pro-EU"
+)
+
+kable(
+  parties_gl,
+  caption = "List of political parties from Greenland with an MP in Folketinget since 2004",
+  col.names = printable_names,
+  row.names = FALSE,
+  escape = FALSE
+)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| label: tbl-parties-fo
+#| tbl-colwidths: [30, 30, 10, 10, 10, 10]
+
+kable(
+  parties_fo,
+  caption = "List of political parties from the Faroe Islands with an MP in Folketinget since 2004",
+  col.names = printable_names,
+  row.names = FALSE,
+  escape = FALSE)
+```
+
 ## Word Count {.appendix .unnumbered .unlisted}
 
 Currently featuring {{wordcount}} words without references. Including references, there are {{wordcountref}} words in this document.
+
+\twocolumn
