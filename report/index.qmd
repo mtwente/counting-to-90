@@ -16,6 +16,11 @@ reference-section-title: References
 link-citations: true
 lang: en
 output-file: paper.pdf
+filters:
+  - wordcount
+wordcount:
+  count-code-blocks: false
+  count-inline-code: false
 format: 
   pdf: 
     documentclass: article
@@ -239,3 +244,6 @@ Just as political relations between Denmark, Greenland and the Faroe Islands are
 * When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs? Hypothesis: The fewer FT mandates the Danish cabinet coalition parties have themselves, the more likely are GL/FO MPs to cast a vote (regardless of the content of the proposal being voted on)
   * Based on questioning/committee activity analysis of Northatlantic MPs: Cross-parliamentary control mechanisms are especially made use of if the MP's own party is an opposition party in GL/FO. Transferring this finding onto another type of parliamentary activity, can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control? Hypothesis: MPs are more likely to engage in parliamentary activity in FT, in this case taking part in voting, if their own party is in opposition in GL/FO.
 
+## Word Count {.appendix .unnumbered .unlisted}
+
+Currently featuring {{wordcount}} words without references. Including references, there are {{wordcountref}} words in this document.
