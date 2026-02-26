@@ -621,13 +621,14 @@ Just as political relations between Denmark, Greenland and the Faroe Islands are
 #| echo: false
 #| message: false
 #| label: tbl-MPs
-#| tbl-colwidths: [33, 33, 17, 17]
+#| tbl-colwidths: [12, 30, 25, 10, 10, 13]
 
 MPs <- mp_names %>%
   select(-wikidata_id) %>%
+  select(origin, everything()) %>%
   arrange(origin, surname)
 
-printable_names <- c("Surname(s)", "First Name(s)", "MP ID", "Origin", "Party", "Substitute")
+printable_names <- c("Origin", "Surname(s)", "First Name(s)", "MP ID", "Party", "Substitute")
 
 kable(MPs, caption = "List of MPs from Greenland and the Faroe Islands in Folketinget (October 2004 -- January 2026)", col.names = printable_names)
 ```
