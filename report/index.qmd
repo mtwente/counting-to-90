@@ -295,7 +295,7 @@ specifically: GL/FO contributions, more generically: cross-parliamentary control
 
 # Dataset
 
-I am using the [*nordatlantisk-ft*](https://mtwente.github.io/nordatlantisk-ft) data set I created for this project, containing voting records of Folketinget members from Greenland and the Faroe Islands. The dataset is the result of a workflow in R, taking a list of MPs as input and then scraping voting records from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. The codebook is available online [@twenteNordatlantiskft2024]. 
+I am using the *nordatlantisk-ft* data set [@twenteNordatlantiskft2026] I created for this project, containing voting records of Folketinget members from Greenland and the Faroe Islands. The dataset is the result of a workflow in R, taking a list of MPs as input and then scraping voting records from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) available via GitHub. 
 
 For my analysis, I am going to use the data available as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %d, %Y")`. *nordatlantisk-ft* comprises `r length(unique(northatlantic_ft$vote_id))` records of votes cast by Northatlantic MPs between `r format(min(northatlantic_ft$date), "%B %d, %Y")` and `r format(max(northatlantic_ft$date), "%B %d, %Y")`. The dataset also contains metadata on each record -- e.g. date and topic of each vote or the overall roll call result, covering votes on `r length(unique(northatlantic_ft$roll_call_id))` proposals in Folketinget.
 
@@ -634,7 +634,7 @@ kable(MPs, caption = "List of MPs from Greenland and the Faroe Islands in Folket
 
 ## List of Parties {.appendix .unnumbered .unlisted}
 
-Information on each party's positions are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2024].
+Information on each party's positions are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2026].
 
 ```{r}
 #| echo: false
