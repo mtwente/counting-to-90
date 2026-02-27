@@ -348,7 +348,7 @@ I am using the *nordatlantisk-ft* dataset [@twenteNordatlantiskft2026] I compile
 
 For my analysis, I am going to use the data available as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %d, %Y")`. *nordatlantisk-ft* comprises `r length(unique(northatlantic_ft$vote_id))` records of votes cast by Northatlantic MPs between `r format(min(northatlantic_ft$date), "%B %d, %Y")` and `r format(max(northatlantic_ft$date), "%B %d, %Y")`[^valg26]. The dataset also contains metadata on each record -- e.g. date and topic of each vote or the overall roll call result, covering votes on `r length(unique(northatlantic_ft$roll_call_id))` proposals in Folketinget.
 
-[^valg26]: The date for the next General Election to Folketinget was announced on February 26, 2026, by PM Mette Frederiksen and set for March 24, 2026. The data used for this analysis thus does not contain records on voting behavior during the election campaign.
+[^valg26]: The date for the next General Election to Folketinget was announced by PM Mette Frederiksen on February 26, 2026. It will take place on March 24, 2026. The data used for this analysis thus does not contain records on voting behavior during the election campaign.
 
 ## Descriptive Overview
 
