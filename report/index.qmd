@@ -30,6 +30,7 @@ format:
     quot-lang: de-CH
     colorlinks: true
     toc: true
+    toc-depth: 2
     geometry:
       - top=22mm
       - bottom=18mm
