@@ -239,6 +239,10 @@ Writing about parliamentary cross-bloc cooperation, @green-pedersenBlokpolitikOg
 
 The results from a review of literature on coalition and government formation in Denmark are similar: @green-pedersenBlocPoliticsVs2005 and @skjaevelandModellingGovernmentFormation2009 find that gaining government power depends on the median legislator, often centre parties -- which in Denmark has traditionally been associated with Det Radikale Venstre [@green-pedersenDetRadikaleVenstres2003]. Northatlantic MPs are not touched upon in either paper, nor are they mentioned by @christiansenMinorityCoalitionGovernance2014 in their analysis of coalition agreements. @skjaevelandModellingGovernmentFormation2009, however, includes Northatlantic MPs in his research on median parties in Denmark, acknowledging their importance in some coalition life cycles. The take-away from his short digression on the North Atlantic Folketing is that "the more important their votes, the more involved they have become" [-@skjaevelandModellingGovernmentFormation2009, 723]. But even when describing situations where the voting behavior of North Atlantic MPs proved to be decisive for government formations, for some researchers they are still only partially relevant to the distribution of power in Danish politics [@skjaevelandMindretalsregeringerDanmarkFor2003].
 
+Skjæveland 2003 ausführlicher beschreiben, vlg. Würdigung bei @harderFaeroskeOgGronlandske2022
+
+*"I den politologiske litteratur er særligt de nordatlantiske mandaters intervention i forbindelse med regeringsdannelser udførligt beskrevet (Skjæveland, 2003). Ifølge Skjæveland, der undersøger perioden 1953-1998, har den generelle opfattelse af disse mandater været, at de ikke blander sig i (syd)dansk politik, omend der samtidig hersker en opfattelse af, at de i stigende grad er blevet involveret heri (Skjæveland, 2003: 114-115; Michelsen, 1979: 55)"*
+
 With regard to the composition of Folketinget, @kurrild-klitgaardElectionInversionsCoalitions2013 analyses election inversions, meaning the party/political bloc winning the most votes does not end up with the most parliamentary seats after the election -- a situation the Northatlantic MPs have ended up in repeatedly. Using the 1971 election, he demonstrates that the lower cost of winning a Folketinget mandate in the Faroe Islands resulted in a margin so narrow that, if added to continental Danish overall results, would have resulted in an alternative majority [-@kurrild-klitgaardElectionInversionsCoalitions2013, 131]. This is, however, not considered to be a flaw, and the election system of Denmark is regarded to be exceptionally well-functioning [@elklitElectoralSystemFair2020; @lijphartForeword2005], even though that assessment, again, excludes elections in Greenland and the Faroe Islands [cf. @elklitDenmarkSimplicityEmbedded2005]. An otherwise comprehensive database with biographic information on Folketinget legislators by @klintDanishLegislatorsDatabase2023 also does not include anyone from Greenland and the Faroe Islands.
 
 Research on political parties in Denmark, e.g. by @green-pedersenPartySystemOpen2020 or @pedersenPartyDistancesDanish1971, does not cover parties from Greenland or the Faroe Islands either. This is hardly surprising, given that the political parties competing in elections in Denmark, Greenland and the Faroe Islands are separate entities and each party can only be voted for from within either of the three parts of the Danish Realm [@kurrild-klitgaardElectionInversionsCoalitions2013]. Likewise, research on political parties of Greenland and the Faroe Islands features a domestic focus as well [e.g. @ahlnessNunattaQitornaiParty2020; @westSkipanarligarFortreytirOg2022; @michelsenGronlandPartisystemUdvikling1979]. Institutional associations between Greenlandic and Danish parties linked to parliamentary work in Folketinget are mentioned by @ackrenPoliticalPartiesGreenland2015, building on ideologically similar backgrounds of Siumut of Greenland and Socialdemokratiet in Denmark resp. of Atassut (GL) and Venstre (DK). However, Folketinget representation does not seem to be a central issue for regional parties in Greenland and the Faroe Islands. Because Greenland and the Faroe Islands only hold two seats each, @ackrenExploringRoleRegional2019 deem it unlikely that any Northatlantic proposal would gain enough traction in Folketinget anyway. For these regional parties, the preferred mode of conducting relations with Denmark is by communicating between government officials instead [@ackrenExploringRoleRegional2019; @harderArcticIndigenousRepresentation2024, 130].
@@ -248,6 +252,46 @@ The inclusion of anything related to the Greenlandic and Faroese representation 
 With this in mind, I assume that the activities of the Greenlandic and Faroese members of Folketinget have mostly been regarded not as a relevant aspect of the political system of Denmark that is worth considering, illustrated by Miller labelling those politicians, i.e. elected members of a legislative assembly, as "non-political" [-@millerFriendsRivals1996, 72][^slesvig]. In conclusion, there has been very little research activity on MPs from Greenland and the Faroe Islands and their behavior in Folketinget compared to the importance that is repeatedly being attributed to their presence. This has, however, changed in recent years with publications explicitly targeting Northatlantic representation in Folketinget which I am going to focus on in the following paragraphs. 
 
 [^slesvig]: Miller, referring to the results of the 1957 election, also includes a representative for the German-speaking minority in Southern Slesvig in this group of non-political MPs. However, in this paper I will concentrate on Greenlandic and Faroese MPs only, not considering the representation of other minorities in Folketinget.
+
+@harderFaeroskeOgGronlandske2022 
+
+### generelt om aktivitet
+
+"En yderligere lighed er, at både færøske og grønlandske medlemmer hovedsageligt engagerer sig i de sagsområder, der berører hjemlandet direkte" [@harderFaeroskeOgGronlandske2022, 20]
+
+### spørgsmål
+
+"parlamentariske spørgsmål (både udvalgsog § 20-spørgsmål), som medlemmerne stiller i perioden 2005-2019" [@harderFaeroskeOgGronlandske2022, 9]
+
+"I perioden 2005-2019 stiller de grønlandske medlemmer næsten dobbelt så
+mange parlamentariske spørgsmål som de færøske medlemmer (65 mod 35
+pct.)" [@harderFaeroskeOgGronlandske2022, 10]
+
+"Umiddelbart ser hverken det forhold, at et nordatlantisk medlem er fra et parti, der har rege- [SEITENUMBRUCH] ringsmagten hjemme, eller er fra en partifamilie, der har regeringsmagten i Danmark, ud til at påvirke medlemmets spørgeaktivitet signifikant" [@harderFaeroskeOgGronlandske2022, 10-11]
+
+"Ligeså ser antallet af spørgsmål, som et færøsk medlem stiller, heller ikke ud til at hænge sammen med, om vedkommende repræsenterer et parti, der støtter rigsfællesskabet, eller et parti, der er imod dette" [@harderFaeroskeOgGronlandske2022, 11]
+
+"I tråd med den tidligere litteraturs konklusioner viser den kvantitative indholdsanalyse af de parlamentariske spørgsmål, at de nordatlantiske mandater i perioden 2005-2019 hovedsageligt stiller spørgsmål af specifik relevans for Færøerne eller Grønland" [@harderFaeroskeOgGronlandske2022, 13]
+
+"en større andel af både de færøske og grønlandske spørgsmål angår enten færinger eller grønlænderes forhold i Danmark eller oplysning om Færøerne eller Grønland i Danmark" [@harderFaeroskeOgGronlandske2022, 15]
+
+"Generelt kan det således konkluderes, at de nordatlantiske mandater overordnet set har anvendt Folketingets spørgefunktion til at få information om specifikke forhold og indgå i kritisk dialog om specifikke problemstillinger, snarere end til at føre diskussioner om det overordnede eller fremtidige forhold mellem medlemmerne af rigsfællesskabet" [@harderFaeroskeOgGronlandske2022, 15]
+
+### udvalgsarbejde
+
+"Også de øvrige udvalgsmedlemskaber kan især forklares med, at man har
+prioriteret at sidde i udvalg, der behandler områder af indenrigspolitisk betydning, som ikke er hjemtaget" [@harderFaeroskeOgGronlandske2022, 16]
+
+"de grønlandske medlemmer har i langt højere grad været medlem af disse udvalg" [@harderFaeroskeOgGronlandske2022, 11]
+
+### flertalsdannelse
+
+"For så vidt angår den måde, hvorpå de nordatlantiske mandater i perioden 1998-2019 er indgået i de parlamentariske flertal, er den umiddelbare konklusion meget lig den, som Skjæveland finder for perioden 1953-1998: Når man har kunnet, har man påvirket tingenes tilstand. Desuden har man – ikke overraskende – overordnet set støttet regeringer, hvis partifarve man har delt" [@harderFaeroskeOgGronlandske2022, 18]
+
+"Debatten er i særlig grad opstået i forbindelse med situationer, hvor det har været sandsynligt, at mandaterne kunne afgøre det parlamentariske flertal" [5]
+
+"På samme måde har man forholdt sig forholdsvis ens til dannelsen af parlamentariske flertal: Nordatlantiske medlemmer har generelt ”spillet deres parlamentariske chance”, når den er opstået." [@harderFaeroskeOgGronlandske2022, 20]
+
 
 @harderFaeroskeOgGronlandske2022
 @ackrenExploringRoleRegional2019
@@ -284,6 +328,8 @@ link from Rigsfællesskabet to global postcolonialism discourse via overseas rep
 
 ### Cross-Parliamentary Control?
 
+"I komparativt perspektiv er Folketingets udvalg i dag særligt væsentlige i forbindelse med arbejdet med at kontrollere regeringen (Holli og Harder, 2016). De nordatlantiske medlemmers udvalgsmedlemskab kan derfor – særligt i den senere del af perioden – være med til at give et indtryk af medlemmernes deltagelse i dette kontrolarbejde." [@harderFaeroskeOgGronlandske2022, 9]
+
 ## Research Gap
 
 * Forschung zum Folketing klammert die vier nordatlantischen Mandate idR aus, daher sehr wenig Informationen zu ihrem Verhalten/ihrer pol. Arbeit. Ihre Relevanz wird vor allem im Zshg. mit Mehrheitsbeschaffungen attestiert, aber häufig nur anekdotisch bzw. letzten Endes als Kuriosität des politischen Systems in Dänemark behandelt
@@ -292,21 +338,27 @@ link from Rigsfællesskabet to global postcolonialism discourse via overseas rep
 
 specifically: GL/FO contributions, more generically: cross-parliamentary control, ethnic representation/Regional parties
 
+"Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de gi-
+ver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på
+dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
+
 #### use of roll call votes as method
 
 # Dataset
 
-I am using the *nordatlantisk-ft* data set [@twenteNordatlantiskft2026] I created for this project, containing voting records of Folketinget members from Greenland and the Faroe Islands. The dataset is the result of a workflow in R, taking a list of MPs as input and then scraping voting records from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) available via GitHub. 
+I am using the *nordatlantisk-ft* data set [@twenteNordatlantiskft2026] I compiled for this project, containing voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but only metadata [@berntzenParliamentaryOpenData2019, 9], I had to create the pipeline myself. The dataset is the result of a workflow in R, taking a list of MPs as input and then scraping voting records from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
 
 For my analysis, I am going to use the data available as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %d, %Y")`. *nordatlantisk-ft* comprises `r length(unique(northatlantic_ft$vote_id))` records of votes cast by Northatlantic MPs between `r format(min(northatlantic_ft$date), "%B %d, %Y")` and `r format(max(northatlantic_ft$date), "%B %d, %Y")`. The dataset also contains metadata on each record -- e.g. date and topic of each vote or the overall roll call result, covering votes on `r length(unique(northatlantic_ft$roll_call_id))` proposals in Folketinget.
 
-## MPs
+## Descriptive Overview
 
-Since 1953, two MPs are elected in both Greenland and the Faroe Islands to join the 175 MPs from Denmark proper in Folketinget. Before the 1953 reform, Greenland did not have any parliamentary representation in Folketinget, as opposed to the Faroe Islands with one guaranteed seat since 1849 [@kjaerDanskeFolketingsmedlemmerParlamentarisk2004].
+### MPs
 
-In the time frame covered by Folketinget's Open Data Platform, there have been `r nrow(mp_names)` individual politicians from Greenland or the Faroe Islands who served as MPs (@tbl-MPs). `r sum(mp_names$origin == "GL")` of them are members of Greenlandic parties, and `r sum(mp_names$origin == "FO")` are representing Faroese parties. For MPs representing Greenland resp. the Faroe Islands in election periods earlier than `r format(min(northatlantic_ft$date), "%B %Y")`, see the list assembled by @harderSupplerendeMaterialeFaeroske2022[^biographies].
+Since 1953, two MPs are elected in both Greenland and the Faroe Islands to join the 175 MPs from Denmark proper in Folketinget. Before the 1953 reform, Greenland did not have any parliamentary representation in Folketinget, as opposed to the Faroe Islands with one guaranteed seat since 1849 [@harderFaeroskeOgGronlandske2022, 8-9; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004]. According to @harderFaeroskeOgGronlandske2022 [7], it is usually experienced politicians that are elected to represent the Faroe Islands constituency, even though the job apparently has low priority compared to holding office 'at home' [@johannesenUniHolmJohannesen2016][^study].
 
-[^biographies]: @billeFaeroskeFolketingsmedlemmer2025 and @billeGronlandskeFolketingsmedlemmer2025 also provide short biographies on most of the MPs.
+[^study]: No comparable study exists for MPs from Greenland apart from the short MP profiles available in Danmarks Nationalleksikon [@billeFaeroskeFolketingsmedlemmer2025; @billeGronlandskeFolketingsmedlemmer2025].
+
+In the time frame covered by Folketinget's Open Data Platform, there have been `r nrow(mp_names)` individual politicians from Greenland or the Faroe Islands who served as MPs (@tbl-MPs). `r sum(mp_names$origin == "GL")` of them are members of Greenlandic parties, and `r sum(mp_names$origin == "FO")` are representing Faroese parties. For MPs representing Greenland resp. the Faroe Islands in election periods earlier than `r format(min(northatlantic_ft$date), "%B %Y")`, see the list assembled by @harderSupplerendeMaterialeFaeroske2022.
 
 `r sum(mp_names$substitute == TRUE)` of the politicians that are part of this data set joined Folketinget in the role of a substitute member[^subst], filling in for one of the `r sum(mp_names$substitute == FALSE)` originally elected MPs while they were on leave [cf. @harderFaeroskeOgGronlandske2022, 12-13]. @fig-mandates shows membership periods and substitute members on a timeline for the duration that is covered by this data set. Earlier terms served by Edmund Joensen and Lisbeth Petersen are cut off from the timeline since there are no voting records available online earlier than `r format(min(northatlantic_ft$date), "%B %d, %Y")`. 
 
@@ -429,7 +481,7 @@ geom_point(
   )
 ```
 
-## Political Parties
+### Political Parties
 
 Since 2004, MPs from the Faroe Islands were members of `r n2w(sum(political_parties$origin == "FO"))` different political parties. Voters in Greenland elected politicians from `r n2w(sum(political_parties$origin == "GL") - 2)` different political parties. However, two of the Greenlandic representatives -- Aleqa Hammond and Aki-Matilda Høegh-Dam -- switched party affiliation during their time as member of Folketinget and joined two relatively young parties (Nunatta Qitornai and Naleraq[^3]).
 
@@ -439,7 +491,13 @@ The Northatlantic MPs usually are members of the two biggest political parties o
 
 This dominance by two political parties is in contrast to the Faroese situation, where the four biggest parties take turns more often [@billeFaeroskeFolketingsmedlemmer2025]. In the time frame covered by this data set, the Faroe Islands have been represented by one left-wing and one right-wing political party in Folketinget for most of the time, as opposed to the Greenlandic MPs having belonged to two left-wing parties.
 
+
+
 todo: partigruppe 2001--2011: "Fra 2001 til 2011 dannede Siumuts og IA’s folketingsmedlemmer sammen med den færøske republikaner en nordatlantisk partigruppe." [@gadGronlandskeFolketingsmedlemmer2022], see chart by @harderSupplerendeMaterialeFaeroske2022 [S6]
+
+"I 2001 sker der imidlertid det, at tre af de nordatlantiske mandater – de to grønlandske mandater samt medlemmer fra selvstændighedspartiet TF (T) – går sammen og danner Den Nordatlantiske gruppe, der med intern koor- dinering, arbejdsdeling og fælles sekretariat minder om de danske partigrupper. Denne gruppe består indtil valget i 2011, om end Lars Emil Johansen (SIU) melder sig ud af gruppen allerede i 2009" [@harderFaeroskeOgGronlandske2022]
+
+"Fra 2007 sker der i øvrigt den ændring, at nordatlantiske medlemmer ikke længere meddeler deres medlemskab af partigrupper til Folketingets administration og derfor ikke er officielt registreret som sådan i Folketingets dokumenter efter 2007. Imidlertid er flere af de nordatlantiske medlemmer – også efter 2007 – i praksis medlem af danske partigrupper" [@harderFaeroskeOgGronlandske2022, 17]
 
 All represented political parties are listed in the [Appendix](#list-of-parties) with additional information (where available) on their positions from the ParlGov dataset [@doringParlGov2024Release2024]. @fig-party-timeline shows the allocation of Folketinget seats to political parties from Greenland and the Faroe Islands on a timeline.
 
@@ -496,7 +554,7 @@ ggplot(party_periods, aes(x = start, xend = end, y = party, yend = party, color 
   )
 ```
 
-## Voting Records
+### Voting Records
 
 There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. Their presence in Folketinget can prove important for domestic Danish politics because not all of the four MPs join one of the two party blocs and can thus provide decisive votes for passing legislation and even for securing the national government's stability [@harderFaeroskeOgGronlandske2022, 19]: Several times, both Danish party blocs found themselves with election results where they did not have what is called a "domestic majority" [_indenrigspolitisk flertal_, @buggeRegeringensIndenrigspolitiskeFlertal2023] but instead relied on the North Atlantic MPs to form a majority of 90 seats -- using the Danish expression: to be able to count to 90. Recently, this was the case in 2016 and 2022[^1] [@sorensenEfterBrokBla2022]: In both instances, opposition parties cried foul and called for re-evaluation of the North Atlantic MPs' roles, who have questioned these arrangements themselves as well [e.g. @skaaleFaeroskMFerNordatlantiske2022; @skaale20sporgsmalUS182021; @joensenLagtingsformandenVilAfskaffe2019], even though they have profited from them -- e.g. by being awarded chairmanship of parliamentary commissions [@harderFaeroskeOgGronlandske2022, 13]. <!-- 2023 situation mit moderaterne hinzufügen! -->
 
@@ -567,6 +625,12 @@ ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
   - "I to tilfælde har grønlandsk valgte MFere opnået ministerposten" [@michelsenGronlandPartisystemUdvikling1979, 55] > Gam og hvem?
   - @dallGronlandOgFaeroerne2022 with comprehensive overview
 
+  - "Den anden er Edmund Joensen (SP), der i perioden lige efter valget i 2007 spillede en afgørende rolle i at sikre den borgerlige regerings parlamentariske flertal. Som det eneste færøske medlem i hele perioden blev han fuldt medlem af hele fem folketingsudvalg samt suppleant i et enkelt. Noget tyder således på, at det at sikre regeringens flertal kan blive afspejlet i blandt andet antallet af udvalgsposter, som man råder over – en antagelse, der i øvrigt underbygges af, at Aleqa Hammond (SIU/NQ) blev tildelt den symbolsk vigtige rolle som formand for Grønlandsudvalget efter at have indgået aftale om at støtte den borgerlige regering" [@harderFaeroskeOgGronlandske2022, 17]
+  - "Analysen ovenfor viser imidlertid, at der ikke er nogen signifikant sammenhæng mellem antallet af parlamentariske spørgsmål, som et nordatlantisk medlem stiller, og spørgsmålet om, hvorvidt vedkommendes partifamilie støttede regering eller opposition" [@harderFaeroskeOgGronlandske2022, 17]
+
+"Overordnet set kan det fastslås, at de grønlandske medlemmer nu som før del-
+tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [@harderFaeroskeOgGronlandske2022, 19]
+
 ### Dataset Overview
 
 ## Hypotheses
@@ -581,6 +645,8 @@ ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
 - method (logit model etc.) -->
 
 - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
+
+"Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
 
 # Results
 
