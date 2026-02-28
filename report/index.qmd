@@ -612,6 +612,114 @@ ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
   )
 ```
 
+@fig-vote-share-per-year displays the share of records in which a vote is actually cast (for, against, or abstaining) for each year covered by the dataset. A quick glance shows very low proportions overall, with an increasing share of votes cast among MPs from the Faroe Islands in recent years (2023, 2025) and a peak in 2015 for Greenlandic MPs.
+
+::: {#fig-vote-share-per-year}
+<!-- in a fenced div because of the dynamically updating caption -->
+
+```{r}
+#| echo: false
+#| message: false
+
+votes_per_year_origin <- northatlantic_ft %>%
+  mutate(year = lubridate::year(date)) %>%
+  group_by(origin, year) %>%
+  summarise(
+    share_present = mean(vote_type_id != 3),
+    .groups = "drop"
+  )
+
+# compute global maximum for y-axis
+y_max <- max(votes_per_year_origin$share_present, na.rm = TRUE) + 0.001 
+
+# faceted bar plots
+ggplot(
+  votes_per_year_origin,
+  aes(x = factor(year), y = share_present)) +
+
+  geom_col(width = 0.7, fill = "#6195CF") +
+  
+  scale_y_continuous(
+    limits = c(0, y_max),
+    labels = scales::label_percent(accuracy = 1),
+    expand = expansion(mult = c(0, 0.01))
+  ) +
+  
+  facet_grid(
+    origin ~ .,
+    scales = "fixed",
+    space = "fixed",
+    labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
+  ) +
+  
+  theme_nordatlantisk_basis() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.ticks.x = element_blank(),
+    axis.line.y.left = element_blank(),
+    panel.spacing.y = unit(1, "lines"),
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05)
+  )
+```
+
+Share of non-absent records per year (for, against, abstaining) as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")`.
+:::
+
+@fig-votes-per-mp visualizes the distribution of votes cast by each MP that is part of the dataset. MPs are grouped by whether they are representing Greenland or the Faroe Islands. As MPs are absent for most roll calls, @fig-votes-per-mp-filtered shows the distribution only with votes that were actually cast.
+
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-votes-per-mp
+#| fig-cap: Full records coded by the type of vote cast (for, against, abstaining, absent).
+
+plot_votes <- ggplot(northatlantic_ft_ordered, aes(y = plotting_name, fill = vote_type_id)) +
+  geom_bar() +
+  scale_x_continuous(expand = expansion(mult = c(0, .05))) +
+  scale_y_discrete() +
+  scale_fill_manual(
+    name = "Vote",
+    labels = c("for", "against", "abstention", "absent"),
+    values = c("#6195CF", "#F7CB45", "#777777", "#D1BBD7"),
+    breaks = c("1", "2", "4", "3")
+  ) +
+
+  facet_grid(origin ~ ., scales = "free_y", space = "free_y",
+            labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
+            ) +
+    
+  theme_nordatlantisk_basis()
+
+plot_votes
+```
+
+### Votes Per MP Without Absences
+
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-votes-per-mp-filtered
+#| fig-cap: Number of votes cast coded by the type of vote (for, against, abstaining). Includes only data with the MP in attendance.
+
+plot_votes_without_absences <- ggplot(northatlantic_ft_without_absences, aes(y = plotting_name, fill = vote_type_id)) +
+  geom_bar() +
+  scale_x_continuous(expand = expansion(mult = c(0, .05))) +
+  scale_y_discrete() +
+  scale_fill_manual(
+    name = "Vote",
+    labels = c("for", "against", "abstention"),
+    values = c("#6195CF", "#F7CB45", "#777777")
+  ) +
+
+  facet_grid(origin ~ ., scales = "free_y", space = "free_y",
+          labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
+          ) +
+
+  theme_nordatlantisk_basis()
+
+plot_votes_without_absences
+```
+
 # Research Design
 
 ## Theoretical Approach
