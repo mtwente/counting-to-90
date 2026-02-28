@@ -753,7 +753,7 @@ tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [
 #| warning: false
 #| label: fig-ft-vote-distribution
 #| fig-env: "figure*"
-#| fig-cap: Distribution of votes cast by all MPs in Folketinget for each roll call
+#| fig-cap: Number of votes cast by all MPs for each roll call vote by type.
 
 scatterplot_for <- ggplot(northatlantic_ft,
                           aes(x = date, y = ft_for)) +
