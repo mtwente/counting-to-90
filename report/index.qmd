@@ -753,99 +753,47 @@ tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [
 #| warning: false
 #| label: fig-ft-vote-distribution
 #| fig-env: "figure*"
-#| fig-cap: Number of votes cast by all MPs for each roll call vote by type.
+#| fig-cap: Density plot visualising the number of votes cast by all MPs for each roll call vote by type.
 
-scatterplot_for <- ggplot(northatlantic_ft,
-                          aes(x = date, y = ft_for)) +
+make_density_plot <- function(data, y_var, title, low_col, high_col) {
   
-  geom_jitter(width = 0, height = 0.2, size = 0.4, 
-              color = "#6195CF", shape = 21,
-              fill = "#6195CF", stroke = 0.015) +
-  scale_x_date(breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
-               date_labels = "%Y", expand = expansion(mult = c(0.01, .05))) +
-  scale_y_continuous(limits = c(0, 179),
-                     labels = c(0, 50, 100, 150, 179),
-                     breaks = c(0, 50, 100, 150, 179)) +
-  
-  ggtitle("for") +
-  
-  theme_nordatlantisk_basis() +
-  theme(axis.title.y = element_blank(),
-        axis.line.y.left = element_blank(),
-        legend.position = "none",
-        panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
-        plot.title = element_text(size = 8),
-        axis.text.x=element_text(size=rel(0.7)))
+  ggplot(data, aes(x = date, y = {{ y_var }})) +
+    
+    geom_bin2d(aes(fill = after_stat(count)), bins = 80) +
+    scale_fill_gradient(low = low_col, high = high_col) +
+    
+    scale_x_date(
+      breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
+      date_labels = "%Y",
+      expand = expansion(mult = c(0.01, .05))
+    ) +
+    
+    scale_y_continuous(
+      limits = c(0, 179),
+      labels = c(0, 50, 100, 150, 179),
+      breaks = c(0, 50, 100, 150, 179)
+    ) +
+    
+    ggtitle(title) +
+    
+    theme_nordatlantisk_basis() +
+    theme(
+      axis.title.y = element_blank(),
+      axis.line.y.left = element_blank(),
+      legend.position = "none",
+      panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+      plot.title = element_text(size = 8),
+      axis.text.x = element_text(size = rel(0.7))
+    )
+}
 
-scatterplot_against <- ggplot(northatlantic_ft,
-                              aes(x = date, y = ft_against)) +
-  
-  geom_jitter(width = 0, height = 0.2, size = 0.4, 
-              color = "#F7CB45", shape = 21,
-              fill = "#F7CB45", stroke = 0.015) +
-  
-  scale_x_date(breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
-               date_labels = "%Y", expand = expansion(mult = c(0.01, .05))) +
-  scale_y_continuous(limits = c(0, 179),
-                     labels = c(0, 50, 100, 150, 179),
-                     breaks = c(0, 50, 100, 150, 179)) +
-  
-  ggtitle("against") +
-  
-  theme_nordatlantisk_basis() +
-  theme(axis.title.y = element_blank(),
-        axis.line.y.left = element_blank(),
-        legend.position = "none",
-        panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
-        plot.title = element_text(size = 8),
-        axis.text.x=element_text(size=rel(0.7)))
+scatterplot_for <- make_density_plot(northatlantic_ft, ft_for, "for", "#6195CF", "#436890")
 
+scatterplot_against <- make_density_plot(northatlantic_ft, ft_against, "against", "#F7CB45", "#ac8e30")
 
-scatterplot_abstention <- ggplot(northatlantic_ft,
-                                 aes(x = date, y = ft_abstention)) +
-  
-  geom_jitter(width = 0, height = 0.2, size = 0.4, 
-              color = "#777777", shape = 21,
-              fill = "#777777", stroke = 0.015) +
-  
-  scale_x_date(breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
-               date_labels = "%Y", expand = expansion(mult = c(0.01, .05))) +
-  scale_y_continuous(limits = c(0, 179),
-                     labels = c(0, 50, 100, 150, 179),
-                     breaks = c(0, 50, 100, 150, 179)) +
-  
-  ggtitle("abstention") +
-  
-  theme_nordatlantisk_basis() +
-  theme(axis.title.y = element_blank(),
-        axis.line.y.left = element_blank(),
-        legend.position = "none",
-        panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
-        plot.title = element_text(size = 8),
-        axis.text.x=element_text(size=rel(0.7)))
+scatterplot_abstention <- make_density_plot(northatlantic_ft, ft_abstention, "abstention", "#777777", "#535353")
 
-scatterplot_absent <- ggplot(northatlantic_ft,
-                             aes(x = date, y = ft_absent)) +
-  
-  geom_jitter(width = 0, height = 0.2, size = 0.4, 
-              color = "#D1BBD7", shape = 21,
-              fill = "#D1BBD7", stroke = 0.015) +
-  
-  scale_x_date(breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
-               date_labels = "%Y", expand = expansion(mult = c(0.01, .05))) +
-  scale_y_continuous(limits = c(0, 179),
-                     labels = c(0, 50, 100, 150, 179),
-                     breaks = c(0, 50, 100, 150, 179)) +
-  
-  ggtitle("absent") +
-  
-  theme_nordatlantisk_basis() +
-  theme(axis.title.y = element_blank(),
-        axis.line.y.left = element_blank(),
-        legend.position = "none",
-        panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
-        plot.title = element_text(size = 8),
-        axis.text.x=element_text(size=rel(0.7)))
+scatterplot_absent <- make_density_plot(northatlantic_ft, ft_absent, "absent", "#D1BBD7", "#928296")
 
 patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstention + scatterplot_absent + plot_layout(ncol = 4, axes = "collect")
 
@@ -986,3 +934,18 @@ kable(
 Currently featuring {{wordcount}} words without references. Including references, there are {{wordcountref}} words in this document.
 
 \twocolumn
+
+<!-- ursprüngliche notizen aus dem Notizbuch:
+
+H1 MPs stimmen eher ab, wenn Mehrheitsverhältnisse knapp sind (nachträglich¿)
+H2 MPs stimmen eher ab, wenn ihre Partei in FO/GL nicht Teil des Kabinetts ist
+H3 Ob MPs abstimmen, hängt nicht davon ab, ob ihre Partei demselben Block angehört wie die aktuelle Regierung in DK
+
+Themen-bezogene Hypothesen: Schwierig, das sinnvoll zu modellieren in angemessenem Aufwand
+
+
+Attendance != active participation? Difference in vote type 3 and 4
+
+
+H4 nordatlantiske mandated can be understood as a „single block“/exhibit a cohesive voting pattern (controlling for bloc membership?) see Hix 2006 index, Hug 2013 p. 147
+-->
