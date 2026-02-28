@@ -361,7 +361,7 @@ Since 1953, two MPs are elected in both Greenland and the Faroe Islands to join 
 
 In the time frame covered by Folketinget's Open Data Platform, there have been `r nrow(mp_names)` individual politicians from Greenland or the Faroe Islands who served as MPs (@tbl-MPs). `r sum(mp_names$origin == "GL")` of them are members of Greenlandic parties, and `r sum(mp_names$origin == "FO")` are representing Faroese parties. For MPs representing Greenland resp. the Faroe Islands in election periods earlier than `r format(min(northatlantic_ft$date), "%B %Y")`, see the list assembled by @harderSupplerendeMaterialeFaeroske2022.
 
-`r sum(mp_names$substitute == TRUE)` of the politicians that are part of this dataset joined Folketinget in the role of a substitute member[^subst], filling in for one of the `r sum(mp_names$substitute == FALSE)` originally elected MPs while they were on leave [cf. @harderFaeroskeOgGronlandske2022, 12-13]. @fig-mandates shows membership periods and substitute members on a timeline for the duration that is covered by this dataset. Earlier terms served by Edmund Joensen and Lisbeth Petersen are cut off from the timeline since there are no voting records available online earlier than `r format(min(northatlantic_ft$date), "%B %d, %Y")`. 
+`r sum(mp_names$substitute == TRUE)` of the politicians that are part of this dataset joined Folketinget in the role of a substitute member[^subst], filling in for one of the `r sum(mp_names$substitute == FALSE)` originally elected MPs while they were on leave [cf. @harderFaeroskeOgGronlandske2022, 12-13]. @fig-mandates shows membership periods and substitute members on a timeline for the duration that is covered by this dataset. Earlier terms served by Edmund Joensen and Lisbeth Petersen are cut off from the timeline since there are no voting records available online earlier than `r format(min(northatlantic_ft$date), "%B %d, %Y")`.<!-- FIXME: Hoydal, Jacobsen also earlier? -->
 
 [^subst]: Doris Jakobsen (SIU), Lisbeth Petersen (B), Magni Arge (E) and Sjúrður Skaale (C) all first became MPs as substitute members, but later joined as regular MPs after a general election.
 
@@ -557,12 +557,19 @@ ggplot(party_periods, aes(x = start, xend = end, y = party, yend = party, color 
 
 ### Voting Records
 
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. Their presence in Folketinget can prove important for domestic Danish politics because not all of the four MPs join one of the two party blocs and can thus provide decisive votes for passing legislation and even for securing the national government's stability [@harderFaeroskeOgGronlandske2022, 19]: Several times, both Danish party blocs found themselves with election results where they did not have what is called a "domestic majority" [_indenrigspolitisk flertal_, @buggeRegeringensIndenrigspolitiskeFlertal2023] but instead relied on the North Atlantic MPs to form a majority of 90 seats -- using the Danish expression: to be able to count to 90. Recently, this was the case in 2016 and 2022[^1] [@sorensenEfterBrokBla2022]: In both instances, opposition parties cried foul and called for re-evaluation of the North Atlantic MPs' roles, who have questioned these arrangements themselves as well [e.g. @skaaleFaeroskMFerNordatlantiske2022; @skaale20sporgsmalUS182021; @joensenLagtingsformandenVilAfskaffe2019], even though they have profited from them -- e.g. by being awarded chairmanship of parliamentary commissions [@harderFaeroskeOgGronlandske2022, 13]. <!-- 2023 situation mit moderaterne hinzufügen! -->
+The observations available in the dataset contain voting decisions by the four MPs representing Greenland resp. the Faroe Islands at the time of each roll call vote. MPs can either vote for, against or neither for nor against a proposal. Additionally, absences are recorded. The final dataset used in this analysis comprises 22 variables that are explained in detail in the [codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html).
 
-- data sources
-- creation process
-- data model
-- description
+The dataset contains three main categories of information for each observation: There is information on each recorded vote by an MP including the actual type of vote cast as well as metadata on the origin (`GL`/`FO`) and the party affiliation of the politician in question. Then there is metadata on the roll call vote such as the overall voting result and the topic of each proposal including the responsible ministry. And finally, the dataset also contains variables that provide information on the cabinets in Denmark and Greenland resp. the Faroe Islands at the time of the observation, e.g. whether the MP's party is part of the cabinet or not.
+
+#### descriptive section
+
+- votes per year
+- always four votes per roll call? no -> identify missing votes
+- how many proposals pass?
+- distribution of ft_process_step? (or later during empirical strategy)
+- most frequent ministry values
+- distribution of for/against/abstention/absence
+- how many legislative periods?
 
 ```{r}
 #| echo: false
