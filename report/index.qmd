@@ -86,6 +86,7 @@ library(scales)
 library(showtext)
 library(xfun)
 library(patchwork)
+library(summarytools)
 
 ## Install Font -----
 
@@ -570,6 +571,7 @@ The dataset contains three main categories of information for each observation: 
 - most frequent ministry values
 - distribution of for/against/abstention/absence
 - how many legislative periods?
+- @tbl-descr-dataset
 
 ```{r}
 #| echo: false
@@ -927,6 +929,20 @@ kable(
   col.names = printable_names,
   row.names = FALSE,
   escape = FALSE)
+```
+
+## Descriptive Statistics {.appendix .unnumbered .unlisted}
+
+```{r}
+#| echo: false
+#| output: asis
+#| label: tbl-descr-dataset
+#| tbl-cap: Descriptive statistics for the numerical variables in `northatlantic_ft`.
+
+northatlantic_ft |>
+  select(ft_for, ft_against, ft_abstention, ft_absent) |>
+  descr(order = "preserve") |>
+  kable(digits = 1)
 ```
 
 ## Word Count {.appendix .unnumbered .unlisted}
