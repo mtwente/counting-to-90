@@ -36,6 +36,7 @@ format:
       - bottom=18mm
     include-in-header:
       text: |
+        \usepackage{float}
         \usepackage{fancyhdr}
         \pagestyle{fancy}
         \fancyhf{} % clear all header and footer fields
@@ -86,7 +87,8 @@ library(scales)
 library(showtext)
 library(xfun)
 library(patchwork)
-library(summarytools)
+suppressMessages(library(stargazer))
+library(kableExtra)
 
 ## Install Font -----
 
@@ -603,7 +605,6 @@ On average, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call 
 - always four votes per roll call? no -> identify missing votes
 - how many legislative periods?
 - most frequent ministry values
-- @tbl-descr-dataset
 
 ```{r}
 #| echo: false
@@ -902,7 +903,7 @@ MPs <- mp_names %>%
 
 printable_names <- c("Origin", "Surname(s)", "First Name(s)", "MP ID", "Party", "Substitute")
 
-kable(MPs, caption = "List of MPs from Greenland and the Faroe Islands in Folketinget (October 2004 -- January 2026)", col.names = printable_names)
+kable(MPs, caption = "List of MPs from Greenland and the Faroe Islands in Folketinget (October 2004 -- January 2026).", col.names = printable_names)
 ```
 
 ## List of Parties {.appendix .unnumbered .unlisted}
@@ -911,15 +912,11 @@ Information on each party's positions are taken from the 2024 ParlGov release [@
 
 ```{r}
 #| echo: false
-#| message: false
-#| label: tbl-parties-gl
-#| tbl-colwidths: [30, 30, 10, 10, 10, 10]
+#| results: asis
 
 parties_gl <- political_parties |>
   filter(origin == "GL") |>
-  mutate(
-    full_name_abbr = paste0(full_name, " (", party, ")")
-  ) |>
+  mutate(full_name_abbr = paste0(full_name, " (", party, "/", origin, ")")) |>
   select(
     full_name_abbr, party_family,
     left_right, state_market,
@@ -928,55 +925,53 @@ parties_gl <- political_parties |>
 
 parties_fo <- political_parties |>
   filter(origin == "FO") |>
-  mutate(
-    full_name_abbr = paste0(full_name, " (", party, ")")
-  ) |>
+  mutate(full_name_abbr = paste0(full_name, " (", party, "/", origin, ")")) |>
   select(
     full_name_abbr, party_family,
     left_right, state_market,
     liberty_authority, anti_pro_eu
   )
 
-printable_names <- c(
-  "Party", "Party Family",
-  "Left–Right", "State–Market", "Liberty–Authority", "Anti–Pro-EU"
-)
+# dirty fix for visualisation purposes
+parties_gl  <- parties_gl  |> mutate(across(everything(), as.character))
+parties_fo  <- parties_fo  |> mutate(across(everything(), as.character))
 
-kable(
+combined <- bind_rows(
   parties_gl,
-  caption = "List of political parties from Greenland with an MP in Folketinget since 2004",
-  col.names = printable_names,
-  row.names = FALSE,
-  escape = FALSE
+  parties_fo
 )
-```
 
-```{r}
-#| echo: false
-#| message: false
-#| label: tbl-parties-fo
-#| tbl-colwidths: [30, 30, 10, 10, 10, 10]
+colnames(combined) <- c(
+  "Party", "Party Family",
+  "Left--Right", "State--Market",
+  "Liberty--Authority", "Anti--Pro-EU"
+)
 
-kable(
-  parties_fo,
-  caption = "List of political parties from the Faroe Islands with an MP in Folketinget since 2004",
-  col.names = printable_names,
-  row.names = FALSE,
-  escape = FALSE)
+stargazer(
+  combined,
+  summary = FALSE,
+  rownames = FALSE,
+  header = FALSE,
+  column.sep.width = "2pt",
+  type = "latex",
+  float = FALSE,
+  title = "Political parties from Greenland and the Faroe Islands with an MP in the Folketing since 2004.",
+  label = "tbl-parties"
+)
 ```
 
 ## Descriptive Statistics {.appendix .unnumbered .unlisted}
 
+Refer to the [online documentation](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) with a comprehensive codebook to retrace the workflow steps that are needed to arrive at this data structure.
+
 ```{r}
 #| echo: false
 #| output: asis
-#| label: tbl-descr-dataset
-#| tbl-cap: Descriptive statistics for the numerical variables in `northatlantic_ft`.
 
-northatlantic_ft |>
-  select(ft_for, ft_against, ft_abstention, ft_absent) |>
-  descr(order = "preserve") |>
-  kable(digits = 1)
+northatlantic_numeric <- northatlantic_ft |>
+  select(ft_for, ft_against, ft_abstention, ft_absent)
+
+stargazer(as.data.frame(northatlantic_numeric), header = FALSE, digits = 2, type = "latex", digit.separator = "'", summary.stat = c("n", "min", "max", "mean", "median", "p25", "p75", "sd"), label = "tbl-desc-data", title = "Descriptive statistics for the numerical variables in the dataset.", float = FALSE)
 ```
 
 ## Word Count {.appendix .unnumbered .unlisted}
