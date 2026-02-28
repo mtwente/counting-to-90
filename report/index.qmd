@@ -346,7 +346,7 @@ dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen ro
 
 # Dataset
 
-I am using the *nordatlantisk-ft* dataset [@twenteNordatlantiskft2026] I compiled for this project, containing voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but only metadata [@berntzenParliamentaryOpenData2019, 9], I had to create the pipeline myself. The dataset is the result of a workflow in R, taking a list of MPs as input and then scraping voting records from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
+I am using the *nordatlantisk-ft* dataset [@twenteNordatlantiskft2026] which contains voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but metadata only [@berntzenParliamentaryOpenData2019, 9], I had to create both workflow and dataset myself. The dataset is the result of a pipeline in R, taking a list of MPs as input and then scraping voting records and metadata from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
 
 For my analysis, I am going to use the data available as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %d, %Y")`. *nordatlantisk-ft* comprises `r length(unique(northatlantic_ft$vote_id))` records of votes cast by Northatlantic MPs between `r format(min(northatlantic_ft$date), "%B %d, %Y")` and `r format(max(northatlantic_ft$date), "%B %d, %Y")`[^valg26]. The dataset also contains metadata on each record -- e.g. date and topic of each vote or the overall roll call result, covering votes on `r length(unique(northatlantic_ft$roll_call_id))` proposals in Folketinget.
 
@@ -489,19 +489,9 @@ Since 2004, MPs from the Faroe Islands were members of `r n2w(sum(political_part
 
 [^3]: Both parties have been formed quite recently -- Naleraq in 2014 and Nunatta Qitornai in 2017. See @ahlnessNunattaQitornaiParty2020 for general information on Nunatta Qitornai and their policies. Nunatta Qitornai has de facto been dissolved after the 2021 Inatsisartut election [@vestergaardhviidVittusQujaukitsoqMelder2025].
 
-The Northatlantic MPs usually are members of the two biggest political parties of Greenland resp. the Faroe Islands [@elklitElectoralSystemFair2020]. These parties then act as de-facto ethnic regional parties in Folketinget [@ackrenExploringRoleRegional2019]. Before political parties were established in Greenland in the 1970s [@billeGronlandskeFolketingsmedlemmer2025; @michelsenGronlandPartisystemUdvikling1979], MPs were elected independently. Since then, one of the two Greenlandic seats has been held by social democratic *Siumut* (SIU) for most of the time. Only recently has Siumut not been represented in Folketinget, due to the MPs in question switching party affiliations (see @fig-party-timeline). The second Greenlandic MP was affiliated with centre-right *Atassut* (A) from 1977 to 2001. Since then, the MPs on the 'second' Greenlandic seat have been members of socialist *Inuit Ataqatigiit* (IA).
+The Northatlantic MPs usually are members of the two biggest political parties of Greenland resp. the Faroe Islands [@elklitElectoralSystemFair2020]. These parties then act as de-facto ethnic regional parties in Folketinget [@ackrenExploringRoleRegional2019]. Before political parties were established in Greenland in the 1970s [@billeGronlandskeFolketingsmedlemmer2025; @michelsenGronlandPartisystemUdvikling1979], MPs were elected independently. Since then, one of the two Greenlandic seats has been held by social democratic *Siumut* (SIU) for most of the time. Only recently has Siumut not been represented in Folketinget, due to the MPs in question switching party affiliations (see @fig-party-timeline). The 'second' Greenlandic seat was affiliated with centre-right *Atassut* (A) from 1977 to 2001. Since then, these MPs have been members of socialist *Inuit Ataqatigiit* (IA). This dominance by two political parties is in contrast to the Faroese situation, where the four biggest parties take turns more often [@billeFaeroskeFolketingsmedlemmer2025].
 
-This dominance by two political parties is in contrast to the Faroese situation, where the four biggest parties take turns more often [@billeFaeroskeFolketingsmedlemmer2025]. In the time frame covered by this dataset, the Faroe Islands have been represented by one left-wing and one right-wing political party in Folketinget for most of the time, as opposed to the Greenlandic MPs having belonged to two left-wing parties.
-
-
-
-todo: partigruppe 2001--2011: "Fra 2001 til 2011 dannede Siumuts og IA’s folketingsmedlemmer sammen med den færøske republikaner en nordatlantisk partigruppe." [@gadGronlandskeFolketingsmedlemmer2022], see chart by @harderSupplerendeMaterialeFaeroske2022 [S6]
-
-"I 2001 sker der imidlertid det, at tre af de nordatlantiske mandater – de to grønlandske mandater samt medlemmer fra selvstændighedspartiet TF (T) – går sammen og danner Den Nordatlantiske gruppe, der med intern koor- dinering, arbejdsdeling og fælles sekretariat minder om de danske partigrupper. Denne gruppe består indtil valget i 2011, om end Lars Emil Johansen (SIU) melder sig ud af gruppen allerede i 2009" [@harderFaeroskeOgGronlandske2022]
-
-"Fra 2007 sker der i øvrigt den ændring, at nordatlantiske medlemmer ikke længere meddeler deres medlemskab af partigrupper til Folketingets administration og derfor ikke er officielt registreret som sådan i Folketingets dokumenter efter 2007. Imidlertid er flere af de nordatlantiske medlemmer – også efter 2007 – i praksis medlem af danske partigrupper" [@harderFaeroskeOgGronlandske2022, 17]
-
-All represented political parties are listed in the [Appendix](#list-of-parties) with additional information (where available) on their positions from the ParlGov dataset [@doringParlGov2024Release2024]. @fig-party-timeline shows the allocation of Folketinget seats to political parties from Greenland and the Faroe Islands on a timeline.
+All represented political parties are listed in the [Appendix](#list-of-parties) with additional information (where available) on their positions from the ParlGov dataset [@doringParlGov2024Release2024]. @fig-party-timeline shows the allocation of Folketinget seats to political parties from Greenland and the Faroe Islands on a timeline. At no point in time were both MPs of Greenland resp. the Faroe Islands members of the same party. In the time frame covered by this dataset, the Faroe Islands have been represented by one left-wing and one right-wing political party in Folketinget for most of the time, as opposed to the Greenlandic MPs having belonged to two left-wing parties. The Northatlantic MPs have sometimes been members of Danish parliamentary groups. Over the years, this has varied between no membership, informal association to full memberships [@harderFaeroskeOgGronlandske2022, 17-18]. From 2001 until 2011, three Northatlantic MPs formed a separate parliamentary group ['Den Nordatlantiske Gruppe i Folketinget', @gadGronlandskeFolketingsmedlemmer2022; @harderFaeroskeOgGronlandske2022, S6].
 
 ```{r}
 #| echo: false
@@ -564,13 +554,55 @@ The dataset contains three main categories of information for each observation: 
 
 #### descriptive section
 
-- votes per year
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-n-rollcall
+#| fig-cap: Number of roll call votes per year.
+
+##| fig-height: 1.2
+
+rollcalls_per_year <- northatlantic_ft %>%
+  mutate(year = lubridate::year(date)) %>%
+  filter(year != 2026) %>% # filtering out 2026 because it will distort
+  group_by(year) %>%
+  summarise(
+    n_rollcalls = n_distinct(roll_call_id),
+    .groups = "drop"
+  )
+
+# compute global maximum for y-axis
+y_max <- max(rollcalls_per_year$n_rollcalls, na.rm = TRUE) + 1 
+
+
+ggplot(
+  rollcalls_per_year,
+  aes(x = factor(year), y = n_rollcalls)
+) +
+  
+  geom_col(width = 0.7, fill = "#6195CF") +
+  
+  scale_y_continuous(
+    limits = c(0, y_max),
+    breaks = c(seq(0, 600, 200), 700),
+    labels = c(seq(0, 600, 200), 700),
+    expand = expansion(mult = c(0, 0.01))
+  ) +
+  
+  theme_nordatlantisk_basis() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.ticks.x = element_blank(),
+    axis.line.y.left = element_blank(),
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05)
+  )
+```
+
+On average, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result.
+
 - always four votes per roll call? no -> identify missing votes
-- how many proposals pass?
-- distribution of ft_process_step? (or later during empirical strategy)
-- most frequent ministry values
-- distribution of for/against/abstention/absence
 - how many legislative periods?
+- most frequent ministry values
 - @tbl-descr-dataset
 
 ```{r}
@@ -815,9 +847,11 @@ patchworked_plot
 - unit of analysis
 - method (logit model etc.) -->
 
-- use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
-
 "Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
+
+- distribution of ft_process_step? (or later during empirical strategy)
+  - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
+- most frequent ministry values
 
 # Results
 
