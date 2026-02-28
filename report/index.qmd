@@ -85,6 +85,7 @@ library(lubridate)
 library(scales)
 library(showtext)
 library(xfun)
+library(patchwork)
 
 ## Install Font -----
 
@@ -630,6 +631,111 @@ ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
 
 "Overordnet set kan det fastslås, at de grønlandske medlemmer nu som før del-
 tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [@harderFaeroskeOgGronlandske2022, 19]
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-ft-vote-distribution
+#| fig-env: "figure*"
+#| fig-cap: Distribution of votes cast by all MPs in Folketinget for each roll call
+
+scatterplot_for <- ggplot(northatlantic_ft,
+                          aes(x = date, y = ft_for)) +
+  
+  geom_jitter(width = 0, height = 0.2, size = 0.4, 
+              color = "#6195CF", shape = 21,
+              fill = "#6195CF", stroke = 0.015) +
+  scale_x_date(breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
+               date_labels = "%Y", expand = expansion(mult = c(0.01, .05))) +
+  scale_y_continuous(limits = c(0, 179),
+                     labels = c(0, 50, 100, 150, 179),
+                     breaks = c(0, 50, 100, 150, 179)) +
+  
+  ggtitle("for") +
+  
+  theme_nordatlantisk_basis() +
+  theme(axis.title.y = element_blank(),
+        axis.line.y.left = element_blank(),
+        legend.position = "none",
+        panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+        plot.title = element_text(size = 8),
+        axis.text.x=element_text(size=rel(0.7)))
+
+scatterplot_against <- ggplot(northatlantic_ft,
+                              aes(x = date, y = ft_against)) +
+  
+  geom_jitter(width = 0, height = 0.2, size = 0.4, 
+              color = "#F7CB45", shape = 21,
+              fill = "#F7CB45", stroke = 0.015) +
+  
+  scale_x_date(breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
+               date_labels = "%Y", expand = expansion(mult = c(0.01, .05))) +
+  scale_y_continuous(limits = c(0, 179),
+                     labels = c(0, 50, 100, 150, 179),
+                     breaks = c(0, 50, 100, 150, 179)) +
+  
+  ggtitle("against") +
+  
+  theme_nordatlantisk_basis() +
+  theme(axis.title.y = element_blank(),
+        axis.line.y.left = element_blank(),
+        legend.position = "none",
+        panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+        plot.title = element_text(size = 8),
+        axis.text.x=element_text(size=rel(0.7)))
+
+
+scatterplot_abstention <- ggplot(northatlantic_ft,
+                                 aes(x = date, y = ft_abstention)) +
+  
+  geom_jitter(width = 0, height = 0.2, size = 0.4, 
+              color = "#777777", shape = 21,
+              fill = "#777777", stroke = 0.015) +
+  
+  scale_x_date(breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
+               date_labels = "%Y", expand = expansion(mult = c(0.01, .05))) +
+  scale_y_continuous(limits = c(0, 179),
+                     labels = c(0, 50, 100, 150, 179),
+                     breaks = c(0, 50, 100, 150, 179)) +
+  
+  ggtitle("abstention") +
+  
+  theme_nordatlantisk_basis() +
+  theme(axis.title.y = element_blank(),
+        axis.line.y.left = element_blank(),
+        legend.position = "none",
+        panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+        plot.title = element_text(size = 8),
+        axis.text.x=element_text(size=rel(0.7)))
+
+scatterplot_absent <- ggplot(northatlantic_ft,
+                             aes(x = date, y = ft_absent)) +
+  
+  geom_jitter(width = 0, height = 0.2, size = 0.4, 
+              color = "#D1BBD7", shape = 21,
+              fill = "#D1BBD7", stroke = 0.015) +
+  
+  scale_x_date(breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
+               date_labels = "%Y", expand = expansion(mult = c(0.01, .05))) +
+  scale_y_continuous(limits = c(0, 179),
+                     labels = c(0, 50, 100, 150, 179),
+                     breaks = c(0, 50, 100, 150, 179)) +
+  
+  ggtitle("absent") +
+  
+  theme_nordatlantisk_basis() +
+  theme(axis.title.y = element_blank(),
+        axis.line.y.left = element_blank(),
+        legend.position = "none",
+        panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+        plot.title = element_text(size = 8),
+        axis.text.x=element_text(size=rel(0.7)))
+
+patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstention + scatterplot_absent + plot_layout(ncol = 4, axes = "collect")
+
+patchworked_plot
+```
 
 ### Dataset Overview
 
