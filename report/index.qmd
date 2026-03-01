@@ -108,6 +108,9 @@ political_parties <- readRDS(here("data", "processed", "political_parties.rds"))
 ### Voting Records Database -----
 northatlantic_ft <- readRDS(here("data", "processed", "northatlantic_ft.rds"))
 
+### Roll Call Database -----
+roll_call_results_ft <- readRDS(here("data", "processed", "roll_call_results_ft.rds"))
+
 ### Timeline of Mandates -----
 MP_dates <- readRDS(here("data", "processed", "MP_dates.rds"))
 elections <- readRDS(here("data", "processed", "election_dates.rds"))
@@ -554,8 +557,6 @@ The observations available in the dataset contain voting decisions by the four M
 
 The dataset contains three main categories of information for each observation: There is information on each recorded vote by an MP including the actual type of vote cast as well as metadata on the origin (`GL`/`FO`) and the party affiliation of the politician in question. Then there is metadata on the roll call vote such as the overall voting result and the topic of each proposal including the responsible ministry. And finally, the dataset also contains variables that provide information on the cabinets in Denmark and Greenland resp. the Faroe Islands at the time of the observation, e.g. whether the MP's party is part of the cabinet or not.
 
-#### descriptive section
-
 ```{r}
 #| echo: false
 #| message: false
@@ -600,19 +601,97 @@ ggplot(
   )
 ```
 
-On average, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result.
+```{r bad-roll-calls}
+#| echo: false
+#| message: false
 
-- always four votes per roll call? no -> identify missing votes
+# Count how many times each ballot_id appears
+counts <- table(northatlantic_ft$roll_call_id)
+
+# Find roll_call_id values that do NOT appear exactly 4 times
+counts_df <- as.data.frame(counts)
+bad_roll_call_id <- as.data.frame(names(counts[counts != 4]))
+
+# calculate share of total observations
+error_share <- (nrow(bad_roll_call_id) + sum(!roll_call_results_ft$roll_call_id %in% northatlantic_ft$roll_call_id))/nrow(northatlantic_ft)
+```
+
+On average, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result. @fig-ft-vote-distribution shows the overall distribution of vote types per roll call vote. At first glance, it stands out how the number of absent MPs hovers around 70 for all years covered by the timeline (cf. [Descriptive Statistics](#descriptive-statistics) in the Appendix). This is due to Folketinget being a 'working parliament', where MPs are regularly cleared from taking part in the plenary sessions which are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214]. 
+
+Refer to @fig-absence-share at this point.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-ft-vote-distribution
+#| fig-env: "figure*"
+#| fig-cap: Density plot visualising the number of votes cast by all MPs for each roll call vote by type.
+
+make_density_plot <- function(data, y_var, title, low_col, high_col) {
+  
+  ggplot(data, aes(x = date, y = {{ y_var }})) +
+    
+    geom_bin2d(aes(fill = after_stat(count)), bins = 80) +
+    scale_fill_gradient(low = low_col, high = high_col) +
+    
+    scale_x_date(
+      breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
+      date_labels = "%Y",
+      expand = expansion(mult = c(0.01, .05))
+    ) +
+    
+    scale_y_continuous(
+      limits = c(0, 179),
+      labels = c(0, 50, 100, 150, 179),
+      breaks = c(0, 50, 100, 150, 179)
+    ) +
+    
+    ggtitle(title) +
+    
+    theme_nordatlantisk_basis() +
+    theme(
+      axis.title.y = element_blank(),
+      axis.line.y.left = element_blank(),
+      legend.position = "none",
+      panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+      plot.title = element_text(size = 8),
+      axis.text.x = element_text(size = rel(0.7))
+    )
+}
+
+scatterplot_for <- make_density_plot(northatlantic_ft, ft_for, "for", "#6195CF", "#436890")
+
+scatterplot_against <- make_density_plot(northatlantic_ft, ft_against, "against", "#F7CB45", "#ac8e30")
+
+scatterplot_abstention <- make_density_plot(northatlantic_ft, ft_abstention, "abstention", "#777777", "#535353")
+
+scatterplot_absent <- make_density_plot(northatlantic_ft, ft_absent, "absent", "#D1BBD7", "#928296")
+
+patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstention + scatterplot_absent + plot_layout(ncol = 4, axes = "collect")
+
+patchworked_plot
+```
+
+
+
 - how many legislative periods?
 - most frequent ministry values
+
+There are a few observations where data on Folketinget's Open Data Platform is unavailable or incomplete: For `r sum(!roll_call_results_ft$roll_call_id %in% northatlantic_ft$roll_call_id)` roll call votes, there are no individual voting records available at all. And for `r n2w(nrow(bad_roll_call_id))` roll call votes, there are only three registered observations for Northatlantic MPs instead of four[^missing]. In total, these errors concern `r scales::percent(error_share, accuracy = 0.01)` of all data.
+
+[^missing]: This might due to a missing functionality on Folketinget's Open Data Platform, where it is not possible to look for (former) members based on their constituency. Maybe I missed a short-term temporary replacement MP. However, since I was not able to find any hint about MPs that are not yet part of the dataset in other sources, this maybe really just is a database error.
+
 
 ```{r}
 #| echo: false
 #| message: false
 #| fig-height: 1.2
-#| fig-env: "figure*"
 #| label: fig-absence-share
 #| fig-cap: Northatlantic MPs are listed as absent in 98% of the observations in this dataset.
+
+
+# #| fig-env: "figure*" removed temporarily
 
 # Compute proportions of vote types
 vote_props <- northatlantic_ft %>%
@@ -782,58 +861,6 @@ plot_votes_without_absences
 "Overordnet set kan det fastslås, at de grønlandske medlemmer nu som før del-
 tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [@harderFaeroskeOgGronlandske2022, 19]
 
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ft-vote-distribution
-#| fig-env: "figure*"
-#| fig-cap: Density plot visualising the number of votes cast by all MPs for each roll call vote by type.
-
-make_density_plot <- function(data, y_var, title, low_col, high_col) {
-  
-  ggplot(data, aes(x = date, y = {{ y_var }})) +
-    
-    geom_bin2d(aes(fill = after_stat(count)), bins = 80) +
-    scale_fill_gradient(low = low_col, high = high_col) +
-    
-    scale_x_date(
-      breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
-      date_labels = "%Y",
-      expand = expansion(mult = c(0.01, .05))
-    ) +
-    
-    scale_y_continuous(
-      limits = c(0, 179),
-      labels = c(0, 50, 100, 150, 179),
-      breaks = c(0, 50, 100, 150, 179)
-    ) +
-    
-    ggtitle(title) +
-    
-    theme_nordatlantisk_basis() +
-    theme(
-      axis.title.y = element_blank(),
-      axis.line.y.left = element_blank(),
-      legend.position = "none",
-      panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
-      plot.title = element_text(size = 8),
-      axis.text.x = element_text(size = rel(0.7))
-    )
-}
-
-scatterplot_for <- make_density_plot(northatlantic_ft, ft_for, "for", "#6195CF", "#436890")
-
-scatterplot_against <- make_density_plot(northatlantic_ft, ft_against, "against", "#F7CB45", "#ac8e30")
-
-scatterplot_abstention <- make_density_plot(northatlantic_ft, ft_abstention, "abstention", "#777777", "#535353")
-
-scatterplot_absent <- make_density_plot(northatlantic_ft, ft_absent, "absent", "#D1BBD7", "#928296")
-
-patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstention + scatterplot_absent + plot_layout(ncol = 4, axes = "collect")
-
-patchworked_plot
-```
 
 ### Dataset Overview
 
@@ -962,7 +989,7 @@ stargazer(
 
 ## Descriptive Statistics {.appendix .unnumbered .unlisted}
 
-Refer to the [online documentation](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) with a comprehensive codebook to retrace the workflow steps that are needed to arrive at this data structure.
+For `r n2w(sum(is.na(northatlantic_ft$ft_for)))` roll call votes, no individual voting results are available on Folketinget's Open Data Platform, explaining the mismatch between this table's `N` value and the total number of observations in the dataset (`r nrow(northatlantic_ft)`). Refer to the [online documentation](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) with a comprehensive codebook to retrace the workflow steps that are needed to calculate this data structure.
 
 ```{r}
 #| echo: false
