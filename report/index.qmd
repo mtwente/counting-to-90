@@ -917,6 +917,8 @@ Just as political relations between Denmark, Greenland and the Faroe Islands are
 
 ## List of MPs {.appendix .unnumbered .unlisted}
 
+Since Folketinget's Open Data Platform does not provide a function to search for (former) MPs per constituency, this list was compiled based on previous work [e.g. @harderSupplerendeMaterialeFaeroske2022; @gadGronlandskeFolketingsmedlemmer2022; @billeFaeroskeFolketingsmedlemmer2025; @billeGronlandskeFolketingsmedlemmer2025] and newspaper reports, as well as by searching for strings like 'grønland\*' and 'færøsk\*' on the Open Data Platform. This is not a very efficient way of searching since it will also return all MPs who at one point were members of Folketinget's commissions on Greenland or the Faroe Islands, or, additionally, all MPs who mention one of these places in their (free text) biography (this concerns e.g. former workplaces etc.). If there should be any MP still missing from this list, it is however easy to add them to the dataset and to reproduce the workflow.
+
 ```{r}
 #| echo: false
 #| message: false
