@@ -349,7 +349,7 @@ dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen ro
 
 #### use of roll call votes as method
 
-# Dataset
+# Dataset Description
 
 I am using the *nordatlantisk-ft* dataset [@twenteNordatlantiskft2026] which contains voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but metadata only [@berntzenParliamentaryOpenData2019, 9], I had to create both workflow and dataset myself. The dataset is the result of a pipeline in R, taking a list of MPs as input and then scraping voting records and metadata from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
 
@@ -357,9 +357,7 @@ For my analysis, I am going to use the data available as of `r format(file.info(
 
 [^valg26]: The date for the next General Election to Folketinget was announced by PM Mette Frederiksen on February 26, 2026. It will take place on March 24, 2026. The data used for this analysis thus does not contain records on voting behavior during the election campaign.
 
-## Descriptive Overview
-
-### MPs
+## MPs {.unnumbered .unlisted}
 
 Since 1953, two MPs are elected in both Greenland and the Faroe Islands to join the 175 MPs from Denmark proper in Folketinget. Before the 1953 reform, Greenland did not have any parliamentary representation in Folketinget, as opposed to the Faroe Islands with one guaranteed seat since 1849 [@harderFaeroskeOgGronlandske2022, 8-9; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004]. According to @harderFaeroskeOgGronlandske2022 [7], it is usually experienced politicians that are elected to represent the Faroe Islands constituency, even though the job apparently has low priority compared to holding office 'at home' [@johannesenUniHolmJohannesen2016][^study].
 
@@ -488,7 +486,7 @@ geom_point(
   )
 ```
 
-### Political Parties
+## Political Parties {.unnumbered .unlisted}
 
 Since 2004, MPs from the Faroe Islands were members of `r n2w(sum(political_parties$origin == "FO"))` different political parties. Voters in Greenland elected politicians from `r n2w(sum(political_parties$origin == "GL") - 2)` different political parties. However, two of the Greenlandic representatives -- Aleqa Hammond and Aki-Matilda Høegh-Dam -- switched party affiliation during their time as member of Folketinget and joined two relatively young parties (Nunatta Qitornai and Naleraq[^3]).
 
@@ -551,7 +549,7 @@ ggplot(party_periods, aes(x = start, xend = end, y = party, yend = party, color 
   )
 ```
 
-### Voting Records
+## Voting Records {.unnumbered .unlisted}
 
 The observations available in the dataset contain voting decisions by the four MPs representing Greenland resp. the Faroe Islands at the time of each roll call vote. MPs can either vote for, against or neither for nor against a proposal. Additionally, absences are recorded. The final dataset used in this analysis comprises 22 variables that are explained in detail in the [codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html).
 
@@ -618,8 +616,6 @@ error_share <- (nrow(bad_roll_call_id) + sum(!roll_call_results_ft$roll_call_id 
 
 On average, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result. @fig-ft-vote-distribution shows the overall distribution of vote types per roll call vote. At first glance, it stands out how the number of absent MPs hovers around 70 for all years covered by the timeline (cf. [Descriptive Statistics](#descriptive-statistics) in the Appendix). This is due to Folketinget being a 'working parliament', where MPs are regularly cleared from taking part in the plenary sessions which are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214]. 
 
-Refer to @fig-absence-share at this point.
-
 ```{r}
 #| echo: false
 #| message: false
@@ -673,23 +669,14 @@ patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstenti
 patchworked_plot
 ```
 
+Filtering for those votes only that were cast by Northatlantic MPs results in `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share), translating to `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observation (out of `r nrow(northatlantic_ft)` cases).
 
-
-- how many legislative periods?
-- most frequent ministry values
-
-There are a few observations where data on Folketinget's Open Data Platform is unavailable or incomplete: For `r sum(!roll_call_results_ft$roll_call_id %in% northatlantic_ft$roll_call_id)` roll call votes, there are no individual voting records available at all. And for `r n2w(nrow(bad_roll_call_id))` roll call votes, there are only three registered observations for Northatlantic MPs instead of four[^missing]. In total, these errors concern `r scales::percent(error_share, accuracy = 0.01)` of all data.
-
-[^missing]: This might due to a missing functionality on Folketinget's Open Data Platform, where it is not possible to look for (former) members based on their constituency. Maybe I missed a short-term temporary replacement MP. However, since I was not able to find any hint about MPs that are not yet part of the dataset in other sources, this maybe really just is a database error.
-
-
-```{r}
+```{r, fig.pos = 'H'}
 #| echo: false
 #| message: false
 #| fig-height: 1.2
 #| label: fig-absence-share
 #| fig-cap: Northatlantic MPs are listed as absent in 98% of the observations in this dataset.
-
 
 # #| fig-env: "figure*" removed temporarily
 
