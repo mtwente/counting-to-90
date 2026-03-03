@@ -998,6 +998,13 @@ colnames(combined) <- c(
   "Liberty--Authority", "Anti--Pro-EU"
 )
 
+#knitr::kable(
+#    combined,
+#    align = "llcccc",,
+#    booktabs = TRUE,
+#    format = "latex"
+#  )
+
 stargazer(
   combined,
   summary = FALSE,
