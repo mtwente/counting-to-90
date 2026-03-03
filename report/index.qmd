@@ -878,6 +878,8 @@ tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [
 - unit of analysis
 - method (logit model etc.) -->
 
+see method used for Bundestag in @maiLoyalActivistsParty2024
+
 "Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
 
 - distribution of ft_process_step? (or later during empirical strategy)
