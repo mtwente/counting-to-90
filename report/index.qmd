@@ -614,7 +614,14 @@ bad_roll_call_id <- as.data.frame(names(counts[counts != 4]))
 error_share <- (nrow(bad_roll_call_id) + sum(!roll_call_results_ft$roll_call_id %in% northatlantic_ft$roll_call_id))/nrow(northatlantic_ft)
 ```
 
-On average, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result. @fig-ft-vote-distribution shows the overall distribution of vote types per roll call vote. At first glance, it stands out how the number of absent MPs hovers around 70 for all years covered by the timeline (cf. [Descriptive Statistics](#descriptive-statistics) in the Appendix). This is due to Folketinget being a 'working parliament', where MPs are regularly cleared from taking part in the plenary sessions which are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214]. 
+```{r voting-blocks}
+#| echo: false
+#| message: false
+#| warning: false
+# calculate share of roll call votes per block
+blocks <- as.data.frame(table(northatlantic_ft$gvt_bloc_dk))
+```
+
 During the timeframe covered by this dataset, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year on average, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result. The dataset spans across across six full cycles of Folketinget elections (and the last few months of the 2001--2005 election cycle). Within this timeframe, there have been seven elections to Inatsisartut in Greenland and five elections to the Faroese Løgting. Of the roll call votes covered in the dataset, `r scales::percent(blocks$Freq[blocks$Var1 == "left"]/sum(blocks$Freq), accuracy = 0.1)` took place during a cabinet formed by the red/left block was in office in Denmark (during blue/right block coalitions: `r scales::percent(blocks$Freq[blocks$Var1 == "right"]/sum(blocks$Freq), accuracy = 0.1)`, and for the current cross-block coalition: `r scales::percent(blocks$Freq[blocks$Var1 == "across"]/sum(blocks$Freq), accuracy = 0.1)`). The ministry responsible for each proposal being voted on is also a variable in the dataset. The most records refer to the Ministry of Finance, the Ministry of Justice, and the Ministry of Employment (@tbl-top-ministries). This has to be read with a grain of salt, since there are a lot of `NA` values and designations change frequently so that e.g. 'Klima- og Energiministeriet' and 'Klima-, Energie- og Bygningsministeriet' etc. are counted as different entities[^full].
 
 [^full]: Refer to the codebook for a [full list](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html#northatlantic_ftministry) of all `r n_distinct(northatlantic_ft$ministry, na.rm = TRUE)` designations that appear in the dataset.
@@ -637,6 +644,8 @@ northatlantic_ft %>%
     format = "latex"
   )
 ```
+
+@fig-ft-vote-distribution shows the overall distribution of vote types per roll call vote. At first glance, it stands out how the number of absent MPs hovers around 70 for all years covered by the timeline (cf. [Descriptive Statistics](#descriptive-statistics) in the Appendix). This is due to Folketinget being a 'working parliament', where MPs are regularly cleared from taking part in the plenary sessions which are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214]. This is especially true for the Northatlantic MPs: Filtering for cases where they acually cast a vote results in `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observations (out of `r nrow(northatlantic_ft)` cases), translating to `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share).
 
 ```{r}
 #| echo: false
@@ -691,8 +700,6 @@ patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstenti
 patchworked_plot
 ```
 
-Filtering for those votes only that were cast by Northatlantic MPs results in `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share), translating to `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observation (out of `r nrow(northatlantic_ft)` cases).
-
 ```{r, fig.pos = 'H'}
 #| echo: false
 #| message: false
@@ -741,18 +748,6 @@ ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
     legend.position = "top"
   )
 ```
-
-```{r voting-blocks}
-#| echo: false
-#| message: false
-#| warning: false
-# calculate share of roll call votes per block
-blocks <- as.data.frame(table(northatlantic_ft$gvt_bloc_dk))
-```
-
-The duration of the dataset spans across across six full cycles of Folketinget elections (and the last few months of the 2001--2005 election cycle). Within this timeframe, there have been seven elections to Inatsisartut in Greenland and five elections to the Faroese Løgting. Of the roll call votes covered in the dataset, `r scales::percent(blocks$Freq[blocks$Var1 == "left"]/sum(blocks$Freq), accuracy = 0.1)` took place during a cabinet formed by the red/left block was in office in Denmark (during blue/right block coalitions: `r scales::percent(blocks$Freq[blocks$Var1 == "right"]/sum(blocks$Freq), accuracy = 0.1)`, and for the current cross-block coalition: `r scales::percent(blocks$Freq[blocks$Var1 == "across"]/sum(blocks$Freq), accuracy = 0.1)`).
-
-- most frequent ministry values
 
 There are a few observations where data on Folketinget's Open Data Platform is unavailable or incomplete: For `r sum(!roll_call_results_ft$roll_call_id %in% northatlantic_ft$roll_call_id)` roll call votes, there are no individual voting records available at all. And for `r n2w(nrow(bad_roll_call_id))` roll call votes, there are only three registered observations for Northatlantic MPs instead of four[^missing]. In total, these errors correspond to `r scales::percent(error_share, accuracy = 0.01)` of all data.
 
