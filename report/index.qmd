@@ -615,6 +615,28 @@ error_share <- (nrow(bad_roll_call_id) + sum(!roll_call_results_ft$roll_call_id 
 ```
 
 On average, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result. @fig-ft-vote-distribution shows the overall distribution of vote types per roll call vote. At first glance, it stands out how the number of absent MPs hovers around 70 for all years covered by the timeline (cf. [Descriptive Statistics](#descriptive-statistics) in the Appendix). This is due to Folketinget being a 'working parliament', where MPs are regularly cleared from taking part in the plenary sessions which are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214]. 
+During the timeframe covered by this dataset, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year on average, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result. The dataset spans across across six full cycles of Folketinget elections (and the last few months of the 2001--2005 election cycle). Within this timeframe, there have been seven elections to Inatsisartut in Greenland and five elections to the Faroese Løgting. Of the roll call votes covered in the dataset, `r scales::percent(blocks$Freq[blocks$Var1 == "left"]/sum(blocks$Freq), accuracy = 0.1)` took place during a cabinet formed by the red/left block was in office in Denmark (during blue/right block coalitions: `r scales::percent(blocks$Freq[blocks$Var1 == "right"]/sum(blocks$Freq), accuracy = 0.1)`, and for the current cross-block coalition: `r scales::percent(blocks$Freq[blocks$Var1 == "across"]/sum(blocks$Freq), accuracy = 0.1)`). The ministry responsible for each proposal being voted on is also a variable in the dataset. The most records refer to the Ministry of Finance, the Ministry of Justice, and the Ministry of Employment (@tbl-top-ministries). This has to be read with a grain of salt, since there are a lot of `NA` values and designations change frequently so that e.g. 'Klima- og Energiministeriet' and 'Klima-, Energie- og Bygningsministeriet' etc. are counted as different entities[^full].
+
+[^full]: Refer to the codebook for a [full list](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html#northatlantic_ftministry) of all `r n_distinct(northatlantic_ft$ministry, na.rm = TRUE)` designations that appear in the dataset.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-top-ministries
+#| tbl-cap: "Most frequent values for `ministry`."
+#| tbl-cap-location: bottom
+
+northatlantic_ft %>%
+  count(ministry, sort = TRUE) %>%
+  slice_head(n = 5) %>%
+  knitr::kable(
+    col.names = c("Ministry", "Count"),
+    align = c("l", "r"),
+    booktabs = TRUE,
+    format = "latex"
+  )
+```
 
 ```{r}
 #| echo: false
