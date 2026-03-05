@@ -319,8 +319,6 @@ specifically: GL/FO contributions, more generically: cross-parliamentary control
 ver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på
 dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
 
-#### use of roll call votes as method
-
 # Dataset Description
 
 I am using the *nordatlantisk-ft* dataset [@twenteNordatlantiskft2026] which contains voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but metadata only [@berntzenParliamentaryOpenData2019, 9], I had to create both workflow and dataset myself. The dataset is the result of a pipeline in R, taking a list of MPs as input and then scraping voting records and metadata from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using git, including long-term archival on Zenodo, and are accompanied by extensive metadata and documentation to ensure reproducibility [@mahrOneTemplateRule2025a]. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
@@ -709,8 +707,7 @@ patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstenti
 patchworked_plot
 ```
 
-Looking at the North Atlantic MPs' voting records, it is striking how few times they actually cast a vote:  Filtering for observations where a vote is actually cast results in `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observations (out of `r nrow(northatlantic_ft)` cases), translating to `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share) -- an observation that corresponds well to the findings of previous research.
-Looking at the North Atlantic MPs' voting records, it is striking how few times they actually cast a vote:  Filtering for observations where a vote is actually cast results in `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observations (out of `r nrow(northatlantic_ft)` cases), translating to `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share) -- an observation that corresponds well to the findings of previous research. Of the non-absent records, `r scales::percent(sum(northatlantic_ft$vote_type_id == 1, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.1)` are votes in favor, `r scales::percent(sum(northatlantic_ft$vote_type_id == 2, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes against, and `r scales::percent(sum(northatlantic_ft$vote_type_id == 4, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes neither for nor against.
+Looking at the North Atlantic MPs' voting records, it is striking how few times they actually cast a vote: Filtering for those cases results in `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observations (out of `r nrow(northatlantic_ft)` cases), translating to `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share) -- an observation that corresponds well to the findings of previous research. Of the non-absent records, `r scales::percent(sum(northatlantic_ft$vote_type_id == 1, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.1)` are votes in favor, `r scales::percent(sum(northatlantic_ft$vote_type_id == 2, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes against, and `r scales::percent(sum(northatlantic_ft$vote_type_id == 4, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes neither for nor against.
 
 ```{r, fig.pos = 'H'}
 #| echo: false
@@ -761,7 +758,8 @@ ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
   )
 ```
 
-The level of participation in roll call votes (i.e. casting a vote either for, against, or neither for nor against) varies across the timeline. Overall, rather low proportions of non-absent votes -- rarely exceeding 3% -- are most common in the dataset (@fig-vote-share-per-year). However, the share of votes cast among MPs from the Faroe Islands increased in recent years (2023 and 2025, but not 2024). This observation is not true for the Greenlandic MPs, where a single peak is recorded in the data for 2015. The latter can be attributed to (then) newly elected MP Aaja Chemnitz (Inuit Ataqatigiit) while the majority of the votes recorded from Faroese MPs since 2023, a remarkable increase in share of non-absent records, were cast by MP Anna Falkenberg (Sambandsflokkurin) who was elected to Folketinget at the end of 2022.
+The level of participation in roll call votes (i.e. casting a vote either for, against, or neither for nor against) varies over time. Overall, rather low proportions of non-absent votes -- rarely exceeding 3% -- are most common in the dataset (@fig-vote-share-per-year). However, the share of votes cast among MPs from the Faroe Islands increased in recent years (2023 and 2025, but not 2024). This observation is not true for the Greenlandic MPs, where a single peak is recorded in the data for 2015. The latter can be attributed to (then) newly elected MP Aaja Chemnitz (Inuit Ataqatigiit) while the majority of the votes recorded from Faroese MPs since 2023, a remarkable increase in share of non-absent records, were cast by MP Anna Falkenberg (Sambandsflokkurin) who was elected to Folketinget at the end of 2022.
+
 It is self-evident that the MPs with the most observations in the dataset are those who are/were the longest-sitting members (@fig-votes-per-mp) -- Sjúrður Skaale (FO/C, `r sum(northatlantic_ft$MP_id == 262, na.rm = TRUE)` records), Edmund Joensen (FO/B, `r sum(northatlantic_ft$MP_id == 247, na.rm = TRUE)` records) and Aaja Chemnitz (GL/IA, `r sum(northatlantic_ft$MP_id == 15757, na.rm = TRUE)` records). As MPs are absent for most roll calls, @fig-votes-per-mp-filtered shows the distribution only with votes that were actually cast. Long-term membership, however, does not necessarily correspond with a larger number in registered votes, as demonstrated by Sjúrður Skaale's share of `r scales::percent(sum(northatlantic_ft$vote_type_id[northatlantic_ft$MP_id == 262] != 3) / length(northatlantic_ft$vote_type_id[northatlantic_ft$MP_id == 262]), accuracy = 0.01)` non-absent records.
 
 
@@ -816,8 +814,6 @@ ggplot(
 Share of non-absent records per year (for, against, abstaining) as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")`.
 :::
 
-@fig-votes-per-mp visualizes the distribution of votes cast by each MP that is part of the dataset. MPs are grouped by whether they are representing Greenland or the Faroe Islands. As MPs are absent for most roll calls, @fig-votes-per-mp-filtered shows the distribution only with votes that were actually cast.
-
 ```{r}
 #| echo: false
 #| message: false
@@ -843,8 +839,6 @@ plot_votes <- ggplot(northatlantic_ft_ordered, aes(y = plotting_name, fill = vot
 
 plot_votes
 ```
-
-### Votes Per MP Without Absences
 
 ```{r}
 #| echo: false
@@ -922,6 +916,8 @@ see method used for Bundestag in @maiLoyalActivistsParty2024
 ## Critical Assessment
 
 <!-- * intro&conclusion should speak to each other/mirror each other -->
+
+#### use of roll call votes as method
 
 ### Introduction
 
