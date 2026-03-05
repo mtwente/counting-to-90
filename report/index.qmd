@@ -622,6 +622,7 @@ roll_call_summary <- northatlantic_ft %>%
 
 kable(
   roll_call_summary,
+  col.names = c("ID", "Type", "Count"),
   booktabs = TRUE,
   format = "latex"
 )
