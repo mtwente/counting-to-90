@@ -193,6 +193,13 @@ parties state they do not want to interfere in 'domestic' Danish politics [@kurr
 
 they are usually not official members of cabinet, except for Mikael Gam [@skjaevelandMindretalsregeringerDanmarkFor2003]
 
+- apart from anecdotes [@millerFriendsRivals1996 about Mikael Gam 1960]: behavior "ved vi kun meget lidt om" [@harderFaeroskeOgGronlandske2022, 5; @harderCrossparliamentaryControl2025, 10]. >> but why should we care?
+
+- "But there are areas of policy in which the Faroes and Greenland cannot decide independently. These are foreign, defence and security policy, the constitution, citizenship, and currency, as well as the high courts. Additionally, there are some policy areas in which the Faroes and Greenland have not yet assumed control, most notably the police, judiciary, prison and probation services, aviation, and regulation of the financial sector." [@cleggParliamentaryRepresentationOverseas2022, 235]
+- "According to the Danish Constitution, there is no doubt that these members may engage in any issue they wish. When governments have clear majorities North Atlantic members can vote on mainland Danish issues with no political consequence and attracting little notice, but when the parliament is more evenly split their votes can cause controversy" [@cleggParliamentaryRepresentationOverseas2022, 239]
+- "Not surprisingly, the post-colonial remarks, as well as the threat of sanctions, were interpreted in wider, symbolic ways, and heightened tensions between Greenland and the metropole" [@cleggParliamentaryRepresentationOverseas2022, 239]
+- "There are examples, particularly in relation to Greenland, when relations have soured if the MPs indicate a different view or set of interests to the metropolitan consensus and this certainly has the potential to harm relations." [@cleggParliamentaryRepresentationOverseas2022, 248]
+
 ### DK politics
 
 ### Rigsfællesskabet
@@ -284,11 +291,22 @@ This new geopolitical status of the Greenlandic and Faroese parts of *Rigsfælle
 
 link from Rigsfællesskabet to global postcolonialism discourse via overseas representation:
 
+- @cleggParliamentaryRepresentationOverseas2022
+  + "Nevertheless, as we demonstrate below, in times of less rmly constituted parliamentary majorities, one or two of the North Atlantic members may play a key role in determining the political majority in the parliament. However, though Denmark has a strong tradition for minority coalition governments, the most common parliamentary situation is one in which none of these four members is important for the building of a parliamentary majority, and the subsequent making of policy. This way, although there have been times in which the Faroese and Greenlandic members become politically important and though they may be invited to participate in negotiations of special interest to their constituency, their general importance is probably best understood in terms of their symbolic presence and in their ability to articulate viewpoints and pass on knowledge of the northern parts of the Realm within the epicentre of Danish politics." [237]"
+- @harderArcticIndigenousRepresentation2024
+- @westDanishRealmArctic2025
+
 ### Overseas Representation, Regional Parties, ethnic minorities?
 
 ### Cross-Parliamentary Control?
 
 "I komparativt perspektiv er Folketingets udvalg i dag særligt væsentlige i forbindelse med arbejdet med at kontrollere regeringen (Holli og Harder, 2016). De nordatlantiske medlemmers udvalgsmedlemskab kan derfor – særligt i den senere del af perioden – være med til at give et indtryk af medlemmernes deltagelse i dette kontrolarbejde." [@harderFaeroskeOgGronlandske2022, 9]
+
+"... parliamentary questions are typically considered the most relevant tool for oversight activity (Rasch, 1994; Wiberg, 1994). Yet questioning activity can be used for other purposes in addition to oversight and primarily is an activity for opposition party" [@westPoliticalPartiesParliamentary2025, 969]
+
+"the assumption is that government party MPs lack oversight-related incentives, while the opposition party MPs have incentives to engage, but primarily in blame games (Weaver, 1986), to damage government reputation and inflict cost (Maor, 1999; Mayhew, 1974; West, 2018, 2020). In other words, parliamentary oversight is most likely realised as a by-product of oppositional partisan-motivated activity" [@westPoliticalPartiesParliamentary2025, 970]
+
+GL/FO parties are removed in @westPoliticalPartiesParliamentary2025
 
 ## Research Gap
 
@@ -886,6 +904,8 @@ tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [
 see method used for Bundestag in @maiLoyalActivistsParty2024
 
 "Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
+
+"... it is custom in Danish legislative studies to use parliamentarians’ membership of legislative committees as an indicator of their political activities" [@cleggParliamentaryRepresentationOverseas2022, 238]
 
 - distribution of ft_process_step? (or later during empirical strategy)
   - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
