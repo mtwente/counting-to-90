@@ -551,13 +551,14 @@ There are a few observations where data on Folketinget's Open Data Platform is u
 #| echo: false
 #| message: false
 #| label: fig-n-rollcall
-#| fig-cap: Number of roll call votes per year.
+#| fig-cap: Number of roll call votes per year (excluding 2004 and 2026 due to incomplete coverage in the dataset).
 
 ##| fig-height: 1.2
 
 rollcalls_per_year <- northatlantic_ft %>%
   mutate(year = lubridate::year(date)) %>%
   filter(year != 2026) %>% # filtering out 2026 because it will distort
+  filter(year != 2004) %>% # filtering also 2004 because records only start in October
   group_by(year) %>%
   summarise(
     n_rollcalls = n_distinct(roll_call_id),
