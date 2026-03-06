@@ -189,6 +189,10 @@ theme_nordatlantisk_basis <- function(){
 
 - history of memberships @kjaerDanskeFolketingsmedlemmerParlamentarisk2004
 
+"Moving to substantive representation, studies of the Danish and Canadian parliaments suggest that Indigenous representatives are especially engaged in acting for Indigenous interests." [@harderArcticIndigenousRepresentation2024, 143]
+
+"Still, the Folketing parliamentarians at the same time may have seats in their parliament at home. Empirically though, this tends to vary, and the use of double mandates has for the Faroese case at least been heavily criticized." [@westDanishRealmArctic2025, 602]
+
 parties state they do not want to interfere in 'domestic' Danish politics [@kurrild-klitgaardElectionInversionsCoalitions2013, 130]
 
 they are usually not official members of cabinet, except for Mikael Gam [@skjaevelandMindretalsregeringerDanmarkFor2003]
@@ -271,11 +275,19 @@ Apart from their voting behavior, Northatlantic MPs are also investigated in the
  
 when is it discussed? when is there relevance within DK? -> link to block on research on Rigsfællesskabet
 
-  <!-- section Rigsfællesskabet -->
+<!-- Section Rigsfællesskabet -->
 
 The recent increase in research output regarding the Northatlantic representation in Folketinget has to be seen in the context of the changed status of the Arctic within the Danish Realm and beyond, leading to a pressure to open the "'black box' of the Danish state" [@westDanishRealmArctic2025, 589] that the association of Denmark, Greenland and the Faroe Islands as *Rigsfællesskabet* and its dynamics were for a long time [cf. @hviidDetArktiskeVindue2022]. Denmarks "Arctic awakening" [@jacobsenDanmarksArktiskeUdenrigspolitik2021] in the beginning of the 21^st^ century led to a shift from focussing on Danish-Greenlandic relations as domestic affairs within the Danish Realm to using them to legitimize Denmark as a geopolitical player in the Arctic instead.
 
 This new geopolitical status of the Greenlandic and Faroese parts of *Rigsfællesskabet* is accompanied by an increased awareness of the colonialist heritage of Denmark in both Greenland and, to a lesser extent, the Faroe Islands [cf. @jensenPostcolonialDenmarkRot2015; @dyrendomgraugaardColonialReproductiveCoercion2025; @kociGreenlandFaroeIslands2021]. However, national parliaments are not in the spotlight of research dealing with Arctic Indigenous representation [@harderArcticIndigenousRepresentation2024, 130] which, in this case, would mainly concern MPs from Greenland, and not the Faroe Islands anyway.
+
+- @westDanishRealmArctic2025
+
+"For the Folketing, it is the Greenlandic representatives that conduct a large share of the Arctic-related questioning activity. Also, when considering the content of the questions, the Greenlandic questioning activity has a much broader focus compared to the Faroese and Danish questions. The Greenlandic political representatives address topics like the missing distinct representation on the Arctic Council political level, but also different policy challenges related to for instance research, environmental, and security issues. For an overview of themes in the parliamentary questions, see Table 1 in the Appendix. For the Folketing and the frequently used committee question option, the investigation shows that many and different committees are arenas for this type of activity, see Table 2 in the appendix." [@westDanishRealmArctic2025, 598]
+
+"This article has investigated the use of options on the parliamentary level for Danish Realm MPs to oversee Arctic development" [@westDanishRealmArctic2025, 602]
+
+"Thus, the [SEITENUMBRUCH] Danish Folketing not only states the importance of North Atlantic parliamentarians in an Arctic context but also allocates central Arctic-related parliamentary positions to Greenlandic and Faroese elected parliamentarians." [@westDanishRealmArctic2025, 603]
 
   + "et empirisk hul i rigsfællesskabets historie" [@harderFaeroskeOgGronlandske2022, 6]
 
@@ -283,20 +295,6 @@ link from Rigsfællesskabet to global postcolonialism discourse via overseas rep
 
 - @cleggParliamentaryRepresentationOverseas2022
   + "Nevertheless, as we demonstrate below, in times of less rmly constituted parliamentary majorities, one or two of the North Atlantic members may play a key role in determining the political majority in the parliament. However, though Denmark has a strong tradition for minority coalition governments, the most common parliamentary situation is one in which none of these four members is important for the building of a parliamentary majority, and the subsequent making of policy. This way, although there have been times in which the Faroese and Greenlandic members become politically important and though they may be invited to participate in negotiations of special interest to their constituency, their general importance is probably best understood in terms of their symbolic presence and in their ability to articulate viewpoints and pass on knowledge of the northern parts of the Realm within the epicentre of Danish politics." [237]"
-- @harderArcticIndigenousRepresentation2024
-- @westDanishRealmArctic2025
-
-### Overseas Representation, Regional Parties, ethnic minorities?
-
-### Cross-Parliamentary Control?
-
-"I komparativt perspektiv er Folketingets udvalg i dag særligt væsentlige i forbindelse med arbejdet med at kontrollere regeringen (Holli og Harder, 2016). De nordatlantiske medlemmers udvalgsmedlemskab kan derfor – særligt i den senere del af perioden – være med til at give et indtryk af medlemmernes deltagelse i dette kontrolarbejde." [@harderFaeroskeOgGronlandske2022, 9]
-
-"... parliamentary questions are typically considered the most relevant tool for oversight activity (Rasch, 1994; Wiberg, 1994). Yet questioning activity can be used for other purposes in addition to oversight and primarily is an activity for opposition party" [@westPoliticalPartiesParliamentary2025, 969]
-
-"the assumption is that government party MPs lack oversight-related incentives, while the opposition party MPs have incentives to engage, but primarily in blame games (Weaver, 1986), to damage government reputation and inflict cost (Maor, 1999; Mayhew, 1974; West, 2018, 2020). In other words, parliamentary oversight is most likely realised as a by-product of oppositional partisan-motivated activity" [@westPoliticalPartiesParliamentary2025, 970]
-
-GL/FO parties are removed in @westPoliticalPartiesParliamentary2025
 
 ## Research Gap
 
@@ -535,7 +533,6 @@ error_share <- (nrow(bad_roll_call_id) + sum(!roll_call_results_ft$roll_call_id 
 There are a few observations where data on Folketinget's Open Data Platform is unavailable or incomplete: For `r sum(!roll_call_results_ft$roll_call_id %in% northatlantic_ft$roll_call_id)` roll call votes, there are no individual voting records available at all. And for `r n2w(nrow(bad_roll_call_id))` roll call votes, there are only three registered observations for Northatlantic MPs instead of four[^missing]. In total, these errors correspond to `r scales::percent(error_share, accuracy = 0.01)` of all data.
 
 [^missing]: This might be due to a missing functionality on Folketinget's Open Data Platform, where it is not possible to query (former) members based on their constituency. Maybe I missed a short-term temporary replacement MP. However, since I was not able to find any hint about MPs that are not yet part of the dataset in other sources, this maybe really just is a database error.
-
 
 ```{r}
 #| echo: false
@@ -871,12 +868,15 @@ plot_votes_without_absences
   - "I to tilfælde har grønlandsk valgte MFere opnået ministerposten" [@michelsenGronlandPartisystemUdvikling1979, 55] > Gam og hvem?
   - @dallGronlandOgFaeroerne2022 with comprehensive overview
 
-  - "Den anden er Edmund Joensen (SP), der i perioden lige efter valget i 2007 spillede en afgørende rolle i at sikre den borgerlige regerings parlamentariske flertal. Som det eneste færøske medlem i hele perioden blev han fuldt medlem af hele fem folketingsudvalg samt suppleant i et enkelt. Noget tyder således på, at det at sikre regeringens flertal kan blive afspejlet i blandt andet antallet af udvalgsposter, som man råder over – en antagelse, der i øvrigt underbygges af, at Aleqa Hammond (SIU/NQ) blev tildelt den symbolsk vigtige rolle som formand for Grønlandsudvalget efter at have indgået aftale om at støtte den borgerlige regering" [@harderFaeroskeOgGronlandske2022, 17], test: refer to @fig-absence-share at this point.
+  - "Den anden er Edmund Joensen (SP), der i perioden lige efter valget i 2007 spillede en afgørende rolle i at sikre den borgerlige regerings parlamentariske flertal. Som det eneste færøske medlem i hele perioden blev han fuldt medlem af hele fem folketingsudvalg samt suppleant i et enkelt. Noget tyder således på, at det at sikre regeringens flertal kan blive afspejlet i blandt andet antallet af udvalgsposter, som man råder over – en antagelse, der i øvrigt underbygges af, at Aleqa Hammond (SIU/NQ) blev tildelt den symbolsk vigtige rolle som formand for Grønlandsudvalget efter at have indgået aftale om at støtte den borgerlige regering" [@harderFaeroskeOgGronlandske2022, 17]
   - "Analysen ovenfor viser imidlertid, at der ikke er nogen signifikant sammenhæng mellem antallet af parlamentariske spørgsmål, som et nordatlantisk medlem stiller, og spørgsmålet om, hvorvidt vedkommendes partifamilie støttede regering eller opposition" [@harderFaeroskeOgGronlandske2022, 17]
 
 "Overordnet set kan det fastslås, at de grønlandske medlemmer nu som før del-
 tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [@harderFaeroskeOgGronlandske2022, 19]
 
+"... parliamentary questions are typically considered the most relevant tool for oversight activity (Rasch, 1994; Wiberg, 1994). Yet questioning activity can be used for other purposes in addition to oversight and primarily is an activity for opposition party" [@westPoliticalPartiesParliamentary2025, 969]
+
+"the assumption is that government party MPs lack oversight-related incentives, while the opposition party MPs have incentives to engage, but primarily in blame games (Weaver, 1986), to damage government reputation and inflict cost (Maor, 1999; Mayhew, 1974; West, 2018, 2020). In other words, parliamentary oversight is most likely realised as a by-product of oppositional partisan-motivated activity" [@westPoliticalPartiesParliamentary2025, 970]
 
 ### Dataset Overview
 
