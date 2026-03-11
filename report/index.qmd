@@ -286,10 +286,6 @@ As demonstrated above, the Greenlandic and Faroese representation in Folketinget
 
 In doing so, I am building on central papers mentioned above [esp. @harderFaeroskeOgGronlandske2022; @harderCrossparliamentaryControl2025; @westPoliticalPartiesParliamentary2025] and try to add to their findings in several ways: While published recently, they do not use data from later than 2020. In light of the political developments that have affected the equilibrium of *Rigsfællesskabet* in recent years -- from postcolonialist perspectives to international security and, most recently, U.S.-Denmark relations, to name a few -- it is warranted to take closer look at the status quo again, using the most recent data available. Additionally, I am looking at the Northatlantic MPs from a different angle than has been done before: While investigating MPs' activities by looking at committee activities and questions is a common and reasonable choice for unit of analysis [@cleggParliamentaryRepresentationOverseas2022, 238], I am focusing on individual voting records from roll call votes in plenary sessions.
 
-less about topics, more about hard numbers/numerical influence
-
-- voting records: ungewöhnlich, aber aufgrund öffentlichkeitswirksamkeit angebracht. "Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de giver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
-- über das FT hinausgehende Relevanz: cross-parliamentary control, ethnic representation/Regional parties 
 Additionally, the topic at hand also touches upon other issues such as ethnic representation in parliaments as well as regional parties. Results from using the novel dataset used here also extend knowledge on these research areas, even though they were not explicitly part of the initial concept of this paper.
 
 # Dataset Description
@@ -883,6 +879,16 @@ see method used for Bundestag in @maiLoyalActivistsParty2024
 - distribution of ft_process_step? (or later during empirical strategy)
   - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
 - most frequent ministry values
+
+This does not only add a new unit of analysis to research on Northatlantic representation, but 
+
+less about topics, more about hard numbers/numerical influence
+
+- voting records: ungewöhnlich, aber aufgrund öffentlichkeitswirksamkeit angebracht. "Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de giver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
+
+  - Harder: looks at committees/questions, as it's custom to use committee membership of indicator of political activities  [@cleggParliamentaryRepresentationOverseas2022, 238] because that's where stuff happens [@hansenCommitteeAssignmentPolitics2010, 382] and most relevant for oversight [@westPoliticalPartiesParliamentary2025, 967] > why voting behavior instead
+  - voting: not so influential [@arterNordicParliamentsMuchofamuchness2016, 214; @nannestadPolitischeSystemDanemarks2009, 82] and individual behavior not so relevant due to high party cohesion [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3], but in the topic of voting behavior lies a lot of visibility/publicity
+
 
 # Results
 
