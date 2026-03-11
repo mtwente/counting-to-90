@@ -66,7 +66,7 @@ format:
   - diskuteres efter bekvemmelighed [@veirumForskerNordatlantiskIndflydelse2022], cf. @harderFaeroskeOgGronlandske2022 [5]
   
   - but how do they use it exactly?
-  - Harder: looks at committees/questions, as it's custom to use committee membership of indicator of political activities  [@cleggParliamentaryRepresentationOverseas2022, 238] because that's where stuff happens [@hansenCommitteeAssignmentPolitics2010, 391] and most relevant for oversight [@westPoliticalPartiesParliamentary2025, 967] > why voting behavior instead
+  - Harder: looks at committees/questions, as it's custom to use committee membership of indicator of political activities  [@cleggParliamentaryRepresentationOverseas2022, 238] because that's where stuff happens [@hansenCommitteeAssignmentPolitics2010, 382] and most relevant for oversight [@westPoliticalPartiesParliamentary2025, 967] > why voting behavior instead
   - voting: not so influential [@arterNordicParliamentsMuchofamuchness2016, 214; @nannestadPolitischeSystemDanemarks2009, 82] and individual behavior not so relevant due to high party cohesion [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3], but in the topic of voting behavior lies a lot of visibility/publicity
 
 - cross-parliamentary control
