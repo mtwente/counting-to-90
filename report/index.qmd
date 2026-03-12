@@ -189,7 +189,7 @@ theme_nordatlantisk_basis <- function(){
 
 <!-- 1. establish puzzling empirical facts, articulate contradiction/puzzle, briefly describe how others have attempted to solve it in the past -->
 
-Four out of the 179 MPs in the parliament of Denmark, Folketinget, represent Greenland and the Faroe Islands (referred to collectively as Northatlantic MPs). They usually only position themselves on issues where their constituencies, as parts of the Danish Realm, cannot decide independently[^issues]. Party representatives state that they do not want to interfere in 'domestic' Danish politics [@kurrild-klitgaardElectionInversionsCoalitions2013, 130] and thus generally refrain from taking part in other parliamentary work. This setup has been widely accepted for decades, going so far that those MPs, i.e. elected members of a legislative assembly, are labelled as "non-political" [@millerFriendsRivals1996, 72] politicians[^slesvig]. But in times of less stable majorities, when one of the two Danish party blocs finds themselves without a 'domestic majority' (*indenrigspolitisk flertal*), Northatlantic MPs may flip the outcome of a roll call vote in Folketinget or prove crucial for securing the coalition's stability [@harderFaeroskeOgGronlandske2022, 19] by helping to form a majority of 90 seats -- to use the Danish expression: to be able to count to 90.
+Four out of the 179 MPs in the parliament of Denmark, Folketinget, represent Greenland and the Faroe Islands (referred to collectively as Northatlantic MPs). They usually only position themselves on issues where their constituencies, as parts of the Danish Realm, cannot decide independently[^issues]. Party representatives state that they do not want to interfere in 'domestic' Danish politics [@kurrild-klitgaardElectionInversionsCoalitions2013, 130] and thus generally refrain from taking part in parliamentary work outside those policy areas. This setup has been widely accepted for decades, going so far that those MPs, i.e. elected members of a legislative assembly, are labelled as "non-political" [@millerFriendsRivals1996, 72] politicians[^slesvig]. But in times of less stable majorities, when one of the two Danish party blocs finds themselves without a 'domestic majority' (*indenrigspolitisk flertal*), Northatlantic MPs may flip the outcome of a roll call vote in Folketinget or prove crucial for securing the coalition's stability [@harderFaeroskeOgGronlandske2022, 19] by helping to form a majority of 90 seats -- to use the Danish expression: to be able to count to 90.
 
 [^issues]: This pertains to issues about e.g. foreign affairs, defence and security, currency and financial regulations, citizenship, the police and judiciary systems, aviation regulations etc. [@cleggParliamentaryRepresentationOverseas2022, 235].
 
@@ -197,15 +197,19 @@ Four out of the 179 MPs in the parliament of Denmark, Folketinget, represent Gre
 
 These situations regularly cause controversy among politicians from 'continental' Denmark, focussing on the symbolic aspects of the Northatlantic presence in Folketinget, not least in the context of post-colonialist debates on the relations between Greenland, the Faroe Islands and Denmark -- leading to heightened tensions and even bullying [@harderArcticIndigenousRepresentation2024, 141; @cleggParliamentaryRepresentationOverseas2022, 239] with Danish politicians employing colonialist metaphors [e.g. 'buying a Greenlander', cf. @kamstrupNuHarVi2017; @larsenSkatteministerTilNytarskur2017; @sjolieDanmarkManglerOpgor2008]. Additionally, the Northatlantic MPs' positions appear to be a fixture of news coverage leading up to elections, sometimes coming across as a quirk of Denmark's political system [e.g. @dallGronlandOgFaeroerne2022; @engelundMorgenpostFraGronland2026a; @prakashBlaEllerRod2026].  Overall, Greenlandic and Faroese representation in Folketinget is brought up when deemed convenient [@harderFaeroskeOgGronlandske2022, 5; @veirumForskerNordatlantiskIndflydelse2022].
 
-but is there more to it? very little research at all, no research on their voting behavior yet.
+The parliamentary work of the Northatlantic MPs can still be considered a black box, and are only starting to become a topic of scientific investigation: Recently, parliamentary questions and committee work have been the vantage points from which the Greenlandic and Faroese MPs's work is analysed [@westDanishRealmArctic2025; @harderFaeroskeOgGronlandske2022; @harderCaseInnovativeParliamentary2022], as has been cross-parliamentary control [@harderCrossparliamentaryControl2025]. Their influence on coalition formation is another angle, but coalition research rather focuses on Danish (median) parties' influence [cf. @skjaevelandModellingGovernmentFormation2009].
 
-  they are usually not official members of cabinet, except for Mikael Gam [@skjaevelandMindretalsregeringerDanmarkFor2003]
+So far, a summary of research on Northatlantic MPs in Folketinget is: If they find themselves in situations where they have power, they tend to use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]. Overall, however, we still know little about the activities of Greenlandic and Faroese MPs [@harderFaeroskeOgGronlandske2022, 5], especially compared to the amount of anecdotic evidence and news coverage available over the years.
 
-- if they have power, they use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]
+>> but why should we care?
 
 <!-- 2. focus primarily on theory and findings of my work, show how it significantly improves over previous work -->
 
-- apart from anecdotes [@millerFriendsRivals1996 about Mikael Gam 1960]: behavior "ved vi kun meget lidt om" [@harderFaeroskeOgGronlandske2022, 5; @harderCrossparliamentaryControl2025, 10]. >> but why should we care?
+Individual voting behavior is a 
+
+but is there more to it?
+
+they are usually not official members of cabinet, except for Mikael Gam [@skjaevelandMindretalsregeringerDanmarkFor2003]
 
 "Moving to substantive representation, studies of the Danish and Canadian parliaments suggest that Indigenous representatives are especially engaged in acting for Indigenous interests." [@harderArcticIndigenousRepresentation2024, 143]
 
