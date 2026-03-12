@@ -183,54 +183,42 @@ theme_nordatlantisk_basis <- function(){
 
 ```
 
-# Introduction
+# Counting to 90
 
-<!-- Motivation / general topic / relevance -->
+<!-- into according to powner: three-paragraph framework for a 20p paper -->
 
-- history of memberships @kjaerDanskeFolketingsmedlemmerParlamentarisk2004
+<!-- 1. establish puzzling empirical facts, articulate contradiction/puzzle, briefly describe how others have attempted to solve it in the past -->
 
-"Moving to substantive representation, studies of the Danish and Canadian parliaments suggest that Indigenous representatives are especially engaged in acting for Indigenous interests." [@harderArcticIndigenousRepresentation2024, 143]
+Four out of the 179 MPs in the parliament of Denmark, Folketinget, represent Greenland and the Faroe Islands (referred to collectively as Northatlantic MPs). They usually only position themselves on issues where their constituencies, as parts of the Danish Realm, cannot decide independently[^issues]. Party representatives state that they do not want to interfere in 'domestic' Danish politics [@kurrild-klitgaardElectionInversionsCoalitions2013, 130] and thus generally refrain from taking part in other parliamentary work. This setup has been widely accepted for decades, going so far that those MPs, i.e. elected members of a legislative assembly, are labelled as "non-political" [@millerFriendsRivals1996, 72] politicians[^slesvig]. But in times of less stable majorities, when one of the two Danish party blocs finds themselves without a 'domestic majority' (*indenrigspolitisk flertal*), Northatlantic MPs may flip the outcome of a roll call vote in Folketinget or prove crucial for securing the coalition's stability [@harderFaeroskeOgGronlandske2022, 19] by helping to form a majority of 90 seats -- to use the Danish expression: to be able to count to 90.
 
-"Still, the Folketing parliamentarians at the same time may have seats in their parliament at home. Empirically though, this tends to vary, and the use of double mandates has for the Faroese case at least been heavily criticized." [@westDanishRealmArctic2025, 602]
+[^issues]: This pertains to issues about e.g. foreign affairs, defence and security, currency and financial regulations, citizenship, the police and judiciary systems, aviation regulations etc. [@cleggParliamentaryRepresentationOverseas2022, 235].
 
-parties state they do not want to interfere in 'domestic' Danish politics [@kurrild-klitgaardElectionInversionsCoalitions2013, 130]
+[^slesvig]: Miller, referring to the results of the 1957 election, also includes a representative for the German-speaking minority in Southern Slesvig in this group of non-political MPs. However, in this paper I will concentrate on Greenlandic and Faroese MPs only, not considering the representation of other minorities in Folketinget.
 
-they are usually not official members of cabinet, except for Mikael Gam [@skjaevelandMindretalsregeringerDanmarkFor2003]
+These situations regularly cause controversy among politicians from 'continental' Denmark, focussing on the symbolic aspects of the Northatlantic presence in Folketinget, not least in the context of post-colonialist debates on the relations between Greenland, the Faroe Islands and Denmark -- leading to heightened tensions and even bullying [@harderArcticIndigenousRepresentation2024, 141; @cleggParliamentaryRepresentationOverseas2022, 239] with Danish politicians employing colonialist metaphors [e.g. 'buying a Greenlander', cf. @kamstrupNuHarVi2017; @larsenSkatteministerTilNytarskur2017; @sjolieDanmarkManglerOpgor2008]. Additionally, the Northatlantic MPs' positions appear to be a fixture of news coverage leading up to elections, sometimes coming across as a quirk of Denmark's political system [e.g. @dallGronlandOgFaeroerne2022; @engelundMorgenpostFraGronland2026a; @prakashBlaEllerRod2026].  Overall, Greenlandic and Faroese representation in Folketinget is brought up when deemed convenient [@harderFaeroskeOgGronlandske2022, 5; @veirumForskerNordatlantiskIndflydelse2022].
+
+but is there more to it? very little research at all, no research on their voting behavior yet.
+
+  they are usually not official members of cabinet, except for Mikael Gam [@skjaevelandMindretalsregeringerDanmarkFor2003]
+
+- if they have power, they use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]
+
+<!-- 2. focus primarily on theory and findings of my work, show how it significantly improves over previous work -->
 
 - apart from anecdotes [@millerFriendsRivals1996 about Mikael Gam 1960]: behavior "ved vi kun meget lidt om" [@harderFaeroskeOgGronlandske2022, 5; @harderCrossparliamentaryControl2025, 10]. >> but why should we care?
 
-- "But there are areas of policy in which the Faroes and Greenland cannot decide independently. These are foreign, defence and security policy, the constitution, citizenship, and currency, as well as the high courts. Additionally, there are some policy areas in which the Faroes and Greenland have not yet assumed control, most notably the police, judiciary, prison and probation services, aviation, and regulation of the financial sector." [@cleggParliamentaryRepresentationOverseas2022, 235]
-- "According to the Danish Constitution, there is no doubt that these members may engage in any issue they wish. When governments have clear majorities North Atlantic members can vote on mainland Danish issues with no political consequence and attracting little notice, but when the parliament is more evenly split their votes can cause controversy" [@cleggParliamentaryRepresentationOverseas2022, 239]
-- "Not surprisingly, the post-colonial remarks, as well as the threat of sanctions, were interpreted in wider, symbolic ways, and heightened tensions between Greenland and the metropole" [@cleggParliamentaryRepresentationOverseas2022, 239]
-- "There are examples, particularly in relation to Greenland, when relations have soured if the MPs indicate a different view or set of interests to the metropolitan consensus and this certainly has the potential to harm relations." [@cleggParliamentaryRepresentationOverseas2022, 248]
+"Moving to substantive representation, studies of the Danish and Canadian parliaments suggest that Indigenous representatives are especially engaged in acting for Indigenous interests." [@harderArcticIndigenousRepresentation2024, 143]
 
-"Nevertheless, as we demonstrate below, in times of less rmly constituted parliamentary majorities, one or two of the North Atlantic members may play a key role in determining the political majority in the parliament." [@cleggParliamentaryRepresentationOverseas2022, 237]
+DK using GL/FO (and their FT membership) to legitimize themselves as Arctic state [@westDanishRealmArctic2025, 589]
 
-### DK politics
+<!-- 3. roadmap of the rest of the paper, per paragraph/section style -->
 
-### Rigsfællesskabet
 
-### Postcolonialism
-
-### Geopolitics on the World Stage
 
 
 - inner-Rigsfællesskabet debates very current,
   - mechanisms of Rigsfællesskabet dynamics, but within Folketinget?
 - opens up international postcolonialism debates
-  - "coming down from the ice" [@sjolieDanmarkManglerOpgor2008]
-  -  "Greenlandic representatives have been bullied by representatives from Danish parties" [@harderArcticIndigenousRepresentation2024, 141] cf. @cleggParliamentaryRepresentationOverseas2022
-- link to general geopolitics focus on Greenland
-  + DK using GL/FO (and their FT membership) to legitimize themselves as Arctic state [@westDanishRealmArctic2025, 589]
-
-* Übergreifend hat die Beachtung dieser Abgeordneten zugenommen, seit Grönland aus geopolitischer Sicht in den Fokus gerückt ist, und nicht zuletzt auch Dänemarks Status als Akteur in der Arktis legitimiert werden soll.
-Ethnic minority representation (betrifft dann allerdings nur Grönland und nicht die Färöer)
-* Dazu kommt noch die ganze post-colonialist-Perspektive ("vi har købt os en grønlænder" etc.).
-
-
- - research stating that they do not want to and are also expected to not to interfere
-
-but is there more?
 
 ## Research Questions, Relevant X/Y variables
 
@@ -238,6 +226,11 @@ but is there more?
 2. The 2x2 MPs are conceived as one group by DK politicians and media. Do they also vote like one group?
 3. When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs?
 4. can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control?
+
+* In general, when do the Northatlantic MPs take part in roll call votes? Hypothesis: The MPs are more likely to take part in voting when the issue concerns Greenland/policy areas that GL/FO do not have authority over (e.g. Defense, based on keywords in proposal description and the ministerområde responsible for the proposal, e.g. Forsvarsministeriet, Finansministeriet etc.)
+* The 2x2 MPs are conceived as one group by DK politicians and media. Do they also vote like one group? Hypothesis: After excluding absences, similar voting behavior can not be observed across Greenlandic and Faroese MPs, but across the political blocks the MPs belong to (left/right -- in the dataset: usually 2x left from GL, and 1x each from FO, but never multiple MPs from the same party at the same time)
+* When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs? Hypothesis: The fewer FT mandates the Danish cabinet coalition parties have themselves, the more likely are GL/FO MPs to cast a vote (regardless of the content of the proposal being voted on)
+  * Based on questioning/committee activity analysis of Northatlantic MPs: Cross-parliamentary control mechanisms are especially made use of if the MP's own party is an opposition party in GL/FO. Transferring this finding onto another type of parliamentary activity, can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control? Hypothesis: MPs are more likely to engage in parliamentary activity in FT, in this case taking part in voting, if their own party is in opposition in GL/FO.
 
 # Literature Review
 
