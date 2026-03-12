@@ -723,7 +723,6 @@ The level of participation in roll call votes (i.e. casting a vote either for, a
 
 It is self-evident that the MPs with the most observations in the dataset are those who are/were the longest-sitting members (@fig-votes-per-mp) -- Sjúrður Skaale (FO/C, `r sum(northatlantic_ft$MP_id == 262, na.rm = TRUE)` records), Edmund Joensen (FO/B, `r sum(northatlantic_ft$MP_id == 247, na.rm = TRUE)` records) and Aaja Chemnitz (GL/IA, `r sum(northatlantic_ft$MP_id == 15757, na.rm = TRUE)` records). As MPs are absent for most roll calls, @fig-votes-per-mp-filtered shows the distribution only with votes that were actually cast. Long-term membership, however, does not necessarily correspond with a larger number in registered votes, as demonstrated by Sjúrður Skaale's share of `r scales::percent(sum(northatlantic_ft$vote_type_id[northatlantic_ft$MP_id == 262] != 3) / length(northatlantic_ft$vote_type_id[northatlantic_ft$MP_id == 262]), accuracy = 0.01)` non-absent records.
 
-
 ::: {#fig-vote-share-per-year}
 <!-- in a fenced div because of the dynamically updating caption -->
 
@@ -893,22 +892,9 @@ less about topics, more about hard numbers/numerical influence
 
 <!-- * intro&conclusion should speak to each other/mirror each other -->
 
-#### use of roll call votes as method
+use of roll call votes as method
 
-### Introduction
-
-When the government of Denmark only has a narrow majority in parliament, four MPs regularly come into the spotlight: The so-called North Atlantic MPs -- two from Greenland, two from the Faroe Islands -- who usually abstain from voting on matters not concerning Greenland or the Faroe Islands but might be able provide four sometimes crucial votes to form a majority. In this paper, I am going to investigate what role these four MPs tend to play in Folketing: When do they capitalise on their voting power? Do they actually have as much power as the numbers suggest? Or is their influence rather a media frenzy, highlighting a rather unusual trait of day-to-day domestic politics?
-
-There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. Their presence in Folketinget can prove important for domestic Danish politics because not all of the four MPs join one of the two party blocs and can thus provide decisive votes for passing legislation and even for securing the national government's stability [@harderFaeroskeOgGronlandske2022, 19]: Several times, both Danish party blocs found themselves with election results where they did not have what is called a "domestic majority" [_indenrigspolitisk flertal_, @buggeRegeringensIndenrigspolitiskeFlertal2023] but instead relied on the North Atlantic MPs to form a majority of 90 seats -- using the Danish expression: to be able to count to 90. Recently, this was the case in 2016 and 2022[^1] [@sorensenEfterBrokBla2022]: In both instances, opposition parties cried foul and called for re-evaluation of the North Atlantic MPs' roles, who have questioned these arrangements themselves as well [e.g. @skaaleFaeroskMFerNordatlantiske2022; @skaale20sporgsmalUS182021; @joensenLagtingsformandenVilAfskaffe2019], even though they have profited from them -- e.g. by being awarded chairmanship of parliamentary commissions [@harderFaeroskeOgGronlandske2022, 13]. <!-- 2023 situation mit moderaterne hinzufügen! -->
-
-[^1]: Even though the North Atlantic MPs' role was discussed extensively in 2022, it was resolved without the North Atlantic MPs by forming an unusual cross-bloc coalition government.
-
-Just as political relations between Denmark, Greenland and the Faroe Islands are being scrutinised time and again in terms of economy, ecology, security and last but not least postcolonialism, so is the position of two MPs elected to Folketinget in Greenland and the Faroe Islands, respectively.
-
-* In general, when do the Northatlantic MPs take part in roll call votes? Hypothesis: The MPs are more likely to take part in voting when the issue concerns Greenland/policy areas that GL/FO do not have authority over (e.g. Defense, based on keywords in proposal description and the ministerområde responsible for the proposal, e.g. Forsvarsministeriet, Finansministeriet etc.)
-* The 2x2 MPs are conceived as one group by DK politicians and media. Do they also vote like one group? Hypothesis: After excluding absences, similar voting behavior can not be observed across Greenlandic and Faroese MPs, but across the political blocks the MPs belong to (left/right -- in the dataset: usually 2x left from GL, and 1x each from FO, but never multiple MPs from the same party at the same time)
-* When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs? Hypothesis: The fewer FT mandates the Danish cabinet coalition parties have themselves, the more likely are GL/FO MPs to cast a vote (regardless of the content of the proposal being voted on)
-  * Based on questioning/committee activity analysis of Northatlantic MPs: Cross-parliamentary control mechanisms are especially made use of if the MP's own party is an opposition party in GL/FO. Transferring this finding onto another type of parliamentary activity, can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control? Hypothesis: MPs are more likely to engage in parliamentary activity in FT, in this case taking part in voting, if their own party is in opposition in GL/FO.
+<!-- conclusion paragraph structure: refer to powner handbook again -->
 
 # References {.unnumbered}
 
