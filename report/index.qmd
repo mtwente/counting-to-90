@@ -281,6 +281,62 @@ In doing so, I am building on central papers mentioned above [esp. @harderFaeros
 
 Additionally, the topic at hand also touches upon other issues such as ethnic representation in parliaments as well as regional parties. Results from using the novel dataset used here also extend knowledge on these research areas, even though they were not explicitly part of the initial concept of this paper.
 
+<!-- powner: how does my work fit into the existing literature? what's the current explanation for my dependent variable? -->
+
+# Research Design
+
+## Theoretical Approach
+
+<!-- - case selection/overview data (temporal and spatial), unit of analysis
+- measurement dependent variable (and data source)
+- measurement independent and control variables (and data source)
+- methodological approach (why this one?) -->
+
+  - if they have power, they use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]
+  + relevans efter valg 1971 [@gadGronlandskeFolketingsmedlemmer2022; @kurrild-klitgaardElectionInversionsCoalitions2013, 131; @skjaevelandModellingGovernmentFormation2009, 723], 2007 om asylcentre, but was resolved without GL/FO influence [@gadGronlandskeFolketingsmedlemmer2022; @cleggParliamentaryRepresentationOverseas2022, 239], relevans efter valg 2007, 2011, 2015 [@harderFaeroskeOgGronlandske2022, 19] and 1998 [@skjaevelandModellingGovernmentFormation2009, 723], and 1960 [@skjaevelandGovernmentFormationDenmark2003, 448], and 1957 [@millerFriendsRivals1996, 71]. 2015 not relevant after all? [@arndtFolketingswahlDanemarkVom2019, 785]
+  - "I to tilfælde har grønlandsk valgte MFere opnået ministerposten" [@michelsenGronlandPartisystemUdvikling1979, 55] > Gam og hvem?
+  - @dallGronlandOgFaeroerne2022 with comprehensive overview
+
+  - "Den anden er Edmund Joensen (SP), der i perioden lige efter valget i 2007 spillede en afgørende rolle i at sikre den borgerlige regerings parlamentariske flertal. Som det eneste færøske medlem i hele perioden blev han fuldt medlem af hele fem folketingsudvalg samt suppleant i et enkelt. Noget tyder således på, at det at sikre regeringens flertal kan blive afspejlet i blandt andet antallet af udvalgsposter, som man råder over – en antagelse, der i øvrigt underbygges af, at Aleqa Hammond (SIU/NQ) blev tildelt den symbolsk vigtige rolle som formand for Grønlandsudvalget efter at have indgået aftale om at støtte den borgerlige regering" [@harderFaeroskeOgGronlandske2022, 17]
+  - "Analysen ovenfor viser imidlertid, at der ikke er nogen signifikant sammenhæng mellem antallet af parlamentariske spørgsmål, som et nordatlantisk medlem stiller, og spørgsmålet om, hvorvidt vedkommendes partifamilie støttede regering eller opposition" [@harderFaeroskeOgGronlandske2022, 17]
+
+"Overordnet set kan det fastslås, at de grønlandske medlemmer nu som før del-
+tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [@harderFaeroskeOgGronlandske2022, 19]
+
+"... parliamentary questions are typically considered the most relevant tool for oversight activity (Rasch, 1994; Wiberg, 1994). Yet questioning activity can be used for other purposes in addition to oversight and primarily is an activity for opposition party" [@westPoliticalPartiesParliamentary2025, 969]
+
+"the assumption is that government party MPs lack oversight-related incentives, while the opposition party MPs have incentives to engage, but primarily in blame games (Weaver, 1986), to damage government reputation and inflict cost (Maor, 1999; Mayhew, 1974; West, 2018, 2020). In other words, parliamentary oversight is most likely realised as a by-product of oppositional partisan-motivated activity" [@westPoliticalPartiesParliamentary2025, 970]
+
+## Hypotheses
+
+<!-- * Hypothesis: causal relationship between two variables: the more, the less...
+* Hypothesis in its own paragraph and in italics -->
+
+## Empirical Strategy
+
+<!-- - variables and controls
+- unit of analysis
+- method (logit model etc.) -->
+
+see method used for Bundestag in @maiLoyalActivistsParty2024
+
+"Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
+
+"... it is custom in Danish legislative studies to use parliamentarians’ membership of legislative committees as an indicator of their political activities" [@cleggParliamentaryRepresentationOverseas2022, 238]
+
+- distribution of ft_process_step? (or later during empirical strategy)
+  - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
+- most frequent ministry values
+
+This does not only add a new unit of analysis to research on Northatlantic representation, but 
+
+less about topics, more about hard numbers/numerical influence
+
+- voting records: ungewöhnlich, aber aufgrund öffentlichkeitswirksamkeit angebracht. "Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de giver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
+
+  - Harder: looks at committees/questions, as it's custom to use committee membership of indicator of political activities  [@cleggParliamentaryRepresentationOverseas2022, 238] because that's where stuff happens [@hansenCommitteeAssignmentPolitics2010, 382] and most relevant for oversight [@westPoliticalPartiesParliamentary2025, 967] > why voting behavior instead
+  - voting: not so influential [@arterNordicParliamentsMuchofamuchness2016, 214; @nannestadPolitischeSystemDanemarks2009, 82] and individual behavior not so relevant due to high party cohesion [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3], but in the topic of voting behavior lies a lot of visibility/publicity
+
 # Dataset Description
 
 I am using the [*nordatlantisk-ft*](https://mtwente.github.io/nordatlantisk-ft) dataset which contains voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but metadata only [@berntzenParliamentaryOpenData2019, 9], I had to create both workflow and dataset myself. The dataset is the result of a pipeline in R, taking a list of MPs as input and then scraping voting records and metadata from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using a git-based template including long-term archival on Zenodo [@mahrOneTemplateRule2025a], and are accompanied by extensive metadata and documentation to ensure reproducibility. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
@@ -824,63 +880,6 @@ plot_votes_without_absences <- ggplot(northatlantic_ft_without_absences, aes(y =
 
 plot_votes_without_absences
 ```
-
-# Research Design
-
-## Theoretical Approach
-
-<!-- - case selection/overview data (temporal and spatial), unit of analysis
-- measurement dependent variable (and data source)
-- measurement independent and control variables (and data source)
-- methodological approach (why this one?) -->
-
-  - if they have power, they use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]
-  + relevans efter valg 1971 [@gadGronlandskeFolketingsmedlemmer2022; @kurrild-klitgaardElectionInversionsCoalitions2013, 131; @skjaevelandModellingGovernmentFormation2009, 723], 2007 om asylcentre, but was resolved without GL/FO influence [@gadGronlandskeFolketingsmedlemmer2022; @cleggParliamentaryRepresentationOverseas2022, 239], relevans efter valg 2007, 2011, 2015 [@harderFaeroskeOgGronlandske2022, 19] and 1998 [@skjaevelandModellingGovernmentFormation2009, 723], and 1960 [@skjaevelandGovernmentFormationDenmark2003, 448], and 1957 [@millerFriendsRivals1996, 71]. 2015 not relevant after all? [@arndtFolketingswahlDanemarkVom2019, 785]
-  - "I to tilfælde har grønlandsk valgte MFere opnået ministerposten" [@michelsenGronlandPartisystemUdvikling1979, 55] > Gam og hvem?
-  - @dallGronlandOgFaeroerne2022 with comprehensive overview
-
-  - "Den anden er Edmund Joensen (SP), der i perioden lige efter valget i 2007 spillede en afgørende rolle i at sikre den borgerlige regerings parlamentariske flertal. Som det eneste færøske medlem i hele perioden blev han fuldt medlem af hele fem folketingsudvalg samt suppleant i et enkelt. Noget tyder således på, at det at sikre regeringens flertal kan blive afspejlet i blandt andet antallet af udvalgsposter, som man råder over – en antagelse, der i øvrigt underbygges af, at Aleqa Hammond (SIU/NQ) blev tildelt den symbolsk vigtige rolle som formand for Grønlandsudvalget efter at have indgået aftale om at støtte den borgerlige regering" [@harderFaeroskeOgGronlandske2022, 17]
-  - "Analysen ovenfor viser imidlertid, at der ikke er nogen signifikant sammenhæng mellem antallet af parlamentariske spørgsmål, som et nordatlantisk medlem stiller, og spørgsmålet om, hvorvidt vedkommendes partifamilie støttede regering eller opposition" [@harderFaeroskeOgGronlandske2022, 17]
-
-"Overordnet set kan det fastslås, at de grønlandske medlemmer nu som før del-
-tager langt mere aktivt i folketingsarbejdet, end de færøske medlemmer gør" [@harderFaeroskeOgGronlandske2022, 19]
-
-"... parliamentary questions are typically considered the most relevant tool for oversight activity (Rasch, 1994; Wiberg, 1994). Yet questioning activity can be used for other purposes in addition to oversight and primarily is an activity for opposition party" [@westPoliticalPartiesParliamentary2025, 969]
-
-"the assumption is that government party MPs lack oversight-related incentives, while the opposition party MPs have incentives to engage, but primarily in blame games (Weaver, 1986), to damage government reputation and inflict cost (Maor, 1999; Mayhew, 1974; West, 2018, 2020). In other words, parliamentary oversight is most likely realised as a by-product of oppositional partisan-motivated activity" [@westPoliticalPartiesParliamentary2025, 970]
-
-### Dataset Overview
-
-## Hypotheses
-
-<!-- * Hypothesis: causal relationship between two variables: the more, the less...
-* Hypothesis in its own paragraph and in italics -->
-
-## Empirical Strategy
-
-<!-- - variables and controls
-- unit of analysis
-- method (logit model etc.) -->
-
-see method used for Bundestag in @maiLoyalActivistsParty2024
-
-"Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
-
-"... it is custom in Danish legislative studies to use parliamentarians’ membership of legislative committees as an indicator of their political activities" [@cleggParliamentaryRepresentationOverseas2022, 238]
-
-- distribution of ft_process_step? (or later during empirical strategy)
-  - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
-- most frequent ministry values
-
-This does not only add a new unit of analysis to research on Northatlantic representation, but 
-
-less about topics, more about hard numbers/numerical influence
-
-- voting records: ungewöhnlich, aber aufgrund öffentlichkeitswirksamkeit angebracht. "Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de giver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
-
-  - Harder: looks at committees/questions, as it's custom to use committee membership of indicator of political activities  [@cleggParliamentaryRepresentationOverseas2022, 238] because that's where stuff happens [@hansenCommitteeAssignmentPolitics2010, 382] and most relevant for oversight [@westPoliticalPartiesParliamentary2025, 967] > why voting behavior instead
-  - voting: not so influential [@arterNordicParliamentsMuchofamuchness2016, 214; @nannestadPolitischeSystemDanemarks2009, 82] and individual behavior not so relevant due to high party cohesion [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3], but in the topic of voting behavior lies a lot of visibility/publicity
-
 
 # Results
 
