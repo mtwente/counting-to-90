@@ -221,7 +221,7 @@ I will begin by laying out my research questions and explaining their relevance 
 
 The research question investigated in this paper is as follows: How is the voting power that is being attributed to the Northatlantic MPs reflected in the parliamentary voting records? Using parliamentary data from 2004 until `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")`, I am going to structure my analysis along four subquestions:
 
-1. Generally, which overall characteristics are present in the North Atlantic MP's voting records?
+1. Generally, which overall characteristics are present in the Northatlantic MP's voting records?
 2. Do they tend to vote as the one (geographically defined) block they are usually referred to collectively?
 3. Do MPs take part in roll call votes more often if the difference in seat shares between government and opposition is smaller?
 4. Do MPs take part in roll call votes more often if their political party is in opposition in the local government?
