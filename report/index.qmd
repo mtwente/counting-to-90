@@ -219,12 +219,26 @@ I will begin by laying out my research questions and explaining their relevance 
 
 ## Research Questions
 
-The research question investigated in this paper is as follows: How is the voting power that is being attributed to the Northatlantic MPs reflected in the parliamentary voting records? Using parliamentary data from 2004 until `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")`, I am going to structure my analysis along four subquestions:
+The research question investigated in this paper is as follows: Under which conditions do Northatlantic MPs participate in roll call votes in Folketinget, and to what extent does their participation translate into pivotal voting power? Using parliamentary data from 2004 until `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")`, I am going to structure my analysis along four subquestions:
 
-1. Generally, which overall characteristics are present in the Northatlantic MP's voting records?
-2. Do they tend to vote as the one (geographically defined) block they are usually referred to collectively?
-3. Do MPs take part in roll call votes more often if the difference in seat shares between government and opposition is smaller?
-4. Do MPs take part in roll call votes more often if their political party is in opposition in the local government?
+1. What are the general patterns of roll call participation among Northatlantic MPs?
+2. To what extent do North Atlantic MPs vote cohesively as a group?
+3. How does the parliamentary balance of power affect the likelihood that Northatlantic MPs participate in roll call votes? (In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?)
+4. How does the position of the MPs' parties in the political system of Greenland resp. the Faroe Islands affect their participation in Folketinget roll call votes?
+
+Operationalisation:
+
+1. participation rate, abstention/absence patterns, variation across MPs
+2. agreement rates, pairwise similarity, bloc vs party alignment
+3. margin to majority (90), close vs. safe votes
+4. party in gvt. vs. opposition at home
+
+### Hypotheses
+
+* H~1~ (Policy Relevance): ~~North Atlantic MPs are more likely to participate in roll-call votes on policy areas relevant to Greenland and the Faroe Islands.~~ Derive hypothesis from analysis of participation by other authors: Greenlanders (?) expected to participate more or something like this
+* H~2~ (Bloc Cohesion vs. Party Alignment): Voting cohesion among North Atlantic MPs is weaker than cohesion along party-political lines.
+* H~3~ (Pivotality): The closer the parliamentary balance between government and opposition, the more likely North Atlantic MPs are to participate in roll-call votes.
+* H~4~ (Cross-Parliamentary Control): North Atlantic MPs are more likely to participate in roll-call votes when their party is in opposition in their home parliament.
 
 <!-- add section on relevant variables -->
 
