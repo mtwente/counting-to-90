@@ -360,6 +360,8 @@ Operationalisation:
 3. margin to majority (90), close vs. safe votes
 4. party in gvt. vs. opposition at home
 
+margin to majority: use fine-grained seat distribution based on @folkevalgte.dkPartiskift2026. There are mismatches between this information and other data (e.g. not including Fremad as party etc.), but this is consistently built up, apparently.
+
 - see [-@harderFaeroskeOgGronlandske2022, 9] for variable coding for cross-parliamentary stuff
 
 <!-- remove section when hypotheses and strategy are done -->
