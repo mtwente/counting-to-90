@@ -340,13 +340,11 @@ Last but not least, I turn to the question of cross-parliamentary control. From 
 
 * H~4~: *Northatlantic MPs are more likely to participate in roll call votes when their party is in opposition in their home parliament.*
 
-The underlying assumption then is that the participation in roll call votes in Folketinget can -- in the context of the Northatlantic representation -- also be seen as a form of cross-parliamentary control. In this sense, casting votes works as control mechanism in so far as it comes with increased publicity as demonstrated above.
+The underlying assumption then is that the participation in roll call votes in Folketinget can -- in the context of the Northatlantic representation -- also be seen as a form of cross-parliamentary control. In this sense, casting votes is expected to work as control mechanism in so far as it comes with increased publicity as demonstrated above, and has an impact similar to posing parliamentary questions: promoting political debate in parliament as well as agenda setting in media coverage, acting "as party agents to support their colleagues at home" [@harderCrossparliamentaryControl2025, 7].
 
-<!-- @harderCrossparliamentaryControl2025, 11-12: effect of parliamentary group until 2011? -->
+<!-- fixme @harderCrossparliamentaryControl2025, 11-12: effect of parliamentary group until 2011? -->
 
 <!-- fixme: variables, measurement -->
-
-* @harderFaeroskeOgGronlandske2022 [10-11]: t-test
 
 ## Empirical Strategy
 
@@ -382,8 +380,8 @@ margin to majority: use fine-grained seat distribution based on @folkevalgte.dkP
 
 - see [-@harderFaeroskeOgGronlandske2022, 9] for variable coding for cross-parliamentary stuff
 
-<!-- remove section when hypotheses and strategy are done -->
-* Based on questioning/committee activity analysis of Northatlantic MPs: Cross-parliamentary control mechanisms are especially made use of if the MP's own party is an opposition party in GL/FO. Transferring this finding onto another type of parliamentary activity, can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control? Hypothesis: MPs are more likely to engage in parliamentary activity in FT, in this case taking part in voting, if their own party is in opposition in GL/FO.
+* @harderFaeroskeOgGronlandske2022 [10-11]: t-test
+
 
 <!-- older section below -->
 
