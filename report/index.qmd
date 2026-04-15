@@ -135,6 +135,8 @@ MP_dates <- MP_dates %>%
     plotting_name = case_when(
       MP_id == "12283" ~ "A. V. Johannesen",
       MP_id == "6687"  ~ "K. L. Johannesen",
+      MP_id == "18688" ~ "A.-M. Høegh-Dam",
+      MP_id == "21388" ~ "Q. Høegh-Dam",
       TRUE             ~ surname
     )
   )
@@ -144,6 +146,8 @@ northatlantic_ft <- northatlantic_ft %>%
     plotting_name = case_when(
       MP_id == "12283" ~ "A. V. Johannesen",
       MP_id == "6687"  ~ "K. L. Johannesen",
+      MP_id == "18688" ~ "A.-M. Høegh-Dam",
+      MP_id == "21388" ~ "Q. Høegh-Dam",
       TRUE             ~ surname
     )
   )
