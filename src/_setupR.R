@@ -100,3 +100,13 @@ northatlantic_ft_without_absences <- subset(northatlantic_ft_ordered, vote_type_
 
 elections_ft <- elections %>%
   filter(election_type == "Folketing Election")
+
+# Add Derived Variables
+
+northatlantic_ft$participation <- northatlantic_ft$vote_type_id %in% c("1", "2", "4")
+
+northatlantic_ft$close_vote <- abs(northatlantic_ft$ft_for - northatlantic_ft$ft_against) <= 4
+
+northatlantic_ft <- northatlantic_ft %>%
+  relocate(participation, .after = vote_type_id) %>%
+  relocate(close_vote, .after = ft_absent)
