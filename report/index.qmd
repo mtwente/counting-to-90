@@ -377,6 +377,7 @@ Operationalisation:
 4. party in gvt. vs. opposition at home
 
 margin to majority: use fine-grained seat distribution based on @folkevalgte.dkPartiskift2026. There are mismatches between this information and other data (e.g. not including Fremad as party etc.), but this is consistently built up, apparently.
+-> @nielsenPartiskiftFolketinget195320152017 [62]: "[partiskift] kan dog påvirke flertalsdannelser i enkeltsager"
 
 - see [-@harderFaeroskeOgGronlandske2022, 9] for variable coding for cross-parliamentary stuff
 
@@ -391,15 +392,13 @@ see method used for Bundestag in @maiLoyalActivistsParty2024
 
 "However, in many of the West European parliaments, including Denmark, party discipline is very tight. Thus analysing individual legislator behaviour is of little use, and in such cases we should shift our focus to the parliamentary party groups and use these as the actors to be analysed." [@ejnarhansenReconsideringPartyDistances2008, 266]
 
+see @harderCrossparliamentaryControl2025 [8-9]: Not much research has been conducted [SEITENUMBRUCH] on the Greenlandic party discipline, yet, since crossing the party line in Greenlandic politics is heavily criticised when it occurs (Schultz-Nielsen, 2018), I may assume that party discipline is also a norm here.
+
 "... it is custom in Danish legislative studies to use parliamentarians’ membership of legislative committees as an indicator of their political activities" [@cleggParliamentaryRepresentationOverseas2022, 238]
 
 - distribution of ft_process_step? (or later during empirical strategy)
   - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
 - most frequent ministry values
-
-This does not only add a new unit of analysis to research on Northatlantic representation, but 
-
-less about topics, more about hard numbers/numerical influence
 
 - voting records: ungewöhnlich, aber aufgrund öffentlichkeitswirksamkeit angebracht. "Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de giver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
 
