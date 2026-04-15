@@ -115,6 +115,9 @@ roll_call_results_ft <- readRDS(here("data", "processed", "roll_call_results_ft.
 MP_dates <- readRDS(here("data", "processed", "MP_dates.rds"))
 elections <- readRDS(here("data", "processed", "election_dates.rds"))
 
+### Folketing seats per party per date
+party_mandates <- readRDS(here("data", "processed", "party_mandates.rds"))
+
 #### Convert dates
 MP_dates <- MP_dates %>%
   mutate(
@@ -144,6 +147,17 @@ northatlantic_ft <- northatlantic_ft %>%
       TRUE             ~ surname
     )
   )
+
+### Add number of cabinet seats on date of observation
+northatlantic_ft <- northatlantic_ft %>%
+  rowwise() %>%
+  mutate(
+    cabinet_parties_seats = party_mandates$gvt_seats[
+      which(date >= party_mandates$start & date <= party_mandates$end)[1]
+    ]
+  ) %>%
+  ungroup() %>%
+  relocate(cabinet_parties_seats, .after = gvt_bloc_dk)
 
 ### Order origin factor levels for facet order
 northatlantic_ft <- northatlantic_ft %>%

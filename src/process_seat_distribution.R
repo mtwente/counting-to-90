@@ -34,7 +34,7 @@ current <- NULL
 for (i in seq_along(all_dates)) {
   d <- all_dates[i]
   
-  # If election day → reset baseline
+  # Reset baseline after election dates
   if (d %in% election$date) {
     current <- as.numeric(election[election$date == d, -1])
   }
