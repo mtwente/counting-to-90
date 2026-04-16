@@ -133,4 +133,10 @@ vote_matrix <- northatlantic_ft_participation_wide %>%
 # transpose: parties = rows, roll calls = columns
 vote_matrix_t <- t(vote_matrix)
 
-kripp.alpha(vote_matrix_t, method = "nominal")
+krippendorf_result <- as.data.frame(t(unlist(kripp.alpha(vote_matrix_t, method = "nominal"))))
+
+alpha_table <- data.frame(
+  Alpha = round(as.numeric(krippendorf_result$value), 3),
+  Subjects = krippendorf_result$subjects,
+  Raters = krippendorf_result$raters
+)
