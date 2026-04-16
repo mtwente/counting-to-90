@@ -2,6 +2,7 @@
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(irr)
 
 # RQ2: Cohesion
 
@@ -85,4 +86,13 @@ pairs_df %>%
     n = n()
   )
 ## same_bloc = TRUE => cohesion within parties from the same bloc
-## same_bloc = FALSE => cohesion within parties across different blocs
+## same_bloc = FALSE => cohesion within parties across different blocs# Krippendorff's alpha
+
+vote_matrix <- northatlantic_ft_participation_wide %>%
+  select(-roll_call_id) %>%
+  as.matrix()
+
+# transpose: parties = rows, roll calls = columns
+vote_matrix_t <- t(vote_matrix)
+
+kripp.alpha(vote_matrix_t, method = "nominal")
