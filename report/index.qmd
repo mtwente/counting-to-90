@@ -891,8 +891,9 @@ kable(MPs, caption = "List of MPs from Greenland and the Faroe Islands in Folket
 
 ## List of Parties {.appendix .unnumbered .unlisted}
 
-party positions faroe islands: @westMPFirefightingWhen2018 [103]
-party positions Greenland: @ackrenPoliticalPartiesGreenland2015 ?
+@tbl-blocs and @tbl-party-parlgov provide information on the political parties that make up the *nordatlantisk-ft* dataset. The categorisation of the parties with regard to the political bloc they are affiliated to and their stance on independence is based on @ackrenPoliticalPartiesGreenland2015, @ahlnessNunattaQitornaiParty2020 [167], and @westMPFirefightingWhen2018 [103].
+
+Data on the association with a party family and on the party positions in @tbl-party-parlgov are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2026].
 
 ```{r}
 #| echo: false
@@ -961,9 +962,6 @@ table_bloc <- base_parties |>
 kable(table_bloc, caption = "List of relevant political parties and their positions.")
 ```
 
-Information on each party's positions are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2026].
-
-```{r tbl-party-parlgov}
 ```{r}
 #| echo: false
 #| results: asis
