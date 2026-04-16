@@ -6,9 +6,30 @@ library(irr)
 
 # RQ2: Cohesion
 
+## define bloc affiliations
+left_parties <- c("IA", "SIU", "E", "C")
+center_parties <- c("N")
+right_parties <- c("B", "A")
+pro_independence_parties <- c("IA", "SIU", "E", "A", "N")
+against_independence_parties <- c("B", "C")
+
+## filter/subset original dataset
 northatlantic_ft_without_absences <- northatlantic_ft %>%
   filter(participation == TRUE)
 
+## add GL/FO party blocs
+northatlantic_ft_without_absences <- northatlantic_ft_without_absences %>%
+  mutate(
+    party_bloc = case_when(
+      party %in% left_parties   ~ "left",
+      party %in% center_parties ~ "center",
+      party %in% right_parties  ~ "right",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  relocate(party_bloc, .after = party)
+
+## pivot wider
 northatlantic_ft_participation_wide <- northatlantic_ft_without_absences %>%
   select(roll_call_id, party, vote_type_id) %>%
   distinct() %>%
@@ -62,13 +83,7 @@ pairs_df %>%
 ## same_origin = TRUE => cohesion within Greenland / within Faroe Islands
 ## same_origin = FALSE => cross-origin agreement
 
-# Compare left/right bloc
-
-## define bloc affiliation
-left_parties <- c("IA", "SIU", "E", "C")
-center_parties <- c("N")
-right_parties <- c("B", "A")
-
+# Compare left/right bloc agreement
 pairs_df <- pairs_df %>%
   mutate(
     same_bloc = case_when(
