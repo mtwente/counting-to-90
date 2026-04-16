@@ -945,17 +945,19 @@ table_bloc <- base_parties |>
   select(Party, `Party Family`, Bloc, Independence) |>
   mutate(across(everything(), as.character))
 
-stargazer(
-  table_bloc,
-  summary = FALSE,
-  rownames = FALSE,
-  header = FALSE,
-  column.sep.width = "2pt",
-  type = "latex",
-  float = FALSE,
-  title = "Additional categorisation of political parties in this dataset.",
-  label = "tbl-party-categories"
-)
+#stargazer(
+#  table_bloc,
+#  summary = FALSE,
+#  rownames = FALSE,
+#  header = FALSE,
+#  column.sep.width = "2pt",
+#  type = "latex",
+#  float = FALSE,
+#  title = "Additional categorisation of political parties in this dataset.",
+#  label = "tbl-party-categories"
+#)
+
+kable(table_bloc, caption = "List of relevant political parties and their positions.")
 ```
 
 Information on each party's positions are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2026].
@@ -987,17 +989,20 @@ table_policy <- base_parties |>
   ) |>
   mutate(across(everything(), as.character))
 
-stargazer(
-  table_policy,
-  summary = FALSE,
-  rownames = FALSE,
-  header = FALSE,
-  column.sep.width = "2pt",
-  type = "latex",
-  float = FALSE,
-  title = "Political parties from Greenland and the Faroe Islands with an MP in the Folketing since 2004.",
-  label = "tbl-parties"
-)
+#stargazer(
+#  table_policy,
+#  summary = FALSE,
+#  rownames = FALSE,
+#  header = FALSE,
+#  column.sep.width = "2pt",
+#  type = "latex",
+#  float = FALSE,
+#  title = "Political parties from Greenland and the Faroe Islands with an #MP in the Folketing since 2004.",
+#  label = "tbl-parties"
+#)
+
+kable(table_policy, caption = "Party positions according to ParlGov [@doringParlGov2024Release2024].")
+
 ```
 
 ## Descriptive Statistics {.appendix .unnumbered .unlisted}
