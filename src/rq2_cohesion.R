@@ -76,10 +76,10 @@ pairs_df <- pairs_df %>%
   relocate(party_bloc_dk_gvt, .before = agree) %>%
   select(-gvt_bloc_dk_1, -gvt_bloc_dk_2)
 
-pairs_df %>%
+origin_agreement_rate <- pairs_df %>%
   group_by(same_origin) %>%
   summarise(
-    agreement_rate = mean(agree, na.rm = TRUE),
+    agreement_rate = round(mean(agree, na.rm = TRUE), digits = 3),
     n = n()
   )
 ## same_origin = TRUE => cohesion within Greenland / within Faroe Islands
@@ -99,7 +99,7 @@ pairs_df <- pairs_df %>%
 pairs_df %>%
   group_by(same_bloc) %>%
   summarise(
-    agreement_rate = mean(agree, na.rm = TRUE),
+    agreement_rate = round(mean(agree, na.rm = TRUE), digits = 3),
     n = n()
   )
 ## same_bloc = TRUE => cohesion within parties from the same bloc
