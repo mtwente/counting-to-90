@@ -897,54 +897,103 @@ kable(MPs, caption = "List of MPs from Greenland and the Faroe Islands in Folket
 
 ## List of Parties {.appendix .unnumbered .unlisted}
 
-Information on each party's positions are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2026].
+party positions faroe islands: @westMPFirefightingWhen2018 [103]
+party positions Greenland: @ackrenPoliticalPartiesGreenland2015 ?
 
-```{r}
+```{r tbl-party-base}
+#| echo: false
+
+base_parties <- political_parties |>
+  filter(origin %in% c("GL", "FO")) |>
+  mutate(
+    Party = paste0(full_name, " (", party, "/", origin, ")")
+  ) |>
+  select(
+    Party, party, party_family, origin,
+    left_right, state_market,
+    liberty_authority, anti_pro_eu
+  )
+```
+
+```{r tbl-party-policies}
 #| echo: false
 #| results: asis
 
-parties_gl <- political_parties |>
-  filter(origin == "GL") |>
-  mutate(full_name_abbr = paste0(full_name, " (", party, "/", origin, ")")) |>
-  select(
-    full_name_abbr, party_family,
-    left_right, state_market,
-    liberty_authority, anti_pro_eu
-  )
+# define groups
+left_parties <- c("IA", "SIU", "E", "C")
+center_parties <- c("N")
+right_parties <- c("B", "A")
 
-parties_fo <- political_parties |>
-  filter(origin == "FO") |>
-  mutate(full_name_abbr = paste0(full_name, " (", party, "/", origin, ")")) |>
-  select(
-    full_name_abbr, party_family,
-    left_right, state_market,
-    liberty_authority, anti_pro_eu
-  )
+pro_independence_parties <- c("IA", "SIU", "E", "A", "N")
+against_independence_parties <- c("B", "C")
 
-# dirty fix for visualisation purposes
-parties_gl  <- parties_gl  |> mutate(across(everything(), as.character))
-parties_fo  <- parties_fo  |> mutate(across(everything(), as.character))
-
-combined <- bind_rows(
-  parties_gl,
-  parties_fo
-)
-
-colnames(combined) <- c(
-  "Party", "Party Family",
-  "Left--Right", "State--Market",
-  "Liberty--Authority", "Anti--Pro-EU"
-)
-
-#knitr::kable(
-#    combined,
-#    align = "llcccc",,
-#    booktabs = TRUE,
-#    format = "latex"
-#  )
+table_bloc <- base_parties |>
+  mutate(
+    `Party Family` = party_family,
+    
+    Bloc = case_when(
+      party %in% left_parties   ~ "left",
+      party %in% center_parties ~ "center",
+      party %in% right_parties  ~ "right",
+      TRUE ~ NA_character_
+    ),
+    
+    Independence = case_when(
+      party %in% pro_independence_parties     ~ "pro",
+      party %in% against_independence_parties ~ "against",
+      TRUE ~ NA_character_
+    ),
+    # enforce ordering
+    origin = factor(origin, levels = c("GL", "FO")),
+    Bloc   = factor(Bloc,   levels = c("left", "center", "right"))
+  ) |>
+  arrange(origin, Bloc) |>
+  select(Party, `Party Family`, Bloc, Independence) |>
+  mutate(across(everything(), as.character))
 
 stargazer(
-  combined,
+  table_bloc,
+  summary = FALSE,
+  rownames = FALSE,
+  header = FALSE,
+  column.sep.width = "2pt",
+  type = "latex",
+  float = FALSE,
+  title = "Additional categorisation of political parties in this dataset.",
+  label = "tbl-party-categories"
+)
+
+Information on each party's positions are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2026].
+
+```{r tbl-party-parlgov}
+#| echo: false
+#| results: asis
+
+table_policy <- base_parties |>
+  mutate(
+    # recreate Bloc only for ordering
+    Bloc = case_when(
+      party %in% left_parties   ~ "left",
+      party %in% center_parties ~ "center",
+      party %in% right_parties  ~ "right",
+      TRUE ~ NA_character_
+    ),
+    
+    origin = factor(origin, levels = c("GL", "FO")),
+    Bloc   = factor(Bloc, levels = c("left", "ceneter", "right"))
+  ) |>
+  arrange(origin, Bloc, left_right) |>
+  select(
+    Party,
+    `Left--Right` = left_right,
+    `State--Market` = state_market,
+    `Liberty--Authority` = liberty_authority,
+    `Anti--Pro-EU` = anti_pro_eu
+  ) |>
+  mutate(across(everything(), as.character))
+
+stargazer(
+  table_policy,
   summary = FALSE,
   rownames = FALSE,
   header = FALSE,
