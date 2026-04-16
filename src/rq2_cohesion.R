@@ -7,11 +7,7 @@ library(irr)
 # RQ2: Cohesion
 
 ## define bloc affiliations
-left_parties <- c("IA", "SIU", "E", "C")
-center_parties <- c("N")
-right_parties <- c("B", "A")
-pro_independence_parties <- c("IA", "SIU", "E", "A", "N")
-against_independence_parties <- c("B", "C")
+### defined in _setupR.R include
 
 ## filter/subset original dataset
 northatlantic_ft_without_absences <- northatlantic_ft %>%

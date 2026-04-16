@@ -952,12 +952,7 @@ base_parties <- political_parties |>
 #| label: tbl-blocs
 
 # define groups
-left_parties <- c("IA", "SIU", "E", "C")
-center_parties <- c("N")
-right_parties <- c("B", "A")
-
-pro_independence_parties <- c("IA", "SIU", "E", "A", "N", "NQ")
-against_independence_parties <- c("B", "C")
+## moved into _setupR.R include
 
 table_bloc <- base_parties |>
   mutate(

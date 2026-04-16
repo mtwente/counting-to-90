@@ -4,6 +4,7 @@
 library(here)
 library(ggplot2)
 library(dplyr)
+library(tidyr)
 library(readr)
 library(knitr)
 library(forcats)
@@ -14,6 +15,7 @@ library(xfun)
 library(patchwork)
 suppressMessages(library(stargazer))
 library(kableExtra)
+library(irr)
 
 ## Read Data -----
 
@@ -100,6 +102,15 @@ northatlantic_ft_without_absences <- subset(northatlantic_ft_ordered, vote_type_
 
 elections_ft <- elections %>%
   filter(election_type == "Folketing Election")
+
+# Define Party Groups
+
+left_parties <- c("IA", "SIU", "E", "C")
+center_parties <- c("N")
+right_parties <- c("B", "A")
+
+pro_independence_parties <- c("IA", "SIU", "E", "A", "N", "NQ")
+against_independence_parties <- c("B", "C")
 
 # Add Derived Variables
 
