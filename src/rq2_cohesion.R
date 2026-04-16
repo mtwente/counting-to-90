@@ -65,7 +65,7 @@ ggplot(cohesion_df, aes(x = cohesion)) +
 # Compare Within-Bloc vs. Origin Agreement
 
 pairs_df <- northatlantic_ft_without_absences %>%
-  select(roll_call_id, party, origin, vote_type_id) %>%
+  select(roll_call_id, party, origin, vote_type_id, party_bloc, gvt_bloc_dk) %>%
   mutate(party = as.character(party)) %>%
   inner_join(., ., by = "roll_call_id", suffix = c("_1", "_2"), relationship = "many-to-many") %>%
   filter(party_1 < party_2) %>%  # avoid duplicates and self-pairs
@@ -73,6 +73,12 @@ pairs_df <- northatlantic_ft_without_absences %>%
     agree = vote_type_id_1 == vote_type_id_2,
     same_origin = origin_1 == origin_2
   )
+
+ ### reformat gvt_bloc_dk as control variable
+pairs_df <- pairs_df %>%
+  mutate(party_bloc_dk_gvt = gvt_bloc_dk_1) %>%
+  relocate(party_bloc_dk_gvt, .before = agree) %>%
+  select(-gvt_bloc_dk_1, -gvt_bloc_dk_2)
 
 pairs_df %>%
   group_by(same_origin) %>%
