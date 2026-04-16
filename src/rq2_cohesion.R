@@ -10,11 +10,11 @@ library(irr)
 ### defined in _setupR.R include
 
 ## filter/subset original dataset
-northatlantic_ft_without_absences <- northatlantic_ft %>%
+northatlantic_ft_present_only <- northatlantic_ft %>%
   filter(participation == TRUE)
 
 ## add GL/FO party blocs
-northatlantic_ft_without_absences <- northatlantic_ft_without_absences %>%
+northatlantic_ft_present_only <- northatlantic_ft_present_only %>%
   mutate(
     party_bloc = case_when(
       party %in% left_parties   ~ "left",
@@ -26,7 +26,7 @@ northatlantic_ft_without_absences <- northatlantic_ft_without_absences %>%
   relocate(party_bloc, .after = party)
 
 ## pivot wider
-northatlantic_ft_participation_wide <- northatlantic_ft_without_absences %>%
+northatlantic_ft_participation_wide <- northatlantic_ft_present_only %>%
   select(roll_call_id, party, vote_type_id) %>%
   distinct() %>%
   pivot_wider(names_from = party, values_from = vote_type_id)
@@ -60,7 +60,7 @@ ggplot(cohesion_df, aes(x = cohesion)) +
 
 # Compare Within-Bloc vs. Origin Agreement
 
-pairs_df <- northatlantic_ft_without_absences %>%
+pairs_df <- northatlantic_ft_present_only %>%
   select(roll_call_id, party, origin, vote_type_id, party_bloc, gvt_bloc_dk) %>%
   mutate(party = as.character(party)) %>%
   inner_join(., ., by = "roll_call_id", suffix = c("_1", "_2"), relationship = "many-to-many") %>%
