@@ -29,7 +29,7 @@ cohesion_df <- northatlantic_ft_participation_wide %>%
   mutate(cohesion = pairwise_agreement(c_across(-roll_call_id))) %>%
   ungroup()
 
-# find out number of complete cases (= one or more MPs vote)
+# find out number of complete cases (= two or more MPs vote on the same proposal)
 ## it's 64 out of 727, aka 8.8%
 sum(complete.cases(cohesion_df$cohesion))
 
