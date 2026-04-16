@@ -107,7 +107,28 @@ pairs_df %>%
     n = n()
   )
 ## same_bloc = TRUE => cohesion within parties from the same bloc
-## same_bloc = FALSE => cohesion within parties across different blocs# Krippendorff's alpha
+## same_bloc = FALSE => cohesion within parties across different blocs
+
+# Compare independence/non-independence blocs
+pairs_df <- pairs_df %>%
+  mutate(
+    same_independence_stance = case_when(
+      party_1 %in% pro_independence_parties & party_2 %in% pro_independence_parties ~ TRUE,
+      party_1 %in% against_independence_parties & party_2 %in% against_independence_parties ~ TRUE,
+      TRUE ~ FALSE
+    )
+  )
+
+pairs_df %>%
+  group_by(same_independence_stance) %>%
+  summarise(
+    agreement_rate = mean(agree, na.rm = TRUE),
+    n = n()
+  )
+## same_independence_stance = TRUE => cohesion across parties with the same stance on independence
+## same_independence_stance = FALSE => cohesion across parties with different stances on independence
+
+# Krippendorff's alpha
 
 vote_matrix <- northatlantic_ft_participation_wide %>%
   select(-roll_call_id) %>%
