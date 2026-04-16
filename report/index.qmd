@@ -243,7 +243,16 @@ The underlying assumption then is that the participation in roll call votes in F
 
 I am using the [*nordatlantisk-ft*](https://mtwente.github.io/nordatlantisk-ft) dataset which contains voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but metadata only [@berntzenParliamentaryOpenData2019, 9], I had to create both workflow and dataset myself. The dataset is the result of a pipeline in R, taking a list of MPs as input and then scraping voting records and metadata from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using a git-based template including long-term archival on Zenodo [@mahrOneTemplateRule2025a], and are accompanied by extensive metadata and documentation to ensure reproducibility. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
 
+<!-- - case selection/overview data (temporal and spatial), unit of analysis
+- measurement dependent variable (and data source)
+- measurement independent and control variables (and data source)
+- methodological approach (why this one?) -->
 
+
+* use data on party level for all hypotheses, cf.:
+  * "Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
+  * "However, in many of the West European parliaments, including Denmark, party discipline is very tight. Thus analysing individual legislator behaviour is of little use, and in such cases we should shift our focus to the parliamentary party groups and use these as the actors to be analysed." [@ejnarhansenReconsideringPartyDistances2008, 266]
+  * see @harderCrossparliamentaryControl2025 [8-9]: Not much research has been conducted [SEITENUMBRUCH] on the Greenlandic party discipline, yet, since crossing the party line in Greenlandic politics is heavily criticised when it occurs (Schultz-Nielsen, 2018), I may assume that party discipline is also a norm here.
 
 - List of MPs
 - MP metadata
@@ -251,45 +260,72 @@ I am using the [*nordatlantisk-ft*](https://mtwente.github.io/nordatlantisk-ft) 
 - roll call metadata
 - cabinet metadata
 
-structure each subparagraph:
-- section named based on label in parentheses
-- state hypothesis
-- refer to literature
-- mention relevant variables (and name dataset availability)
+* @harderFaeroskeOgGronlandske2022 [10-11]: t-test
 
-<!-- - case selection/overview data (temporal and spatial), unit of analysis
-- measurement dependent variable (and data source)
-- measurement independent and control variables (and data source)
-- methodological approach (why this one?) -->
+#### H~1~: Descriptive Patterns
 
-<!-- - variables and controls
-- unit of analysis
-- method (logit model etc.) -->
+<!-- * H~1~: *While overall participation in roll call voting is consistently low, Greenlandic MPs cast more votes than their Faroese counterparts.*
 
-Operationalisation:
+The analysis based on this subquestion/hypothesis will also include a broader description of the available data set regarding behavior of different MPs of different political parties over time. -->
 
-1. participation rate, abstention/absence patterns, variation across MPs
-2. agreement rates, pairwise similarity, bloc vs party alignment
-3. margin to majority (90), close vs. safe votes
-4. party in gvt. vs. opposition at home
+operationalisation: participation rate, abstention/absence patterns, variation across MPs
+
+* unit of analysis:
+* method: 
+* independent variable: `party`?
+* dependent variable: `participation`?
+* control variables:
+* data source:
+
+#### H~2~: Bloc Cohesion
+
+<!-- I therefore expect to find patterns showing that voting cohesion among Northatlantic MPs is more prevalent than cohesion with the Danish political bloc they would be assigned to based on their party membership.
+
+* H~2~: *Voting cohesion among Northatlantic MPs is higher than cohesion within political blocs.*-->
+
+operationalisation: agreement rates, pairwise similarity, bloc vs party alignment
+
+sub-question: What explains agreement?
+
+* unit of analysis: roll call vote
+* method1: pairwise agreement
+* independent variables1: `pairs_df$same_origin`, `pairs_df$same_bloc`, `pairs_df$same_independence_stance` 
+* dependent variable1: `pairs_df$agree` (TRUE/FALSE)
+* control variables:
+
+sub-question:  how much agreement is in the data? Is cohesion real or just structural?
+
+* method 2: krippendorff's alpha (descriptive, without dependent variables)
+* data source:
+
+#### H~3~: Pivotality
+operationalisation: margin to majority (90), close vs. safe votes
+
+* unit of analysis:
+* method: 
+* independent variable: `margin`?/`cabinet_parties_seats`?
+* dependent variable: `participation` (TRUE/FALSE, based on `vote_type_id`)
+* control variables:
+* data source:
 
 margin to majority: use fine-grained seat distribution based on @folkevalgte.dkPartiskift2026. There are mismatches between this information and other data (e.g. not including Fremad as party etc.), but this is consistently built up, apparently.
 -> @nielsenPartiskiftFolketinget195320152017 [62]: "[partiskift] kan dog påvirke flertalsdannelser i enkeltsager"
 
+#### H~4~: Cross-Parliamentary Control
+operationalisation: party in gvt. vs. opposition at home
+
+* unit of analysis:
+* method: 
+* independent variable: `gvt_party_at_home`
+* dependent variable: `participation` (TRUE/FALSE, based on `vote_type_id`)
+* control variables:
+* data source:
+
 - see [-@harderFaeroskeOgGronlandske2022, 9] for variable coding for cross-parliamentary stuff
-
-* @harderFaeroskeOgGronlandske2022 [10-11]: t-test
-
 
 <!-- older section below -->
 
 see method used for Bundestag in @maiLoyalActivistsParty2024
-
-"Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
-
-"However, in many of the West European parliaments, including Denmark, party discipline is very tight. Thus analysing individual legislator behaviour is of little use, and in such cases we should shift our focus to the parliamentary party groups and use these as the actors to be analysed." [@ejnarhansenReconsideringPartyDistances2008, 266]
-
-see @harderCrossparliamentaryControl2025 [8-9]: Not much research has been conducted [SEITENUMBRUCH] on the Greenlandic party discipline, yet, since crossing the party line in Greenlandic politics is heavily criticised when it occurs (Schultz-Nielsen, 2018), I may assume that party discipline is also a norm here.
 
 "... it is custom in Danish legislative studies to use parliamentarians’ membership of legislative committees as an indicator of their political activities" [@cleggParliamentaryRepresentationOverseas2022, 238]
 
