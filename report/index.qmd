@@ -279,9 +279,170 @@ operationalisation: participation rate, abstention/absence patterns, variation a
 
 #### H~2~: Bloc Cohesion
 
-<!-- I therefore expect to find patterns showing that voting cohesion among Northatlantic MPs is more prevalent than cohesion with the Danish political bloc they would be assigned to based on their party membership.
+```{r prepare-h2-analysis}
+#| echo: false
+#| message: false
 
-* H~2~: *Voting cohesion among Northatlantic MPs is higher than cohesion within political blocs.*-->
+## define bloc affiliations
+### defined in _setupR.R include
+
+## filter/subset original dataset
+northatlantic_ft_present_only <- northatlantic_ft %>%
+  filter(participation == TRUE)
+
+## add GL/FO party blocs
+northatlantic_ft_present_only <- northatlantic_ft_present_only %>%
+  mutate(
+    party_bloc = case_when(
+      party %in% left_parties   ~ "left",
+      party %in% center_parties ~ "center",
+      party %in% right_parties  ~ "right",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  relocate(party_bloc, .after = party)
+
+## pivot wider
+northatlantic_ft_participation_wide <- northatlantic_ft_present_only %>%
+  select(roll_call_id, party, vote_type_id) %>%
+  distinct() %>%
+  pivot_wider(names_from = party, values_from = vote_type_id)
+```
+
+To assess voting cohesion among North Atlantic MPs, I employ two complementary approaches: Pairwise agreement rates and Krippendorff's Alpha as an additional measure. Using roll call votes as unit of analysis, agreement between two MPs is defined as both of them having the same value of the variable `vote_type_id` for the same roll call vote, e.g. both voting `for` one proposal. One vote `for` and one vote (or more) `against` is no agreement, meaning no cohesive voting behavior. 
+
+```{r pairwise-agreement-setup}
+#| echo: false
+#| warning: false
+#| message: false
+
+pairwise_agreement <- function(votes) {
+  votes <- na.omit(votes)
+  if (length(votes) < 2) return(NA)
+  
+  pairs <- combn(votes, 2)
+  mean(pairs[1, ] == pairs[2, ])
+}
+
+cohesion_df <- northatlantic_ft_participation_wide %>%
+  rowwise() %>%
+  mutate(cohesion = pairwise_agreement(c_across(-roll_call_id))) %>%
+  ungroup()
+```
+
+First, I remove all observations where none of the four MP actually cast a vote. This leaves `r length(unique(northatlantic_ft_present_only$roll_call_id))` roll calls with at least one recorded vote (`r scales::percent(length(unique(northatlantic_ft_present_only$roll_call_id))/length(unique(northatlantic_ft$roll_call_id)), accuracy = 0.1)` of all observations) for further processing. In a second step, I create a dataset of MPs’ votes to calculate pairwise agreement rates (again only including roll calls with non-absent records). Looking only at cases where at least two MPs cast a vote so there can actually be (dis)agreement, the number of observations is further reduced to `r sum(complete.cases(cohesion_df$cohesion))` (`r scales::percent(sum(complete.cases(cohesion_df$cohesion))/nrow(cohesion_df), accuracy = 0.1)` of roll call votes with non-absent records or `r scales::percent(sum(complete.cases(cohesion_df$cohesion))/length(unique((northatlantic_ft$roll_call_id))), accuracy = 0.01)` of all recorded roll call votes).
+
+I look at pairwise agreement rates in three different comparative settings: Based on MP origin (Are the agreeing/disagreeing MPs from the same constituency?), affiliation with one of the political blocs (Do the agreeing/disagreeing MPs belong to the same bloc?) and their party's stance on independence (Do the parties of the agreeing/disagreeing MPs share the same view on their territory's independence from Denmark?).
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-pairwise-agreement-origin
+#| tbl-cap: "Origin-Based Pairwise Agreement Rates"
+#| tbl-cap-location: top
+
+pairs_df <- northatlantic_ft_present_only %>%
+  select(roll_call_id, party, origin, vote_type_id, party_bloc, gvt_bloc_dk) %>%
+  mutate(party = as.character(party)) %>%
+  inner_join(., ., by = "roll_call_id", suffix = c("_1", "_2"), relationship = "many-to-many") %>%
+  filter(party_1 < party_2) %>%  # avoid duplicates and self-pairs
+  mutate(
+    agree = vote_type_id_1 == vote_type_id_2,
+    same_origin = origin_1 == origin_2
+  )
+
+ ### reformat gvt_bloc_dk as control variable
+pairs_df <- pairs_df %>%
+  mutate(party_bloc_dk_gvt = gvt_bloc_dk_1) %>%
+  relocate(party_bloc_dk_gvt, .before = agree) %>%
+  select(-gvt_bloc_dk_1, -gvt_bloc_dk_2)
+
+origin_agreement_rate <- pairs_df %>%
+  group_by(same_origin) %>%
+  summarise(
+    agreement_rate = round(mean(agree, na.rm = TRUE), digits = 3),
+    n = n()
+  )
+
+kable(
+  origin_agreement_rate,
+  col.names = c("Same Origin", "Agreement Rate", "n"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
+)
+
+## same_origin = TRUE => cohesion within Greenland / within Faroe Islands
+## same_origin = FALSE => cross-origin agreement
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-pairwise-agreement-bloc
+#| tbl-cap: "Bloc-Based Pairwise Agreement Rates"
+#| tbl-cap-location: top
+
+# Compare left/right bloc agreement
+pairs_df <- pairs_df %>%
+  mutate(
+    same_bloc = case_when(
+      party_1 %in% left_parties & party_2 %in% left_parties ~ TRUE,
+      party_1 %in% right_parties & party_2 %in% right_parties ~ TRUE,
+      party_1 %in% center_parties & party_2 %in% center_parties ~ TRUE,
+      TRUE ~ FALSE
+    )
+  )
+
+bloc_agreement_rate <- pairs_df %>%
+  group_by(same_bloc) %>%
+  summarise(
+    agreement_rate = round(mean(agree, na.rm = TRUE), digits = 3),
+    n = n()
+  )
+
+kable(
+  bloc_agreement_rate,
+  col.names = c("Same Bloc", "Agreement Rate", "n"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
+)
+
+## same_bloc = TRUE => cohesion within parties from the same bloc
+## same_bloc = FALSE => cohesion within parties across different blocs
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-krippendorffs-alpha
+#| tbl-cap: "Krippendorff's alpha for voter agreement"
+#| tbl-cap-location: top
+
+vote_matrix <- northatlantic_ft_participation_wide %>%
+  select(-roll_call_id) %>%
+  as.matrix()
+
+# transpose: parties = rows, roll calls = columns
+vote_matrix_t <- t(vote_matrix)
+
+krippendorf_result <- as.data.frame(t(unlist(kripp.alpha(vote_matrix_t, method = "nominal"))))
+
+alpha_table <- data.frame(
+  Alpha = round(as.numeric(krippendorf_result$value), 3),
+  Subjects = krippendorf_result$subjects,
+  Raters = krippendorf_result$raters
+)
+
+kable(alpha_table, booktabs = TRUE, align = "lrr", format = "latex")
+```
+
+Additionally, I also calculate Krippendorff's Alpha for the dataset of non-absent records as a summary measure of overall agreement, accounting for agreement expected by chance. I create a matrix where each observation is a roll call vote and the recorded votes are listed in one column for each party.
+<!-- fixme add method source -->
 
 operationalisation: agreement rates, pairwise similarity, bloc vs party alignment
 
@@ -291,12 +452,9 @@ sub-question: What explains agreement?
 * method1: pairwise agreement
 * independent variables1: `pairs_df$same_origin`, `pairs_df$same_bloc`, `pairs_df$same_independence_stance` 
 * dependent variable1: `pairs_df$agree` (TRUE/FALSE)
-* control variables:
+* control variables: `NA`
 
 sub-question:  how much agreement is in the data? Is cohesion real or just structural?
-
-* method 2: krippendorff's alpha (descriptive, without dependent variables)
-* data source:
 
 #### H~3~: Pivotality
 operationalisation: margin to majority (90), close vs. safe votes
