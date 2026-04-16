@@ -217,8 +217,6 @@ A review of existing literature showed that the Northatlantic MPs' work in Folke
 
 The analysis based on this subquestion/hypothesis will also include a broader description of the available data set regarding behavior of different MPs of different political parties over time.
 
-<!-- - fixme: variables, measurement -->
-
 <!-- section 2: Bloc Cohesion vs. Party Alignment -->
 The second perspective concerns the voting records themselves and whether Northatlantic MPs vote as one bloc. @harderFaeroskeOgGronlandske2022 [18] finds that MPs support coalitions that belong to the same political bloc as each MP's own party, aligning with findings about high levels of party cohesion in Folketinget [@ejnarhansenReconsideringPartyDistances2008, 266]. The relevant political parties (see [Appendix](#list-of-parties)) can be classified as belonging to either the left/red or right/blue bloc of Danish politics. But since Greenlandic, Faroese and Danish party systems are separate entities, "judgments need to be made as to what parliamentary coalitions the four North Atlantic seats would likely caucus or collaborate with" [@kurrild-klitgaardElectionInversionsCoalitions2013, 130]. At the same time, the more important cleavage for political parties in Greenland and the Faroe Islands is between separatism and unionism [@ackrenExploringRoleRegional2019, 27]. I therefore expect to find patterns showing that voting cohesion among Northatlantic MPs is more prevalent than cohesion with the Danish political bloc they would be assigned to based on their party membership.
 
@@ -226,15 +224,11 @@ The second perspective concerns the voting records themselves and whether Northa
 
 There are examples of MPs supporting the other political bloc such as when Aleqa Hammond, at the time member of social democratic Siumut, agreed to support the right-wing coalition of Venstre, Liberal Alliance and Det Konservative Folkeparti [@harderFaeroskeOgGronlandske2022, 17; @uldumKommentatorUdpegelseAf2016]. Faroese unionist MP Anna Falkenberg stated that she considers herself to be part of Venstre's Folketinget group and, thus, the Danish (!) government [@falkenbergFaeroskPolitikerTil2025]. During election campaigns, on the other hand, some of the Northatlantic candidates refuse to commit to joining one of the blocs, even though the political profile of their party clearly points in one direction [cf. @engelundMorgenpostFraGronland2026a; @joensenNordatlantiskePartierVil2022].
 <!-- what about excluding absences for measuring this -->
-<!-- - fixme: variables, measurement -->
 
 <!-- section 3: Pivotality -->
-
 Thirdly, individual voting behavior is rarely a decisive factor -- since party cohesion in Folketinget is generally high [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3] and, after policy has been negotiated in committees, the result of the plenary vote is usually known in advance [@hansenRealBorgenDanish2020; @arterNordicParliamentsMuchofamuchness2016, 214]. But, as noted above, party lines appear to be a less important factor for Northatlantic MPs and they make use of voting power when it is presented to them also across blocs [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]. Numerous examples exist for such situations: The 2022 Folketinget election resulted in a left/red majority of 90 MPs due to three left-wing Northatlantic politicians [@frostLokkeRaserNordatlantiske2022]. After the 2015 and 2007 elections, Northatlantic votes helped to keep the narrow majority of the conservative bloc, and in the 2011--2015 parliament, three Northatlantic MPs brought the left/red bloc up to 92 votes. After the 2007 election, the right/blue bloc relied on a Faroese MP to secure a parliamentary majority [@harderFaeroskeOgGronlandske2022, 19; @mollerForskerNordatlantiskeMandater2026]. The result of the elections in 1998, 1971, 1960 and 1957 led to similar situations [@skjaevelandModellingGovernmentFormation2009, 723; @skjaevelandGovernmentFormationDenmark2003, 448; @millerFriendsRivals1996, 71]. In some isolated votes, the Northatlantic votes have become relevant even though there was a clear parliamentary basis from Danish parties alone: A vote of no confidence against a member of cabinet was blocked in 2025 by a "Northatlantic safety buoy" [@danielsenTeorienKanJeg2025, translation MT]. In 2008, the pressure resulting from the mere possibility of using Northatlantic votes in a proposal on immigration policy lead to a change in another party's stance [@cleggParliamentaryRepresentationOverseas2022, 239; @gadGronlandskeFolketingsmedlemmer2022] -- illustrating how, for Greenlandic and Faroese MPs, the question of voting behavior can be connected with a lot of publicity. This leads to the third hypothesis about a connection of pivotality and participation:
 
 * H~3~: *The closer the parliamentary balance between government and opposition, the more likely Northatlantic MPs are to participate in roll call votes.*
-
-<!-- fixme: variables, measurement -->
 
 <!-- section 4: Cross-Parliamentary Control -->
 Last but not least, I turn to the question of cross-parliamentary control. From this perspective, Northatlantic MPs use their mandates in the Danish parliament to engage in activities with the aim to control the goverment in Greenland resp. the Faroe Islands. Folketinget appears to be a suitable case to study this concept -- not only because the "particularly strong" [@helboepedersenParliamentFOLKETINGETPowerful2020, 102] instruments available to MPs to control Folketinget itself, but also because of its status as second-order parliament from a Northatlantic perspective [@harderCrossparliamentaryControl2025, 3]. Usually, parliamentary oversight is considered to manifest itself through questioning activity [@westPoliticalPartiesParliamentary2025, 969]. Harder, looking at Greenlandic MPs' questions in Folketinget, finds that there is no significant connection between the number of questions posed and whether the MP is affiliated with the Danish <!-- fixme??? ---> government or oppoisition [-@harderCrossparliamentaryControl2025, 17]. However, she hypothesises that MPs "will especially engage in cross-parliamentary control when they belong to parties that are in opposition within the government system where they seek to control the government" [@harderCrossparliamentaryControl2025, 12]. Within the context of this paper, this is transferred to roll call voting as well:
@@ -244,8 +238,6 @@ Last but not least, I turn to the question of cross-parliamentary control. From 
 The underlying assumption then is that the participation in roll call votes in Folketinget can -- in the context of the Northatlantic representation -- also be seen as a form of cross-parliamentary control. In this sense, casting votes is expected to work as control mechanism in so far as it comes with increased publicity as demonstrated above, and has an impact similar to posing parliamentary questions: promoting political debate in parliament as well as agenda setting in media coverage, acting "as party agents to support their colleagues at home" [@harderCrossparliamentaryControl2025, 7].
 
 <!-- fixme @harderCrossparliamentaryControl2025, 11-12: effect of parliamentary group until 2011? -->
-
-<!-- fixme: variables, measurement -->
 
 ## Empirical Strategy
 
@@ -962,6 +954,7 @@ stargazer(
   title = "Additional categorisation of political parties in this dataset.",
   label = "tbl-party-categories"
 )
+```
 
 Information on each party's positions are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2026].
 
