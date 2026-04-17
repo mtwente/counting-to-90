@@ -128,7 +128,7 @@ This approach addresses the 'blame game' where politicians and journalists point
 
 The research question investigated in this paper is as follows: Under which conditions do Northatlantic MPs participate in roll call votes in Folketinget, and to what extent does their participation translate into pivotal voting power? Using a dataset I compile myself, I am going to structure my analysis along four subquestions:
 
-1. Have participation patterns changed after the Northatlantic Party Group was dissolved in 2011?
+1. Does the emergence of party competition among MPs -- after the Northatlantic Party Group was dissolved -- lead to increased participation in roll call voting?
 2. To what extent do Northatlantic MPs vote cohesively as a group?
 3. How does the parliamentary balance of power affect the likelihood that Northatlantic MPs participate in roll call votes? <!--(In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?) -->
 4. How does the position of the MPs' parties in the political system of Greenland resp. the Faroe Islands affect their participation in Folketinget roll call votes?
@@ -210,14 +210,14 @@ Apart from a general, descriptive analysis of the data, my approach to the resea
 <!-- * Hypothesis: causal relationship between two variables: the more, the less...
 * Hypothesis in its own paragraph and in italics -->
 
-<!-- section 1 General Activity/Descriptive Analysis -->
-A review of existing literature showed that the Northatlantic MPs' work in Folketinget has only recently started to attract scientific attention, and until now, voting behavior has not been a factor at all. The first step, therefore, is a descriptive analysis of the available data, including relevant MPs and scraped voting records. Generally, Northatlantic MPs are expected not to take part in parliamentary voting, even though "they are perceived to be more and more involved" [@harderFaeroskeOgGronlandske2022, 7, translation MT]. Looking at party group memberships, Bille observes shifts in MPs' behavior over the years [-@billeFaeroskeFolketingsmedlemmer2025]. Overall, @harderFaeroskeOgGronlandske2022 [19] detects a higher level of activity for Greenlandic MPs when compared to Faroese MPs. Her analysis uses committee memberships and parliamentary questioning as variables, as well as longer absences. Higher levels of activity from the Greenlandic side is also a finding of @harderCaseInnovativeParliamentary2022, analysing questioning as a tool for cross-parliamentary control. Based on these assessments, I also expect Greenlandic MPs to be more active in roll call voting than the Faroese members. Still, drawing on prevailing views of the Northatlantic MPs' role in parliament, the overall level of voting activity is expected be quite low.
+A review of existing literature showed that the Northatlantic MPs' work in Folketinget has only recently started to attract scientific attention, and until now, voting behavior has not been a factor at all. The first step, therefore, is a descriptive analysis of the available data, including relevant MPs and scraped voting records. Generally, Northatlantic MPs are expected not to take part in parliamentary voting, even though "they are perceived to be more and more involved" [@harderFaeroskeOgGronlandske2022, 7, translation MT].
 
-<!-- fixme update to reflect new hypothesis... @harderCrossparliamentaryControl2025, 11-12: effect of parliamentary group until 2011? -->
+<!-- section 1 Participation pre/post 2011 -->
+Looking at party group memberships, Bille observes shifts in MPs' behavior over the years [-@billeFaeroskeFolketingsmedlemmer2025]. Overall, @harderFaeroskeOgGronlandske2022 [19] detects a higher level of activity for Greenlandic MPs when compared to Faroese MPs. Her analysis uses committee memberships and parliamentary questioning as variables, as well as longer absences. Higher levels of activity from the Greenlandic side is also a finding of @harderCaseInnovativeParliamentary2022, analysing questioning as a tool for cross-parliamentary control. Based on these assessments, I also assume Greenlandic MPs to be more active in roll call voting than the Faroese members. Still, drawing on prevailing views of the Northatlantic MPs' role in parliament, the overall level of voting activity is expected be quite low.
 
-* H~1~: *While overall participation in roll call voting is consistently low, Greenlandic MPs cast more votes than their Faroese counterparts.*
+From 2001 until the 2011 election, three MPs from Greenland and the Faroe Islands cooperated in their own parliamentary group [*Den Nordatlantiske Gruppe*, @harderFaeroskeOgGronlandske2022, 18]. @harderCrossparliamentaryControl2025 [11-12] hypothesises a relation between the existence of party competition -- after the Northatlantic Group had been dissolved in 2011 -- and an increase in parliamentary activity, more precisely in questioning related to cross-parliamentary control. I take this hypothesis and apply it to participation in roll call voting as well, expecting a relative increase in participation after the 2011 election:
 
-The analysis based on this subquestion/hypothesis will also include a broader description of the available data set regarding behavior of different MPs of different political parties over time.
+* H~1~: *Participation in roll call voting increases after the Northatlantic Group is dissolved after the 2011 general election.*
 
 <!-- section 2: Bloc Cohesion vs. Party Alignment -->
 The second perspective concerns the voting records themselves and whether Northatlantic MPs vote as one bloc. @harderFaeroskeOgGronlandske2022 [18] finds that MPs support coalitions that belong to the same political bloc as each MP's own party, aligning with findings about high levels of party cohesion in Folketinget [@ejnarhansenReconsideringPartyDistances2008, 266]. The relevant political parties (see [Appendix](#list-of-parties)) can be classified as belonging to either the left/red or right/blue bloc of Danish politics. But since Greenlandic, Faroese and Danish party systems are separate entities, "judgments need to be made as to what parliamentary coalitions the four North Atlantic seats would likely caucus or collaborate with" [@kurrild-klitgaardElectionInversionsCoalitions2013, 130]. At the same time, the more important cleavage for political parties in Greenland and the Faroe Islands is between separatism and unionism [@ackrenExploringRoleRegional2019, 27]. I therefore expect to find patterns showing that voting cohesion among Northatlantic MPs is more prevalent than cohesion with the Danish political bloc they would be assigned to based on their party membership.
@@ -265,16 +265,17 @@ For my analysis, I am going to use the data available as of `r format(file.info(
 - roll call metadata
 - cabinet metadata
 
-* @harderFaeroskeOgGronlandske2022 [10-11]: t-test
+#### H~1~: Participation Before/After 2009
 
-#### H~1~: Descriptive Patterns
+<!--I take this hypothesis and apply it to participation in roll call voting as well, expecting a relative increase in participation after the 2011 election:
 
-<!-- fixme update with new hypothesis -->
-<!-- * H~1~: *While overall participation in roll call voting is consistently low, Greenlandic MPs cast more votes than their Faroese counterparts.*
+* H~1~: *Participation in roll call voting increases after the Northatlantic Group is dissolved after the 2011 general election.*-->
 
-The analysis based on this subquestion/hypothesis will also include a broader description of the available data set regarding behavior of different MPs of different political parties over time. -->
+A difference-in-difference approach is used to find out if ending formal cooperation in the Northatlantic Group had any effect on the share of participation in roll call votes. Only the Greenlandic MPs can be included in this setting: In this argument, party competition is only realised outside of the Northatlantic Group's cooperation. And since only one of the Faroese MPs ever joined the Northatlantic Group, there should be no change in the level of party competition to be detected within the Faroese delegation. However, this enables me to use the Faroese MPs as a control group and compare the results between Greenlandic MPs -- who worked together within the Northatlantic Group -- and the Faroese MPs (who did not). Because Greenland and the Faroe Islands have different party systems [@kurrild-klitgaardElectionInversionsCoalitions2013, 129--130], I assume no party competition across the two constituencies.
 
-operationalisation: participation rate, abstention/absence patterns, variation across MPs and over time
+The parliamentary group existed from 2001 to 2011. However, during its last two years, it only had two members -- Juliane Henningsen (IA/GL) and Høgni Hoydal (E/FO), after the second Greenlandic MP, Lars-Emil Johansen (SIU), left in 2009 [@harderSupplerendeMaterialeFaeroske2022, 13][^exact]. In line with the hypothesis by @harderCrossparliamentaryControl2025 [11-12], the group-based incentive for increased party competition should be in effect already at that point, since the two remaining MPs in the parliamentary group -- one Greenlandic, one Faroese -- would not engage in party-based competition anyway. If the end of formal parliamentary cooperation lead to a change in voting behavior for the two Greenlandic MPs, it should therefore be already visible in 2009, before the actual end of the Northatlantic Group.
+
+[^exact]: For the analysis, the exact date of the group change is assumed to be `r format(as.Date("2009-08-14"), "%B %d, %Y")` based on reporting by @sermitsiaq.agLarsEmilForladerNordatlantiske2009.
 
 * unit of analysis:
 * method: 
