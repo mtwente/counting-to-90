@@ -1125,6 +1125,7 @@ base_parties <- political_parties |>
 #| echo: false
 #| results: asis
 #| label: tbl-blocs
+#| tbl-cap: "List of relevant political parties and their positions."
 
 # define groups
 ## moved into _setupR.R include
@@ -1165,7 +1166,7 @@ table_bloc <- base_parties |>
 #  label = "tbl-party-categories"
 #)
 
-kable(table_bloc, caption = "List of relevant political parties and their positions.")
+kable(table_bloc)
 ```
 
 ```{r}
