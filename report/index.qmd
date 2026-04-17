@@ -1167,7 +1167,7 @@ table_policy <- base_parties |>
     ),
     
     origin = factor(origin, levels = c("GL", "FO")),
-    Bloc   = factor(Bloc, levels = c("left", "ceneter", "right"))
+    Bloc   = factor(Bloc, levels = c("left", "center", "right"))
   ) |>
   arrange(origin, Bloc, left_right) |>
   select(
