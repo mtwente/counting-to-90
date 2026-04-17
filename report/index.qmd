@@ -271,18 +271,49 @@ For my analysis, I am going to use the data available as of `r format(file.info(
 
 * H~1~: *Participation in roll call voting increases after the Northatlantic Group is dissolved after the 2011 general election.*-->
 
-A difference-in-difference approach is used to find out if ending formal cooperation in the Northatlantic Group had any effect on the share of participation in roll call votes. Only the Greenlandic MPs can be included in this setting: In this argument, party competition is only realised outside of the Northatlantic Group's cooperation. And since only one of the Faroese MPs ever joined the Northatlantic Group, there should be no change in the level of party competition to be detected within the Faroese delegation. However, this enables me to use the Faroese MPs as a control group and compare the results between Greenlandic MPs -- who worked together within the Northatlantic Group -- and the Faroese MPs (who did not). Because Greenland and the Faroe Islands have different party systems [@kurrild-klitgaardElectionInversionsCoalitions2013, 129--130], I assume no party competition across the two constituencies.
+```{r h1-analysis}
+#| echo: false
+#| message: false
 
-The parliamentary group existed from 2001 to 2011. However, during its last two years, it only had two members -- Juliane Henningsen (IA/GL) and Høgni Hoydal (E/FO), after the second Greenlandic MP, Lars-Emil Johansen (SIU), left in 2009 [@harderSupplerendeMaterialeFaeroske2022, 13][^exact]. In line with the hypothesis by @harderCrossparliamentaryControl2025 [11-12], the group-based incentive for increased party competition should be in effect already at that point, since the two remaining MPs in the parliamentary group -- one Greenlandic, one Faroese -- would not engage in party-based competition anyway. If the end of formal parliamentary cooperation lead to a change in voting behavior for the two Greenlandic MPs, it should therefore be already visible in 2009, before the actual end of the Northatlantic Group.
+## define end date of Parliamentary Group (start was before dataset inception)
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    post_2009 = date >= as.Date("2009-08-14")
+    ## try FT election 2011 instead
+    #post_2011 = date >= as.Date("2011-09-15")
+  )
+
+## descriptive table
+did_df <- northatlantic_ft %>%
+  group_by(origin, post_2009) %>%
+  summarise(
+    participation_rate = mean(participation),
+    .groups = "drop"
+  )
+
+## reshape
+did_wide <- did_df %>%
+  tidyr::pivot_wider(
+    names_from = c(origin, post_2009),
+    values_from = participation_rate
+  )
+
+## calculate differences
+did_wide <- did_wide %>%
+  mutate(
+    change_GL = GL_TRUE - GL_FALSE,
+    change_FO = FO_TRUE - FO_FALSE,
+    diff_in_diff = change_GL - change_FO
+  )
+```
+
+A difference-in-difference approach is used to find out if ending formal cooperation in the Northatlantic Group had any effect on the share of participation in roll call votes. Only the Greenlandic MPs can be included for testing the hypothesis: In this setting, party competition is only realised outside of the Northatlantic Group's cooperation. And since only one of the Faroese MPs ever joined the Northatlantic Group, there should be no change in the level of party competition to be detected within the Faroese delegation. However, this enables me to use the Faroese MPs as a control group and compare the results between Greenlandic MPs -- who worked together within the Northatlantic Group -- and the Faroese MPs (who did not). Because Greenland and the Faroe Islands have different party systems [@kurrild-klitgaardElectionInversionsCoalitions2013, 129--130], I assume no party competition across the two constituencies.
+
+The parliamentary group existed from 2001 to 2011. However, during its last two years, it only had two members -- Juliane Henningsen (IA/GL) and Høgni Hoydal (E/FO), after the second Greenlandic MP, Lars-Emil Johansen (SIU/GL), left in 2009 [@harderSupplerendeMaterialeFaeroske2022, 13][^exact]. In line with the hypothesis by @harderCrossparliamentaryControl2025 [11-12], the group-based incentive for increased party competition should be in effect already at that point, since the two remaining MPs in the parliamentary group -- one Greenlandic, one Faroese -- would not engage in party-based competition anyway. If the end of formal parliamentary cooperation lead to a change in voting behavior for the two Greenlandic MPs, it should therefore be already visible in 2009, before the actual end of the Northatlantic Group.
 
 [^exact]: For the analysis, the exact date of the group change is assumed to be `r format(as.Date("2009-08-14"), "%B %d, %Y")` based on reporting by @sermitsiaq.agLarsEmilForladerNordatlantiske2009.
 
-* unit of analysis:
-* method: 
-* independent variable: `party`?
-* dependent variable: `participation`?
-* control variables:
-* data source:
+To find out the differences between participation rates, I first set the cut-off to the specified date. For both Faroese and Greenlandic MPs, I then calculate participation rates and how they changed after the end of the Northatlantic Group. As stated above, I use 2009 as inofficial ending date, but later run the same test with an ending date at the 2011 general election. To get to the difference in difference, I simply substract the values for change in participation rates for Greenlandic resp. Faroese MPs.
 
 #### H~2~: Bloc Cohesion
 
