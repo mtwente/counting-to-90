@@ -44,7 +44,9 @@ MP_dates <- MP_dates %>%
     start = ymd(start),
     end   = ymd(end),
     # Replace NA in "end" with today's date
-    end   = if_else(is.na(end), Sys.Date(), end)
+    #end   = if_else(is.na(end), Sys.Date(), end)
+    # use date of 2026 election announcement instead (nordatlantisk-ft v0.2.0 release)
+    end    = if_else(is.na(end), as.Date("2026-02-26"), end)
   )
 
 ## Manipulate Data -----
