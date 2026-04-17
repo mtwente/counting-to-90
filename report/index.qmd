@@ -309,7 +309,24 @@ northatlantic_ft_participation_wide <- northatlantic_ft_present_only %>%
   pivot_wider(names_from = party, values_from = vote_type_id)
 ```
 
-To assess voting cohesion among North Atlantic MPs, I employ two complementary approaches: Pairwise agreement rates and Krippendorff's Alpha as an additional measure. Using roll call votes as unit of analysis, agreement between two MPs is defined as both of them having the same value of the variable `vote_type_id` for the same roll call vote, e.g. both voting `for` one proposal. One vote `for` and one vote (or more) `against` is no agreement, meaning no cohesive voting behavior. 
+To assess voting cohesion among North Atlantic MPs, I employ two complementary approaches: Pairwise agreement rates and Krippendorff's Alpha as an additional measure. Using roll call votes as unit of analysis, agreement between two MPs is defined as both of them having the same value of the variable `vote_type_id` for the same roll call vote, e.g. both voting `for` one proposal. One vote `for` and one vote (or more) `against` is no agreement, meaning disagreement, or no cohesive voting behavior. First, I remove all observations where none of the four MPs actually cast a vote. This leaves `r length(unique(northatlantic_ft_present_only$roll_call_id))` roll calls with at least one recorded vote (`r scales::percent(length(unique(northatlantic_ft_present_only$roll_call_id))/length(unique(northatlantic_ft$roll_call_id)), accuracy = 0.1)` of all observations) for further processing.
+
+```{r krippendorffs-alpha-setup}
+#| echo: false
+#| warning: false
+#| message: false
+
+vote_matrix <- northatlantic_ft_participation_wide %>%
+  select(-roll_call_id) %>%
+  as.matrix()
+
+# transpose: parties = rows, roll calls = columns
+vote_matrix_t <- t(vote_matrix)
+```
+
+I then calculate Krippendorff's Alpha for the dataset of non-absent records as a summary measure of overall agreement. Krippendorff's Alpha appears to be a reasonable choice for measuring agreement with the dataset at hand: It is conceptualised to be applicable to small data sets with any number of observers, handling missing values and correcting for agreement that is to be expected by chance [@krippendorffContentAnalysisIntroduction2004, 222]. The resulting $\alpha$  represents the "proportion of the observed to expected above-chance agreement" [@krippendorffContentAnalysisIntroduction2004, 229], with $1 \geq \alpha \geq 0$ as possible values. $\alpha = 1$ then indicates perfect agreement between observers (MPs), and $\alpha = 0$ means that all observed agreements can be explained as matters of chance, ie. the absence of actual agreement between MPs. Negative values for $\alpha$ would indicate a state of systematic disagreement.
+
+After determining how much co-voting behavior there is in my dataset using Krippendorff's Alpha, I then calculate pairwise agreement rates myself to investigate possible ways to explain the observed agreement. Pairwise agreement rates are considered in three different comparative settings: Based on MP origin (Are the agreeing/disagreeing MPs from the same constituency?), affiliation with one of the political blocs (Do the agreeing/disagreeing MPs belong to the same bloc?) and their party's stance on independence (Do the parties of the agreeing/disagreeing MPs share the same view on their territory's independence from Denmark?).
 
 ```{r pairwise-agreement-setup}
 #| echo: false
