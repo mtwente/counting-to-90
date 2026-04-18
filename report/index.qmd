@@ -278,28 +278,48 @@ For my analysis, I am going to use the data available as of `r format(file.info(
 ## define end date of Parliamentary Group (start was before dataset inception)
 northatlantic_ft <- northatlantic_ft %>%
   mutate(
-    post_2009 = date >= as.Date("2009-08-14")
+    post_2009 = date >= as.Date("2009-08-14"),
     ## try FT election 2011 instead
-    #post_2011 = date >= as.Date("2011-09-15")
+    post_2011 = date >= as.Date("2011-09-15")
   )
 
-## descriptive table
-did_df <- northatlantic_ft %>%
+## descriptive tables
+did_df_2009 <- northatlantic_ft %>%
   group_by(origin, post_2009) %>%
   summarise(
     participation_rate = mean(participation),
     .groups = "drop"
   )
 
+did_df_2011 <- northatlantic_ft %>%
+  group_by(origin, post_2011) %>%
+  summarise(
+    participation_rate = mean(participation),
+    .groups = "drop"
+  )
+
 ## reshape
-did_wide <- did_df %>%
+did_wide_2009 <- did_df_2009 %>%
   tidyr::pivot_wider(
     names_from = c(origin, post_2009),
     values_from = participation_rate
   )
 
+did_wide_2011 <- did_df_2011 %>%
+  tidyr::pivot_wider(
+    names_from = c(origin, post_2011),
+    values_from = participation_rate
+  )
+
 ## calculate differences
-did_wide <- did_wide %>%
+did_wide_2009 <- did_wide_2009 %>%
+  mutate(
+    change_GL = GL_TRUE - GL_FALSE,
+    change_FO = FO_TRUE - FO_FALSE,
+    diff_in_diff = change_GL - change_FO
+  )
+
+did_wide_2011 <- did_wide_2011 %>%
   mutate(
     change_GL = GL_TRUE - GL_FALSE,
     change_FO = FO_TRUE - FO_FALSE,
@@ -971,6 +991,7 @@ Share of non-absent records per year (for, against, abstaining) as of `r format(
 
 ```{r}
 #| echo: false
+#| warning: false
 #| message: false
 #| label: fig-votes-per-mp
 #| fig-cap: Full records coded by the type of vote cast (for, against, abstaining, absent).
@@ -985,18 +1006,34 @@ plot_votes <- ggplot(northatlantic_ft_ordered, aes(y = plotting_name, fill = vot
     values = c("#6195CF", "#F7CB45", "#777777", "#D1BBD7"),
     breaks = c("1", "2", "4", "3")
   ) +
+#| label: tbl-did-2009
+#| tbl-cap: "Participation Rates before/after 2009"
+#| tbl-cap-location: top
 
   facet_grid(origin ~ ., scales = "free_y", space = "free_y",
             labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
             ) +
     
   theme_nordatlantisk_basis()
+did_df_2009 <- did_df_2009 %>%
+  mutate(
+    post_2009 = if_else(post_2009, "after 2009", "before 2009"),
+    participation_rate = round(participation_rate, 3)
+  )
 
 plot_votes
+kable(
+  did_df_2009,
+  col.names = c("Origin", "Timeline", "Participation Rate"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
+)
 ```
 
 ```{r}
 #| echo: false
+#| warning: false
 #| message: false
 #| label: fig-votes-per-mp-filtered
 #| fig-cap: Number of votes cast coded by the type of vote (for, against, abstaining). Includes only data with the MP in attendance.
@@ -1014,10 +1051,25 @@ plot_votes_without_absences <- ggplot(northatlantic_ft_without_absences, aes(y =
   facet_grid(origin ~ ., scales = "free_y", space = "free_y",
           labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
           ) +
+#| label: tbl-did-2011
+#| tbl-cap: "Participation Rates before/after 2011"
+#| tbl-cap-location: top
 
   theme_nordatlantisk_basis()
+did_df_2011 <- did_df_2011 %>%
+  mutate(
+    post_2011 = if_else(post_2011, "after 2011", "before 2011"),
+    participation_rate = round(participation_rate, 3)
+  )
 
 plot_votes_without_absences
+kable(
+  did_df_2011,
+  col.names = c("Origin", "Timeline", "Participation Rate"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
+)
 ```
 
 # Results
