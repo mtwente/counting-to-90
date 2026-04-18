@@ -1,8 +1,6 @@
 # load data and setup using _setupR.R
 library(dplyr)
 library(tidyr)
-library(ggplot2)
-library(irr)
 
 # RQ1: Participation Before/After 2009
 
