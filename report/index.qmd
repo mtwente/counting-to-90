@@ -821,7 +821,7 @@ northatlantic_ft %>%
   count(ministry, sort = TRUE) %>%
   slice_head(n = 5) %>%
   knitr::kable(
-    col.names = c("Ministry", "Count"),
+    col.names = c("Ministry", "n"),
     align = c("l", "r"),
     booktabs = TRUE,
     format = "latex"
