@@ -277,53 +277,25 @@ For my analysis, I am going to use the data available as of `r format(file.info(
 ## define end date of Parliamentary Group (start was before dataset inception)
 northatlantic_ft <- northatlantic_ft %>%
   mutate(
-    post_2009 = date >= as.Date("2009-08-14"),
-    ## try FT election 2011 instead
-    post_2011 = date >= as.Date("2011-09-15")
+    postgroup2009 = ifelse(date >= as.Date("2009-08-14"), 1, 0),
+    postgroup2011 = ifelse(date >= as.Date("2011-09-15"), 1, 0)
   )
 
-## descriptive tables
-did_df_2009 <- northatlantic_ft %>%
-  group_by(origin, post_2009) %>%
-  summarise(
-    participation_rate = mean(participation),
-    .groups = "drop"
-  )
-
-did_df_2011 <- northatlantic_ft %>%
-  group_by(origin, post_2011) %>%
-  summarise(
-    participation_rate = mean(participation),
-    .groups = "drop"
-  )
-
-## reshape
-did_wide_2009 <- did_df_2009 %>%
-  tidyr::pivot_wider(
-    names_from = c(origin, post_2009),
-    values_from = participation_rate
-  )
-
-did_wide_2011 <- did_df_2011 %>%
-  tidyr::pivot_wider(
-    names_from = c(origin, post_2011),
-    values_from = participation_rate
-  )
-
-## calculate differences
-did_wide_2009 <- did_wide_2009 %>%
+northatlantic_ft <- northatlantic_ft %>%
   mutate(
-    change_GL = GL_TRUE - GL_FALSE,
-    change_FO = FO_TRUE - FO_FALSE,
-    diff_in_diff = change_GL - change_FO
+    treated = ifelse(origin == "GL", 1, 0)
   )
 
-did_wide_2011 <- did_wide_2011 %>%
+# interaction variable between postgroup20* and treatment
+northatlantic_ft <- northatlantic_ft %>%
   mutate(
-    change_GL = GL_TRUE - GL_FALSE,
-    change_FO = FO_TRUE - FO_FALSE,
-    diff_in_diff = change_GL - change_FO
+    did2009 = postgroup2009 * treated,
+    did2011 = postgroup2011 * treated
   )
+
+# estimate DID models
+didreg2009 <- lm(participation ~ treated + postgroup2009 + did2009, data = northatlantic_ft)
+didreg2011 <- lm(participation ~ treated + postgroup2011 + did2011, data = northatlantic_ft)
 ```
 
 A difference-in-difference approach is used to find out if ending formal cooperation in the Northatlantic Group had any effect on the share of participation in roll call votes. Only the Greenlandic MPs can be included for testing the hypothesis: In this setting, party competition is only realised outside of the Northatlantic Group's cooperation. And since only one of the Faroese MPs ever joined the Northatlantic Group, there should be no change in the level of party competition to be detected within the Faroese delegation. However, this enables me to use the Faroese MPs as a control group and compare the results between Greenlandic MPs -- who worked together within the Northatlantic Group -- and the Faroese MPs (who did not). Because Greenland and the Faroe Islands have different party systems [@kurrild-klitgaardElectionInversionsCoalitions2013, 129--130], I assume no party competition to be present across the two constituencies.
@@ -332,7 +304,7 @@ The parliamentary group existed from 2001 to 2011. However, during its last two 
 
 [^exact]: For the analysis, the exact date of the group change is assumed to be `r format(as.Date("2009-08-14"), "%B %d, %Y")` based on reporting by @sermitsiaq.agLarsEmilForladerNordatlantiske2009.
 
-Each MP is regarded as participating in a roll call if there is a vote either for, against, or neither for nor against recorded in the corresponding observation in the dataset. To find out the differences between participation rates, I first set the cut-off to the specified date. For both Faroese and Greenlandic MPs, I then calculate participation rates and how they changed after the end of the Northatlantic Group. As stated above, I use 2009 as inofficial ending date, but later run the same test with an ending date at the 2011 general election. To get to the difference in difference, I simply substract the values for change in participation rates for Greenlandic resp. Faroese MPs.
+Each MP is regarded as participating in a roll call if there is a vote either for, against, or neither for nor against recorded in the corresponding observation in the dataset. To find out the differences between participation rates, the dataset is split into two groups -- MPs from Greenland and MPs from the Faroe Islands. I then split the data again based on a dummy variable using 2009 as the cut-off date. Later, I run the same test again using the official ending date of the parliamentary group (2011). I then estimate a linear model with the difference in difference coefficient.
 
 #### H~2~: Bloc Cohesion
 
@@ -1049,49 +1021,30 @@ Share of non-absent records per year (for, against, abstaining) as of `r format(
 #| echo: false
 #| warning: false
 #| message: false
-#| label: tbl-did-2009
-#| tbl-cap: "Participation Rates before/after 2009"
+#| label: tbl-did
+#| tbl-cap: "Participation with(out) Parliamentary Group"
 #| tbl-cap-location: top
 
-did_df_2009 <- did_df_2009 %>%
-  mutate(
-    post_2009 = if_else(post_2009, "after 2009", "before 2009"),
-    participation_rate = round(participation_rate, 3)
-  )
-
-kable(
-  did_df_2009,
-  col.names = c("Origin", "Timeline", "Participation Rate"),
-  booktabs = TRUE,
-  align = "lrr",
-  format = "latex"
+modelsummary(
+  list(
+    "2009 Cutoff" = didreg2009,
+    "2011 Cutoff" = didreg2011
+  ),
+  coef_map = c(
+    "treated" = "Greenland (treated)",
+    "postgroup2009" = "Post 2009",
+    "postgroup2011" = "Post 2011",
+    "did2009" = "GL × Post 2009",
+    "did2011" = "GL × Post 2011",
+    "treated:postgroup2009" = "GL × Post 2009",
+    "treated:postgroup2011" = "GL × Post 2011"
+  ),
+  statistic = "({std.error})",
+  stars = TRUE,
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  output = "latex"
 )
 ```
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: tbl-did-2011
-#| tbl-cap: "Participation Rates before/after 2011"
-#| tbl-cap-location: top
-
-did_df_2011 <- did_df_2011 %>%
-  mutate(
-    post_2011 = if_else(post_2011, "after 2011", "before 2011"),
-    participation_rate = round(participation_rate, 3)
-  )
-
-kable(
-  did_df_2011,
-  col.names = c("Origin", "Timeline", "Participation Rate"),
-  booktabs = TRUE,
-  align = "lrr",
-  format = "latex"
-)
-```
-
-
 
 ## H~2~
 

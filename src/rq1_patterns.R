@@ -1,44 +1,49 @@
-# load data and setup using _setupR.R
 library(dplyr)
-library(tidyr)
+library(lubridate)
+# https://www.princeton.edu/~otorres/DID101R.pdf
 
 # RQ1: Participation Before/After 2009
 
-## define end date of Parliamentary Group (start was before dataset inception)
 northatlantic_ft <- northatlantic_ft %>%
   mutate(
-    post_2009 = date >= as.Date("2009-08-14")
-    ## try FT election 2011 instead
-    #post_2011 = date >= as.Date("2011-09-15")
+    postgroup2009 = ifelse(date >= as.Date("2009-08-14"), 1, 0),
+    postgroup2011 = ifelse(date >= as.Date("2011-09-15"), 1, 0)
   )
 
-## define Greenlandic MPs as treated group (only 1 FO MP was member anyway)
-#northatlantic_ft <- northatlantic_ft %>%
-#  mutate(
-#    treated = origin == "GL"
-#  )
-
-## descriptive table
-did_df <- northatlantic_ft %>%
-  group_by(origin, post_2009) %>%
-  summarise(
-    participation_rate = mean(participation),
-    .groups = "drop"
-  )
-
-## reshape
-did_wide <- did_df %>%
-  tidyr::pivot_wider(
-    names_from = c(origin, post_2009),
-    values_from = participation_rate
-  )
-
-## calculate differences
-did_wide <- did_wide %>%
+northatlantic_ft <- northatlantic_ft %>%
   mutate(
-    change_GL = GL_TRUE - GL_FALSE,
-    change_FO = FO_TRUE - FO_FALSE,
-    diff_in_diff = change_GL - change_FO
+    treated = ifelse(origin == "GL", 1, 0)
   )
 
-did_wide$diff_in_diff
+# interaction variable between postgroup20* and treatment
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    did2009 = postgroup2009 * treated,
+    did2011 = postgroup2011 * treated
+  )
+
+# estimate DID models
+didreg2009 = lm(participation ~ treated + postgroup2009 + did2009, data = northatlantic_ft)
+didreg2011 = lm(participation ~ treated + postgroup2011 + did2011, data = northatlantic_ft)
+summary(didreg2009)
+summary(didreg2011)
+
+modelsummary(
+  list(
+    "2009 Cutoff" = didreg2009,
+    "2011 Cutoff" = didreg2011
+  ),
+  coef_map = c(
+    "treated" = "Greenland (treated)",
+    "postgroup2009" = "Post 2009",
+    "postgroup2011" = "Post 2011",
+    "did2009" = "GL × Post 2009",
+    "did2011" = "GL × Post 2011",
+    "treated:postgroup2009" = "GL × Post 2009",
+    "treated:postgroup2011" = "GL × Post 2011"
+  ),
+  statistic = "({std.error})",
+  stars = TRUE,
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  output = "latex"
+)
