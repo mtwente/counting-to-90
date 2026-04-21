@@ -130,7 +130,7 @@ The research question investigated in this paper is as follows: Under which cond
 
 1. Does the emergence of party competition among MPs -- after the Northatlantic Party Group was dissolved -- lead to increased participation in roll call voting?
 2. To what extent do Northatlantic MPs vote cohesively as a group?
-3. How does the parliamentary balance of power affect the likelihood that Northatlantic MPs participate in roll call votes? <!--(In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?) -->
+3. How does the parliamentary balance of power affect whether Northatlantic MPs participate in roll call votes? <!--(In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?) -->
 4. How does the position of the MPs' parties in the political system of Greenland resp. the Faroe Islands affect their participation in Folketinget roll call votes?
 
 - explain relevance for understanding Rigsfællesskabet dynamics
@@ -523,6 +523,8 @@ models_2ab_rq3 <- list("Model 2a" = rq3_cabinet_seats,
 This leads to the third hypothesis about a connection of pivotality and participation:
 
 * H~3~: *The closer the parliamentary balance between government and opposition, the more likely Northatlantic MPs are to participate in roll call votes.* -->
+
+<!-- 3. How does the parliamentary balance of power affect whether Northatlantic MPs participate in roll call votes? (In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?) -->
 
 The question whether Northatlantic MPs take part in more roll call votes the closer the sizes of government and opposition blocks are together is addressed in three different ways.
 
