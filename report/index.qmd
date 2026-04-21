@@ -914,8 +914,6 @@ ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
   )
 ```
 
-The level of participation in roll call votes (i.e. casting a vote either for, against, or neither for nor against) varies over time. Overall, rather low proportions of non-absent votes -- rarely exceeding 3% -- are most common in the dataset (@fig-vote-share-per-year). However, the share of votes cast among MPs from the Faroe Islands increased in recent years (2023 and 2025, but not 2024). This observation is not true for the Greenlandic MPs, where a single peak is recorded in the data for 2015. The latter can be attributed to (then) newly elected MP Aaja Chemnitz (Inuit Ataqatigiit) while the majority of the votes recorded from Faroese MPs since 2023, a remarkable increase in share of non-absent records, were cast by MP Anna Falkenberg (Sambandsflokkurin) who was elected to Folketinget at the end of 2022.
-
 It is self-evident that the MPs with the most observations in the dataset are those who are/were the longest-sitting members (@fig-votes-per-mp) -- Sjúrður Skaale (FO/C, `r sum(northatlantic_ft$MP_id == 262, na.rm = TRUE)` records), Edmund Joensen (FO/B, `r sum(northatlantic_ft$MP_id == 247, na.rm = TRUE)` records) and Aaja Chemnitz (GL/IA, `r sum(northatlantic_ft$MP_id == 15757, na.rm = TRUE)` records). As MPs are absent for most roll calls, @fig-votes-per-mp-filtered shows the distribution only with votes that were actually cast. Long-term membership, however, does not necessarily correspond with a larger number in registered votes, as demonstrated by Sjúrður Skaale's share of `r scales::percent(sum(northatlantic_ft$vote_type_id[northatlantic_ft$MP_id == 262] != 3) / length(northatlantic_ft$vote_type_id[northatlantic_ft$MP_id == 262]), accuracy = 0.01)` non-absent records.
 
 ```{r}
@@ -971,12 +969,19 @@ plot_votes_without_absences
 
 # Results
 
-* maybe result overall: voting behavior is not a useful thing to look at
-* 
+The results of the analysis are presented separately for each hypothesis followed by a broader assessment of the data and research design.
 
-<!-- - per hypothesis -->
+## H~1~: Participation Before/After 2009 {.unnumbered .unlisted}
 
-## H~1~
+<!-- * H~1~: *Participation in roll call voting increases after the Northatlantic Group is dissolved after the 2011 general election.* -->
+
+I tested whether the participation rates changed as a result of changes in formalised cooperation between MPs in form of the Northatlantic Parliamentary Group -- regarding the official ending of the group in 2011 as cut-off date as well as the de-facto ending of inner-constituency cooperation between Greenlandic MPs in this formalised setting.
+
+The Faroese MPs show no difference in participation rates with neither 2009 nor 2011 set as break points. With the Farose MPs considered as control group without group-based cooperation incentives, this was to be expected. However, no effect is detected for the Greenlandic MPs either, with the difference-in-differences model showing no relevant changes in participation rates when taking the end of group cooperation as 'treatment' (@tbl-did).
+
+A visual inspection of @fig-vote-share-per-year supports this finding. The level of participation in roll call votes (i.e. casting a vote either for, against, or neither for nor against) generally does vary over time. In general, rather low proportions of non-absent votes -- rarely exceeding 3% -- are most common in the dataset. However, the share of votes cast among MPs from the Faroe Islands increased in recent years (2023 and 2025, but not 2024). This observation is not true for the Greenlandic MPs, where a single peak is recorded in the data for 2015. The latter can be attributed to (then) newly elected MP Aaja Chemnitz (IA/GL) while the majority of the votes recorded from Faroese MPs since 2023, a remarkable increase in share of non-absent records, were cast by MP Anna Falkenberg (Sambandsflokkurin) who was elected to Folketinget at the end of 2022.
+
+Overall, there is no evidence to support the hypothesis that cooperation within the Northatlantic Parliamentary group had any influence on the level of voting activity of the Northatlantic MPs.
 
 ::: {#fig-vote-share-per-year}
 <!-- in a fenced div because of the dynamically updating caption -->
