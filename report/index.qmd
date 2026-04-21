@@ -427,6 +427,32 @@ bloc_agreement_rate <- pairs_df %>%
   )
 ```
 
+```{r pairwise-agreement-independence}
+#| echo: false
+#| warning: false
+#| message: false
+
+# Compare independence/non-independence blocs
+pairs_df <- pairs_df %>%
+  mutate(
+    same_independence_stance = case_when(
+      party_1 %in% pro_independence_parties & party_2 %in% pro_independence_parties ~ TRUE,
+      party_1 %in% against_independence_parties & party_2 %in% against_independence_parties ~ TRUE,
+      TRUE ~ FALSE
+    )
+  )
+
+independence_agreement_rate <- pairs_df %>%
+  group_by(same_independence_stance) %>%
+  summarise(
+    agreement_rate = round(mean(agree, na.rm = TRUE), digits = 3),
+    n = n()
+  )
+
+## same_independence_stance = TRUE => cohesion across parties with the same stance on independence
+## same_independence_stance = FALSE => cohesion across parties with different stances on independence
+```
+
 Three more boolean variables are added to record whether the two MPs in question (1) share the same constituency, (2) are affiliated with the same political bloc, and whether (3) their parties hold the same position on their territory's independence from Denmark (cf. Appendix, @tbl-blocs).
 
 #### H~3~: Pivotality
@@ -1109,19 +1135,20 @@ kable(
 #| echo: false
 #| warning: false
 #| message: false
-#| label: tbl-krippendorffs-alpha
-#| tbl-cap: "Krippendorff's $\\alpha$ for voter agreement"
+#| label: tbl-pairwise-agreement-independence
+#| tbl-cap: "Pairwise Agreement Rates based on Parties' Position on Independence"
 #| tbl-cap-location: top
 
-krippendorf_result <- as.data.frame(t(unlist(kripp.alpha(vote_matrix_t, method = "nominal"))))
-
-alpha_table <- data.frame(
-  Alpha = round(as.numeric(krippendorf_result$value), 3),
-  Subjects = krippendorf_result$subjects,
-  Raters = krippendorf_result$raters
+kable(
+  independence_agreement_rate,
+  col.names = c("Same Independence Position", "Agreement Rate", "n"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
 )
 
-kable(alpha_table, booktabs = TRUE, align = "lrr", format = "latex")
+## same_independence_stance = TRUE => cohesion across parties with the same stance on independence
+## same_independence_stance = FALSE => cohesion across parties with different stances on independence
 ```
 
 ## Implications, Future Research
