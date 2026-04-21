@@ -1148,7 +1148,38 @@ modelsummary(
 )
 ```
 
-## H~2~
+## H~2~: Bloc Cohesion {.unnumbered .unlisted}
+
+<!-- * H~2~: *Voting cohesion among Northatlantic MPs is higher than cohesion within political blocs.* -->
+
+<!-- FIXME make hypothesis more precise in terms of what "among MPs" means -->
+
+The presence of voting cohesion was tested with regard to differences between MP origin, bloc affiliation, and party stances on independence from Denmark. As prerequisite for cohesive voting behavior, the dataset was subset to include only those cases where more than one MPs participated, resulting in `r sum(complete.cases(cohesion_df$cohesion))` roll calls.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-krippendorffs-alpha
+#| tbl-cap: "Krippendorff's $\\alpha$ for voter agreement"
+#| tbl-cap-location: top
+
+krippendorf_result <- as.data.frame(t(unlist(kripp.alpha(vote_matrix_t, method = "nominal"))))
+
+alpha_table <- data.frame(
+  Alpha = round(as.numeric(krippendorf_result$value), 3),
+  Subjects = krippendorf_result$subjects,
+  Raters = krippendorf_result$raters
+)
+
+kable(alpha_table, booktabs = TRUE, align = "lrr", format = "latex")
+```
+
+As a basic summary measure for agreement levels between political parties, I calculated Krippendorff's Alpha. Considering the different political parties as raters, the resulting $\alpha$ = `r round(as.numeric(krippendorf_result$value), 3)` generally indicates that voting records indeed show a fair level of inter-voter agreement.
+
+This first indicative result was then developed further by looking at pairwise agreement. I calculated pairwise agreement rates based on origin (@tbl-pairwise-agreement-origin), political bloc association (@tbl-pairwise-agreement-bloc) as well as the position on independence (from Denmark) of the corresponding political party (@tbl-pairwise-agreement-independence). Keeping in mind the low number of observations, agreement rates do not differ substantially for pairs of MPs whether they were elected in the same constituency or not. However, looking at differences between the political blocs, I find a very high level of pairwise agreement for MPs belonging to the same bloc which drops considerably when looking for agreement across political blocs. Third, agreement rates are basically the same whether two MPs belong to parties with the same position on independence from Denmark or not.
+
+<!-- when does cross-bloc voting actually occur?? Apart from one period there is a 3:1 relation anyway! -->
 
 ```{r}
 #| echo: false
