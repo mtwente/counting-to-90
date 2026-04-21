@@ -28,11 +28,11 @@ didreg2011 = lm(participation ~ treated + postgroup2011 + did2011, data = northa
 summary(didreg2009)
 summary(didreg2011)
 
+both_models <- list("2009 Cutoff" = didreg2009,
+                    "2011 Cutoff" = didreg2011)
+
 modelsummary(
-  list(
-    "2009 Cutoff" = didreg2009,
-    "2011 Cutoff" = didreg2011
-  ),
+  both_models,
   coef_map = c(
     "treated" = "Greenland (treated)",
     "postgroup2009" = "Post 2009",
@@ -45,5 +45,5 @@ modelsummary(
   statistic = "({std.error})",
   stars = TRUE,
   gof_map = c("nobs", "r.squared", "adj.r.squared"),
-  output = "latex"
+  output = "markdown"
 )
