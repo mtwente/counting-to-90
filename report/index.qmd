@@ -222,7 +222,7 @@ From 2001 until the 2011 election, three MPs from Greenland and the Faroe Island
 <!-- section 2: Bloc Cohesion vs. Party Alignment -->
 The second perspective concerns the voting records themselves and whether Northatlantic MPs vote as one bloc. @harderFaeroskeOgGronlandske2022 [18] finds that MPs support coalitions that belong to the same political bloc as their own party, aligning with findings about high levels of party cohesion in Folketinget [@ejnarhansenReconsideringPartyDistances2008, 266]. The relevant political parties (see [Appendix](#list-of-parties)) can be classified as belonging to either the left/red or right/blue bloc of Danish politics. At the same time, the more important cleavage for political parties in Greenland and the Faroe Islands is between separatism and unionism [@ackrenExploringRoleRegional2019, 27]. And since Greenlandic, Faroese and Danish party systems are separate entities, additional "judgments need to be made as to what parliamentary coalitions the four North Atlantic seats would likely caucus or collaborate with" [@kurrild-klitgaardElectionInversionsCoalitions2013, 130]. I therefore expect to find patterns showing that voting cohesion among Northatlantic MPs based on their origin is more prevalent than cohesion with the Danish political bloc they would be assigned to based on their party membership.
 
-* H~2~: *Voting cohesion among Northatlantic MPs is higher than cohesion within political blocs.*
+* H~2~: *Voting cohesion among MPs from the same constituency is higher than voting cohesion among MPs from the same political bloc.*
 
 There are examples of MPs supporting the other political bloc such as when Aleqa Hammond, at the time member of social democratic Siumut, agreed to support the right-wing coalition of Venstre, Liberal Alliance and Det Konservative Folkeparti [@harderFaeroskeOgGronlandske2022, 17; @uldumKommentatorUdpegelseAf2016]. Faroese unionist MP Anna Falkenberg, on the other hand, stated that she considers herself to be part of Venstre's Folketinget group and, thus, the Danish (!) government [@falkenbergFaeroskPolitikerTil2025]. And during election campaigns some of the Northatlantic candidates refuse to commit to joining one of the blocs, even though the political profile of their party clearly points in one direction [cf. @engelundMorgenpostFraGronland2026a; @joensenNordatlantiskePartierVil2022].
 
@@ -1150,11 +1150,7 @@ modelsummary(
 
 ## H~2~: Bloc Cohesion {.unnumbered .unlisted}
 
-<!-- * H~2~: *Voting cohesion among Northatlantic MPs is higher than cohesion within political blocs.* -->
-
-<!-- FIXME make hypothesis more precise in terms of what "among MPs" means -->
-
-The presence of voting cohesion was tested with regard to differences between MP origin, bloc affiliation, and party stances on independence from Denmark. As prerequisite for cohesive voting behavior, the dataset was subset to include only those cases where more than one MPs participated, resulting in `r sum(complete.cases(cohesion_df$cohesion))` roll calls.
+<!-- * H~2~: *Voting cohesion among MPs from the same constituency is higher than voting cohesion among MPs from the same political bloc.* -->
 
 ```{r}
 #| echo: false
@@ -1175,9 +1171,11 @@ alpha_table <- data.frame(
 kable(alpha_table, booktabs = TRUE, align = "lrr", format = "latex")
 ```
 
-As a basic summary measure for agreement levels between political parties, I calculated Krippendorff's Alpha. Considering the different political parties as raters, the resulting $\alpha$ = `r round(as.numeric(krippendorf_result$value), 3)` generally indicates that voting records indeed show a fair level of inter-voter agreement.
+The presence of voting cohesion was tested with regard to differences between MP origin, bloc affiliation, and party stances on independence from Denmark. As prerequisite for cohesive voting behavior, the dataset was subset to include only those cases where more than one MPs participated, resulting in observations concerning `r sum(complete.cases(cohesion_df$cohesion))` roll calls. As a basic summary measure for agreement levels between political parties, I calculated Krippendorff's Alpha. Considering the different political parties as raters, the resulting $\alpha$ = `r round(as.numeric(krippendorf_result$value), 3)` generally indicates that voting records indeed show a fairly high level of inter-voter agreement.
 
-This first indicative result was then developed further by looking at pairwise agreement. I calculated pairwise agreement rates based on origin (@tbl-pairwise-agreement-origin), political bloc association (@tbl-pairwise-agreement-bloc) as well as the position on independence (from Denmark) of the corresponding political party (@tbl-pairwise-agreement-independence). Keeping in mind the low number of observations, agreement rates do not differ substantially for pairs of MPs whether they were elected in the same constituency or not. However, looking at differences between the political blocs, I find a very high level of pairwise agreement for MPs belonging to the same bloc which drops considerably when looking for agreement across political blocs. Third, agreement rates are basically the same whether two MPs belong to parties with the same position on independence from Denmark or not.
+This first indicative result was then developed further by looking at pairwise agreement. I calculated pairwise agreement rates based on origin , political bloc association as well as on the position on independence (from Denmark) of the corresponding political party. Keeping in mind the low number of observations, agreement rates do not differ substantially between pairs of MPs that were elected in the same constituency and those who were not (@tbl-pairwise-agreement-origin). Also, agreement rates are basically the same for pairs of MPs that belong to parties with the same position on independence from Denmark and for pairs of MPs who do not (@tbl-pairwise-agreement-independence).
+
+However, looking at differences between the political blocs (@tbl-pairwise-agreement-bloc), I find a very high level of pairwise agreement for MPs belonging to the same bloc which drops considerably when looking for agreement across political blocs.
 
 <!-- when does cross-bloc voting actually occur?? Apart from one period there is a 3:1 relation anyway! -->
 
