@@ -304,7 +304,7 @@ The parliamentary group existed from 2001 to 2011. However, during its last two 
 
 [^exact]: For the analysis, the exact date of the group change is assumed to be `r format(as.Date("2009-08-14"), "%B %d, %Y")` based on reporting by @sermitsiaq.agLarsEmilForladerNordatlantiske2009.
 
-Each MP is regarded as participating in a roll call if there is a vote either for, against, or neither for nor against recorded in the corresponding observation in the dataset. To find out the differences between participation rates, the dataset is split into two groups -- MPs from Greenland and MPs from the Faroe Islands. I then split the data again based on a dummy variable using 2009 as the cut-off date. Later, I run the same test again using the official ending date of the parliamentary group (2011). I then estimate a linear model with the difference in difference coefficient.
+Each MP is regarded as participating in a roll call if there is a vote either for, against, or neither for nor against recorded in the corresponding observation in the dataset. To find out the differences between participation rates, the dataset is split into two groups -- MPs from Greenland and MPs from the Faroe Islands. I then split the data again based on a dummy variable using 2009 as the cut-off date. For comparison, I run the same test again using the official ending date of the parliamentary group (2011). I then estimate a linear model with the difference in difference coefficient. For this model, I use `participation` as dependent variable with binary values indicating whether an MP participated in a roll call vote. The key independent variable is an interaction term between a treatment indicator for Greenlandic MPs (`treated`) and a post-group period dummy (`postgroup2009`/`postgroup2011`). This interaction captures the difference-in-differences estimate of the effect of increased party competition on participation behavior.
 
 #### H~2~: Bloc Cohesion
 
@@ -434,6 +434,19 @@ bloc_agreement_rate <- pairs_df %>%
 Three more boolean variables are added to record whether the two MPs in question (1) share the same constituency, (2) are affiliated with the same political bloc, and whether (3) their parties hold the same position on their territory's independence from Denmark (cf. Appendix, @tbl-blocs).
 
 #### H~3~: Pivotality
+
+<!-- But, as noted above, party lines appear to be a less important factor for Northatlantic MPs and they make use of voting power when it is presented to them also across blocs
+
+This leads to the third hypothesis about a connection of pivotality and participation:
+
+* H~3~: *The closer the parliamentary balance between government and opposition, the more likely Northatlantic MPs are to participate in roll call votes.* -->
+
+The question whether Northatlantic MPs take part in more roll call votes the closer the sizes of government and opposition blocks are together is addressed in three different ways.
+
+* participation ~ close vote
+* participation ~ margin
+* participation ~ cabinet seats
+
 operationalisation: margin to majority (90), close vs. safe votes
 
 * unit of analysis:
