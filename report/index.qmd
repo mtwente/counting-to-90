@@ -529,8 +529,10 @@ This leads to the third hypothesis about a connection of pivotality and particip
 The question whether Northatlantic MPs take part in more roll call votes the closer the sizes of government and opposition blocks are together is addressed in three different ways.
 
 * participation ~ close vote
-* participation ~ margin
 * participation ~ cabinet seats
+* participation ~ blocpolitics?
+
+close vote: The model is estimated with an indicator that only exists after the observation. however, due to the working setup of FT, it will be clear how the result will be, and if in doubt, in most cases whether it will be anticipated that the result will be narrow. 
 
 * unit of analysis:
 * method: 
@@ -1242,6 +1244,11 @@ kable(
 ## H~3~: Pivotality {.unnumbered .unlisted}
 
 <!-- * H~3~: *The closer the parliamentary balance between government and opposition, the more likely Northatlantic MPs are to participate in roll call votes.* -->
+
+Next, I tested the relation between voting participation and the parliamentary seat share distributon between party blocks.
+
+
+how many close votes are there? `r scales::percent(sum(northatlantic_ft$close_vote, na.rm = TRUE)/sum(!northatlantic_ft$close_vote, na.rm = TRUE), accuracy = 0.01)` of the observations have a result with a margin of four votes or less.
 
 see @tbl-pivotality-model
 
