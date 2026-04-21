@@ -1253,9 +1253,14 @@ see @tbl-pivotality-model
 
 ## Critical Assessment
 
-<!-- * intro&conclusion should speak to each other/mirror each other -->
+* maybe result overall: voting behavior is not a useful thing to look at
+* use of roll call votes as method
+* statement about working with population data
+* statement about how there are other influences not accounted for
 
-use of roll call votes as method
+### Implications, Future Research
+
+<!-- * intro&conclusion should speak to each other/mirror each other -->
 
 <!-- conclusion paragraph structure: refer to powner handbook again -->
 
