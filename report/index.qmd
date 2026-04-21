@@ -1203,6 +1203,26 @@ kable(
 #| echo: false
 #| warning: false
 #| message: false
+#| label: tbl-pairwise-agreement-independence
+#| tbl-cap: "Pairwise Agreement Rates based on Parties' Position on Independence"
+#| tbl-cap-location: top
+
+kable(
+  independence_agreement_rate,
+  col.names = c("Same Independence Stance", "Agreement Rate", "n"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
+)
+
+## same_independence_stance = TRUE => cohesion across parties with the same stance on independence
+## same_independence_stance = FALSE => cohesion across parties with different stances on independence
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
 #| label: tbl-pairwise-agreement-bloc
 #| tbl-cap: "Bloc-Based Pairwise Agreement Rates"
 #| tbl-cap-location: top
@@ -1217,26 +1237,6 @@ kable(
 
 ## same_bloc = TRUE => cohesion within parties from the same bloc
 ## same_bloc = FALSE => cohesion within parties across different blocs
-```
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: tbl-pairwise-agreement-independence
-#| tbl-cap: "Pairwise Agreement Rates based on Parties' Position on Independence"
-#| tbl-cap-location: top
-
-kable(
-  independence_agreement_rate,
-  col.names = c("Same Independence Position", "Agreement Rate", "n"),
-  booktabs = TRUE,
-  align = "lrr",
-  format = "latex"
-)
-
-## same_independence_stance = TRUE => cohesion across parties with the same stance on independence
-## same_independence_stance = FALSE => cohesion across parties with different stances on independence
 ```
 
 ## H~3~: Pivotality {.unnumbered .unlisted}
