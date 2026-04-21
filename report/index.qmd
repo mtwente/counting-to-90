@@ -1,6 +1,6 @@
 ---
 title: "Counting to 90 in Greenlandic and Faroese"
-subtitle: Analysing the North Atlantic MPs Voting Behaviour in the Danish Parliament
+subtitle: Analysing the Northatlantic MPs Voting Behaviour in the Danish Parliament
 authors:
   - name: Moritz Twente
     affiliation: University of Basel
@@ -265,10 +265,6 @@ For my analysis, I am going to use the data available as of `r format(file.info(
 - cabinet metadata
 
 #### H~1~: Participation Before/After 2009
-
-<!--I take this hypothesis and apply it to participation in roll call voting as well, expecting a relative increase in participation after the 2011 election:
-
-* H~1~: *Participation in roll call voting increases after the Northatlantic Group is dissolved after the 2011 general election.*-->
 
 ```{r h1-analysis}
 #| echo: false
@@ -974,6 +970,9 @@ plot_votes_without_absences
 ```
 
 # Results
+
+* maybe result overall: voting behavior is not a useful thing to look at
+* 
 
 <!-- - per hypothesis -->
 
