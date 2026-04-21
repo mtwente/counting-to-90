@@ -457,6 +457,67 @@ Three more boolean variables are added to record whether the two MPs in question
 
 #### H~3~: Pivotality
 
+```{r pivotality-setup}
+#| echo: false
+#| warning: false
+#| message: false
+
+# calculate margin of votes
+northatlantic_ft$margin <- abs(northatlantic_ft$ft_for - northatlantic_ft$ft_against)
+
+# blokpolitik as variable
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    cross_bloc_gvt = ifelse(gvt_bloc_dk == "across", 1, 0)
+  )
+```
+
+```{r pivotality-models}
+#| echo: false
+#| warning: false
+#| message: false
+
+# Model 1a: Closeness/Participation
+rq3_closevote <- glm(
+  participation ~ close_vote,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+# Model 1b: Closeness/Participation plus Cabinet Type
+rq3_closevote_gvt_dk <- glm(
+  participation ~ close_vote + cross_bloc_gvt,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+# Model 2a: Cabinet Party Seats/Participation
+
+rq3_cabinet_seats <- glm(
+  participation ~ cabinet_parties_seats,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+# Model 2b: Cabinet Party Seats/Participation plus Cabinet Type
+rq3_cabinet_seats_with_bloc <- glm(
+  participation ~ cabinet_parties_seats + cross_bloc_gvt,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+all_models_rq3 <- list("Model 1a" = rq3_closevote,
+                       "Model 1b" = rq3_closevote_gvt_dk,
+                       "Model 2a" = rq3_cabinet_seats,
+                       "Model 2b" = rq3_cabinet_seats_with_bloc)
+
+models_1ab_rq3 <- list("Model 1a" = rq3_closevote,
+                       "Model 1b" = rq3_closevote_gvt_dk)
+
+models_2ab_rq3 <- list("Model 2a" = rq3_cabinet_seats,
+                       "Model 2b" = rq3_cabinet_seats_with_bloc)
+```
+
 <!-- But, as noted above, party lines appear to be a less important factor for Northatlantic MPs and they make use of voting power when it is presented to them also across blocs
 
 This leads to the third hypothesis about a connection of pivotality and participation:
@@ -468,8 +529,6 @@ The question whether Northatlantic MPs take part in more roll call votes the clo
 * participation ~ close vote
 * participation ~ margin
 * participation ~ cabinet seats
-
-operationalisation: margin to majority (90), close vs. safe votes
 
 * unit of analysis:
 * method: 
@@ -1151,7 +1210,15 @@ kable(
 ## same_independence_stance = FALSE => cohesion across parties with different stances on independence
 ```
 
-## Implications, Future Research
+## H~3~: Pivotality {.unnumbered .unlisted}
+
+<!-- * H~3~: *The closer the parliamentary balance between government and opposition, the more likely Northatlantic MPs are to participate in roll call votes.* -->
+
+see @tbl-pivotality-model
+
+## H~4~: Cross-Parliamentary Control {.unnumbered .unlisted}
+
+<!--* H~4~: *Northatlantic MPs are more likely to participate in roll call votes when their party is in opposition in their home parliament.* -->
 
 ## Critical Assessment
 
@@ -1317,6 +1384,30 @@ northatlantic_numeric <- northatlantic_ft |>
   select(ft_for, ft_against, ft_abstention, ft_absent)
 
 stargazer(as.data.frame(northatlantic_numeric), header = FALSE, digits = 2, type = "latex", digit.separator = "'", summary.stat = c("n", "min", "max", "mean", "median", "p25", "p75", "sd"), label = "tbl-desc-data", title = "Descriptive statistics for the numerical variables in the dataset.", float = FALSE)
+```
+
+## Pivotality Coefficients {.appendix .unnumbered .unlisted}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| output: asis
+#| label: tbl-pivotality-model
+#| tbl-cap: "Participation and Pivotality"
+#| tbl-cap-location: top
+
+modelsummary(
+  all_models_rq3,
+  coef_map = c(
+    "close_voteTRUE" = "Close Voting Result",
+    "cross_bloc_gvt" = "Single-Bloc Coalition",
+    "cabinet_parties_seats" = "N° of Cabinet Parties' Folketinget Seats"
+  ),
+  statistic = "({std.error})",
+  ci_method = "wald",
+  stars = TRUE,
+  output = "latex")
 ```
 
 ## Word Count {.appendix .unnumbered .unlisted}
