@@ -530,25 +530,57 @@ The question whether Northatlantic MPs take part in more roll call votes the clo
 
 In a first step, I identify roll call votes with a close outcome, defined as a voting result where the difference between votes in favor and votes against a proposal is less or equal than four votes. This is the case for `r scales::percent(sum(northatlantic_ft$close_vote, na.rm = TRUE)/sum(!northatlantic_ft$close_vote, na.rm = TRUE), accuracy = 0.01)` of the observations in the dataset. I then estimate a generalized linear model with `participation` (`TRUE`/`FALSE`) as dependent variable and `close_vote` as independent variable (`TRUE`/`FALSE`).
 
-In this approach, I use the outcome of the vote as variable to predict the participation of the Northatlantic MPs. Of course, the margin of the voting result is only known after the vote has already taken place and can not be a decisive factor in a prediction. But, as mentioned above, the overall outcome of a vote is usually known in advance so it is fair to assume MPs can anticipate close votes to some extent. I therefore deemed it justified not to use the actual result margins as numerical variable, but instead to use a working definition of closeness as a binary variable.
+In this approach, I use the outcome of the vote as variable to predict the participation of the Northatlantic MPs. Of course, the margin of the voting result is only known after the vote has already taken place and can not be a decisive factor in a prediction. But, as mentioned above, the overall outcome of a vote is usually known in advance so it is fair to assume MPs can anticipate close results to some extent. I therefore deemed it justified to use this setup -- not with the actual result margins as numerical variable, but instead with a working definition of closeness as a binary variable -- at least for comparison with other models.
 
-The second main model uses not the voting result as independent variable, but the number of seats in parliament held by cabinet parties.
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-cabinet-seats
+#| fig-height: 3
+#| fig-cap: Number of seats in parliament held by cabinet parties, with a majority requiring 90+ seats. Dashed lines indicate election dates.
 
+# filter 2001 election
+elections_lines <- elections_ft %>%
+  filter(date > as.Date("2001-11-20"))
 
-* participation ~ close vote
-* participation ~ cabinet seats
-* participation ~ blocpolitics?
+cabinet_seats <- ggplot(northatlantic_ft, aes(x = date, y = cabinet_parties_seats)) +
+  geom_line(color = "steelblue", linewidth = 1) +
+  
+  # Folketing elections
+  geom_vline(
+    data = elections_lines,
+    aes(xintercept = as.Date(date), linetype = election_type),
+    color = "#000000",
+    linewidth = 0.2
+  ) +
+  scale_linetype_manual(
+    values = c("Folketing Election" = "longdash"),
+    name = ""
+  ) +
+  
+  geom_hline(yintercept = 90, color = "#000000", linewidth = 0.3) +
+  
+  theme_nordatlantisk_basis() +
+    theme(
+    axis.ticks.x = element_blank(),
+    axis.line.y.left = element_blank(),
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+    legend.position = "none"
+  )
 
+cabinet_seats
+```
 
-* unit of analysis:
-* method: 
-* independent variable: `margin`?/`cabinet_parties_seats`?
-* dependent variable: `participation` (TRUE/FALSE, based on `vote_type_id`)
-* control variables:
-* data source:
+The second main model instead uses the number of seats in parliament held by cabinet parties as independent variable for trying to predict the Northatlantic MPs' voting behavior. For each observation in the dataset, I calculated the number of seats based on the election results between 2001 and 2026 [@danmarksstatistikFolketingsvalget31Oktober2024; @danmarksstatistikValgteKandidaterOg2026]. Only cabinet parties are included in this number, support parties (neither *støttepartier* nor *parlamentarisk grundlag*) are not counted.
 
-margin to majority: use fine-grained seat distribution based on @folkevalgte.dkPartiskift2026. There are mismatches between this information and other data (e.g. not including Fremad as party etc.), but this is consistently built up, apparently.
--> @nielsenPartiskiftFolketinget195320152017 [62]: "[partiskift] kan dog påvirke flertalsdannelser i enkeltsager"
+Since MPs can switch party memberships during their time in parliament, I tracked those changes as well and incorporated them into the data to achieve a fine-grained representation of the composition of Folketinget at any given date (@fig-cabinet-seats). While MPs switching parties rarely change the overall allocation of power between the political blocs, it is known to influence decisions from time to time [@nielsenPartiskiftFolketinget195320152017, 62], and these situations being the starting point for this whole paper, I decided to map the seat distribution for each date individually on party level.
+
+Information on MP party affiliation does not seem to be available in machine-readable format on Folketinget's Open Data Platform, which is why I relied on the pre-existing records courtesy of @folkevalgte.dkPartiskift2026. There appear to be minor inconsistencies between [folkevalgte.dk](https://folkevalgte.dk) and other possible data sources such as Folketinget's free text MP biographies or the relatively comprehensive record keeping on Wikipedia. But this only appears to concern smaller and/or short-lived parties such as Fremad [cf. @mollerAmmitzbollOgEgelund2020]. In the end, I decided to go with the data from folkevalgte.dk to have a single source of data where record keeping appears to be consistent over the years. Seat distribution after elections and the subsequent party shifts are processed[^rds] using R and then merged with the main voting records dataset. I can then estimate the second generalised linear model, this time using `cabinet_parties_seats` as dependent variable.
+
+[^rds]: This dataset is [available](https://github.com/mtwente/counting-to-90/tree/main/data/processed) alongside the other data used for this project.
+
+With these two models as baseline, I then 
 
 #### H~4~: Cross-Parliamentary Control
 operationalisation: party in gvt. vs. opposition at home
