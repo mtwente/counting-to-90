@@ -526,13 +526,19 @@ This leads to the third hypothesis about a connection of pivotality and particip
 
 <!-- 3. How does the parliamentary balance of power affect whether Northatlantic MPs participate in roll call votes? (In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?) -->
 
-The question whether Northatlantic MPs take part in more roll call votes the closer the sizes of government and opposition blocks are together is addressed in three different ways.
+The question whether Northatlantic MPs take part in more roll call votes the closer the sizes of government and opposition blocks are together is addressed in different ways with individual votes as unit of analysis. Using the boolean `participation` again as dependent variable, I try explaining the outcome using two main models.
+
+In a first step, I identify roll call votes with a close outcome, defined as a voting result where the difference between votes in favor and votes against a proposal is less or equal than four votes. This is the case for `r scales::percent(sum(northatlantic_ft$close_vote, na.rm = TRUE)/sum(!northatlantic_ft$close_vote, na.rm = TRUE), accuracy = 0.01)` of the observations in the dataset. I then estimate a generalized linear model with `participation` (`TRUE`/`FALSE`) as dependent variable and `close_vote` as independent variable (`TRUE`/`FALSE`).
+
+In this approach, I use the outcome of the vote as variable to predict the participation of the Northatlantic MPs. Of course, the margin of the voting result is only known after the vote has already taken place and can not be a decisive factor in a prediction. But, as mentioned above, the overall outcome of a vote is usually known in advance so it is fair to assume MPs can anticipate close votes to some extent. I therefore deemed it justified not to use the actual result margins as numerical variable, but instead to use a working definition of closeness as a binary variable.
+
+The second main model uses not the voting result as independent variable, but the number of seats in parliament held by cabinet parties.
+
 
 * participation ~ close vote
 * participation ~ cabinet seats
 * participation ~ blocpolitics?
 
-close vote: The model is estimated with an indicator that only exists after the observation. however, due to the working setup of FT, it will be clear how the result will be, and if in doubt, in most cases whether it will be anticipated that the result will be narrow. 
 
 * unit of analysis:
 * method: 
