@@ -1299,6 +1299,8 @@ see @tbl-pivotality-model
 * statement about working with population data
 * statement about how there are other influences not accounted for
 
+Danish parliamentarism: "peculiar mixture of cooperation and conflict" [@green-pedersenBlocPoliticsVs2005, 153]
+
 ### Implications, Future Research
 
 <!-- * intro&conclusion should speak to each other/mirror each other -->
