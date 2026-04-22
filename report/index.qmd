@@ -531,7 +531,7 @@ In this approach, I use the outcome of the vote as variable to predict the parti
 #| message: false
 #| label: fig-cabinet-seats
 #| fig-height: 3
-#| fig-cap: Number of seats in parliament held by cabinet parties, with a majority requiring $\\\geq 90$ seats. Dashed lines indicate election dates.
+#| fig-cap: Number of seats in parliament held by cabinet parties, with a majority requiring $\\\geq$ 90 seats. Dashed lines indicate election dates.
 
 # filter 2001 election
 elections_lines <- elections_ft %>%
