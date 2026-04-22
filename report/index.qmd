@@ -577,9 +577,40 @@ Information on MP party affiliation does not seem to be available in machine-rea
 
 3. How does the parliamentary balance of power affect whether Northatlantic MPs participate in roll call votes? (In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?) -->
 
-* 
+A second perspective on pivotality is opened up by considering not only seat shares, but also the type of governments formed with them. During the timeframe covered by the dataset, the work of parliament has largely been based on the red/blue-dichotomy of political blocs [@green-pedersenBlokpolitikOgNye2020, 312] -- the exception being the Frederiksen II cabinet (2022--2026) consisting of Socialdemokratiet, Moderaterne and Venstre.
 
-With these two models as baseline, I then 
+
+
+
+* cross-bloc cabinets blur left/right divisions
+* cross-bloc cabinets weaken standard voting alignments within blocs
+* strategic environment becomes less structured: Within blocs, non-cabinet parties have more reasons for competition
+
+Northatlantic MPs:
+* less tied to traditional blocs
+* less incentives to distance themselves from a cabinet that has 
+
+
+"bloc politics refers to a situation where the government passes legislation only with the left- or right-wing majority supporting its government power" [@green-pedersenBlocPoliticsVs2005, 156]
+
+* in bloc politics: gvt passes legislation using cooperation within its own bloc [@green-pedersenBlocPoliticsVs2005, 156]
+* in single-bloc governments, it is easier to organise narrow majorities relying on Northatlantic MPs that could be 'bought off' for switching to support another bloc than to 'buy off' Danish MPs from the other bloc. In cross-bloc governments, hurdles for ...
+
+e.g: left-bloc government. It needs to collect votes to form a majority. it is easier to get Northatlantic MPs to join their cause (who might be bought off easy with money for the North) than to get support from the other bloc. Cross-bloc government: höhere Anschlussfähigkeit auf beide Seiten. In einer Regierung, an der beide Blöcke beteiligt sind, 
+
+* cross-bloc government increases inner-bloc competition?
+
+"When a minority government, which is the prevalent form of government in Denmark, can rely on a bloc majority it deprives the part of the opposition wanting another government of veto power leading to broad cooperation and effective minority governments" [@green-pedersenBlocPoliticsVs2005, 153]
+
+"However, when internal coherence of the blocs has been stronger and the government has been able to rely on a bloc majority, cooperation has actually been widespread and minority governments effective in governing" [@green-pedersenBlocPoliticsVs2005, 154]
+
+
+
+
+
+I create an additional version of both models that includes `gvt_bloc_dk` as additional dependent variable, addressing another aspect of balance of power in parliament.
+
+* literature on broad coalitions? what do they do? do they work on more consensus-building, thus requiring less 'help' from GL/FO?
 
 #### H~4~: Cross-Parliamentary Control
 operationalisation: party in gvt. vs. opposition at home
