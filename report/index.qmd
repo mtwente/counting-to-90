@@ -1512,7 +1512,7 @@ modelsummary(
   all_models_rq3,
   coef_map = c(
     "close_voteTRUE" = "Close Voting Result",
-    "cross_bloc_gvt" = "Single-Bloc Coalition",
+    "cross_bloc_gvt" = "Cross-Bloc Coalition",
     "cabinet_parties_seats" = "N° of Cabinet Parties' Folketinget Seats"
   ),
   statistic = "({std.error})",

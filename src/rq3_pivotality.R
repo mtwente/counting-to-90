@@ -47,7 +47,7 @@ modelsummary(
   all_models_rq3,
   coef_map = c(
     "close_voteTRUE" = "Close Voting Result<br />(Margin ≤4)",
-    "cross_bloc_gvt" = "Single-Bloc Coalition",
+    "cross_bloc_gvt" = "Coalition Across Blocs",
     "cabinet_parties_seats" = "N° of Cabinet Parties'<br /> Seats in Parliament"
   ),
   statistic = "({std.error})",
