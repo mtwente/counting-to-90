@@ -1244,12 +1244,12 @@ kable(
 #| warning: false
 #| message: false
 #| label: tbl-pairwise-agreement-independence
-#| tbl-cap: "Pairwise Agreement Rates based on Parties' Position on Independence"
+#| tbl-cap: "Pairwise Agreement Rates based on Parties' Positions on Independence"
 #| tbl-cap-location: top
 
 kable(
   independence_agreement_rate,
-  col.names = c("Same Independence Stance", "Agreement Rate", "n"),
+  col.names = c("Same Independ. Stance", "Agreement Rate", "n"),
   booktabs = TRUE,
   align = "lrr",
   format = "latex"
