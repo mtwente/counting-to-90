@@ -24,7 +24,6 @@ rq3_closevote_gvt_dk <- glm(
 )
 
 # Model 2a: Cabinet Party Seats/Participation
-
 rq3_cabinet_seats <- glm(
   participation ~ cabinet_parties_seats,
   data = northatlantic_ft,
