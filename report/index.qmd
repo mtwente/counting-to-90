@@ -1276,14 +1276,13 @@ kable(
 
 ## H~3~: Pivotality {.unnumbered .unlisted}
 
-<!-- * H~3~: *The closer the parliamentary balance between government and opposition, the more likely Northatlantic MPs are to participate in roll call votes.* -->
+<!-- * H~3~: *The closer the parliamentary balance between government and opposition, the more often Northatlantic MPs participate in roll call votes* -->
 
-Next, I tested the relation between voting participation and the parliamentary seat share distributon between party blocks.
+Next, I tested the relation between voting participation and the parliamentary seat share distributon between party blocks using two different models (@tbl-pivotality-model). With the first model, I addressed the question of whether MPs participate more in votes with a close outcome, assuming that in most cases, close results can be anticipated. The results showed that there is no evidence to support the hypothesis based on this model (Model 1a).
 
+Model 2a on the relation between the number of cabinet parties' seats in parliament and participation rates among Northatlantic MPs indicates a negative effect: As the number of parliamentary seats of cabinet parties increases, participation of Northatlantic MPs decreases. This is exactly as expected: When governing parties can rely on more votes from members of their own parties, there is less need for including Northatlantic MPs in building of parliamentary majorities.
 
-how many close votes are there? `r scales::percent(sum(northatlantic_ft$close_vote, na.rm = TRUE)/sum(!northatlantic_ft$close_vote, na.rm = TRUE), accuracy = 0.01)` of the observations have a result with a margin of four votes or less.
-
-see @tbl-pivotality-model
+Model 1b and 2b, including the type of coalition, indicate that participation of Northatlantic MPs is higher in cross-bloc coalitions. This is also in line with my expectations. However, since there has only been one cross-bloc cabinet in the dataset, this is not really a generalisation to make. Additionally, the higher level of participation during this cabinet appears to be almost entirely the result of the voting behavior of Anna Falkenberg (B/FO), judging by a visual inspection of @fig-vote-share-per-year and @fig-votes-per-mp-filtered. Still, it could be interesting to compare participation patterns under other cross-bloc cabinets, e.g. the Anker Jørgensen III cabinet (1978--1979, Socialdemokratiet/Venstre). 
 
 ## H~4~: Cross-Parliamentary Control {.unnumbered .unlisted}
 
