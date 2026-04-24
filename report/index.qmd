@@ -1291,11 +1291,17 @@ Danish parliamentarism: "peculiar mixture of cooperation and conflict" [@green-p
   * "However, in many of the West European parliaments, including Denmark, party discipline is very tight. Thus analysing individual legislator behaviour is of little use, and in such cases we should shift our focus to the parliamentary party groups and use these as the actors to be analysed." [@ejnarhansenReconsideringPartyDistances2008, 266]
   * see @harderCrossparliamentaryControl2025 [8-9]: Not much research has been conducted [SEITENUMBRUCH] on the Greenlandic party discipline, yet, since crossing the party line in Greenlandic politics is heavily criticised when it occurs (Schultz-Nielsen, 2018), I may assume that party discipline is also a norm here.
 
+* regex search for relevant strings in `ft_topic` (færø*, grønl*, arktis*, ...) not that helpful other than for getting a general overview, since e.g. "Forslag til finanslov for finansåret 2016." is not caught but highly relevant. Only used for a general overivew. Ministry information also only a first indicator.
+
 ### Implications, Future Research
 
 <!-- * intro&conclusion should speak to each other/mirror each other -->
 
 <!-- conclusion paragraph structure: refer to powner handbook again -->
+
+* go more in depth regarding inner-group differences. Perhaps not between origin GL/FO, but bloc-wise and independence-position-related? see:
+  * "Moreover, in line with our initial expectations, which are based on the former findings of Harder and West (Harder 2021; West 2019), we find that Greenlandic MPs make use of this possibility to a much larger extent than the Faroese members do. However, contrary to our expectations, *it is the members from the parties that are most critical towards the Danish Realm, which makes the most use of the opportunity to gain information on the actions of their home-governments from the Danish Authorities*. Especially, this tendency is particularly strong for Faroese members. We believe this to be a sign that partisan motives at home are more important to North Atlantic politicians in the Danish parliament than we initially expected them to be." [@harderCaseInnovativeParliamentary2022] 
+
 
 # References {.unnumbered}
 
