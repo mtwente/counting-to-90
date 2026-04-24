@@ -133,13 +133,13 @@ The research question investigated in this paper is as follows: Under which cond
 3. How does the parliamentary balance of power affect whether Northatlantic MPs participate in roll call votes? <!--(In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?) -->
 4. How does the position of the MPs' parties in the political system of Greenland resp. the Faroe Islands affect their participation in Folketinget roll call votes?
 
+<!-- 3. roadmap of the rest of the paper, per paragraph/section style -->
+
+I will begin this paper by laying out my research questions and explaining their relevance for understanding *Rigsfællesskabet* dynamics and inner Folketinget workings. After reviewing the available literature to situate my hypotheses within the state of research, I am going to introduce hypotheses and how I plan on connecting them with the dataset that I have. Then, I introduce the data and describe its characteristics. This is already going to provide a first glimpse into the activities of Greenlandic and Faroese representatives in Folketinget. In a next step, I am going to focus on ...<!-- FIXME -->
+
 - explain relevance for understanding Rigsfællesskabet dynamics
 - tbd: what do I find out <!-- FIXME -->
 - tbd: why is that not covered by previous work
-
-<!-- 3. roadmap of the rest of the paper, per paragraph/section style -->
-
-I will begin this paper by laying out my research questions and explaining their relevance for understanding *Rigsfællesskabet* dynamics and inner Folketinget workings. After reviewing the available literature to situate my hypotheses within the state of research, I am going to introduce my dataset and describe its characteristics. This is already going to provide a first glimpse into the activities of Greenlandic and Faroese representatives in Folketinget. In a next step, I am going to focus on ...<!-- FIXME -->
 
 - literature review (dissect topics of relevance)
 - research design, dataset
