@@ -35,25 +35,24 @@ rq4_model_control <- glm(
   family = binomial
 )
 
-#rq4_interaction <- glm(
-#  participation ~ opposition_home * origin,
-#  data = northatlantic_ft,
-#  family = binomial
-#)
+rq4_interaction <- glm(
+  participation ~ opposition_home * origin,
+  data = northatlantic_ft,
+  family = binomial
+)
 
 # result tables
-
 all_models_rq4 <- list("Baseline" = rq4_model,
-                       #"Origin-Based" = rq4_interaction,
-                       "Cabinet Seats" = rq4_model_control)
+                       "Cabinet Seats" = rq4_model_control,
+                       "Origin-Based" = rq4_interaction)
 
 modelsummary(
   all_models_rq4,
   coef_map = c(
     "opposition_home" = "Opposition Party in GL/FO",
-    "cabinet_parties_seats" = "N° of Cabinet Parties'<br /> Seats in Parliament"
-    #"originFO" = "originFO",
-    #"opposition_home:originFO" = "opposition_home:originFO"
+    "cabinet_parties_seats" = "N° of Cabinet Parties'<br /> Seats in Parliament",
+    "originFO" = "Faroese MPs",
+    "opposition_home:originFO" = "Faroese MPs, Home Opposition Parties"
   ),
   statistic = "({std.error})",
   ci_method = "wald",
