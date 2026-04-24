@@ -1494,6 +1494,32 @@ modelsummary(
   output = "latex")
 ```
 
+## Cross-Parliamentary Control Coefficients {.appendix .unnumbered .unlisted}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| output: asis
+#| label: tbl-crosscontrol-model
+#| tbl-cap: "Cross-Parliamentary Control and Participation"
+#| tbl-cap-location: top
+#| tbl-pos: "H"
+
+modelsummary(
+  all_models_rq4,
+  coef_map = c(
+    "opposition_home" = "Opposition Party in GL/FO",
+    "cabinet_parties_seats" = "N° of Cabinet Parties' Folketinget Seats"
+    #"originFO" = "originFO",
+    #"opposition_home:originFO" = "opposition_home:originFO"
+  ),
+  statistic = "({std.error})",
+  ci_method = "wald",
+  stars = TRUE,
+  output = "latex")
+```
+
 ## Word Count {.appendix .unnumbered .unlisted}
 
 Currently featuring {{wordcount}} words without references. Including references, there are {{wordcountref}} words in this document.
