@@ -17,6 +17,7 @@ suppressMessages(library(stargazer))
 library(kableExtra)
 library(irr)
 library(modelsummary)
+library(stringr)
 
 ## Read Data -----
 
