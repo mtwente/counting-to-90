@@ -1130,7 +1130,7 @@ Share of non-absent records per year (for, against, abstaining) as of `r format(
 #| warning: false
 #| message: false
 #| label: tbl-did
-#| tbl-cap: "Participation with(out) Parliamentary Group"
+#| tbl-cap: "Changes in Participation"
 #| tbl-cap-location: top
 
 modelsummary(
