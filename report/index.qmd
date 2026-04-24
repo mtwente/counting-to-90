@@ -948,62 +948,7 @@ northatlantic_ft %>%
   )
 ```
 
-MPs can either vote for, against or neither for nor against a proposal. Additionally, absences are recorded. @fig-ft-vote-distribution shows the distribution of vote types per roll call vote for all MPs in Folketinget. At first glance, it stands out how the number of absent MPs hovers around 70 for all years covered by the timeline (cf. [Descriptive Statistics](#descriptive-statistics) in the Appendix). This is due to Folketinget being a 'working parliament', where MPs are regularly cleared from taking part in the plenary sessions which are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214].
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ft-vote-distribution
-#| fig-env: "figure*"
-#| fig-cap: Density plot visualising the number of votes cast by all MPs for each roll call vote by type.
-
-make_density_plot <- function(data, y_var, title, low_col, high_col) {
-  
-  ggplot(data, aes(x = date, y = {{ y_var }})) +
-    
-    geom_bin2d(aes(fill = after_stat(count)), bins = 80) +
-    scale_fill_gradient(low = low_col, high = high_col) +
-    
-    scale_x_date(
-      breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
-      date_labels = "%Y",
-      expand = expansion(mult = c(0.01, .05))
-    ) +
-    
-    scale_y_continuous(
-      limits = c(0, 179),
-      labels = c(0, 50, 100, 150, 179),
-      breaks = c(0, 50, 100, 150, 179)
-    ) +
-    
-    ggtitle(title) +
-    
-    theme_nordatlantisk_basis() +
-    theme(
-      axis.title.y = element_blank(),
-      axis.line.y.left = element_blank(),
-      legend.position = "none",
-      panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
-      plot.title = element_text(size = 8),
-      axis.text.x = element_text(size = rel(0.7))
-    )
-}
-
-scatterplot_for <- make_density_plot(northatlantic_ft, ft_for, "for", "#6195CF", "#436890")
-
-scatterplot_against <- make_density_plot(northatlantic_ft, ft_against, "against", "#F7CB45", "#ac8e30")
-
-scatterplot_abstention <- make_density_plot(northatlantic_ft, ft_abstention, "abstention", "#777777", "#535353")
-
-scatterplot_absent <- make_density_plot(northatlantic_ft, ft_absent, "absent", "#D1BBD7", "#928296")
-
-patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstention + scatterplot_absent + plot_layout(ncol = 4, axes = "collect")
-
-patchworked_plot
-```
-
-Looking at the North Atlantic MPs' voting records, it is striking how few times they actually cast a vote: Filtering for those cases results in `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observations (out of `r nrow(northatlantic_ft)` cases), translating to `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share) -- an observation that corresponds well to the findings of previous research. Of the non-absent records, `r scales::percent(sum(northatlantic_ft$vote_type_id == 1, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.1)` are votes in favor, `r scales::percent(sum(northatlantic_ft$vote_type_id == 2, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes against, and `r scales::percent(sum(northatlantic_ft$vote_type_id == 4, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes neither for nor against.
+MPs can either vote for, against or neither for nor against a proposal. Additionally, absences are recorded. Looking at the North Atlantic MPs' voting records, it is striking how few times they actually cast a vote: Filtering for those cases results in `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observations (out of `r nrow(northatlantic_ft)` cases), translating to `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share) -- an observation that corresponds well to the findings of previous research. The share of non-absent records is still low when compared to Folketinget voting behavior as a whole (@fig-ft-vote-distribution). Of the non-absent records, `r scales::percent(sum(northatlantic_ft$vote_type_id == 1, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.1)` are votes in favor, `r scales::percent(sum(northatlantic_ft$vote_type_id == 2, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes against, and `r scales::percent(sum(northatlantic_ft$vote_type_id == 4, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes neither for nor against.
 
 ```{r}
 #| echo: false
@@ -1503,7 +1448,71 @@ For `r n2w(sum(is.na(northatlantic_ft$ft_for)))` roll call votes, no individual 
 northatlantic_numeric <- northatlantic_ft |>
   select(ft_for, ft_against, ft_abstention, ft_absent)
 
-stargazer(as.data.frame(northatlantic_numeric), header = FALSE, digits = 2, type = "latex", digit.separator = "'", summary.stat = c("n", "min", "max", "mean", "median", "p25", "p75", "sd"), label = "tbl-desc-data", title = "Descriptive statistics for the numerical variables in the dataset.", float = FALSE)
+stargazer(as.data.frame(northatlantic_numeric),
+  header = FALSE, 
+  digits = 2, 
+  type = "latex",
+  digit.separator = "'",
+  summary.stat = c("n", "min", "max", "mean", "median", "p25", "p75", "sd"), 
+  label = "tbl-desc-data",
+  title = "Descriptive statistics for the numerical variables in the dataset.",
+  float = FALSE)
+```
+
+### Overall Voting Patterns {.appendix .unnumbered .unlisted}
+
+@fig-ft-vote-distribution shows the distribution of vote types per roll call vote for all MPs in Folketinget. At first glance, it stands out how the number of absent MPs hovers around 70 for all years covered by the timeline. This is due to Folketinget being a 'working parliament', where MPs are regularly cleared from taking part in the plenary sessions which are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214].
+
+```{r, fig.pos = 'H'}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-ft-vote-distribution
+#| fig-cap: Density plot visualising the number of votes cast by all MPs for each roll call vote by type.
+
+make_density_plot <- function(data, y_var, title, low_col, high_col) {
+  
+  ggplot(data, aes(x = date, y = {{ y_var }})) +
+    
+    geom_bin2d(aes(fill = after_stat(count)), bins = 80) +
+    scale_fill_gradient(low = low_col, high = high_col) +
+    
+    scale_x_date(
+      breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
+      date_labels = "%Y",
+      expand = expansion(mult = c(0.01, .05))
+    ) +
+    
+    scale_y_continuous(
+      limits = c(0, 179),
+      labels = c(0, 50, 100, 150, 179),
+      breaks = c(0, 50, 100, 150, 179)
+    ) +
+    
+    ggtitle(title) +
+    
+    theme_nordatlantisk_basis() +
+    theme(
+      axis.title.y = element_blank(),
+      axis.line.y.left = element_blank(),
+      legend.position = "none",
+      panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+      plot.title = element_text(size = 8),
+      axis.text.x = element_text(size = rel(0.7))
+    )
+}
+
+scatterplot_for <- make_density_plot(northatlantic_ft, ft_for, "for", "#6195CF", "#436890")
+
+scatterplot_against <- make_density_plot(northatlantic_ft, ft_against, "against", "#F7CB45", "#ac8e30")
+
+scatterplot_abstention <- make_density_plot(northatlantic_ft, ft_abstention, "abstention", "#777777", "#535353")
+
+scatterplot_absent <- make_density_plot(northatlantic_ft, ft_absent, "absent", "#D1BBD7", "#928296")
+
+patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstention + scatterplot_absent + plot_layout(ncol = 4, axes = "collect")
+
+patchworked_plot
 ```
 
 ## Pivotality Coefficients {.appendix .unnumbered .unlisted}
