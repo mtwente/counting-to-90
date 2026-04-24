@@ -101,7 +101,7 @@ result <- result %>%
 result$election_date[is.na(result$election_date)] <- FALSE
 
 ### Fill down all missing seat columns (carry last observation forward)
-result <- result |>
+result <- result %>%
   fill(everything(), .direction = "down")
 
 # calculate time span end dates

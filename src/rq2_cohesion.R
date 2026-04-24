@@ -1,9 +1,3 @@
-# load data and setup using _setupR.R
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-library(irr)
-
 # RQ2: Cohesion
 
 ## define bloc affiliations

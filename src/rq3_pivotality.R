@@ -50,5 +50,6 @@ modelsummary(
     "cabinet_parties_seats" = "N° of Cabinet Parties'<br /> Seats in Parliament"
   ),
   statistic = "({std.error})",
+  ci_method = "wald",
   stars = TRUE,
   output = "markdown")
