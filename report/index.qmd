@@ -1178,13 +1178,10 @@ modelsummary(
 
 <!-- * H~2~: *Voting cohesion among MPs from the same constituency is higher than voting cohesion among MPs from the same political bloc.* -->
 
-```{r}
+```{r setup-krippendorff}
 #| echo: false
 #| warning: false
 #| message: false
-#| label: tbl-krippendorffs-alpha
-#| tbl-cap: "Krippendorff's $\\alpha$ for voter agreement"
-#| tbl-cap-location: top
 
 krippendorf_result <- as.data.frame(t(unlist(kripp.alpha(vote_matrix_t, method = "nominal"))))
 
@@ -1193,11 +1190,21 @@ alpha_table <- data.frame(
   Subjects = krippendorf_result$subjects,
   Raters = krippendorf_result$raters
 )
-
-kable(alpha_table, booktabs = TRUE, align = "lrr", format = "latex")
 ```
 
 The presence of voting cohesion was tested with regard to differences between MP origin, bloc affiliation, and party stances on independence from Denmark. As prerequisite for cohesive voting behavior, the dataset was subset to include only those cases where more than one MPs participated, resulting in observations concerning `r sum(complete.cases(cohesion_df$cohesion))` roll calls. As a basic summary measure for agreement levels between political parties, I calculated Krippendorff's Alpha (@tbl-krippendorffs-alpha). The resulting $\alpha$ = `r round(as.numeric(krippendorf_result$value), 3)` indicates that the voting records indeed show a fairly high level of inter-voter agreement.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-krippendorffs-alpha
+#| tbl-cap: "Krippendorff's $\\alpha$ for voter agreement"
+#| tbl-cap-location: top
+#| tbl-pos: "H"
+
+kable(alpha_table, booktabs = TRUE, align = "lrr", format = "latex")
+```
 
 This first indicative result was then developed further by looking at pairwise agreements. I calculated pairwise agreement rates based on origin, political bloc association and on the position on independence (from Denmark) of the corresponding political party. Agreement rates do not differ substantially between pairs of MPs that were elected in the same constituency and pairs who were not (@tbl-pairwise-agreement-origin). Also, agreement rates are basically the same for pairs of MPs that belong to parties with the same position on independence from Denmark and for pairs of MPs who do not (@tbl-pairwise-agreement-independence). However, I find the highest level of pairwise agreement for MPs belonging to the same political bloc (@tbl-pairwise-agreement-bloc). This agreement rate also drops considerably for pairs of MPs from different blocs.
 
