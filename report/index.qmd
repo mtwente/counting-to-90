@@ -567,31 +567,60 @@ Information on MP party affiliation does not seem to be available in machine-rea
 In line with my argument that Northatlantic MPs can be expected to be more inclined to support cross-bloc minority cabinets due to their local political parties being less firmly affiliated with Danish political blocs, I add another dependent variable to open up a second perspective on the role of pivotality in participation rates. The alternative version of both models additionally includes `cross_bloc_gvt` -- again a binary variable which is `TRUE` for observations during cabinets formed by parties from either the left or right bloc, but `FALSE` for observations during cabinets including parties across blocs (although, as mentioned above, this only translates to one cabinet at the time). This allows me to assess whether participation by Northatlantic MPs is shaped not only by the numerical balance of power, but also by the broader configuration of political competition.
 
 #### H~4~: Cross-Parliamentary Control
-operationalisation: party in gvt. vs. opposition at home
 
-* unit of analysis:
-* method: 
-* independent variable: `gvt_party_at_home`
-* dependent variable: `participation` (TRUE/FALSE, based on `vote_type_id`)
-* control variables:
-* data source:
+<!-- H4: Northatlantic MPs participate in more roll call votes when their party is in opposition in their home parliament -->
 
-- see [-@harderFaeroskeOgGronlandske2022, 9] for variable coding for cross-parliamentary stuff
+```{r rq4-setup}
+#| echo: false
+#| warning: false
+#| message: false
 
-<!-- older section below -->
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    opposition_home = ifelse(gvt_party_at_home == TRUE, 0, 1)
+  )
 
-see method used for Bundestag in @maiLoyalActivistsParty2024
+# descriptive comparison
+rq4_table <- northatlantic_ft %>%
+  group_by(opposition_home) %>%
+  summarise(
+    participation_rate = mean(participation),
+    n = n()
+  )
 
-"... it is custom in Danish legislative studies to use parliamentarians’ membership of legislative committees as an indicator of their political activities" [@cleggParliamentaryRepresentationOverseas2022, 238]
+chisq <- chisq.test(
+  table(northatlantic_ft$participation, northatlantic_ft$opposition_home)
+)
+```
 
-- distribution of ft_process_step? (or later during empirical strategy)
-  - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
-- most frequent ministry values
+For the question whether there is a relation between the MPs' participation in roll call votes in Folketinget and whether their party is part of the government in Greenland resp. the Faroe Islands, I recoded the existing binary `gvt_party_at_home` variable as `opposition_home` to make it easier to interpret the results with the way the hypothesis is framed. `opposition_home` is used as independent variable for this hypothesis, with `participation` again being the dependent variable.
 
-- voting records: ungewöhnlich, aber aufgrund öffentlichkeitswirksamkeit angebracht. "Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de giver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
+A first look at the data shows that MPs of parties in opposition in the Greenlandic resp. Faroese political systems participate in `r scales::percent(rq4_table$participation_rate[2], accuracy = 0.01)` of roll call votes in Folketinget, while MPs whose party is part of the cabinet at the time of observation have a participation rate of `r scales::percent(rq4_table$participation_rate[1], accuracy = 0.01)`. A $\chi^2$ test indicates a significant difference between the observed participation rate and the level of participation expected if there were no relation between the variables (p < 0.001).
 
-  - Harder: looks at committees/questions, as it's custom to use committee membership of indicator of political activities  [@cleggParliamentaryRepresentationOverseas2022, 238] because that's where stuff happens [@hansenCommitteeAssignmentPolitics2010, 382] and most relevant for oversight [@westPoliticalPartiesParliamentary2025, 967] > why voting behavior instead
-  - voting: not so influential [@arterNordicParliamentsMuchofamuchness2016, 214; @nannestadPolitischeSystemDanemarks2009, 82] and individual behavior not so relevant due to high party cohesion [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3], but in the topic of voting behavior lies a lot of visibility/publicity
+For the analysis, I estimate a generalised linear model as a baseline with the dependent and independent variable specified above. In a second model, I include the number of seats held in parliament by Danish cabinet parties as a control variable, as the analysis concerning H~3~ suggested this might be of relevance.
+
+```{r crosscontrol-models}
+#| echo: false
+#| warning: false
+#| message: false
+
+# logistic regression
+rq4_model <- glm(
+  participation ~ opposition_home,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+rq4_model_control <- glm(
+  participation ~ opposition_home + cabinet_parties_seats,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+all_models_rq4 <- list("Baseline" = rq4_model,
+                       #"Origin-Based" = rq4_interaction,
+                       "Control Model" = rq4_model_control)
+```
 
 # Dataset Description
 
