@@ -1266,11 +1266,9 @@ Model 1b and 2b, including the type of coalition, indicate that participation of
 
 <!--* H~4~: *Northatlantic MPs participate in more roll call votes when their party is in opposition in their home parliament.* -->
 
-see @tbl-crosscontrol-model
+Another logistic regression model fit to investiage relations between participation and government/opposition status in the local governments in Greenland resp. the Faroe Islands suggests that MPs whose political party is part of the opposition in the local political system take part in more roll call votes in Folketinget than their colleagues belonging to parties that are part of cabinets (@tbl-crosscontrol-model). According to the coefficient in the baseline model, MPs with parties in opposition locally have `r scales::percent(exp(coef(rq4_model)[2][[1]])-1, accuracy = 0.01)` higher odds of participating in a vote within the context of the available dataset. This result is in line with the expectations for MPs in Folketinget to be more active in roll call votes if their party is in opposition status in Inatsisartut resp. Løgtingið.
 
-"Moreover, in line with our initial expectations, which are based on the former findings of Harder and West (Harder 2021; West 2019), we find that Greenlandic MPs make use of this possibility to a much larger extent than the Faroese members do. However, contrary to our expectations, *it is the members from the parties that are most critical towards the Danish Realm, which makes the most use of the opportunity to gain information on the actions of their home-governments from the Danish Authorities*. Especially, this tendency is particularly strong for Faroese members. We believe this to be a sign that partisan motives at home are more important to North Atlantic politicians in the Danish parliament than we initially expected them to be." [@harderCaseInnovativeParliamentary2022] 
-
-
+As a result of the previously addressed hypothesis on parliamentary seat shares of cabinet parties, I included this variable as control in a second model. The coefficients from this additional model hardly change so the conclusions drawn from the first model appear to be robust also when controlled for Danish parliamentary balance. However, when I include the MPs' `origin` (GL or FO) into the model, the interaction model reveals important heterogeneity: the coefficents indicate that the effect is more relevant for Faroese MPs when compared to their Greenlandic colleagues. This suggests that cross-parliamentary control mechanisms are not uniformly present across North Atlantic MPs, but are instead driven primarily by Faroese representatives.
 
 ## Critical Assessment
 
