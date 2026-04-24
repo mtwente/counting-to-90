@@ -203,7 +203,7 @@ In doing so, I am building on central papers mentioned above [esp. @harderFaeros
 
 # Research Design
 
-Apart from a general, descriptive analysis of the data, my approach to the research question can be divided into four different perspectives concerning (1) the role of Greenlandic-Faroese cooperation in the Northatlantic Party Group until 2011, (2) bloc cohesion and party alignment, (3) measurable power in roll call votes, and (4) Folketinget voting behavior as expression of cross-parliamentary control.
+Apart from a general, descriptive analysis of the data, my approach to the research question can be divided into four different perspectives concerning (1) the role of Greenlandic-Faroese cooperation in the Northatlantic Party Group until 2011, (2) bloc cohesion and party alignment, (3) measurable power in roll call votes, and (4) voting in Folketinget roll call votes as way of exercising cross-parliamentary control.
 
 ## Theoretical Approach
 
@@ -240,13 +240,11 @@ Last but not least, I turn to the question of cross-parliamentary control. From 
 
 The underlying assumption then is that the participation in roll call votes in Folketinget can -- in the context of the Northatlantic representation -- also be seen as a form of cross-parliamentary control. In this sense, casting votes is expected to work as control mechanism in so far as it comes with increased publicity as demonstrated above, and has an impact similar to posing parliamentary questions: promoting political debate in parliament as well as agenda setting in media coverage, acting "as party agents to support their colleagues at home" [@harderCrossparliamentaryControl2025, 7].
 
-<!-- fixme also include this here? @harderCrossparliamentaryControl2025, 11-12: effect of parliamentary group until 2011? -->
-
 ## Empirical Strategy
 
 I am using the [*nordatlantisk-ft*](https://mtwente.github.io/nordatlantisk-ft) dataset which contains voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but metadata only [@berntzenParliamentaryOpenData2019, 9], I had to create both workflow and dataset myself. The dataset is the result of a pipeline in R, taking a list of MPs as input and then scraping voting records and metadata from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using a git-based template including long-term archival on Zenodo [@mahrOneTemplateRule2025a], and are accompanied by extensive metadata and documentation to ensure reproducibility. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
 
-For my analysis, I am going to use the data available as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %d, %Y")` [@twenteNordatlantiskft2026]. At this point, *nordatlantisk-ft* comprises `r length(unique(northatlantic_ft$vote_id))` records of votes by Northatlantic MPs between `r format(min(northatlantic_ft$date), "%B %d, %Y")` and `r format(max(northatlantic_ft$date), "%B %d, %Y")`[^valg26]. The dataset also contains metadata on each record -- e.g. date and topic of each vote or the overall roll call result, covering votes on `r length(unique(northatlantic_ft$roll_call_id))` proposals in Folketinget.
+For my analysis, I am going to use the data available as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %d, %Y")` [@twenteNordatlantiskft2026]. At this point, *nordatlantisk-ft* comprises `r length(unique(northatlantic_ft$vote_id))` records of votes by Northatlantic MPs between `r format(min(northatlantic_ft$date), "%B %d, %Y")` and `r format(max(northatlantic_ft$date), "%B %d, %Y")`[^valg26]. The dataset contains metadata on each record -- e.g. date and topic of each vote or the overall roll call result, covering votes on `r length(unique(northatlantic_ft$roll_call_id))` proposals in Folketinget. Additionally, there is information on cabinets, election results and party changes over time. This paper also includes a general description of the data as starting point for investigating the parliamentary work of the Northatlantic MPs.
 
 [^valg26]: PM Mette Frederiksen announced the date for the next general election to Folketinget (`r format(as.Date("2026-03-24"), "%B %d, %Y")`) on `r format(as.Date("2026-02-26"), "%B %d, %Y")`. The data used for this analysis thus does not contain records on voting behavior during the election campaign (if there are any).
 
@@ -255,20 +253,11 @@ For my analysis, I am going to use the data available as of `r format(file.info(
 - measurement independent and control variables (and data source)
 - methodological approach (why this one?) -->
 
-* use data on party level for all hypotheses, cf.:
-  * "Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
-  * "However, in many of the West European parliaments, including Denmark, party discipline is very tight. Thus analysing individual legislator behaviour is of little use, and in such cases we should shift our focus to the parliamentary party groups and use these as the actors to be analysed." [@ejnarhansenReconsideringPartyDistances2008, 266]
-  * see @harderCrossparliamentaryControl2025 [8-9]: Not much research has been conducted [SEITENUMBRUCH] on the Greenlandic party discipline, yet, since crossing the party line in Greenlandic politics is heavily criticised when it occurs (Schultz-Nielsen, 2018), I may assume that party discipline is also a norm here.
-
-- List of MPs
-- MP metadata
-- List of cast votes
-- roll call metadata
-- cabinet metadata
-
 #### H~1~: Participation Before/After 2009
 
-```{r h1-analysis}
+* fixme overall: * unit of observation? unit of analysis?
+
+```{r h1-analysis-setup}
 #| echo: false
 #| message: false
 
@@ -1284,9 +1273,17 @@ Model 2a on the relation between the number of cabinet parties' seats in parliam
 
 Model 1b and 2b, including the type of coalition, indicate that participation of Northatlantic MPs is higher in cross-bloc coalitions. This is also in line with my expectations. However, since there has only been one cross-bloc cabinet in the dataset, this is not really a generalisation to make. Additionally, the higher level of participation during this cabinet appears to be almost entirely the result of the voting behavior of Anna Falkenberg (B/FO), judging by a visual inspection of @fig-vote-share-per-year and @fig-votes-per-mp-filtered. Still, it could be interesting to compare participation patterns under other cross-bloc cabinets, e.g. the Anker Jørgensen III cabinet (1978--1979, Socialdemokratiet/Venstre). 
 
+* what do the log-odds mean exactly?
+
 ## H~4~: Cross-Parliamentary Control {.unnumbered .unlisted}
 
-<!--* H~4~: *Northatlantic MPs are more likely to participate in roll call votes when their party is in opposition in their home parliament.* -->
+<!--* H~4~: *Northatlantic MPs participate in more roll call votes when their party is in opposition in their home parliament.* -->
+
+see @tbl-crosscontrol-model
+
+"Moreover, in line with our initial expectations, which are based on the former findings of Harder and West (Harder 2021; West 2019), we find that Greenlandic MPs make use of this possibility to a much larger extent than the Faroese members do. However, contrary to our expectations, *it is the members from the parties that are most critical towards the Danish Realm, which makes the most use of the opportunity to gain information on the actions of their home-governments from the Danish Authorities*. Especially, this tendency is particularly strong for Faroese members. We believe this to be a sign that partisan motives at home are more important to North Atlantic politicians in the Danish parliament than we initially expected them to be." [@harderCaseInnovativeParliamentary2022] 
+
+
 
 ## Critical Assessment
 
@@ -1296,6 +1293,18 @@ Model 1b and 2b, including the type of coalition, indicate that participation of
 * statement about how there are other influences not accounted for
 
 Danish parliamentarism: "peculiar mixture of cooperation and conflict" [@green-pedersenBlocPoliticsVs2005, 153]
+
+<!-- older section below -->
+- distribution of ft_process_step? (or later during empirical strategy)
+  - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
+- most frequent ministry values
+
+- voting records: ungewöhnlich, aber aufgrund öffentlichkeitswirksamkeit angebracht. "Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de giver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
+
+* use data on party level for all hypotheses, cf.:
+  * "Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
+  * "However, in many of the West European parliaments, including Denmark, party discipline is very tight. Thus analysing individual legislator behaviour is of little use, and in such cases we should shift our focus to the parliamentary party groups and use these as the actors to be analysed." [@ejnarhansenReconsideringPartyDistances2008, 266]
+  * see @harderCrossparliamentaryControl2025 [8-9]: Not much research has been conducted [SEITENUMBRUCH] on the Greenlandic party discipline, yet, since crossing the party line in Greenlandic politics is heavily criticised when it occurs (Schultz-Nielsen, 2018), I may assume that party discipline is also a norm here.
 
 ### Implications, Future Research
 
