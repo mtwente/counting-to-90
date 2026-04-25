@@ -935,6 +935,40 @@ The dataset spans across across six full cycles of Folketinget elections (and th
 
 [^full]: Refer to the codebook for a [full list](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html#northatlantic_ftministry) of all `r n_distinct(northatlantic_ft$ministry, na.rm = TRUE)` designations that appear in the dataset.
 
+<!-- section on nord_topic -->
+
+```{r nord-topics}
+#| echo: false
+#| message: false
+
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(nord_topic = str_detect(ft_topic, regex("grønl.*|færø.*|arktis.*", ignore_case = TRUE))) %>%
+  relocate(nord_topic, .after = ft_topic)
+
+nord_topic_table <- northatlantic_ft %>%
+  group_by(nord_topic) %>%
+  summarise(participation_rate = scales::percent(mean(participation, na.rm = TRUE), accuracy = 0.1)) %>%
+  filter(!row_number() %in% c(3)) # removing NA values by row index
+
+```
+
+The topic of each roll call vote is described via a Danish-language string in the dataset. I tried extracting keywords from this variable using simple topic modelling tools, but with considerable variation in string length and highly formalised phrasing, this did not yield satisfactory results. Instead, I employed a similarly simple regex pattern matching strategy, filtering the `ft_topic` variable for `grønl.*`, `færø.*` or `arktis.*` to get an indicator for which of the observations might be of relevance to Northatlantic MPs in terms of content. After removing `r sum(is.na(northatlantic_ft$nord_topic))` cases with `NA` values, @tbl-nord-topic shows the share of non-absent observations of Northatlantic MPs based on whether the topic is of relevance based on the very simple classification mentioned above. Unsurprisingly, the results are pointing in the same direction as previous research has done so far: MPs from Greenland and the Faroe Islands are more active in issues that concern their constituencies directly [@harderFaeroskeOgGronlandske2022, 20]. However, an overall participation rate of `r nord_topic_table$participation_rate[2]` still seems to be quite low for issues are tagged as being of relevance to the MPs -- pointing to the main issue with this approach of extracting topics: While @tbl-nord-topic is both easy to make and to interpret and, on top, is in line with previous findings, its content is not really meeting requirements that allow use in further processing: The shortcomings of this approach show in votes on e.g. the yearly budget, which, per se, qualifies for having direct relevance for Greenland and the Faroe Islands. And since the vote is only described with the phrase 'Forslag til finanslov for finansåret [year].', a pattern matching search for the mentioned keywords does not catch cases like this.<!-- FIXME evaluate in the end -->
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-nord-topic
+#| tbl-cap: "Participation Based on Topics"
+#| tbl-cap-location: top
+
+kable(nord_topic_table,
+  col.names = c("Relevant Topic", "Participation Rate"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex")
+```
+
 ```{r}
 #| echo: false
 #| warning: false
