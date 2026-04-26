@@ -135,16 +135,7 @@ The research question investigated in this paper is as follows: Under which cond
 
 <!-- 3. roadmap of the rest of the paper, per paragraph/section style -->
 
-I will begin this paper by laying out my research questions and explaining their relevance for understanding *Rigsfællesskabet* dynamics and inner Folketinget workings. After reviewing the available literature to situate my hypotheses within the state of research, I am going to introduce hypotheses and how I plan on connecting them with the dataset that I have. Then, I introduce the data and describe its characteristics. This is already going to provide a first glimpse into the activities of Greenlandic and Faroese representatives in Folketinget. In a next step, I am going to focus on ...<!-- FIXME -->
-
-- explain relevance for understanding Rigsfællesskabet dynamics
-- tbd: what do I find out <!-- FIXME -->
-- tbd: why is that not covered by previous work
-
-- literature review (dissect topics of relevance)
-- research design, dataset
-- empirical strategy
-- discussion
+I began this paper by laying out my research questions and explaining their relevance for understanding *Rigsfællesskabet* dynamics and inner Folketinget workings. After reviewing the literature to situate my hypotheses within the state of research, I am going to set out how I plan on connecting them with the dataset I created for this analysis. A thorough description of the data is a first step towards understanding the Northatlantic MPs' activity in parliament, covering represented political parties, overall patterns and other indicators. Next, I am going to focus on four hypotheses and analyse them using the available data. Concluding with remarks on the suitability of data and methods as well as possible links for additional research on Northatlantic Folketing representation, my analysis indicates that issue relevance is the most important driver of voting participation for Northatlantic MPs, with institutional and political factors shaping behavior only in a secondary and context-dependent manner.
 
 # Literature Review
 
