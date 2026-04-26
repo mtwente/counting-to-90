@@ -1594,6 +1594,7 @@ patchworked_plot
 modelsummary(
   models_1abc_rq3,
   coef_map = c(
+    "(Intercept)" = "(Intercept)", 
     "close_voteTRUE" = "Close Voting Result",
     "cross_bloc_gvt" = "Cross-Bloc Coalition",
     "nord_topicTRUE" = "GL/FO Relevance"
@@ -1603,7 +1604,6 @@ modelsummary(
   stars = TRUE,
   output = "latex")
 ```
-
 
 ```{r}
 #| echo: false
@@ -1618,6 +1618,7 @@ modelsummary(
 modelsummary(
   models_2abc_rq3,
   coef_map = c(
+    "(Intercept)" = "(Intercept)", 
     "close_voteTRUE" = "Close Voting Result",
     "cross_bloc_gvt" = "Cross-Bloc Coalition",
     "nord_topicTRUE" = "GL/FO Relevance",
@@ -1644,11 +1645,13 @@ modelsummary(
 modelsummary(
   all_models_rq4,
   coef_map = c(
+    "(Intercept)" = "(Intercept)", 
     "opposition_home" = "Opposition Party in GL/FO",
-    "cabinet_parties_seats" = "N° of Cabinet Parties' Folketinget Seats",
+    "cabinet_parties_seats" = "N° of Cabinet Parties’ Folketinget Seats",
+    "nord_topicTRUE" = "GL/FO Relevance",
     "originFO" = "Faroese MPs",
-    "opposition_home:originFO" = "Faroese MPs, Home Opposition Parties"
-  ),
+    "opposition_home:originFO" = "Faroese MPs × Home Opposition"
+    ),
   statistic = "({std.error})",
   ci_method = "wald",
   stars = TRUE,
