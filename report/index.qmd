@@ -1,0 +1,1693 @@
+---
+title: "Counting to 90 in Greenlandic and Faroese"
+subtitle: Analysing the Northatlantic MPs' Voting Behaviour in the Danish Parliament
+authors:
+  - name: Moritz Twente
+    affiliation: University of Basel
+    email: moritz.twente@unibas.ch
+    orcid: 0009-0005-7187-9774
+abstract: > 
+    This paper presents an analysis of the voting behavior of the four 'Northatlantic' members of the parliament of Denmark. Using records from 2004 until today, I investigate the circumstances under which this group of MPs takes part in plenary voting, how this translates to actual voting power and whether this aspect of parliamentary activity could be considered as exercising cross-parliamentary control. My results indicate that issue relevance is the most important driver of voting participation, with institutional and political factors shaping behavior only in a secondary and context-dependent manner.
+date: last-modified
+date-format: long
+bibliography: ../assets/nordatlantisk-ft.bib
+#csl: ../assets/american-political-science-association.csl
+reference-section-title: References
+link-citations: true
+lang: en
+output-file: paper.pdf
+filters:
+  - wordcount
+wordcount:
+  count-code-blocks: false
+  count-inline-code: false
+format: 
+  pdf: 
+    documentclass: article
+    classoption: twocolumn
+    mainfont: Jost
+    filters: [../assets/quotation-marks.lua]
+    quot-lang: de-CH
+    colorlinks: true
+    toc: true
+    toc-depth: 2
+    geometry:
+      - top=22mm
+      - bottom=18mm
+    include-in-header:
+      text: |
+        \usepackage{float}
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{} % clear all header and footer fields
+
+        % first page footer
+        \fancypagestyle{plain}{
+        \fancyhf{}
+        \fancyfoot[L]{\footnotesize Moritz Twente, 19-911-940, moritz.twente@unibas.ch}
+        \fancyfoot[R]{\footnotesize \thepage}
+        \renewcommand{\headrulewidth}{0pt}
+        }
+
+        % Right-justified header (smaller font)
+        \fancyfoot[L]{\footnotesize Moritz Twente, 19-911-940, moritz.twente@unibas.ch}
+
+        % Page number in footer (centered)
+        \fancyfoot[R]{\footnotesize \thepage}
+
+        % Remove header line (optional, cleaner look)
+        \renewcommand{\headrulewidth}{0pt}
+
+        % reduce whitespace below header
+        \setlength{\headsep}{9pt}
+---
+
+<!-- 8000 -- 10'000 words, 20--25 pages excl. Bibliography -->
+
+<!-- writing: 
+- every paragraph includes one argument/thought
+- structure of a paragraph: topic sentence, development of the argument (2-3 sentences that elaborate your idea, e.g. by example)
+- concluding sentence, link to the next paragraph -->
+
+```{r setup}
+#| echo: false
+#| message: false
+
+# Setup R environment and dataset via include
+{{< include ../src/_setupR.R >}}
+
+## Install Font -----
+
+font_add("Jost",
+  regular = here("assets", "fonts", "ttf", "Jost-400-Book.ttf")
+  )
+
+showtext_auto()
+
+## Set Plotting Theme -----
+
+theme_nordatlantisk_basis <- function(){
+  
+  theme_grey(base_family = "Jost") %+replace%
+    theme(axis.title = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.background = element_blank(),
+          panel.grid.major.x = element_line(color = "#000000", linewidth = 0.1),
+          panel.grid.minor.x = element_line(color = "#000000", linewidth = 0.1),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          axis.ticks.x = element_line(color = "#000000", linewidth = 0.1),
+          axis.line.y.left = element_line(color = "#000000", linewidth = 0.1))
+}
+
+```
+
+# Counting to 90
+
+<!-- into according to powner: three-paragraph framework for a 20p paper -->
+
+<!-- 1. establish puzzling empirical facts, articulate contradiction/puzzle, briefly describe how others have attempted to solve it in the past -->
+
+Four out of the 179 MPs in the parliament of Denmark, Folketinget, represent Greenland and the Faroe Islands (referred to collectively as Northatlantic MPs). They usually only position themselves on issues where their constituencies, as parts of the Danish Realm, cannot decide independently[^issues]. Party representatives state that they do not want to interfere in 'domestic' Danish politics [@kurrild-klitgaardElectionInversionsCoalitions2013, 130] and thus generally refrain from taking part in parliamentary work outside those policy areas. This setup has been widely accepted for decades, going so far that those MPs, i.e. elected members of a legislative assembly, are referred to as "non-political" [@millerFriendsRivals1996, 72] politicians[^slesvig]. But in times of less stable majorities, when one of the two Danish party blocs finds themselves without a 'domestic majority' (*indenrigspolitisk flertal*), Northatlantic MPs may flip the outcome of a roll call vote in Folketinget or prove crucial for securing the coalition's stability [@harderFaeroskeOgGronlandske2022, 19] by helping to form a majority of 90 seats -- to use the Danish expression: to be able to count to 90.
+
+[^issues]: This pertains to issues about e.g. foreign affairs, defence and security, currency and financial regulations, citizenship, the police and judiciary systems, aviation regulations etc. [@cleggParliamentaryRepresentationOverseas2022, 235; @falkenbergFaeroerneNuOg2025, 41].
+
+[^slesvig]: Miller, referring to the results of the 1957 election, also includes a representative for the German-speaking minority in Southern Slesvig in this group of non-political MPs. However, in this paper I will concentrate on Greenlandic and Faroese MPs only, not considering the representation of other minorities in Folketinget.
+
+These situations regularly cause controversy among politicians from 'continental' Denmark, focussing on the symbolic aspects of the Northatlantic presence in Folketinget which, from a Danish perspective, helps to legitimize its claim to being an Arctic nation [@westDanishRealmArctic2025, 589]. In this context, post-colonialist debates on the relations between Greenland, the Faroe Islands and Denmark -- have lead to heightened tensions and even bullying [@harderArcticIndigenousRepresentation2024, 141; @cleggParliamentaryRepresentationOverseas2022, 239] with Danish politicians employing colonialist metaphors [e.g. 'buying a Greenlander', cf. @kamstrupNuHarVi2017; @larsenSkatteministerTilNytarskur2017; @sjolieDanmarkManglerOpgor2008]. Generally, debates on Greenlandic and Faroese representation in Folketinget are ususally initiated by politicians when deemed convenient [@veirumForskerNordatlantiskIndflydelse2022; @harderFaeroskeOgGronlandske2022, 5]. Additionally, the topic appears to be a fixture of news coverage leading up to elections, sometimes coming across as a quirk of Denmark's political system [e.g. @mollerForskerNordatlantiskeMandater2026; @breumHvorStorIndflydelse2026; @dallGronlandOgFaeroerne2022; @engelundMorgenpostFraGronland2026a; @prakashBlaEllerRod2026].
+
+From a scientific point of view, the parliamentary work of the Northatlantic MPs can still be considered a black box, and is only starting to become a subject of investigation. So far, a summary of research on this topic is: If they find themselves in situations where they have power, they tend to use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]. Recently, parliamentary questions and committee work have been the vantage points from which the Northatlantic MPs's work is analysed [@westDanishRealmArctic2025; @harderFaeroskeOgGronlandske2022; @harderCaseInnovativeParliamentary2022], as has been cross-parliamentary control [@harderCrossparliamentaryControl2025]. Their influence on coalition formation is another angle, but coalition research rather focuses on Danish (median) parties' influence [cf. @skjaevelandModellingGovernmentFormation2009]. Overall, we still know little about the activities of Greenlandic and Faroese MPs [@harderFaeroskeOgGronlandske2022, 5], especially compared to the amount of anecdotic evidence and news coverage available over the years.
+
+<!-- 2. focus primarily on theory and findings of my work, show how it significantly improves over previous work -->
+
+The purpose of this paper is thus to systematically investigate the voting behavior of Northatlantic MPs to shed light on their activities in Folketinget. Research on indigenous representation in Denmark (and Canada) suggests that Northatlantic MPs particularly engage in issues with direct relevance for indigenous, i.e. their own interests [@harderArcticIndigenousRepresentation2024, 143]. My approach here does not focus on the issues at hand, but solely on vote counts and majority formation -- looking for situations where Northatlantic MPs engage in brokering majorities even though they usually would (be expected to) refrain from voting if considering the issue at hand and its relevance to their constituency.
+
+This approach addresses the 'blame game' where politicians and journalists point to Northatlantic MPs influencing domestic Danish politics. I investigate these claims with data on voting behavior of roll call votes -- an aspect of Folketinget work attributed with relatively little power when compared to e.g. committee work [@nannestadPolitischeSystemDanemarks2009, 84; @arterNordicParliamentsMuchofamuchness2016, 214; @christiansenPolarizationLegislativeParty2021, 749]. But, from time to time, roll call votes do come with a lot of publicity and create an arena where individual MPs are put in the spotlight and their votes carry more weight than they usually do. Additionally, this paper extends previous research on Northatlantic MPs not only by adding the perspective on roll call data, but also by using most recent data available (voting records between `r format(min(northatlantic_ft$date), "%B %Y")` and `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")`). The timeframe covered in this paper thus includes the period of increased attention to Arctic matters in the context of U.S.-Denmark relations.
+
+## Research Questions
+
+The research question investigated in this paper is as follows: Under which conditions do Northatlantic MPs participate in roll call votes in Folketinget, and to what extent does their participation translate into pivotal voting power? Using a dataset I compile myself, I am going to structure my analysis along four subquestions:
+
+1. Does the emergence of party competition among MPs -- after the Northatlantic Party Group was dissolved -- lead to increased participation in roll call voting?
+2. To what extent do Northatlantic MPs vote cohesively as a group?
+3. How does the parliamentary balance of power affect whether Northatlantic MPs participate in roll call votes? <!--(In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?) -->
+4. How does the position of the MPs' parties in the political system of Greenland resp. the Faroe Islands affect their participation in Folketinget roll call votes?
+
+<!-- 3. roadmap of the rest of the paper, per paragraph/section style -->
+
+I began this paper by laying out my research questions and explaining their relevance for understanding *Rigsfællesskabet* dynamics and inner Folketinget workings. After reviewing the literature to situate my hypotheses within the state of research, I am going to set out how I plan on connecting them with the dataset I created for this analysis. A thorough description of the data is a first step towards understanding the Northatlantic MPs' activity in parliament, covering represented political parties, overall patterns and other indicators. Next, I am going to focus on four hypotheses and analyse them using the available data. Concluding with remarks on the suitability of data and methods as well as possible links for additional research on Northatlantic Folketing representation, my analysis indicates that issue relevance is the most important driver of voting participation for Northatlantic MPs, with institutional and political factors shaping behavior only in a secondary and context-dependent manner.
+
+# Literature Review
+
+<!-- - summary of relevant literature for your research question!
+- aim of literature review: identify research gap (and by this your own contribution)
+- do not mention every paper written about your case but the most important+related ones
+- pathbreaking papers and latest developments should be included
+- Direct citations only if absolutely needed, better are paraphrasing -->
+
+Over the past decades, the activity of Folketing MPs from Greenland and the Faroe Islands has been written about time and again -- usually when there are narrow majorities and the 'Northatlantic' votes might become relevant to the voting outcomes, e.g. after elections in 2022, 2015, 2011 or 2007 [@harderFaeroskeOgGronlandske2022; @sorensenEfterBrokBla2022]. While situations like these are regularly reported on by journalists [e.g. @nathanGronlandskMferSer2024; @veirumPartilederePatalerGronlandsk2022; @frostLokkeRaserNordatlantiske2022; @skouKaareFireMandater2008][^zotero], the attention they receive from researchers has long been marginal.
+
+[^zotero]: For a larger collection of reports in mostly Danish-language media from recent years, see my [nordatlantisk-ft Zotero collection](https://www.zotero.org/groups/5346749/nordatlantisk-ft).
+
+If Greenlandic or Faroese political representation in Folketinget does appear in research output, it is often referred to in anecdotes [e.g. "A coalition saved by Greenland", @millerFriendsRivals1996, 80] or in parentheses [e.g. @klintDanishLegislatorsDatabase2023; @elklitElectoralSystemFair2020; @nannestadPolitischeSystemDanemarks2009; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004], acknowledging its existence, but mostly, sometimes explicitly, not considering it for analysis [e.g. @kuselerDetectingClimateDelay2026; @ejnarhansenReconsideringPartyDistances2008; @skjaevelandPartyCohesionDanish2001; @valenGeographyPoliticalRepresentation2000; @westPoliticalPartiesParliamentary2025; @elklitDenmarkSimplicityEmbedded2005; @christiansenMinorityCoalitionGovernance2014; @krausePPEGPoliticalParties2025]. Given the anecdotal evidence about the Northatlantic MPs' presence and the often heated reactions to situations where roll call results are depending on votes from (at least one of) them, it is striking how research related to Folketinget and its dynamics has largely not taken up on this aspect. In the following paragraphs, I will take a closer look at literature on the functioning of Folketing itself, on coalition and government formation, on the Danish election system as well as on the political parties.
+
+Writing about parliamentary cross-bloc cooperation, @green-pedersenBlokpolitikOgNye2020 [311] do not include political parties from Greenland and the Faroe Islands when counting the number of parties that are represented in parliament at all. Neither does @helboepedersenParliamentFOLKETINGETPowerful2020 in her investigation into the institutional powers of Folketinget, although she briefly mentions the existence of Northatlantic MPs. @hansenCommitteeAssignmentPolitics2010 states he is not considering these MPs in an analysis of committee assignments. In a categorisation of roll call votes, @skjaevelandPartyCohesionDanish2001 explicitly excludes matters concerning Northatlantic MPs from a category of domestic issues.
+
+With regard to the composition of Folketinget, @kurrild-klitgaardElectionInversionsCoalitions2013 analyses election inversions, meaning the party/political bloc winning the most votes does not end up with the most parliamentary seats after the election -- a situation the Northatlantic MPs have ended up in repeatedly. Using the 1971 election, he demonstrates that the lower cost of winning a Folketinget mandate in the Faroe Islands resulted in a margin so narrow that, if added to continental Danish overall results, would have resulted in an alternative majority [-@kurrild-klitgaardElectionInversionsCoalitions2013, 131]. This is, however, not considered to be a flaw, and the election system of Denmark is regarded to be exceptionally well-functioning [@elklitElectoralSystemFair2020; @lijphartForeword2005], even though that assessment, again, excludes elections in Greenland and the Faroe Islands [cf. @elklitDenmarkSimplicityEmbedded2005]. An otherwise comprehensive database with biographic information on Folketinget legislators by @klintDanishLegislatorsDatabase2023 also does not include anyone from Greenland and the Faroe Islands.
+
+The Northatlantic MPs are sometimes factored in as relevant actors in publications on coalition/government formation in Denmark, especially by Skjæveland [-@skjaevelandGovernmentFormationDenmark2003; -@skjaevelandModellingGovernmentFormation2009]. He touches upon the Northatlantic MPs' importance in his research on government formation in Denmark [-@skjaevelandModellingGovernmentFormation2009], acknowledging their importance in some coalition life cycles[^gam]. The take-away from his section on the Northatlantic Folketing is that "the more important their votes, the more involved they have become" [-@skjaevelandModellingGovernmentFormation2009, 723]. But even when acknowledging the voting behavior of Northatlantic MPs as a potentially decisive factor for government formations, they are still only partially relevant to research on the distribution of power in Danish party politics, which tends to focus on median parties such as Radikale Venstre [@green-pedersenBlocPoliticsVs2005; @green-pedersenDetRadikaleVenstres2003; @skjaevelandMindretalsregeringerDanmarkFor2003].
+
+<!--[^fernleihe]: @harderFaeroskeOgGronlandske2022 [7] characterises Skjæveland's PhD thesis as a comprehensive coverage of the Northatlantic MPs influence on coalition formations in Denmark. But, as accessing this publication requires more effort than is reasonable for a seminar paper like this, I refer to @skjaevelandModellingGovernmentFormation2009 instead, which builds on the PhD thesis published in 2003.-->
+
+[^gam]: A notable example is the Greenlandic MP Mikael Gam who became part of the Kampmann II/Krag I cabinets after the 1960 election [@skjaevelandMindretalsregeringerDanmarkFor2003, 448; @millerFriendsRivals1996, 83]. Apart from him, Northatlantic MPs have not assumed the role of cabinet members.
+
+Research on political parties in Denmark, e.g. by @green-pedersenPartySystemOpen2020 or @pedersenPartyDistancesDanish1971, does not cover parties from Greenland or the Faroe Islands. This is hardly surprising, given that the political parties competing in elections in Denmark, Greenland and the Faroe Islands are separate entities and each party can only be voted for from within either of the three parts of the Danish Realm [@kurrild-klitgaardElectionInversionsCoalitions2013]. Likewise, research on political parties of Greenland and the Faroe Islands features a domestic focus as well [e.g. @ahlnessNunattaQitornaiParty2020; @westSkipanarligarFortreytirOg2022; @michelsenGronlandPartisystemUdvikling1979]. Institutional associations between Greenlandic and Danish parties linked to parliamentary work in Folketinget are mentioned by @ackrenPoliticalPartiesGreenland2015, building on ideologically similar backgrounds of Siumut of Greenland and Socialdemokratiet in Denmark resp. of Atassut (GL) and Venstre (DK). However, Folketinget representation does not seem to be a central issue for regional parties in Greenland and the Faroe Islands. Because Greenland and the Faroe Islands only hold two seats each, @ackrenExploringRoleRegional2019 deem it unlikely that any Northatlantic proposal would gain enough traction in Folketinget anyway. For these regional parties, the preferred mode of conducting relations with Denmark is by communicating between government officials instead [@ackrenExploringRoleRegional2019; @harderArcticIndigenousRepresentation2024, 130].
+
+The inclusion of anything related to the Greenlandic and Faroese representation within the Danish Realm into analyses of the political system of Denmark is not trivial, not least due to the separate party systems and because there are no institutional links between the Northatlantic MPs and neither their national governments nor parliaments [@westDanishRealmArctic2025, 602][^doublemandate]. It is likely in this context that the activities of the four Northatlantic MPs feature only in the margins of research on Danish politics. This can be said for research on Folketing and its inner workings specifically, but also for adjacent topics such as research on elections and coalition formations as summarised above.
+
+[^doublemandate]: Greenlandic and Faroese representatives can be MPs in their local parliaments at the same time as they are members of Folketinget. For example, Folketinget member Aki-Matilda Høegh-Dam was elected in the 2025 Inatsisartut election, thus serving as MP in the Danish and Greenlandic parliaments at the same time (until the 2026 Folketinget election). In the Faroe Islands, this type of double mandates has been "heavily criticized" [@westDanishRealmArctic2025, 602]. 
+
+With this in mind, I assume that the activities of the Greenlandic and Faroese members of Folketinget have mostly been regarded not as a relevant aspect of the political system of Denmark that is worth considering. In conclusion, there has been very little research activity on MPs from Greenland and the Faroe Islands and their behavior in Folketinget compared to the importance that is repeatedly being attributed to their presence [cf. @harderFaeroskeOgGronlandske2022, 5]. This has, however, changed in recent years with publications explicitly targeting Northatlantic representation in Folketinget which I am going to focus on in the following paragraphs.
+
+<!-- Section Voting Behavior -->
+@harderFaeroskeOgGronlandske2022 investigates the Northatlantic MPs' behavior between 2005 and 2019 by looking at parliamentary questions posed by them as well as their participation in committee work. In her paper, the first to systematically research the activities of the Greenlandic/Faroese Folketing representations, she finds that for both questions and committee work, Greenlandic MPs have been more active than their Faroese counterparts. Overall, they are most active around topics with direct relevance for their constituencies, and some MPs around issues that concern Greenlandic and Faroese inhabitants of Denmark proper as well [cf. @cleggParliamentaryRepresentationOverseas2022, 238]. Long-term strategies regarding the relationship between the members of the Danish Realm do not appear to be a priority [@harderFaeroskeOgGronlandske2022, 15]. Harder's analysis suggests that there is no correlation between the number of questions asked and whether the MP's party is part of the cabinet in Greenland or the Faroe Islands. She concludes that MPs tend to support the political bloc that aligns most closely with their own party's positions. On the topic of securing majorities in roll call votes, she echoes findings for the second half of the 20^th^ century by @skjaevelandGovernmentFormationDenmark2003: MPs take part in roll call votes in particular if there is a chance their vote flips the outcome -- which usually leads to debates about the North Atlantic's influence in 'domestic' politics.
+
+<!-- Section (Cross-)Parliamentary Control -->
+Apart from their voting behavior, Northatlantic MPs are also investigated in the context of parliamentary control mechanisms. While Folketinget as an institution is equipped with relatively strong mechanisms for controlling the (Danish) government [@helboepedersenParliamentFOLKETINGETPowerful2020, 102], it is another question whether control is exercised vis-à-vis Naalakkersuisut of Greenland and Landsstýrið of the Faroe Islands as well. @harderCaseInnovativeParliamentary2022 use parliamentary questions as case study for investigating cross-parliamentary control -- if/how Northatlantic MPs use their mandates in Folketinget to check on the (in)actions of their local governments. This can be said to be the case for 7.8% of the questions posed to Danish ministers between 2005 and 2020. Harder and West find that especially MPs from parties known to be sceptical of the Danish Realm are making use of this form of cross-parliamentary control, from Faroese parties in particular. Greenlandic MPs are found to address a broader range of issues compared to the ones from the Faroe Islands [@westDanishRealmArctic2025, 598]. Harder then elaborates on prerequisites and effects of cross-parliamentary control mechanisms in a second-order parliament -- which Folketinget is from a Greenlandic/Faroese perspective -- hypothesising that MPs "will especially engage in cross-parliamentary control when they belong to parties that are in opposition within the government system where they seek to control the government" [-@harderCrossparliamentaryControl2025, 12], bearing in mind that in her dataset, this observation is based of the behavior of representatives of one political party only. Additionally, party group membership appears to be a variable of importance: All but one of the observed cases of cross-parliamentary control occur after the disbandment of the Northatlantic Parliamentary Group in 2011, indicating that party competition is a prerequisite.
+
+In addition to posing questions, committee membership is an effective tool of parliamentary control in Folketinget [@holliDualApproachComparing2016]. Since the inception of the current committees setup in 1971, Greenlandic MPs have been members of parliamentary committees more often than their Faroese counterparts [@harderFaeroskeOgGronlandske2022, 11]. Northatlantic MPs are usually members of the committees on Greenland and the Faroe Islands. Other than that, they are active in committees concerning policy areas, especially foreign affairs, that are not in the responsibility of the local governments. Harder mentions Edmund Joensen and Aleqa Hammond as MPs who were members of comparably many committees and -- alluding to their importance in securing majorities -- suggests that their willingness to support the Danish government in issues that did not concern their constitutencies directly was met with the allocation of more committee seats than usual [@harderFaeroskeOgGronlandske2022, 17].
+
+<!-- Section Rigsfællesskabet -->
+This recent increase in research output regarding the Northatlantic representation in Folketinget has to be seen in the context of the changed status of the Arctic within the Danish Realm and beyond, leading to a pressure to open the "'black box' of the Danish state" [@westDanishRealmArctic2025, 589; cf. @harderFaeroskeOgGronlandske2022, 6] that the association of Denmark, Greenland and the Faroe Islands as *Rigsfællesskabet* and its dynamics were for a long time [cf. @hviidDetArktiskeVindue2022]. Denmarks "Arctic awakening" [@jacobsenDanmarksArktiskeUdenrigspolitik2021] in the beginning of the 21^st^ century led to a shift from understanding Danish-Greenlandic-Faroese relations as domestic affairs within the Danish Realm to focussing on geopolitics of the Arctic as a whole. The four Northatlantic MPs take center stage in that regard, as Folketinget allocates parliamentary positions that are central to Arctic policy to Northatlantic MPs [@westDanishRealmArctic2025, 603], not least in order to legitimize Denmark as a geopolitical player in the Arctic. Still, their presence has a considerable symbolic value, as noted by @cleggParliamentaryRepresentationOverseas2022 [237]. By highlighting diverging opinions as to whether the Northatlantic MPs also represent Greenlandic/Faroese inhabitants of Denmark[^representing], the authors bring up the perspective of overseas territories' representation.
+
+[^representing]: For the 2026 election, a Danish-Greenlandic candidate in Denmark campaigned as representing Greenlanders in Denmark, pledging to bring the number of 'Greenlandic' mandates up to 2.5 [@mollerMangearigHandboldspillerVil2026]. He was not elected [@danmarksstatistikValgteKandidaterOg2026].
+
+In a similar context, the new geopolitical status of the Greenlandic and Faroese parts of *Rigsfællesskabet* is accompanied by an increased awareness of the colonialist heritage of Denmark in both Greenland and, to a lesser extent, the Faroe Islands [cf. @jensenPostcolonialDenmarkRot2015; @dyrendomgraugaardColonialReproductiveCoercion2025; @kociGreenlandFaroeIslands2021]. However, national parliaments are not in the spotlight of research dealing with Arctic Indigenous representation [@harderArcticIndigenousRepresentation2024, 130] which, in this case, would mainly concern MPs from Greenland, and not the Faroe Islands anyway.
+
+## Research Gap
+
+As demonstrated above, the Greenlandic and Faroese representation in Folketinget has only recently become the target of scientific investigation. Because research on the parliament of Denmark that does not use a decidedly Arctic lens does not cover the Northatlantic MPs by and large, there are still a lot of unknowns about the activities of these politicians. Anecdotal evidence, also in the form of news reports, points to repeated situations where the four Northatlantic MPs of Folketinget do have influence on 'domestic' Danish lawmaking. My aim is to go beyond treating the parliamentary activity of Greenlandic and Faroese MPs as curiosity of the political system of Denmark and to figure out whether there is evidence that the influence of Northatlantic MPs is more than a move in the blame game of somebody who just lost a vote but instead a recurring issue.
+
+In doing so, I am building on central papers mentioned above [esp. @harderFaeroskeOgGronlandske2022; @harderCrossparliamentaryControl2025; @westPoliticalPartiesParliamentary2025] and try to add to their findings in several ways: While published recently, they do not use data from later than 2020. In light of the political developments that have affected the equilibrium of *Rigsfællesskabet* in recent years -- from postcolonialist perspectives to international security and, most recently, U.S.-Denmark relations, to name a few -- it is warranted to take closer look at the status quo again, using the most recent data available. Additionally, I am looking at the Northatlantic MPs from a different angle than has been done before: While investigating MPs' activities by looking at committee activities and questions is a common and reasonable choice for unit of analysis [@cleggParliamentaryRepresentationOverseas2022, 238], I am focusing on individual voting records from roll call votes in plenary sessions. The topic at hand also touches upon other issues such as ethnic representation in parliaments as well as regional parties. Results from using the novel dataset used here also extend knowledge on these research areas, even though they were not explicitly part of the initial concept of this paper.
+
+<!-- powner: how does my work fit into the existing literature? what's the current explanation for my dependent variable? -->
+
+# Research Design
+
+Apart from a general, descriptive analysis of the data, my approach to the research question can be divided into four different perspectives concerning (1) the role of Greenlandic-Faroese cooperation in the Northatlantic Party Group until 2011, (2) bloc cohesion and party alignment, (3) measurable power in roll call votes, and (4) voting in Folketinget roll call votes as way of exercising cross-parliamentary control.
+
+## Theoretical Approach
+
+<!-- * Hypothesis: causal relationship between two variables: the more, the less...
+* Hypothesis in its own paragraph and in italics -->
+
+A review of existing literature showed that the Northatlantic MPs' work in Folketinget has only recently started to attract scientific attention, and until now, voting behavior has not been a factor at all. The first step, therefore, is a descriptive analysis of the available data, including relevant MPs and scraped voting records. Generally, Northatlantic MPs are expected not to take part in parliamentary voting on issues that do not concern Greenland and/or the Faroe Islands, even though "they are perceived to be more and more involved" [@harderFaeroskeOgGronlandske2022, 7, translation MT].
+
+<!-- section 1 Participation pre/post 2011 -->
+Looking at party group memberships, Bille observes shifts in MPs' behavior over the years [-@billeFaeroskeFolketingsmedlemmer2025]. Overall, @harderFaeroskeOgGronlandske2022 [19] detects a higher level of activity for Greenlandic MPs when compared to Faroese MPs. Her analysis uses committee memberships and parliamentary questioning as variables, as well as longer absences. Higher levels of activity from the Greenlandic side is also a finding of @harderCaseInnovativeParliamentary2022, analysing questioning as a tool for cross-parliamentary control. Based on these assessments, I also assume Greenlandic MPs to be more active in roll call voting than the Faroese members. Drawing on prevailing views of the Northatlantic MPs' role in parliament, the overall level of voting activity is still expected be quite low.
+
+From 2001 until the 2011 election, three MPs from Greenland and the Faroe Islands cooperated in their own parliamentary group [*Den Nordatlantiske Gruppe*, @harderFaeroskeOgGronlandske2022, 18]. @harderCrossparliamentaryControl2025 [11-12] hypothesises a relation between the existence of party competition -- after the Northatlantic Group had been dissolved in 2011 -- and an increase in parliamentary activity, more precisely in questioning related to cross-parliamentary control. I take this hypothesis and apply it to participation in roll call voting as well, expecting a relative increase in participation after the 2011 election:
+
+* H~1~: *Participation in roll call voting increases after the Northatlantic Group is dissolved after the 2011 general election.*
+
+<!-- section 2: Bloc Cohesion vs. Party Alignment -->
+The second perspective concerns the voting records themselves and whether Northatlantic MPs vote as one bloc. @harderFaeroskeOgGronlandske2022 [18] finds that MPs support coalitions that belong to the same political bloc as their own party, aligning with findings about high levels of party cohesion in Folketinget [@ejnarhansenReconsideringPartyDistances2008, 266]. The relevant political parties (see [Appendix](#list-of-parties)) can be classified as belonging to either the left/red or right/blue bloc of Danish politics. At the same time, the more important cleavage for political parties in Greenland and the Faroe Islands is between separatism and unionism [@ackrenExploringRoleRegional2019, 27]. And since Greenlandic, Faroese and Danish party systems are separate entities, additional "judgments need to be made as to what parliamentary coalitions the four North Atlantic seats would likely caucus or collaborate with" [@kurrild-klitgaardElectionInversionsCoalitions2013, 130]. I therefore expect to find patterns showing that voting cohesion among Northatlantic MPs based on their origin is more prevalent than cohesion with the Danish political bloc they would be assigned to based on their party membership.
+
+* H~2~: *Voting cohesion among MPs from the same constituency is higher than voting cohesion among MPs from the same political bloc.*
+
+There are examples of MPs supporting the other political bloc such as when Aleqa Hammond, at the time member of social democratic Siumut, agreed to support the right-wing coalition of Venstre, Liberal Alliance and Det Konservative Folkeparti [@harderFaeroskeOgGronlandske2022, 17; @uldumKommentatorUdpegelseAf2016]. Faroese unionist MP Anna Falkenberg, on the other hand, stated that she considers herself to be part of Venstre's Folketinget group and, thus, the Danish (!) government [@falkenbergFaeroskPolitikerTil2025]. And during election campaigns some of the Northatlantic candidates refuse to commit to joining one of the blocs, even though the political profile of their party clearly points in one direction [cf. @engelundMorgenpostFraGronland2026a; @joensenNordatlantiskePartierVil2022].
+
+<!-- section 3: Pivotality -->
+Thirdly, individual voting behavior is rarely a decisive factor -- since party cohesion in Folketinget is generally high [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3] and, after policy has been negotiated in committees, the result of the plenary vote is usually known in advance [@hansenRealBorgenDanish2020; @arterNordicParliamentsMuchofamuchness2016, 214]. But, as noted above, party lines appear to be a less important factor for Northatlantic MPs and they make use of voting power when it is presented to them also across blocs [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]. Numerous examples exist for such situations: The 2022 Folketinget election resulted in a left/red majority of 90 MPs due to three left-wing Northatlantic politicians [@frostLokkeRaserNordatlantiske2022]. After the 2015 and 2007 elections, Northatlantic votes helped to keep the narrow majority of the conservative bloc, and in the 2011--2015 parliament, three Northatlantic MPs brought the left/red bloc up to 92 votes. After the 2007 election, the right/blue bloc relied on a Faroese MP to secure a parliamentary majority [@harderFaeroskeOgGronlandske2022, 19; @mollerForskerNordatlantiskeMandater2026]. The result of the elections in 1998, 1971, 1960 and 1957 led to similar situations [@skjaevelandModellingGovernmentFormation2009, 723; @skjaevelandGovernmentFormationDenmark2003, 448; @millerFriendsRivals1996, 71]. In some isolated votes, the Northatlantic votes have become relevant even though there was a clear parliamentary basis from Danish parties alone: A vote of no confidence against a member of cabinet was blocked in 2025 by a "Northatlantic safety buoy" [@danielsenTeorienKanJeg2025, translation MT]. In 2008, the pressure resulting from the mere possibility of using Northatlantic votes in a proposal on immigration policy lead to a change in another party's stance [@cleggParliamentaryRepresentationOverseas2022, 239; @gadGronlandskeFolketingsmedlemmer2022] -- illustrating how, for Greenlandic and Faroese MPs, the question of voting behavior can be connected with a lot of publicity. This leads to the third hypothesis about a connection of pivotality and participation:
+
+* H~3~: *The closer the parliamentary balance between government and opposition, the more often Northatlantic MPs participate in roll call votes.*
+
+While numerical closeness captures the potential of pivotality at the level of individual votes, I assume the structure of the coalition government to be a factor in participation rates as well. During the timeframe covered by the dataset, the work of parliament has largely been based on the red/blue-dichotomy of political blocs [@green-pedersenBlokpolitikOgNye2020, 312; @skjaevelandUnderstandingPoliticalUnderstanding2020, 115] -- the exception being the Frederiksen II cabinet (2022--2026) consisting of Socialdemokratiet, Moderaterne and Venstre, a government with parties from both blocs but still without a numerical majority on their own. Even though Northatlantic MPs usually are considered to belong to one of the two Danish party blocs and they tend to support the bloc their own party belongs to [@harderFaeroskeOgGronlandske2022, 18], I expect participation rates to go up in cross-bloc minority governments compared to times of bloc politics: The cabinet parties still rely on support from other parties, which for those parties would mean working across blocs. Based on the examples of crossing party and bloc lines mentioned previously, I assume the Northatlantic MPs to be less reluctant to support cabinets featuring parties of the opposite bloc in comparison to 'domestic' Danish parties. However, since there is only one example of this form of cross-bloc minority government in the dataset, I only include this as an addition to the main part of H~3~ which is based on parliamentary balance regardless of its direction.
+
+<!-- section 4: Cross-Parliamentary Control -->
+Last but not least, I turn to the question of cross-parliamentary control. From this perspective, Northatlantic MPs use their mandates in the Danish parliament to engage in activities with the aim to control the goverment in Greenland resp. the Faroe Islands. Folketinget appears to be a suitable case to study this concept -- not only because the "particularly strong" [@helboepedersenParliamentFOLKETINGETPowerful2020, 102] instruments available to MPs to control Folketinget itself, but also because of its status as second-order parliament from a Northatlantic perspective [@harderCrossparliamentaryControl2025, 3]. Usually, parliamentary oversight is considered to manifest itself through questioning activity [@westPoliticalPartiesParliamentary2025, 969]. Harder, looking at Greenlandic MPs' questions in Folketinget, finds that there is no significant connection between the number of questions posed and whether the MP is affiliated with the Danish government or opposition [-@harderFaeroskeOgGronlandske2022, 17]. However, she hypothesises that MPs "will especially engage in cross-parliamentary control when they belong to parties that are in opposition within the government system where they seek to control the government" [@harderCrossparliamentaryControl2025, 12]. Within the context of this paper, this is transferred to roll call voting as well:
+
+* H~4~: *Northatlantic MPs participate in more roll call votes when their party is in opposition in their home parliament.*
+
+The underlying assumption then is that the participation in roll call votes in Folketinget can -- in the context of the Northatlantic representation -- also be seen as a form of cross-parliamentary control. In this sense, casting votes is expected to work as control mechanism in so far as it comes with increased publicity as demonstrated above, and has an impact similar to posing parliamentary questions: promoting political debate in parliament as well as agenda setting in media coverage, acting "as party agents to support their colleagues at home" [@harderCrossparliamentaryControl2025, 7].
+
+## Empirical Strategy
+
+I am using the [*nordatlantisk-ft*](https://mtwente.github.io/nordatlantisk-ft) dataset which contains voting records of Folketinget members from Greenland and the Faroe Islands. Since Folketinget does not provide ready-to-use open datasets but metadata only [@berntzenParliamentaryOpenData2019, 9], I had to create both workflow and dataset myself. The dataset is the result of a pipeline in R, taking a list of MPs as input and then scraping voting records and metadata from Folketinget's Open Data Platform [@folketingetFolketingetsAbneData2026]. Both workflow and dataset are version-controlled using a git-based template including long-term archival on Zenodo [@mahrOneTemplateRule2025a], and are accompanied by extensive metadata and documentation to ensure reproducibility. [Codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) and [source code](https://github.com/mtwente/nordatlantisk-ft) are available via GitHub. 
+
+For my analysis, I am going to use the data available as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %d, %Y")` [@twenteNordatlantiskft2026]. At this point, *nordatlantisk-ft* comprises `r length(unique(northatlantic_ft$vote_id))` records of votes by Northatlantic MPs between `r format(min(northatlantic_ft$date), "%B %d, %Y")` and `r format(max(northatlantic_ft$date), "%B %d, %Y")`[^valg26]. The dataset contains metadata on each record -- e.g. date and topic of each vote or the overall roll call result, covering votes on `r length(unique(northatlantic_ft$roll_call_id))` proposals in Folketinget. Additionally, there is information on cabinets, election results and party changes over time. This paper also includes a general description of the data as starting point for investigating the parliamentary work of the Northatlantic MPs.
+
+[^valg26]: PM Mette Frederiksen announced the date for the next general election to Folketinget (`r format(as.Date("2026-03-24"), "%B %d, %Y")`) on `r format(as.Date("2026-02-26"), "%B %d, %Y")`. The data used for this analysis thus does not contain records on voting behavior during the election campaign (if there are any).
+
+<!-- - case selection/overview data (temporal and spatial), unit of analysis
+- measurement dependent variable (and data source)
+- measurement independent and control variables (and data source)
+- methodological approach (why this one?) -->
+
+#### H~1~: Participation Before/After 2009
+
+<!-- fixme overall: * unit of observation? unit of analysis? -->
+```{r h1-analysis-setup}
+#| echo: false
+#| message: false
+
+## define end date of Parliamentary Group (start was before dataset inception)
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    postgroup2009 = ifelse(date >= as.Date("2009-08-14"), 1, 0),
+    postgroup2011 = ifelse(date >= as.Date("2011-09-15"), 1, 0)
+  )
+
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    treated = ifelse(origin == "GL", 1, 0)
+  )
+
+# interaction variable between postgroup20* and treatment
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    did2009 = postgroup2009 * treated,
+    did2011 = postgroup2011 * treated
+  )
+
+# estimate DID models
+didreg2009 <- lm(participation ~ treated + postgroup2009 + did2009, data = northatlantic_ft)
+didreg2011 <- lm(participation ~ treated + postgroup2011 + did2011, data = northatlantic_ft)
+```
+
+A difference-in-differences approach [@callawayDifferenceinDifferencesMultipleTime2021] is used to find out if ending formal cooperation in the Northatlantic Group had any effect on the share of participation in roll call votes. Only the Greenlandic MPs can be included for testing the hypothesis: In this setting, party competition is only realised outside of the Northatlantic Group's cooperation. And since only one of the Faroese MPs ever joined the Northatlantic Group, there should be no change in the level of party competition to be detected within the Faroese delegation. However, this enables me to use the Faroese MPs as a control group and compare the results between Greenlandic MPs -- who worked together within the Northatlantic Group -- and the Faroese MPs (who did not). Because Greenland and the Faroe Islands have different party systems [@kurrild-klitgaardElectionInversionsCoalitions2013, 129--130], I assume no party competition to be present across the two constituencies.
+
+The parliamentary group existed from 2001 to 2011. However, during its last two years, it only had two members -- Juliane Henningsen (IA/GL) and Høgni Hoydal (E/FO), after the second Greenlandic MP, Lars-Emil Johansen (SIU/GL), left in 2009 [@harderSupplerendeMaterialeFaeroske2022, 13][^exact]. In line with the hypothesis by @harderCrossparliamentaryControl2025 [11-12], the group-based incentive for increased party competition should come in effect already at that point, since the two remaining MPs in the parliamentary group -- one Greenlandic, one Faroese -- would not engage in party-based competition anyway. If the end of formal parliamentary cooperation lead to a change in voting behavior for the two Greenlandic MPs, it should therefore be already visible in 2009, before the actual end of the Northatlantic Group in 2011.
+
+[^exact]: For the analysis, the exact date of the group change is assumed to be `r format(as.Date("2009-08-14"), "%B %d, %Y")` based on reporting by @sermitsiaq.agLarsEmilForladerNordatlantiske2009.
+
+Each MP is regarded as participating in a roll call if there is a vote either for, against, or neither for nor against recorded in the corresponding observation in the dataset. To find out the differences between participation rates, the dataset is split into two groups -- MPs from Greenland and MPs from the Faroe Islands. I then split the data again based on a dummy variable using 2009 as the cut-off date. For comparison, I run the same test again using the official ending date of the parliamentary group (2011). I then fit a logistic regression model with the difference-in-difference coefficient. For this model, I use `participation` as dependent variable with binary values indicating whether an MP participated in a roll call vote. The key independent variable is an interaction term between a treatment indicator for Greenlandic MPs (`treated`) and a post-group period dummy (`postgroup2009`/`postgroup2011`). This interaction captures the difference-in-differences estimate of the effect of increased party competition on participation behavior.
+
+#### H~2~: Bloc Cohesion
+
+```{r prepare-h2-analysis}
+#| echo: false
+#| message: false
+
+## define bloc affiliations
+### defined in _setupR.R include
+
+## filter/subset original dataset
+northatlantic_ft_present_only <- northatlantic_ft %>%
+  filter(participation == TRUE)
+
+## add GL/FO party blocs
+northatlantic_ft_present_only <- northatlantic_ft_present_only %>%
+  mutate(
+    party_bloc = case_when(
+      party %in% left_parties   ~ "left",
+      party %in% center_parties ~ "center",
+      party %in% right_parties  ~ "right",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  relocate(party_bloc, .after = party)
+
+## pivot wider
+northatlantic_ft_participation_wide <- northatlantic_ft_present_only %>%
+  select(roll_call_id, party, vote_type_id) %>%
+  distinct() %>%
+  pivot_wider(names_from = party, values_from = vote_type_id)
+```
+
+To assess voting cohesion among Northatlantic MPs, I employ two complementary methods: Pairwise agreement rates and Krippendorff's Alpha as an additional measure. Using roll call votes as unit of analysis, agreement between two MPs is defined as both of them having the same value of the variable `vote_type_id` for the same roll call vote, e.g. both voting `for` one proposal. One vote (or more) `for` and one vote (or more) `against` is no agreement, meaning disagreement, or no cohesive voting behavior. First, I remove all observations where none of the four MPs actually cast a vote. This leaves `r length(unique(northatlantic_ft_present_only$roll_call_id))` roll calls with at least one recorded vote (`r scales::percent(length(unique(northatlantic_ft_present_only$roll_call_id))/length(unique(northatlantic_ft$roll_call_id)), accuracy = 0.1)` of all observations) for further processing.
+
+```{r krippendorffs-alpha-setup}
+#| echo: false
+#| warning: false
+#| message: false
+
+vote_matrix <- northatlantic_ft_participation_wide %>%
+  select(-roll_call_id) %>%
+  as.matrix()
+
+# transpose: parties = rows, roll calls = columns
+vote_matrix_t <- t(vote_matrix)
+```
+
+I then calculate Krippendorff's Alpha for the dataset of non-absent records as a summary measure of overall agreement. Krippendorff's Alpha appears to be a reasonable choice for measuring agreement with the dataset at hand: It is conceptualised to be applicable to small data sets with any number of observers, handling missing values and correcting for agreement that is to be expected by chance [@krippendorffContentAnalysisIntroduction2004, 222]. The resulting $\alpha$  represents the "proportion of the observed to expected above-chance agreement" [@krippendorffContentAnalysisIntroduction2004, 229], with $1 \geq \alpha \geq 0$ as possible values. $\alpha = 1$ then indicates perfect agreement between observers (MPs), and $\alpha = 0$ means that all observed agreements can be explained as matters of chance, ie. the absence of actual agreement between MPs.<!--Negative values for $\alpha$ would indicate a state of systematic disagreement.-->
+
+After determining how much co-voting behavior there is in my dataset using Krippendorff's Alpha, I then calculate pairwise agreement rates myself to investigate possible ways to explain the observed agreement. Pairwise agreement rates are considered in three different comparative settings: Based on MP origin (Are the agreeing/disagreeing MPs from the same constituency?), affiliation with one of the political blocs (Do the agreeing/disagreeing MPs belong to the same bloc?) and their party's stance on independence (Do the parties of the agreeing/disagreeing MPs share the same view on their territory's independence from Denmark?).
+
+```{r pairwise-agreement-setup}
+#| echo: false
+#| warning: false
+#| message: false
+
+pairwise_agreement <- function(votes) {
+  votes <- na.omit(votes)
+  if (length(votes) < 2) return(NA)
+  
+  pairs <- combn(votes, 2)
+  mean(pairs[1, ] == pairs[2, ])
+}
+
+cohesion_df <- northatlantic_ft_participation_wide %>%
+  rowwise() %>%
+  mutate(cohesion = pairwise_agreement(c_across(-roll_call_id))) %>%
+  ungroup()
+```
+
+To do so, I create a subset of MPs’ votes, again only including roll calls with non-absent records. For each observed roll call vote, I take the registered votes and compare all possible combinations to check whether the two MPs cast the same type of vote. Looking only at cases where at least two MPs cast a vote so there can actually be (dis)agreement, the number of observations is further reduced to `r sum(complete.cases(cohesion_df$cohesion))` (`r scales::percent(sum(complete.cases(cohesion_df$cohesion))/nrow(cohesion_df), accuracy = 0.1)` of roll call votes with non-absent records or `r scales::percent(sum(complete.cases(cohesion_df$cohesion))/length(unique((northatlantic_ft$roll_call_id))), accuracy = 0.01)` of all recorded roll call votes). 
+
+```{r pairwise-agreement-origin}
+#| echo: false
+#| warning: false
+#| message: false
+
+pairs_df <- northatlantic_ft_present_only %>%
+  select(roll_call_id, party, origin, vote_type_id, party_bloc, gvt_bloc_dk) %>%
+  mutate(party = as.character(party)) %>%
+  inner_join(., ., by = "roll_call_id", suffix = c("_1", "_2"), relationship = "many-to-many") %>%
+  filter(party_1 < party_2) %>%  # avoid duplicates and self-pairs
+  mutate(
+    agree = vote_type_id_1 == vote_type_id_2,
+    same_origin = origin_1 == origin_2
+  )
+
+ ### reformat gvt_bloc_dk as control variable
+pairs_df <- pairs_df %>%
+  mutate(party_bloc_dk_gvt = gvt_bloc_dk_1) %>%
+  relocate(party_bloc_dk_gvt, .before = agree) %>%
+  select(-gvt_bloc_dk_1, -gvt_bloc_dk_2)
+
+origin_agreement_rate <- pairs_df %>%
+  group_by(same_origin) %>%
+  summarise(
+    agreement_rate = round(mean(agree, na.rm = TRUE), digits = 3),
+    n = n()
+  )
+```
+
+```{r pairwise-agreement-bloc}
+#| echo: false
+#| warning: false
+#| message: false
+
+# Compare left/right bloc agreement
+pairs_df <- pairs_df %>%
+  mutate(
+    same_bloc = case_when(
+      party_1 %in% left_parties & party_2 %in% left_parties ~ TRUE,
+      party_1 %in% right_parties & party_2 %in% right_parties ~ TRUE,
+      party_1 %in% center_parties & party_2 %in% center_parties ~ TRUE,
+      TRUE ~ FALSE
+    )
+  )
+
+bloc_agreement_rate <- pairs_df %>%
+  group_by(same_bloc) %>%
+  summarise(
+    agreement_rate = round(mean(agree, na.rm = TRUE), digits = 3),
+    n = n()
+  )
+```
+
+```{r pairwise-agreement-independence}
+#| echo: false
+#| warning: false
+#| message: false
+
+# Compare independence/non-independence blocs
+pairs_df <- pairs_df %>%
+  mutate(
+    same_independence_stance = case_when(
+      party_1 %in% pro_independence_parties & party_2 %in% pro_independence_parties ~ TRUE,
+      party_1 %in% against_independence_parties & party_2 %in% against_independence_parties ~ TRUE,
+      TRUE ~ FALSE
+    )
+  )
+
+independence_agreement_rate <- pairs_df %>%
+  group_by(same_independence_stance) %>%
+  summarise(
+    agreement_rate = round(mean(agree, na.rm = TRUE), digits = 3),
+    n = n()
+  )
+
+## same_independence_stance = TRUE => cohesion across parties with the same stance on independence
+## same_independence_stance = FALSE => cohesion across parties with different stances on independence
+```
+
+Three more boolean variables are added to record whether the two MPs in question (1) share the same constituency, (2) are affiliated with the same political bloc, and whether (3) their parties hold the same position on their territory's independence from Denmark (cf. Appendix, @tbl-blocs).
+
+#### H~3~: Pivotality
+
+```{r pivotality-setup}
+#| echo: false
+#| warning: false
+#| message: false
+
+# calculate margin of votes
+northatlantic_ft$margin <- abs(northatlantic_ft$ft_for - northatlantic_ft$ft_against)
+
+# blokpolitik as variable
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    cross_bloc_gvt = ifelse(gvt_bloc_dk == "across", 1, 0)
+  )
+```
+
+```{r pivotality-models}
+#| echo: false
+#| warning: false
+#| message: false
+
+# Model 1a: Closeness/Participation
+rq3_closevote <- glm(
+  participation ~ close_vote,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+# Model 1b: Closeness/Participation plus Cabinet Type
+rq3_closevote_gvt_dk <- glm(
+  participation ~ close_vote + cross_bloc_gvt,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+# Model 1c: Closeness/Participation plus Relevance
+rq3_closevote_topic <- glm(
+  participation ~ close_vote + cross_bloc_gvt + nord_topic,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+# Model 2a: Cabinet Party Seats/Participation
+rq3_cabinet_seats <- glm(
+  participation ~ cabinet_parties_seats,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+# Model 2b: Cabinet Party Seats/Participation plus Cabinet Type
+rq3_cabinet_seats_with_bloc <- glm(
+  participation ~ cabinet_parties_seats + cross_bloc_gvt,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+# Model 2c: Cabinet Party Seats/Participation plus Relevance
+rq3_cabinet_seats_with_topic <- glm(
+  participation ~ cabinet_parties_seats + cross_bloc_gvt + nord_topic,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+all_models_rq3 <- list("Model 1a" = rq3_closevote,
+                       "Model 1b" = rq3_closevote_gvt_dk,
+                       "Model 1c" = rq3_closevote_topic,
+                       "Model 2a" = rq3_cabinet_seats,
+                       "Model 2b" = rq3_cabinet_seats_with_bloc,
+                       "Model 2c" = rq3_cabinet_seats_with_topic)
+
+models_1abc_rq3 <- list("Model 1a" = rq3_closevote,
+                       "Model 1b" = rq3_closevote_gvt_dk,
+                       "Model 1c" = rq3_closevote_topic)
+
+models_2abc_rq3 <- list("Model 2a" = rq3_cabinet_seats,
+                       "Model 2b" = rq3_cabinet_seats_with_bloc,
+                       "Model 2c" = rq3_cabinet_seats_with_topic)
+```
+
+<!-- * H~3~: *The closer the parliamentary balance between government and opposition, the more often Northatlantic MPs participate in roll call votes.* -->
+
+The question whether Northatlantic MPs take part in more roll call votes the closer the number of seats for government and opposition blocs are together is addressed in different ways with individual votes as unit of analysis. Again using the boolean `participation` as dependent variable, I try explaining the outcome using two main models.
+
+In a first step, I identify roll call votes with a close result, defined as a voting result where the difference between votes in favor and votes against a proposal is less or equal than four votes. In these cases, the four Northatlantic MPs would theoretically be able to flip the result themselves. This is the case for `r scales::percent(sum(northatlantic_ft$close_vote, na.rm = TRUE)/sum(!northatlantic_ft$close_vote, na.rm = TRUE), accuracy = 0.01)` of the observations in the dataset. I then set up a logistic regression model with `participation` (`TRUE`/`FALSE`) as dependent variable and `close_vote` as independent variable (`TRUE`/`FALSE`).
+
+In this approach, I use the outcome of the vote as variable to predict the participation of the Northatlantic MPs. Of course, the margin of the voting result is only known after the vote has already taken place and can not be a decisive factor in a prediction. But, as mentioned above, the overall outcome of a vote is usually known in advance so it is fair to assume MPs can anticipate close results to some extent. I therefore deemed it justified to use this setup -- not with the actual result margins as numerical variable, but instead with a working definition of closeness as a binary variable -- at least for comparison with other models.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-cabinet-seats
+#| fig-height: 3
+#| fig-cap: Number of seats in parliament held by cabinet parties, with a majority requiring $\\\geq$ 90 seats. Dashed lines indicate election dates.
+
+# filter 2001 election
+elections_lines <- elections_ft %>%
+  filter(date > as.Date("2001-11-20"))
+
+cabinet_seats <- ggplot(northatlantic_ft, aes(x = date, y = cabinet_parties_seats)) +
+  geom_line(color = "steelblue", linewidth = 1) +
+  
+  # Folketing elections
+  geom_vline(
+    data = elections_lines,
+    aes(xintercept = as.Date(date), linetype = election_type),
+    color = "#000000",
+    linewidth = 0.2
+  ) +
+  scale_linetype_manual(
+    values = c("Folketing Election" = "longdash"),
+    name = ""
+  ) +
+  
+  geom_hline(yintercept = 90, color = "#000000", linewidth = 0.3) +
+  
+  theme_nordatlantisk_basis() +
+    theme(
+    axis.ticks.x = element_blank(),
+    axis.line.y.left = element_blank(),
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+    legend.position = "none"
+  )
+
+cabinet_seats
+```
+
+The second main model instead uses the number of seats in parliament held by cabinet parties as independent variable for trying to predict the Northatlantic MPs' voting behavior. For each observation in the dataset, I calculated the number of seats based on the election results between 2001 and 2026 [@danmarksstatistikFolketingsvalget31Oktober2024; @danmarksstatistikValgteKandidaterOg2026]. Only cabinet parties are included in this number, support parties (neither *støttepartier* nor *parlamentarisk grundlag*) are not counted.
+
+Since MPs can change party memberships during their time in parliament, I tracked those changes as well and incorporated them into the data to achieve a fine-grained representation of the composition of Folketinget at any given date (@fig-cabinet-seats). While MPs switching parties rarely change the overall allocation of power between the political blocs, it is known to influence decisions from time to time [@nielsenPartiskiftFolketinget195320152017, 62], and these situations being the starting point for this whole paper, I decided to map the seat distribution for each date individually on party level.
+
+Information on MP party affiliation does not seem to be available in machine-readable format on Folketinget's Open Data Platform, which is why I relied on the pre-existing records courtesy of @folkevalgte.dkPartiskift2026. I found minor inconsistencies between [folkevalgte.dk](https://folkevalgte.dk) and other possible data sources such as Folketinget's free text MP biographies or the relatively comprehensive record keeping on Wikipedia. But this only appears to concern smaller and/or short-lived parties such as Fremad [cf. @mollerAmmitzbollOgEgelund2020]. I therefore decided to go with the data from folkevalgte.dk to have a single source of data where record keeping appears to be consistent over the years. Seat distribution after elections and the subsequent party shifts are processed[^rds] using R and merged with the main voting records dataset. I can then create the second logistic regression model, this time using `cabinet_parties_seats` as independent variable.
+
+[^rds]: This dataset is [available](https://github.com/mtwente/counting-to-90/tree/main/data/processed) alongside the other data used for this project.
+
+In line with my argument that Northatlantic MPs can be expected to be more inclined to support cross-bloc minority cabinets due to their local political parties being less firmly affiliated with Danish political blocs, I add another dependent variable to open up a second perspective on the role of pivotality in participation rates. The alternative version of both models additionally includes `cross_bloc_gvt` -- again a binary variable which is `TRUE` for observations during cabinets formed by parties from either the left or right bloc, but `FALSE` for observations during cabinets including parties across blocs (although, as mentioned above, this only translates to one cabinet at the time). This allows me to assess whether participation by Northatlantic MPs is shaped not only by the numerical balance of power, but also by the broader configuration of political competition.
+
+#### H~4~: Cross-Parliamentary Control
+
+<!-- H4: Northatlantic MPs participate in more roll call votes when their party is in opposition in their home parliament -->
+
+```{r rq4-setup}
+#| echo: false
+#| warning: false
+#| message: false
+
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(
+    opposition_home = ifelse(gvt_party_at_home == TRUE, 0, 1)
+  )
+
+# descriptive comparison
+rq4_table <- northatlantic_ft %>%
+  group_by(opposition_home) %>%
+  summarise(
+    participation_rate = mean(participation),
+    n = n()
+  )
+
+chisq <- chisq.test(
+  table(northatlantic_ft$participation, northatlantic_ft$opposition_home)
+)
+```
+
+For the question whether there is a relation between the MPs' participation in roll call votes in Folketinget and whether their party is part of the government in Greenland resp. the Faroe Islands, I recoded the existing binary `gvt_party_at_home` variable as `opposition_home` to make it easier to interpret the results with the way the hypothesis is framed. `opposition_home` is used as independent variable for this hypothesis, with `participation` again being the dependent variable.
+
+A first look at the data shows that MPs of parties in opposition in the Greenlandic resp. Faroese political systems participate in `r scales::percent(rq4_table$participation_rate[2], accuracy = 0.01)` of roll call votes in Folketinget, while MPs whose party is part of the cabinet at the time of observation have a participation rate of `r scales::percent(rq4_table$participation_rate[1], accuracy = 0.01)`. A $\chi^2$ test indicates a significant difference between the observed participation rate and the level of participation expected if there were no relation between the variables (p < 0.001).
+
+For the analysis, I use a logistic regression model as a baseline with the dependent and independent variable specified above. In a second model, I include the number of seats held in parliament by Danish cabinet parties as a control variable, as the analysis concerning H~3~ suggested this might be of relevance.
+
+```{r crosscontrol-models}
+#| echo: false
+#| warning: false
+#| message: false
+
+# logistic regression
+rq4_model <- glm(
+  participation ~ opposition_home,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+rq4_model_control <- glm(
+  participation ~ opposition_home + cabinet_parties_seats,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+rq4_model_control_with_topic <- glm(
+  participation ~ opposition_home + cabinet_parties_seats + nord_topic,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+rq4_interaction <- glm(
+  participation ~ opposition_home * origin,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+rq4_topic <- glm(
+  participation ~ opposition_home + opposition_home:origin + nord_topic,
+  data = northatlantic_ft,
+  family = binomial
+)
+
+all_models_rq4 <- list("Model 3a" = rq4_model,
+                       "Model 3b" = rq4_model_control,
+                       "Model 3c" = rq4_model_control_with_topic,
+                       "Model 3d" = rq4_interaction,
+                       "Model 3e" = rq4_topic)
+```
+
+# Dataset Description
+
+In the following section, I go through general characteristics of Northatlantic representation in Folketinget using the available dataset, e.g. showing how Greenland and the Faroe Islands have been represented in the timeframe covered by the data, and what types of metadata is connected to the roll call records.
+
+## MPs {.unnumbered .unlisted}
+
+Since 1953, two MPs are elected in both Greenland and the Faroe Islands to join the 175 MPs from Denmark proper in Folketinget. Before the 1953 reform, Greenland did not have any parliamentary representation in Folketinget, as opposed to the Faroe Islands with one guaranteed seat since 1849 [@harderFaeroskeOgGronlandske2022, 8-9; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004]. According to @harderFaeroskeOgGronlandske2022 [7], it is usually experienced politicians that are elected to represent the Faroe Islands constituency[^study], even though the job apparently has low priority compared to holding office 'at home' [@ackrenExploringRoleRegional2019, 22; cf. @harderCrossparliamentaryControl2025, 8; @johannesenUniHolmJohannesen2016].
+
+[^study]: No comparable study exists for MPs from Greenland apart from the short MP profiles available in Danmarks Nationalleksikon [@billeFaeroskeFolketingsmedlemmer2025; @billeGronlandskeFolketingsmedlemmer2025].
+
+In the time frame covered by Folketinget's Open Data Platform, there have been `r nrow(mp_names)` individual politicians from Greenland or the Faroe Islands who served as MPs (@tbl-MPs). `r sum(mp_names$origin == "GL")` of them are members of Greenlandic parties, and `r sum(mp_names$origin == "FO")` are representing Faroese parties. For MPs representing Greenland resp. the Faroe Islands in election periods earlier than `r format(min(northatlantic_ft$date), "%B %Y")`, see the list assembled by @harderSupplerendeMaterialeFaeroske2022.
+
+`r sum(mp_names$substitute == TRUE)` of the politicians that are part of this dataset joined Folketinget in the role of a substitute member[^subst], filling in for one of the `r sum(mp_names$substitute == FALSE)` originally elected MPs while they were on leave [cf. @harderFaeroskeOgGronlandske2022, 12-13]. @fig-mandates shows membership periods and substitute members on a timeline for the duration that is covered by this dataset. Earlier membership periods of Edmund Joensen, Lisbeth Petersen, Høgni Hoydal and Tórbjørn Jacobsen are cut off from the timeline since there are no voting records available online earlier than `r format(min(northatlantic_ft$date), "%B %d, %Y")`.
+
+[^subst]: Doris Jakobsen (SIU), Lisbeth Petersen (B), Magni Arge (E) and Sjúrður Skaale (C) all first became MPs as substitute members, but later joined as regular MPs after a general election.
+
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-mandates
+#| fig-height: 5
+#| fig-cap: Timeline of MPs from Greenland and the Faroe Islands during the timeframe covered by this dataset. Substitutions shorter than three weeks are plotted as dots for better visibility.
+
+# remove pre-2000 MPs (Edmund Joensen's and Lisbeth Petersen's first terms)
+MP_dates <- MP_dates %>%
+  filter(end >= as.Date("2000-01-01")) %>%
+  mutate(origin = factor(origin, levels = c("GL", "FO")))
+
+# Order MPs by first start date for nicer plotting
+MP_dates <- MP_dates %>%
+  group_by(origin, plotting_name) %>%
+  mutate(first_start = min(start)) %>%
+  ungroup()
+
+# build facet-specific ordering
+levels_gl <- MP_dates %>%
+  filter(origin == "GL") %>%
+  distinct(plotting_name, first_start) %>%
+  arrange(desc(first_start)) %>%
+  pull(plotting_name)
+
+levels_fo <- MP_dates %>%
+  filter(origin == "FO") %>%
+  distinct(plotting_name, first_start) %>%
+  arrange(desc(first_start)) %>%
+  pull(plotting_name)
+
+MP_dates <- MP_dates %>%
+  mutate(
+    plotting_name = case_when(
+      origin == "GL" ~ factor(plotting_name, levels = levels_gl),
+      origin == "FO" ~ factor(plotting_name, levels = levels_fo)
+    )
+  )
+
+ggplot(MP_dates, aes(x = start,
+                     xend = end,
+                     y = plotting_name,
+                     yend = plotting_name,
+                     color = substitute)) +
+
+  # for correct order of MPs across facets and scales
+  geom_blank(aes(y = plotting_name)) +
+
+  # Segments for all regular MPs and long-term substitutions
+  geom_segment(
+    data = MP_dates %>%
+      filter(
+        substitute == FALSE |
+          (substitute == TRUE & !is.na(end) & as.numeric(end - start) >= 21)
+      ),
+    linewidth = 4,
+    lineend = "butt"
+  ) +
+
+  # Points for short-term substitutions
+geom_point(
+  data = MP_dates %>%
+    filter(
+      substitute == TRUE &
+        !is.na(end) &
+        as.numeric(end - start) < 21
+    ),
+  aes(
+    x = start,
+    fill = substitute
+  ),
+  shape = 21,
+  size = 1.5,
+  stroke = 0.2,
+  color = "#777777"
+  ) +
+
+  scale_color_manual(
+    values = c("FALSE" = "#6195CF", "TRUE" = "#F7CB45"),
+    labels = c("Regular", "Substitute")
+  ) +
+  scale_fill_manual(
+  values = c("FALSE" = "#6195CF", "TRUE" = "#F7CB45"),
+  guide = "none"
+  ) +
+  
+  labs(color = "Membership") +
+
+  # Folketing elections
+  geom_vline(
+    data = elections_ft,
+    aes(xintercept = as.Date(date), linetype = election_type),
+    color = "#000000",
+    linewidth = 0.2
+  ) +
+  scale_linetype_manual(
+    values = c("Folketing Election" = "longdash"),
+    name = ""
+  ) +
+
+  facet_grid(
+    origin ~ .,
+    scales = "free_y",
+    space = "free_y",
+    labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
+  ) +
+
+  coord_cartesian(xlim = c(min(northatlantic_ft$date), NA)) +
+
+  theme_nordatlantisk_basis() +
+  theme(
+    legend.position = "bottom",
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+    panel.grid.minor.x = element_blank()
+  )
+```
+
+## Political Parties {.unnumbered .unlisted}
+
+Since 2004, MPs from the Faroe Islands were members of `r n2w(sum(political_parties$origin == "FO"))` different political parties. Voters in Greenland elected politicians from `r n2w(sum(political_parties$origin == "GL") - 2)` different political parties. However, two of the Greenlandic representatives -- Aleqa Hammond and Aki-Matilda Høegh-Dam -- switched party affiliation during their time as member of Folketinget and joined two relatively young parties (Nunatta Qitornai and Naleraq[^3]).
+
+[^3]: Both parties have been formed rather recently -- Naleraq in 2014 [@krebsHerErPartii2014] and Nunatta Qitornai in 2017/2018 [@fieveNytPartiTaettere2018]. The latter has de facto been dissolved after the 2021 Inatsisartut election [@vestergaardhviidVittusQujaukitsoqMelder2025]. See @ahlnessNunattaQitornaiParty2020 for general information on Nunatta Qitornai and their policies.
+
+The Northatlantic MPs usually are members of the two biggest political parties of Greenland resp. the Faroe Islands [@elklitElectoralSystemFair2020]. These parties then act as de-facto ethnic regional parties in Folketinget [@ackrenExploringRoleRegional2019]. Before political parties were established in Greenland in the 1970s [@billeGronlandskeFolketingsmedlemmer2025; @michelsenGronlandPartisystemUdvikling1979], MPs were elected independently. Since then, one of the two Greenlandic seats has been held by social democratic *Siumut* (SIU) for most of the time. Only recently has Siumut not been represented in Folketinget, due to the MPs in question switching party affiliations (see @fig-party-timeline). The 'second' Greenlandic seat was affiliated with centre-right *Atassut* (A) from 1977 to 2001. Since then, these MPs have been members of socialist *Inuit Ataqatigiit* (IA). This dominance by two political parties is in contrast to the Faroese situation, where the four biggest parties take turns more often [@billeFaeroskeFolketingsmedlemmer2025].
+
+All represented political parties are listed in the [Appendix](#list-of-parties) with additional information (where available) on their positions from the ParlGov dataset [@doringParlGov2024Release2024]. @fig-party-timeline shows the allocation of Folketinget seats to political parties from Greenland and the Faroe Islands on a timeline. At no point in time were both MPs of Greenland resp. the Faroe Islands members of the same party. In the time frame covered by this dataset, the Faroe Islands have been represented by one left-wing and one right-wing political party in Folketinget except for one election period (2015--2019), as opposed to the Greenlandic MPs having belonged to two left-wing parties.
+
+The Northatlantic MPs have sometimes been members of Danish parliamentary groups. Over the years, this has varied between no membership, informal association to full memberships [@harderFaeroskeOgGronlandske2022, 17-18]. From 2001 until 2011, three Northatlantic MPs formed a separate parliamentary group ['Den Nordatlantiske Gruppe i Folketinget', @gadGronlandskeFolketingsmedlemmer2022; @harderFaeroskeOgGronlandske2022, S6].
+
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-party-timeline
+#| fig-cap: Timeline of political parties from Greenland and the Faroe Islands with an MP in Folketinget since 2004. Dashed lines indicate election dates.
+
+# collapse MP_dates timeline into non-overlapping party intervals
+party_periods <- MP_dates %>%
+  select(party, origin, start, end) %>%
+  arrange(party, origin, start, end) %>%
+  group_by(party, origin)
+
+# join colours from political_parties
+party_periods <- party_periods %>%
+  left_join(political_parties %>% select("party", "full_name", "colour"), by = "party")
+
+# sort parties with start date
+party_periods <- party_periods %>%
+  group_by(origin) %>%
+  mutate(party = factor(party, levels = rev(unique(party[order(start)])))) %>%
+  ungroup()
+
+# set party name labels including UF
+y_labels <- setNames(party_periods$full_name, party_periods$party)
+y_labels <- c(y_labels, "UF" = "No Party Affiliation")
+
+# set UF colour to grey
+party_periods$colour[party_periods$party == "UF"] <- "#777777"
+
+ggplot(party_periods, aes(x = start, xend = end, y = party, yend = party, color = colour)) +
+  geom_segment(linewidth = 8, lineend = "butt") +
+  scale_color_identity() +
+
+  scale_y_discrete(labels = y_labels) +
+  
+  # add Folketing Election dates
+  geom_vline(data = elections_ft, aes(xintercept = as.Date(date), linetype = election_type),
+             color = "#000000", linewidth = 0.2) +
+  scale_linetype_manual(values = c("Folketing Election" = "longdash"), name = "") +
+  
+  facet_grid(origin ~ ., scales = "free_y", space = "free_y",
+             labeller = labeller(origin = c("FO" = "Faroe Islands", "GL" = "Greenland"))) +
+  
+  coord_cartesian(xlim = c(min(northatlantic_ft$date), NA)) +
+  
+  theme_nordatlantisk_basis() +
+  theme(
+    legend.position = "none",
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+    panel.grid.minor.x = element_blank()
+  )
+```
+
+## Voting Records {.unnumbered .unlisted}
+
+The observations available in the dataset contain voting decisions by the four MPs representing Greenland resp. the Faroe Islands at the time of each roll call vote. The final dataset used in this analysis comprises 22 variables that are explained in detail in the [codebook](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html). It contains three main categories of information for each observation: There is information on each recorded vote by an MP including the actual type of vote cast as well as metadata on the origin (`GL`/`FO`) and the party affiliation of the politician in question. Then there is metadata on the roll call vote such as the overall voting result and the topic of each proposal including the responsible ministry. And finally, the dataset also contains variables that provide information on the cabinets in Denmark and Greenland resp. the Faroe Islands at the time of the observation, e.g. whether the MP's party is part of the cabinet or not.
+
+```{r bad-roll-calls}
+#| echo: false
+#| message: false
+
+# Count how many times each ballot_id appears
+counts <- table(northatlantic_ft$roll_call_id)
+
+# Find roll_call_id values that do NOT appear exactly 4 times
+counts_df <- as.data.frame(counts)
+bad_roll_call_id <- as.data.frame(names(counts[counts != 4]))
+
+# calculate share of total observations
+error_share <- (nrow(bad_roll_call_id) + sum(!roll_call_results_ft$roll_call_id %in% northatlantic_ft$roll_call_id))/nrow(northatlantic_ft)
+```
+
+There are a few observations where data on Folketinget's Open Data Platform is unavailable or incomplete: For `r sum(!roll_call_results_ft$roll_call_id %in% northatlantic_ft$roll_call_id)` roll call votes, there are no individual voting records available at all. And for `r n2w(nrow(bad_roll_call_id))` roll call votes, there are only three registered observations for Northatlantic MPs instead of four[^missing]. In total, these errors correspond to `r scales::percent(error_share, accuracy = 0.01)` of all data.
+
+[^missing]: This might be due to a missing functionality on Folketinget's Open Data Platform, where it is not possible to query (former) members based on their constituency. Maybe I missed a short-term temporary replacement MP. However, since I was not able to find any hint about MPs that are not yet part of the dataset in other sources, this maybe really just is a database error.
+
+```{r}
+#| echo: false
+#| message: false
+#| label: fig-n-rollcall
+#| fig-cap: Number of roll call votes per year (excluding 2004 and 2026 due to incomplete coverage in the dataset).
+
+##| fig-height: 1.2
+
+rollcalls_per_year <- northatlantic_ft %>%
+  mutate(year = lubridate::year(date)) %>%
+  filter(year != 2026) %>% # filtering out 2026 because it will distort
+  filter(year != 2004) %>% # filtering also 2004 because records only start in October
+  group_by(year) %>%
+  summarise(
+    n_rollcalls = n_distinct(roll_call_id),
+    .groups = "drop"
+  )
+
+# compute global maximum for y-axis
+y_max <- max(rollcalls_per_year$n_rollcalls, na.rm = TRUE) + 1 
+
+
+ggplot(
+  rollcalls_per_year,
+  aes(x = factor(year), y = n_rollcalls)
+) +
+  
+  geom_col(width = 0.7, fill = "#6195CF") +
+  
+  scale_y_continuous(
+    limits = c(0, y_max),
+    breaks = c(seq(0, 600, 200), 700),
+    labels = c(seq(0, 600, 200), 700),
+    expand = expansion(mult = c(0, 0.01))
+  ) +
+  
+  theme_nordatlantisk_basis() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.ticks.x = element_blank(),
+    axis.line.y.left = element_blank(),
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05)
+  )
+```
+
+```{r voting-blocks}
+#| echo: false
+#| message: false
+#| warning: false
+# calculate share of roll call votes per block
+blocks <- as.data.frame(table(northatlantic_ft$gvt_bloc_dk))
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-vote-types
+#| tbl-cap: "Types of roll call votes."
+#| tbl-cap-location: bottom
+
+roll_call_summary <- northatlantic_ft %>%
+  filter(roll_call_type_id %in% c(1, 2, 3, 4)) %>%
+  count(roll_call_type_id, name = "n") %>%
+  mutate(
+    Type = case_when(
+      roll_call_type_id == 1 ~ "Final Adoption",
+      roll_call_type_id == 2 ~ "Committee Recommendation",
+      roll_call_type_id == 3 ~ "Proposed Adoption",
+      roll_call_type_id == 4 ~ "Proposed Amendment"
+    )
+  ) %>%
+  select(ID = roll_call_type_id, Type, n)
+
+kable(
+  roll_call_summary,
+  col.names = c("ID", "Type", "Count"),
+  booktabs = TRUE,
+  format = "latex"
+)
+```
+
+During the timeframe covered by this dataset, there are `r floor(mean(rollcalls_per_year$n_rollcalls))` roll call votes in Folketinget per year on average, with a maximum number of `r max(rollcalls_per_year$n_rollcalls)` votes in `r rollcalls_per_year %>% slice_max(n_rollcalls, n = 1) %>% pull(year)` (@fig-n-rollcall). The dataset covers all types of roll call votes in Folketinget (@tbl-vote-types): `r scales::percent(length(northatlantic_ft$roll_call_type_id[northatlantic_ft$roll_call_type_id == "1"])/nrow(northatlantic_ft), accuracy = 0.1)` of the votes are final decisions on a proposal, and `r scales::percent(length(northatlantic_ft$roll_call_type_id[northatlantic_ft$roll_call_type_id == "4"])/nrow(northatlantic_ft), accuracy = 0.1)` are votes on amendments to a proposal. Overall, `r scales::percent(mean(northatlantic_ft$roll_call_pass, na.rm = TRUE), accuracy = 0.1)` of the proposals pass with a positive voting result.
+
+The dataset spans across across six full cycles of Folketinget elections (and the last few months of the 2001--2005 election cycle). Within this timeframe, there have been seven elections to Inatsisartut in Greenland and five elections to the Faroese Løgting. Of the roll call votes covered in the dataset, `r scales::percent(blocks$Freq[blocks$Var1 == "left"]/sum(blocks$Freq), accuracy = 0.1)` took place during a cabinet formed by the red/left block was in office in Denmark (during blue/right block coalitions: `r scales::percent(blocks$Freq[blocks$Var1 == "right"]/sum(blocks$Freq), accuracy = 0.1)`, and for the current cross-block coalition: `r scales::percent(blocks$Freq[blocks$Var1 == "across"]/sum(blocks$Freq), accuracy = 0.1)`). The ministry responsible for each proposal being voted on is also a variable in the dataset. The most records refer to the Ministry of Finance, the Ministry of Justice, and the Ministry of Employment (@tbl-top-ministries). This has to be read with a grain of salt, since there are a lot of `NA` values and because designations[^full] change frequently so that e.g. 'Klima- og Energiministeriet' and 'Klima-, Energie- og Bygningsministeriet' etc. are counted as different entities. 
+
+[^full]: Refer to the codebook for a [full list](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html#northatlantic_ftministry) of all `r n_distinct(northatlantic_ft$ministry, na.rm = TRUE)` designations that appear in the dataset.
+
+<!-- section on nord_topic -->
+
+```{r nord-topics}
+#| echo: false
+#| message: false
+
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(nord_topic = str_detect(ft_topic, regex("grønl.*|færø.*|arktis.*", ignore_case = TRUE))) %>%
+  relocate(nord_topic, .after = ft_topic)
+
+nord_topic_table <- northatlantic_ft %>%
+  group_by(nord_topic) %>%
+  summarise(participation_rate = scales::percent(mean(participation, na.rm = TRUE), accuracy = 0.1)) %>%
+  filter(!row_number() %in% c(3)) # removing NA values by row index
+
+```
+
+The topic of each roll call vote is described via a Danish-language string in the dataset. I tried extracting keywords from this variable using simple topic modelling tools, but with considerable variation in string length and highly formalised phrasing, this did not yield satisfactory results. Instead, I employed a similarly simple regex pattern matching strategy, filtering the `ft_topic` variable for `grønl.*`, `færø.*` or `arktis.*` to get an indicator for which of the observations might be of relevance to Northatlantic MPs in terms of content. After removing `r sum(is.na(northatlantic_ft$nord_topic))` cases with `NA` values, @tbl-nord-topic shows the share of non-absent observations of Northatlantic MPs based on whether the topic is of relevance based on the very simple classification mentioned above. Unsurprisingly, the results are pointing in the same direction as previous research has done so far: MPs from Greenland and the Faroe Islands are more active in issues that concern their constituencies directly [@harderFaeroskeOgGronlandske2022, 20]. However, an overall participation rate of `r nord_topic_table$participation_rate[2]` still seems to be quite low for issues are tagged as being of relevance to the MPs -- pointing to the main issue with this approach of extracting topics: While @tbl-nord-topic is both easy to make and to interpret and, on top, is in line with previous findings, its content is not really meeting requirements that allow use in further processing: The shortcomings of this approach show in votes on e.g. the yearly budget, which, per se, qualifies for having direct relevance for Greenland and the Faroe Islands. And since the vote is only described with the phrase 'Forslag til finanslov for finansåret [year].', a pattern matching search for the mentioned keywords does not catch cases like this.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-nord-topic
+#| tbl-cap: "Participation Based on Topics"
+#| tbl-cap-location: top
+
+kable(nord_topic_table,
+  col.names = c("Relevant Topic", "Participation Rate"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-top-ministries
+#| tbl-cap: "Most frequent values for `ministry`."
+#| tbl-cap-location: bottom
+
+northatlantic_ft %>%
+  count(ministry, sort = TRUE) %>%
+  slice_head(n = 5) %>%
+  knitr::kable(
+    col.names = c("Ministry", "n"),
+    align = c("l", "r"),
+    booktabs = TRUE,
+    format = "latex"
+  )
+```
+
+MPs can either vote for, against or neither for nor against a proposal. Additionally, absences are recorded. Looking at the Northatlantic MPs' voting records, it is striking how few times they actually cast a vote: Filtering for those cases results in `r length(northatlantic_ft$vote_type_id[northatlantic_ft$vote_type_id != "3"])` non-absent observations (out of `r nrow(northatlantic_ft)` cases), translating to `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of observations being coded as 'absent' (@fig-absence-share) -- corresponding well to the findings of previous research. Even though plenary sessions are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214], the share of non-absent records is still low when compared to Folketinget voting behavior as a whole (Appendix, @fig-ft-vote-distribution). Of the non-absent records, `r scales::percent(sum(northatlantic_ft$vote_type_id == 1, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.1)` are votes in favor, `r scales::percent(sum(northatlantic_ft$vote_type_id == 2, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes against, and `r scales::percent(sum(northatlantic_ft$vote_type_id == 4, na.rm = TRUE) / sum(northatlantic_ft$vote_type_id != 3, na.rm = TRUE), accuracy = 0.01)` are votes neither for nor against.
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-height: 1.2
+#| label: fig-absence-share
+#| fig-cap: Northatlantic MPs are listed as absent in 98% of the observations in this dataset.
+
+# #| fig-env: "figure*" removed temporarily
+
+# Compute proportions of vote types
+vote_props <- northatlantic_ft %>%
+  count(vote_type_id) %>%
+  mutate(
+    share = n / sum(n),
+    vote_type = factor(vote_type_id,
+                       levels = c(3, 4, 2, 1),
+                       labels = c("absent", "abstention", "against", "for"))
+  )
+
+# Single horizontal bar plot
+ggplot(vote_props, aes(x = 1, y = share, fill = vote_type)) +
+  geom_col(width = 0.5) +
+  coord_flip() +
+  scale_fill_manual(
+    name = "Vote",
+    labels = c("for", "against", "abstention", "absent"),
+    values = c("#6195CF", "#F7CB45", "#777777", "#D1BBD7"),
+    breaks = c("for", "against", "abstention", "absent")
+  ) +
+
+  scale_y_continuous(
+    labels = scales::label_percent(),
+    breaks = c(0, 0.05, 0.25, 0.50, 0.75, 1.00),
+    expand = expansion(mult = c(0, .015))
+  ) +
+  
+  labs(x = NULL, y = NULL) +
+  theme_nordatlantisk_basis() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.ticks.x = element_line(color = "#000000", linewidth = 0.1),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
+    legend.position = "top"
+  )
+```
+
+It is self-evident that the MPs with the most observations in the dataset are those who are/were the longest-sitting members (@fig-votes-per-mp) -- Sjúrður Skaale (FO/C, `r sum(northatlantic_ft$MP_id == 262, na.rm = TRUE)` records), Edmund Joensen (FO/B, `r sum(northatlantic_ft$MP_id == 247, na.rm = TRUE)` records) and Aaja Chemnitz (GL/IA, `r sum(northatlantic_ft$MP_id == 15757, na.rm = TRUE)` records). Long-term membership, however, does not necessarily correspond with a larger number in registered votes, as demonstrated by Sjúrður Skaale's share of `r scales::percent(sum(northatlantic_ft$vote_type_id[northatlantic_ft$MP_id == 262] != 3) / length(northatlantic_ft$vote_type_id[northatlantic_ft$MP_id == 262]), accuracy = 0.01)` non-absent records. As MPs are absent for most roll calls, @fig-votes-per-mp-filtered shows the distribution only with votes that were actually cast.
+
+```{r, fig.pos = 'H'}
+#| echo: false
+#| message: false
+#| label: fig-votes-per-mp
+#| fig-cap: Full records coded by the type of vote cast (for, against, abstaining, absent).
+
+plot_votes <- ggplot(northatlantic_ft_ordered, aes(y = plotting_name, fill = vote_type_id)) +
+  geom_bar() +
+  scale_x_continuous(expand = expansion(mult = c(0, .05))) +
+  scale_y_discrete() +
+  scale_fill_manual(
+    name = "Vote",
+    labels = c("for", "against", "abstention", "absent"),
+    values = c("#6195CF", "#F7CB45", "#777777", "#D1BBD7"),
+    breaks = c("1", "2", "4", "3")
+  ) +
+
+  facet_grid(origin ~ ., scales = "free_y", space = "free_y",
+            labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
+            ) +
+    
+  theme_nordatlantisk_basis()
+
+plot_votes
+```
+
+```{r, fig.pos = 'H'}
+#| echo: false
+#| message: false
+#| label: fig-votes-per-mp-filtered
+#| fig-cap: Number of votes cast coded by the type of vote (for, against, abstaining). Includes only data with the MP in attendance.
+
+plot_votes_without_absences <- ggplot(northatlantic_ft_without_absences, aes(y = plotting_name, fill = vote_type_id)) +
+  geom_bar() +
+  scale_x_continuous(expand = expansion(mult = c(0, .05))) +
+  scale_y_discrete() +
+  scale_fill_manual(
+    name = "Vote",
+    labels = c("for", "against", "abstention"),
+    values = c("#6195CF", "#F7CB45", "#777777")
+  ) +
+
+  facet_grid(origin ~ ., scales = "free_y", space = "free_y",
+          labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
+          ) +
+
+  theme_nordatlantisk_basis()
+
+plot_votes_without_absences
+```
+
+# Results
+
+The results of the analysis are presented separately for each hypothesis followed by a broader assessment of the data and research design.
+
+## H~1~: Participation Before/After 2009 {.unnumbered .unlisted}
+
+<!-- * H~1~: *Participation in roll call voting increases after the Northatlantic Group is dissolved after the 2011 general election.* -->
+
+I tested whether the participation rates changed as a result of changes in formalised cooperation between MPs in form of the Northatlantic Parliamentary Group -- regarding the official ending of the group in 2011 as cut-off date as well as the de-facto ending of inner-constituency cooperation between Greenlandic MPs in this formalised setting.
+
+The Faroese MPs show no difference in participation rates with neither 2009 nor 2011 set as break points. With the Farose MPs considered as control group without group-based cooperation incentives, this was to be expected. However, no effect is detected for the Greenlandic MPs either, with the difference-in-differences model showing no relevant changes in participation rates when taking the end of group cooperation as 'treatment' (@tbl-did).
+
+A visual inspection of @fig-vote-share-per-year supports this finding. The level of participation in roll call votes (i.e. casting a vote either for, against, or neither for nor against) generally varies over time. In general, rather low proportions of non-absent votes -- rarely exceeding 3% -- are most common in the dataset. However, the share of votes cast among MPs from the Faroe Islands increased in recent years (2023 and 2025, but not 2024). This observation is not true for the Greenlandic MPs, where a single peak is recorded in the data for 2015. The latter can be attributed to (then) newly elected MP Aaja Chemnitz (IA/GL) while the majority of the votes recorded from Faroese MPs since 2023, a remarkable increase in share of non-absent records, were cast by MP Anna Falkenberg (B/FO) who was elected to Folketinget at the end of 2022.
+
+Overall, there is no evidence to support the hypothesis that cooperation within the Northatlantic Parliamentary group had any influence on the level of voting activity of the Northatlantic MPs during the timeframe covered by this dataset.
+
+::: {#fig-vote-share-per-year}
+<!-- in a fenced div because of the dynamically updating caption -->
+
+```{r}
+#| echo: false
+#| message: false
+
+votes_per_year_origin <- northatlantic_ft %>%
+  mutate(year = lubridate::year(date)) %>%
+  group_by(origin, year) %>%
+  summarise(
+    share_present = mean(vote_type_id != 3),
+    .groups = "drop"
+  )
+
+# compute global maximum for y-axis
+y_max <- max(votes_per_year_origin$share_present, na.rm = TRUE) + 0.001 
+
+# faceted bar plots
+ggplot(
+  votes_per_year_origin,
+  aes(x = factor(year), y = share_present)) +
+
+  geom_col(width = 0.7, fill = "#6195CF") +
+  
+  scale_y_continuous(
+    limits = c(0, y_max),
+    labels = scales::label_percent(accuracy = 1),
+    expand = expansion(mult = c(0, 0.01))
+  ) +
+  
+  facet_grid(
+    origin ~ .,
+    scales = "fixed",
+    space = "fixed",
+    labeller = labeller(origin = c("GL" = "Greenland", "FO" = "Faroe Islands"))
+  ) +
+  
+  theme_nordatlantisk_basis() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.ticks.x = element_blank(),
+    axis.line.y.left = element_blank(),
+    panel.spacing.y = unit(1, "lines"),
+    panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05)
+  )
+```
+
+Share of non-absent records per year (for, against, abstaining) as of `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")`.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-did
+#| tbl-cap: "Changes in Participation"
+#| tbl-cap-location: top
+
+modelsummary(
+  list(
+    "2009 Cutoff" = didreg2009,
+    "2011 Cutoff" = didreg2011
+  ),
+  coef_map = c(
+    "treated" = "Greenland (treated)",
+    "postgroup2009" = "Post 2009",
+    "postgroup2011" = "Post 2011",
+    "did2009" = "GL × Post 2009",
+    "did2011" = "GL × Post 2011",
+    "treated:postgroup2009" = "GL × Post 2009",
+    "treated:postgroup2011" = "GL × Post 2011"
+  ),
+  statistic = "({std.error})",
+  stars = TRUE,
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  output = "latex"
+)
+```
+
+## H~2~: Bloc Cohesion {.unnumbered .unlisted}
+
+<!-- * H~2~: *Voting cohesion among MPs from the same constituency is higher than voting cohesion among MPs from the same political bloc.* -->
+
+```{r setup-krippendorff}
+#| echo: false
+#| warning: false
+#| message: false
+
+krippendorf_result <- as.data.frame(t(unlist(kripp.alpha(vote_matrix_t, method = "nominal"))))
+
+alpha_table <- data.frame(
+  Alpha = round(as.numeric(krippendorf_result$value), 3),
+  Subjects = krippendorf_result$subjects,
+  Raters = krippendorf_result$raters
+)
+```
+
+The presence of voting cohesion was tested with regard to differences between MP origin, bloc affiliation, and party stances on independence from Denmark. As prerequisite for cohesive voting behavior, the dataset was subset to include only those cases where more than one MPs participated, resulting in observations concerning `r sum(complete.cases(cohesion_df$cohesion))` roll calls. As a basic summary measure for agreement levels between political parties, I calculated Krippendorff's Alpha (@tbl-krippendorffs-alpha). The resulting $\alpha$ = `r round(as.numeric(krippendorf_result$value), 3)` indicates that the voting records indeed show a fairly high level of inter-voter agreement.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-krippendorffs-alpha
+#| tbl-cap: "Krippendorff's $\\alpha$ for voter agreement"
+#| tbl-cap-location: top
+#| tbl-pos: "H"
+
+kable(alpha_table, booktabs = TRUE, align = "lrr", format = "latex")
+```
+
+This first indicative result was then developed further by looking at pairwise agreements. I calculated pairwise agreement rates based on origin, political bloc association and on the position on independence (from Denmark) of the corresponding political party. Agreement rates do not differ substantially between pairs of MPs that were elected in the same constituency and pairs who were not (@tbl-pairwise-agreement-origin). Also, agreement rates are basically the same for pairs of MPs that belong to parties with the same position on independence from Denmark and for pairs of MPs who do not (@tbl-pairwise-agreement-independence). However, I find the highest level of pairwise agreement for MPs belonging to the same political bloc (@tbl-pairwise-agreement-bloc). This agreement rate also drops considerably for pairs of MPs from different blocs.
+
+These results suggest that, within the context of this dataset, similar political positions, indicated by association with one of the two blocs, are a more relevant factor in explaining observed co-voting compared to representing the same constituency. In this sense, the results do not support H~2~. But because both Greenlandic MPs have belonged to the same political bloc during the whole timeframe covered by this dataset, cross-bloc agreement could only ever occur with involvement of at least one of the Faroese MPs anyway. This setup, in addition to the low number of roll calls with more than one recorded vote, limits the usefulness of agreement rates as indicators even further.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-pairwise-agreement-origin
+#| tbl-cap: "Origin-Based Pairwise Agreement Rates"
+#| tbl-cap-location: top
+
+kable(
+  origin_agreement_rate,
+  col.names = c("Same Origin", "Agreement Rate", "n"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
+)
+
+## same_origin = TRUE => cohesion within Greenland / within Faroe Islands
+## same_origin = FALSE => cross-origin agreement
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-pairwise-agreement-independence
+#| tbl-cap: "Pairwise Agreement Rates based on Parties' Positions on Independence"
+#| tbl-cap-location: top
+
+kable(
+  independence_agreement_rate,
+  col.names = c("Same Independ. Stance", "Agreement Rate", "n"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
+)
+
+## same_independence_stance = TRUE => cohesion across parties with the same stance on independence
+## same_independence_stance = FALSE => cohesion across parties with different stances on independence
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-pairwise-agreement-bloc
+#| tbl-cap: "Bloc-Based Pairwise Agreement Rates"
+#| tbl-cap-location: top
+
+kable(
+  bloc_agreement_rate,
+  col.names = c("Same Bloc", "Agreement Rate", "n"),
+  booktabs = TRUE,
+  align = "lrr",
+  format = "latex"
+)
+
+## same_bloc = TRUE => cohesion within parties from the same bloc
+## same_bloc = FALSE => cohesion within parties across different blocs
+```
+
+## H~3~: Pivotality {.unnumbered .unlisted}
+
+<!-- * H~3~: *The closer the parliamentary balance between government and opposition, the more often Northatlantic MPs participate in roll call votes* -->
+
+Next, I tested the relation between voting participation and the parliamentary seat share distributon between party blocks using two different models (@tbl-pivotality-model-1, @tbl-pivotality-model-2). With the first model, I addressed the question of whether MPs participate more in votes with a close outcome, assuming that in most cases, close results can be anticipated. The results showed that there is no evidence to support the hypothesis based on this model (Model 1a).
+
+Model 2a on the relation between the number of cabinet parties' seats in parliament and participation rates among Northatlantic MPs indicates a small negative effect: As the number of parliamentary seats of cabinet parties increases, participation of Northatlantic MPs decreases. This is exactly as expected: When governing parties can rely on more votes from members of their own parties, there is less need for including Northatlantic MPs in building of parliamentary majorities.
+
+Model 1b and 2b, including the type of coalition, indicate that participation of Northatlantic MPs is higher in cross-bloc coalitions. This is also in line with my expectations. However, since there has only been one cross-bloc cabinet in the dataset, this is not really a generalisation to make. Additionally, the higher level of participation during this cabinet appears to be almost entirely the result of the voting behavior of Anna Falkenberg (B/FO), judging by a visual inspection of @fig-vote-share-per-year and @fig-votes-per-mp-filtered. Still, it could be interesting to compare participation patterns under other cross-bloc cabinets, e.g. the Anker Jørgensen III cabinet (1978--1979, Socialdemokratiet/Venstre).
+
+Additionally, I tried modelling the relationship with a binary variable indicating whether the topic of the vote is of relevance for Greenland, the Faroe Islands or the Arctic (Models 1c and 2c). Because the way of assessing content relevance is just a crude pattern matching, this has to be read with a grain of salt. But, as expected, topics marked as relevant for the North Atlantic outperform all other predictors in the two models. However, the results still show values relatively similar to Models 1b and 2b.
+
+## H~4~: Cross-Parliamentary Control {.unnumbered .unlisted}
+
+<!--* H~4~: *Northatlantic MPs participate in more roll call votes when their party is in opposition in their home parliament.* -->
+
+Another logistic regression model fit to investiage relations between participation and government/opposition status in the local governments in Greenland resp. the Faroe Islands suggests that MPs whose political party is part of the opposition in the local political system take part in more roll call votes in Folketinget than their colleagues belonging to parties that are part of cabinets (Model 3a, @tbl-crosscontrol-model). According to the coefficient in the baseline model, MPs with parties in opposition locally have `r scales::percent(exp(coef(rq4_model)[2][[1]])-1, accuracy = 0.01)` higher odds of participating in a vote within the context of the available dataset. This result is in line with the expectations for MPs in Folketinget to be more active in roll call votes if their party is in opposition status in Inatsisartut resp. Løgtingið.
+
+As a result of the previously addressed hypothesis on parliamentary seat shares of cabinet parties, I included this variable as control in a second model (Model 3b). The coefficients from this additional model hardly change so the conclusions drawn from the first model appear to be robust also when controlled for Danish parliamentary balance. However, when I include the MPs' `origin` (GL or FO) into the model (Models 3d, 3e), the interaction terms reveals important heterogeneity: the coefficents indicate that the effect is more relevant for Faroese MPs when compared to their Greenlandic colleagues. This suggests that cross-parliamentary control mechanisms are not uniformly present across Northatlantic MPs, but are instead driven primarily by Faroese representatives.
+
+Just as with the models for H~3~, I also include the `nord_topic` variable indicating whether the vote is related to a proposal with relevance to Greenland, Faroe Islands and/or the Arctic. The same caveat about accuraccy of the content classification also applies here. The resulting coefficients of Models 3c and 3e also lead to the same conclusion: Issue relevance is the most influential factor in predicting MP participation in comparison to the other variables in the model, however, the opposition party statue still appears to play a role in these models as well.
+
+## Conclusion
+
+<!-- * intro&conclusion should speak to each other/mirror each other -->
+
+<!-- conclusion paragraph structure: refer to powner handbook again -->
+
+<!-- Under which conditions do Northatlantic MPs participate in roll call votes in Folketinget, and to what extent does their participation translate into pivotal voting power? -->
+
+<!-- 1. Does the emergence of party competition among MPs -- after the Northatlantic Party Group was dissolved -- lead to increased participation in roll call voting?
+2. To what extent do Northatlantic MPs vote cohesively as a group?
+3. How does the parliamentary balance of power affect whether Northatlantic MPs participate in roll call votes? <!--(In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?)
+4. How does the position of the MPs' parties in the political system of Greenland resp. the Faroe Islands affect their participation in Folketinget roll call votes? -->
+
+The aim of this analysis of voting behavior of all Greenlandic and Faroese members of Folketinget between `r format(min(northatlantic_ft$date), "%B %Y")` and `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")` was to investigate the conditions under which those Northatlantic MPs participate in roll call votes and to what extent their participation translates into pivotal voting power. The dataset compiled for this analysis shows how MPs from Greenland and the Faroe Islands participated in parliamentary voting. Overall, MPs are listed as absent in `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of all recorded votes. Including a crude indicator for topic relevance, this number rises to `r nord_topic_table$participation_rate[2]`.
+
+In line with existing research on other areas of Northatlantic MPs' parliamentary work, my findings indicate that issue relevance is the most important factor in explaining when Northatlantic MPs take part in voting. Results for my hypotheses on cohesive voting as well as pivotality and cross-parliamentary control as incentive for participation are to somewhat extent supported by my analysis, but all indicators are dominated by whether the issue at hand is of direct relevance for the region.
+
+<!-- H1 -->With the existing data, I could not find the existence of formal cooperation in the Northatlantic Parliamentary Group up until 2001 to be a factor that influenced participation rates (H~1~). The hypothesis that party competition -- which would be limited by cooperation on party-group level -- is a prerequisite for increased activities, developed by @harderCrossparliamentaryControl2025 [11-12] on parliamentary questioning, does not apply for the plenary voting recorded in my dataset.
+
+<!-- H2 --> Voting cohesion among Northatlantic MPs has proven to be high with agreement rates over 80% (H~2~). Agreement rates barely change when taking into account the two different constituencies or each party's stance on independence from Denmark. However, agreement drops considerably when looking at MPs affiliated to different political blocs. The results indicate that while there is generally high agreement within the bloc, this is not based on a shared origin, but reflects party affiliations instead. But as the number of recorded non-absent votes is very low and as there has never been more than one MP from the right bloc at a time among the Northatlantic MPs, the explanatory value of this setup is limited.
+
+<!-- H3 -->In light of the fact that Northatlantic MPs receive most press coverage when their voting behavior might influence the outcome, H~3~ on pivotality of the recorded votes is the central part of this paper. Looking at how many outcomes of roll call votes could have been flipped by coordinated Northatlantic voting behavior, it is already obvious that this hardly plays a role in day-to-day parliamentary business (`r scales::percent(sum(northatlantic_ft$close_vote, na.rm = TRUE)/sum(!northatlantic_ft$close_vote, na.rm = TRUE), accuracy = 0.01)` of records with a margin of $\leq$ 4). While my analysis suggests that the most important factor in predicting participation again is issue relevance, there does seem to be some responsiveness to the institutional context: An increase in seat shares of cabinet parties has a small negative effect on Northatlantic participation. The existence of a cross-bloc cabinet seems to have a positive effect on participation. But given that there has only been one such cabinet, and voting records during that time are dominated by just one Faroese MP, this is most likely not a decisive factor per se. Overall, MPs respond to (potential) pivotality in some cases, but hardly systematically (H~3~).
+
+<!-- H4 -->Based on existing literature on the Northatlantic MPs' parliamentary behavior as control mechanism for their local governments, I hypothesised that taking part in votes in Folketinget could also serve such a purpose. With overall participation rates being at only `r mean(northatlantic_ft$vote_type_id != "3") %>% scales::percent(accuracy = 0.1)`, any vote that is actually been cast could, in this perspective, be seen as putting a spotlight on the issue at hand, potentially signalling importance to Greenland and the Faroe Islands and their governments. The data supports the hypothesis that MPs belonging to political parties who are in opposition 'at home' have higher voting participation rates. The effect is mostly unchanged when accounting for issue relevance and for the size of the cabinet parties' seat share in parliament. However, further analysis suggests that higher levels of participation for opposition-party MPs are largely a phenomenon for Faroese MPs. And again, issue relevance appears to be the most influential predictor. Overall, participation is higher for MPs whose party is in opposition in Greenland or the Faroe Islands, but MPs are not consistently strategic opposition actors. Additionally, further investigation is necessary to find out if voting behavior could actually be seen as control activity.
+
+In total, Northatlantic MPs are best understood as issue-driven representatives, whose behavior is only secondarily shaped by institutional incentives and strategic considerations, providing yet another ingredient to the "peculiar mixture of cooperation and conflict" [@green-pedersenBlocPoliticsVs2005, 153] of Danish parliamentarism. Referring to the four MPs collectively as one geographically defined block has to be taken with a grain of salt, as other ideological and policy issues are more relevant for defining a group -- at least in the context of voting behavior.
+
+### Critical Assessment
+
+For the questions addressed by me, there are more useful indicators to look at than individual voting records -- parliamentary questions or speeches come to mind. However, given the fact that I had already assembled the dataset, looking into this using a roll call voting perspective seemed justified enough, even though it was apparent from the start that the overall share of actually cast votes is very low and most analyses would rely on a rather low number of observations.
+
+As this was my first time both writing a political science paper *and* using quantitative methods, it was hard for me to choose appropriate tools, methods, indicators etc. This concerns finding reasonable control and interaction variables on regarding the content of my arguments and assessing the suitability of indicators both for the available data types as well as compared to other options leading to similar results. <!-- statement about working with population data -->
+
+While having the full set of voting records for a timespan of over twenty years available for analysis is a valuable asset -- and a perspective that has not been applied to this particular area yet -- the type of data would, according to my judgement, require further checks and cleaning before being fully usable. While keeping all records in the dataset, without distinguishing between the different steps of the parliamentary process, was a choice by myself to keep the number of observations high, even though only the third (last) vote on a proposal is normally used for this type of research [@green-pedersenBlokpolitikOgNye2020, 315], not least to filter out repeated votes on the same issues.
+
+<!-- section Implications, Future Research -->
+To gain further insights into the parliamentary activites of Northatlantic MPs in general and voting behavior in particular, it seems warranted to focus on the specific issues handled in Folketinget. The method to identifying issues of relevance for Northatlantic MPs used by me -- regex pattern matching -- can only be seen as a general overview and a starting point. For example, it could be interesting to investigate how issues relating to the Greenlandic resp. Faroese communities in continental Denmark are dealt with by Northatlantic MPs. To do so, additional data has to be procured to make the topics of parliamentary discussions and votes accessible.
+
+Secondly, and not only for research with voting records, any analysis of Northatlantic MPs should be more nuanced regardings differences between Greenlandic and Faroese behavior. While I referred to the four MPs collectively as one group in this paper, my own findings as well as pre-existing research detected differences in parliamentary activity between Greenlandic and Faroese members. On the other hand, considering the Northatlantic MPs as one (parliamentary) group, another avenue for research could be comparing their activity with Danish parties/groups in parliament. With regard to voting behavior, this can easily be done by extending my dataset with more MPs to scrape records for; and because of high party discipline, investigating party groups would make more sense overall than analysing individual behavior [@ejnarhansenReconsideringPartyDistances2008, 266].
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+\onecolumn
+
+# Appendix {.appendix}
+
+## List of MPs {.appendix .unnumbered .unlisted}
+
+Since Folketinget's Open Data Platform does not provide a function to search for (former) MPs per constituency, this list was compiled based on previous work [e.g. @harderSupplerendeMaterialeFaeroske2022; @gadGronlandskeFolketingsmedlemmer2022; @billeFaeroskeFolketingsmedlemmer2025; @billeGronlandskeFolketingsmedlemmer2025] and newspaper reports, as well as by searching for strings like 'grønland\*' and 'færøsk\*' on the Open Data Platform. This is not a very efficient way of searching since it will also return all MPs who at one point were members of Folketinget's commissions on Greenland or the Faroe Islands, or, additionally, all MPs who mention one of these places in their (free text) biography (this concerns e.g. former workplaces etc.). If there should be any MP still missing from this list, it is however easy to add them to the dataset and to reproduce the workflow.
+
+The nordatlantisk-ft repository also contains complementary metadata on the MPs in this dataset, amongst other things a [complete membership timeline](https://github.com/mtwente/nordatlantisk-ft/blob/21774728bf1cd50901ba2b2fe0341018cc9c6ac9/data/processed/csv/MP_dates.csv) including temporary replacements, and a data frame [linking](https://github.com/mtwente/nordatlantisk-ft/blob/21774728bf1cd50901ba2b2fe0341018cc9c6ac9/data/processed/csv/MP_names.csv) each MP to the corresponding Wikidata item from where further information can be inferred.
+
+```{r}
+#| echo: false
+#| message: false
+#| label: tbl-MPs
+#| tbl-colwidths: [12, 30, 25, 10, 10, 13]
+
+MPs <- mp_names %>%
+  select(-wikidata_id) %>%
+  select(origin, everything()) %>%
+  arrange(origin, surname)
+
+printable_names <- c("Origin", "Surname(s)", "First Name(s)", "MP ID", "Party", "Substitute")
+
+kable(MPs, caption = "List of MPs from Greenland and the Faroe Islands in Folketinget (October 2004 -- January 2026).", col.names = printable_names)
+```
+
+## List of Parties {.appendix .unnumbered .unlisted}
+
+@tbl-blocs and @tbl-party-parlgov provide information on the political parties that make up the *nordatlantisk-ft* dataset. The categorisation of the parties with regard to the political bloc they are affiliated to and their stance on independence is based on @ackrenPoliticalPartiesGreenland2015, @ahlnessNunattaQitornaiParty2020 [167], and @westMPFirefightingWhen2018 [103].
+
+Data on the association with a party family and on the party positions in @tbl-party-parlgov are taken from the 2024 ParlGov release [@doringParlGov2024Release2024]. ParlGov does, however, not include metadata on the two Greenlandic parties that have been represented in Folketinget only recently -- Nunatta Qitornai in 2018/2019 and, since 2025, Naleraq. Additionally, Aleqa Hammond was MP without party affiliation from `r format(MP_dates$start[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` to `r format(MP_dates$end[MP_dates$period_id == "hammond_2"], "%B %d, %Y")` [@twenteNordatlantiskft2026].
+
+```{r}
+#| echo: false
+
+base_parties <- political_parties |>
+  filter(origin %in% c("GL", "FO")) |>
+  mutate(
+    Party = paste0(full_name, " (", party, "/", origin, ")")
+  ) |>
+  select(
+    Party, party, party_family, origin,
+    left_right, state_market,
+    liberty_authority, anti_pro_eu
+  )
+```
+
+```{r}
+#| echo: false
+#| results: asis
+#| label: tbl-blocs
+#| tbl-cap: "List of relevant political parties and their positions."
+
+# define groups
+## moved into _setupR.R include
+
+table_bloc <- base_parties |>
+  mutate(
+    `Party Family` = party_family,
+    
+    Bloc = case_when(
+      party %in% left_parties   ~ "left",
+      party %in% center_parties ~ "center",
+      party %in% right_parties  ~ "right",
+      TRUE ~ NA_character_
+    ),
+    
+    Independence = case_when(
+      party %in% pro_independence_parties     ~ "pro",
+      party %in% against_independence_parties ~ "against",
+      TRUE ~ NA_character_
+    ),
+    # enforce ordering
+    origin = factor(origin, levels = c("GL", "FO")),
+    Bloc   = factor(Bloc,   levels = c("left", "center", "right"))
+  ) |>
+  arrange(origin, Bloc) |>
+  select(Party, `Party Family`, Bloc, Independence) |>
+  mutate(across(everything(), as.character))
+
+#stargazer(
+#  table_bloc,
+#  summary = FALSE,
+#  rownames = FALSE,
+#  header = FALSE,
+#  column.sep.width = "2pt",
+#  type = "latex",
+#  float = FALSE,
+#  title = "Additional categorisation of political parties in this dataset.",
+#  label = "tbl-party-categories"
+#)
+
+kable(table_bloc)
+```
+
+```{r}
+#| echo: false
+#| results: asis
+#| label: tbl-party-parlgov
+
+table_policy <- base_parties |>
+  mutate(
+    # recreate Bloc only for ordering
+    Bloc = case_when(
+      party %in% left_parties   ~ "left",
+      party %in% center_parties ~ "center",
+      party %in% right_parties  ~ "right",
+      TRUE ~ NA_character_
+    ),
+    
+    origin = factor(origin, levels = c("GL", "FO")),
+    Bloc   = factor(Bloc, levels = c("left", "center", "right"))
+  ) |>
+  arrange(origin, Bloc, left_right) |>
+  select(
+    Party,
+    `Left--Right` = left_right,
+    `State--Market` = state_market,
+    `Liberty--Authority` = liberty_authority,
+    `Anti--Pro-EU` = anti_pro_eu
+  ) |>
+  mutate(across(everything(), as.character))
+
+#stargazer(
+#  table_policy,
+#  summary = FALSE,
+#  rownames = FALSE,
+#  header = FALSE,
+#  column.sep.width = "2pt",
+#  type = "latex",
+#  float = FALSE,
+#  title = "Political parties from Greenland and the Faroe Islands with an #MP in the Folketing since 2004.",
+#  label = "tbl-parties"
+#)
+
+kable(table_policy, caption = "Party positions according to ParlGov [@doringParlGov2024Release2024].")
+
+```
+
+## Descriptive Statistics {.appendix .unnumbered .unlisted}
+
+For `r n2w(sum(is.na(northatlantic_ft$ft_for)))` roll call votes, no individual voting results are available on Folketinget's Open Data Platform, explaining the mismatch between this table's `N` value and the total number of observations in the dataset (`r nrow(northatlantic_ft)`). Refer to the [online documentation](https://mtwente.github.io/nordatlantisk-ft/docs/codebook.html) with a comprehensive codebook to retrace the workflow steps that are needed to calculate this data structure.
+
+```{r}
+#| echo: false
+#| output: asis
+
+northatlantic_numeric <- northatlantic_ft |>
+  select(ft_for, ft_against, ft_abstention, ft_absent)
+
+stargazer(as.data.frame(northatlantic_numeric),
+  header = FALSE, 
+  digits = 2, 
+  type = "latex",
+  digit.separator = "'",
+  summary.stat = c("n", "min", "max", "mean", "median", "p25", "p75", "sd"), 
+  label = "tbl-desc-data",
+  title = "Descriptive statistics for the numerical variables in the dataset.",
+  float = FALSE)
+```
+
+### Overall Voting Patterns {.appendix .unnumbered .unlisted}
+
+@fig-ft-vote-distribution shows the distribution of vote types per roll call vote for all MPs in Folketinget. At first glance, it stands out how the number of absent MPs hovers around 70 for all years covered by the timeline. This is due to Folketinget being a 'working parliament', where MPs are regularly cleared from taking part in the plenary sessions which are "mostly poorly attended" [@arterNordicParliamentsMuchofamuchness2016, 214].
+
+```{r, fig.pos = 'H'}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-ft-vote-distribution
+#| fig-cap: Density plot visualising the number of votes cast by all MPs for each roll call vote by type.
+
+make_density_plot <- function(data, y_var, title, low_col, high_col) {
+  
+  ggplot(data, aes(x = date, y = {{ y_var }})) +
+    
+    geom_bin2d(aes(fill = after_stat(count)), bins = 80) +
+    scale_fill_gradient(low = low_col, high = high_col) +
+    
+    scale_x_date(
+      breaks = as.Date(c("2005-01-01", "2015-01-01", "2025-01-01")),
+      date_labels = "%Y",
+      expand = expansion(mult = c(0.01, .05))
+    ) +
+    
+    scale_y_continuous(
+      limits = c(0, 179),
+      labels = c(0, 50, 100, 150, 179),
+      breaks = c(0, 50, 100, 150, 179)
+    ) +
+    
+    ggtitle(title) +
+    
+    theme_nordatlantisk_basis() +
+    theme(
+      axis.title.y = element_blank(),
+      axis.line.y.left = element_blank(),
+      legend.position = "none",
+      panel.grid.major.y = element_line(color = "#777777", linewidth = 0.05),
+      plot.title = element_text(size = 8),
+      axis.text.x = element_text(size = rel(0.7))
+    )
+}
+
+scatterplot_for <- make_density_plot(northatlantic_ft, ft_for, "for", "#6195CF", "#436890")
+
+scatterplot_against <- make_density_plot(northatlantic_ft, ft_against, "against", "#F7CB45", "#ac8e30")
+
+scatterplot_abstention <- make_density_plot(northatlantic_ft, ft_abstention, "abstention", "#777777", "#535353")
+
+scatterplot_absent <- make_density_plot(northatlantic_ft, ft_absent, "absent", "#D1BBD7", "#928296")
+
+patchworked_plot <- scatterplot_for + scatterplot_against + scatterplot_abstention + scatterplot_absent + plot_layout(ncol = 4, axes = "collect")
+
+patchworked_plot
+```
+
+## Pivotality Coefficients {.appendix .unnumbered .unlisted}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| output: asis
+#| label: tbl-pivotality-model-1
+#| tbl-cap: "Participation and Pivotality (Close Voting Result)"
+#| tbl-cap-location: top
+#| tbl-pos: "H"
+
+modelsummary(
+  models_1abc_rq3,
+  coef_map = c(
+    "(Intercept)" = "(Intercept)", 
+    "close_voteTRUE" = "Close Voting Result",
+    "cross_bloc_gvt" = "Cross-Bloc Coalition",
+    "nord_topicTRUE" = "GL/FO Relevance"
+  ),
+  statistic = "({std.error})",
+  ci_method = "wald",
+  stars = TRUE,
+  output = "latex")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| output: asis
+#| label: tbl-pivotality-model-2
+#| tbl-cap: "Participation and Pivotality (Cabinet Party Seats)"
+#| tbl-cap-location: top
+#| tbl-pos: "H"
+
+modelsummary(
+  models_2abc_rq3,
+  coef_map = c(
+    "(Intercept)" = "(Intercept)", 
+    "close_voteTRUE" = "Close Voting Result",
+    "cross_bloc_gvt" = "Cross-Bloc Coalition",
+    "nord_topicTRUE" = "GL/FO Relevance",
+    "cabinet_parties_seats" = "N° of Cabinet Parties' Folketinget Seats"
+  ),
+  statistic = "({std.error})",
+  ci_method = "wald",
+  stars = TRUE,
+  output = "latex")
+```
+
+## Cross-Parliamentary Control Coefficients {.appendix .unnumbered .unlisted}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| output: asis
+#| label: tbl-crosscontrol-model
+#| tbl-cap: "Cross-Parliamentary Control and Participation"
+#| tbl-cap-location: top
+#| tbl-pos: "H"
+
+modelsummary(
+  all_models_rq4,
+  coef_map = c(
+    "(Intercept)" = "(Intercept)", 
+    "opposition_home" = "Opposition Party in GL/FO",
+    "cabinet_parties_seats" = "N° of Cabinet Parties’ Folketinget Seats",
+    "nord_topicTRUE" = "GL/FO Relevance",
+    "originFO" = "Faroese MPs",
+    "opposition_home:originFO" = "Faroese MPs × Home Opposition"
+    ),
+  statistic = "({std.error})",
+  ci_method = "wald",
+  stars = TRUE,
+  output = "latex")
+```
+
+## Word Count {.appendix .unnumbered .unlisted}
+
+Currently featuring {{wordcount}} words without references. Including references, there are {{wordcountref}} words in this document.
+
+\twocolumn
+
+<!-- ursprüngliche notizen aus dem Notizbuch:
+
+H1 MPs stimmen eher ab, wenn Mehrheitsverhältnisse knapp sind (nachträglich¿)
+H2 MPs stimmen eher ab, wenn ihre Partei in FO/GL nicht Teil des Kabinetts ist
+H3 Ob MPs abstimmen, hängt nicht davon ab, ob ihre Partei demselben Block angehört wie die aktuelle Regierung in DK
+
+Themen-bezogene Hypothesen: Schwierig, das sinnvoll zu modellieren in angemessenem Aufwand
+
+
+Attendance != active participation? Difference in vote type 3 and 4
+
+
+H4 nordatlantiske mandated can be understood as a „single block“/exhibit a cohesive voting pattern (controlling for bloc membership?) see Hix 2006 index, Hug 2013 p. 147
+-->

@@ -1,0 +1,139 @@
+---
+title: "Counting to 90 in Greenlandic and Faroese"
+author: "Moritz Twente"
+date: last-modified
+date-format: long
+bibliography: nordatlantisk-ft.bib
+reference-section-title: References
+link-citations: true
+lang: en
+output-file: skizze.pdf
+format: 
+  pdf: 
+    documentclass: article
+    mainfont: Jost
+    filters: [quotation-marks.lua]
+    quot-lang: de-CH
+    colorlinks: true
+    toc: false
+    geometry:
+      - top=22mm
+      - bottom=18mm
+    include-in-header:
+      text: |
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{} % clear all header and footer fields
+
+        % first page footer
+        \fancypagestyle{plain}{
+        \fancyhf{}
+        \fancyfoot[L]{\footnotesize Moritz Twente, 19-911-940, moritz.twente@unibas.ch}
+        \fancyfoot[R]{\footnotesize \thepage}
+        \renewcommand{\headrulewidth}{0pt}
+        }
+
+        % Right-justified header (smaller font)
+        \fancyfoot[L]{\footnotesize Moritz Twente, 19-911-940, moritz.twente@unibas.ch}
+
+        % Page number in footer (centered)
+        \fancyfoot[R]{\footnotesize \thepage}
+
+        % Remove header line (optional, cleaner look)
+        \renewcommand{\headrulewidth}{0pt}
+
+        % reduce whitespace below header
+        \setlength{\headsep}{9pt}
+---
+
+Old introductory paragraphs:
+
+When the government of Denmark only has a narrow majority in parliament, four MPs regularly come into the spotlight: The so-called North Atlantic MPs -- two from Greenland, two from the Faroe Islands -- who usually abstain from voting on matters not concerning Greenland or the Faroe Islands but might be able provide four sometimes crucial votes to form a majority. In this paper, I am going to investigate what role these four MPs tend to play in Folketing: When do they capitalise on their voting power? Do they actually have as much power as the numbers suggest? Or is their influence rather a media frenzy, highlighting a rather unusual trait of day-to-day domestic politics?
+
+There are 179 MPs in Folketinget, the parliament of Denmark. But only 175 of them are elected in Denmark proper, while the remaining four seats are guaranteed for the so-called North Atlantic MPs from Greenland and the Faroe Islands, which both are autonomous members of the Danish Realm today after being under Danish colonial rule for centuries. Their presence in Folketinget can prove important for domestic Danish politics because not all of the four MPs join one of the two party blocs and can thus provide decisive votes for passing legislation and even for securing the national government's stability [@harderFaeroskeOgGronlandske2022, 19]: Several times, both Danish party blocs found themselves with election results where they did not have what is called a "domestic majority" [_indenrigspolitisk flertal_, @buggeRegeringensIndenrigspolitiskeFlertal2023] but instead relied on the North Atlantic MPs to form a majority of 90 seats -- using the Danish expression: to be able to count to 90. Recently, this was the case in 2016 and 2022[^1] [@sorensenEfterBrokBla2022]: In both instances, opposition parties cried foul and called for re-evaluation of the North Atlantic MPs' roles, who have questioned these arrangements themselves as well [e.g. @skaaleFaeroskMFerNordatlantiske2022; @skaale20sporgsmalUS182021; @joensenLagtingsformandenVilAfskaffe2019], even though they have profited from them -- e.g. by being awarded chairmanship of parliamentary commissions [@harderFaeroskeOgGronlandske2022, 13]. <!-- 2023 situation mit moderaterne hinzufügen! -->
+
+[^1]: Even though the North Atlantic MPs' role was discussed extensively in 2022, it was resolved without the North Atlantic MPs by forming an unusual cross-bloc coalition government.
+
+Just as political relations between Denmark, Greenland and the Faroe Islands are being scrutinised time and again in terms of economy, ecology, security and last but not least postcolonialism, so is the position of two MPs elected to Folketinget in Greenland and the Faroe Islands, respectively.
+
+# Gap in Literature
+
+- Northatlantic MP behaviour
+  - in general: Folketing/DKpol research excluding GL/FO aspect [@green-pedersenPartySystemOpen2020; @christensenFolketingsvalgSiden19392022; @green-pedersenBlokpolitikOgNye2020; @hansenCommitteeAssignmentPolitics2010; @klintDanishLegislatorsDatabase2023; @nannestadPolitischeSystemDanemarks2009; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004; @christiansenMinorityCoalitionGovernance2014; @skjaevelandPartyCohesionDanish2001; @valenGeographyPoliticalRepresentation2000; @ejnarhansenReconsideringPartyDistances2008; @pedersenPartyDistancesDanish1971]
+  - who has power in FT? median legislator/small centre parties [@green-pedersenBlocPoliticsVs2005, 155-156; @skjaevelandModellingGovernmentFormation2009, 715]. not GL/FO?
+  - why? hard to compare GL/FO systems since they have different party systmes [@kurrild-klitgaardElectionInversionsCoalitions2013, 129-130]. No institutional links between Landsting/Inatsisartut and FT, and no links between Landsstýri/Naalakkersuisut and FT [@westDanishRealmArctic2025, 602]. but also: apparently not considered relevant?
+
+  - even going so far as to call the four MPs "non-political" [@millerFriendsRivals1996, also including Sydlesvig in that assessment] as opposed to "political seats" [@millerFriendsRivals1996, 72]
+  - generally expected not to take part, but "samtidig hersker en opfattelse af, at de i stigende grad er blevet involveret" [@harderFaeroskeOgGronlandske2022, 7]
+  - they themselves also state that they do not want to interfere in og dk, "usually claim to not to seek to be kingmakers" [@kurrild-klitgaardElectionInversionsCoalitions2013, 130]
+  - "gennem årene [...] skiftende praksis" [@billeFaeroskeFolketingsmedlemmer2025]
+  - apart from anecdotes [@millerFriendsRivals1996 about Mikael Gam 1960]: behavior "ved vi kun meget lidt om" [@harderFaeroskeOgGronlandske2022, 5; @harderCrossparliamentaryControl2025, 10]. (cf. contribution "with new knowledge concerning the dynamics between the Greenlandic representation in the Danish parliament and the Greenlandic government." [@harderCrossparliamentaryControl2025, 9])
+
+  - if they have power, they use it [@harderFaeroskeOgGronlandske2022, 18; @skjaevelandModellingGovernmentFormation2009, 723]
+  + relevans efter valg 1971 [@gadGronlandskeFolketingsmedlemmer2022; @kurrild-klitgaardElectionInversionsCoalitions2013, 131; @skjaevelandModellingGovernmentFormation2009, 723], 2007 om asylcentre, but was resolved without GL/FO influence [@gadGronlandskeFolketingsmedlemmer2022; @cleggParliamentaryRepresentationOverseas2022, 239], relevans efter valg 2007, 2011, 2015 [@harderFaeroskeOgGronlandske2022, 19] and 1998 [@skjaevelandModellingGovernmentFormation2009, 723], and 1960 [@skjaevelandGovernmentFormationDenmark2003, 448], and 1957 [@millerFriendsRivals1996, 71]. 2015 not relevant after all? [@arndtFolketingswahlDanemarkVom2019, 785]
+  - "I to tilfælde har grønlandsk valgte MFere opnået ministerposten" [@michelsenGronlandPartisystemUdvikling1979, 55] > Gam og hvem?
+
+  - diskuteres efter bekvemmelighed [@veirumForskerNordatlantiskIndflydelse2022], cf. @harderFaeroskeOgGronlandske2022 [5]
+  
+  - but how do they use it exactly?
+  - Harder: looks at committees/questions, as it's custom to use committee membership of indicator of political activities  [@cleggParliamentaryRepresentationOverseas2022, 238] because that's where stuff happens [@hansenCommitteeAssignmentPolitics2010, 382] and most relevant for oversight [@westPoliticalPartiesParliamentary2025, 967] > why voting behavior instead
+  - voting: not so influential [@arterNordicParliamentsMuchofamuchness2016, 214; @nannestadPolitischeSystemDanemarks2009, 82] and individual behavior not so relevant due to high party cohesion [@ejnarhansenReconsideringPartyDistances2008, 266; @hansenRealBorgenDanish2020, 3], but in the topic of voting behavior lies a lot of visibility/publicity
+
+- cross-parliamentary control
+  - "Danish Realm constitutes a suitable case to explore the yet unconceptualized notion of cross-parliamentary control." [@harderCrossparliamentaryControl2025, 3], only observed by @jensenParliamentaryQuestionsOversight2013
+  - FT is "particularly strong [...] for controlling the government" [@helboepedersenParliamentFOLKETINGETPowerful2020, 102]
+  - "Folketing could act as an alternative arena for control of the national periphery government. [...] Thus far, this type of control [...] has not yet been an issue of much attention in the legislative literature." [@staehrharderCaseInnovativeParliamentary2022]
+
+# further relevance 
+
+- generally on relations GL/FO--DK
+  - worldwide geopolitics
+    + DK using GL/FO (and their FT membership) to legitimize themselves as Arctic state [@westDanishRealmArctic2025, 589]
+  - postcolonialism
+    + "coming down from the ice" [@sjolieDanmarkManglerOpgor2008]
+    + "Greenlandic representatives have been bullied by representatives from Danish parties" [@harderArcticIndigenousRepresentation2024, 141] cf. @cleggParliamentaryRepresentationOverseas2022
+    + national parliaments not in focus of research on "Arctic indigenous peoples' political mobilisation" [@harderArcticIndigenousRepresentation2024, 130]
+  - mechanisms of Rigsfællesskabet dynamics
+    + "et empirisk hul i rigsfællesskabets historie" [@harderFaeroskeOgGronlandske2022, 6]
+    + "opening the 'black box' of the Danish state" [@westDanishRealmArctic2025, 589]
+  - ethnic minority representation in national parliaments: Romania cf. @anghelInfluencePayOffsLegislative2021
+
+# Forschungsfragen
+
+- unit of analysis: gvt periods? [@green-pedersenBlocPoliticsVs2005, 159]
+
+- what counts as new cabinet? budge & keman 1993:10
+- who is considered part of the government? Indridason & Bowler (2014:396)
+
+- descriptive analysis of data set: when do they vote?
+  + @harderFaeroskeOgGronlandske2022 [13, 20]: question activity with specific relevance for GL/FO (2005--2019)
+  + is FT-party-group membership relevant for level of activity? @harderCrossparliamentaryControl2025 [11] shows that questions are almost only asked after 2011, when the Northatlantic Group was dissolved
+
+- 1. When do they take part in roll call votes? Hypothesis: The MPs are more likely to take part in voting when the issue concerns Greenland/policy areas that GL/FO do not have authority over (e.g. Defense, based on keywords in proposal description and the ministerområde responsible for the proposal, e.g. Forsvarsministeriet, Finansministeriet etc.)
+
+- 2. The 2x2 MPs are conceived as one group by DK politicians and media. Do they also vote like one group? Hypothesis: After excluding absences, similar voting behavior can not be observed across Greenlandic and Faroese MPs, but across the political blocks the MPs belong to (left/right -- in the dataset: usually 2x left from GL, and 1x each from FO)
+
+- Northatlantic MPs are generally conceived as one group ("northatlantic"). Do they also behave like one group?
+  + MFer from GL are more active than the FO MF [@harderFaeroskeOgGronlandske2022, 19]
+  + "we find that Greenlandic MPs make use of this possibility [cross-parliamentary control through questions] to a much larger extent than the Faroese members do" [@staehrharderCaseInnovativeParliamentary2022]
+  + method: S-Score? @signorinoTaubNotTaub1999, https://svmiller.com/fpsim/index.html s-score or kohen's kappa?
+
+- 3. When Northatlantic MPs have the chance to have influence, they act on it (based on decades of more or less anecdotal evidence). So, does the seat share of Danish coalition parties influence voting behaviour of Northatlantic MPs? Hypothesis: The fewer FT mandates the Danish cabinet coalition parties have themselves, the more likely are GL/FO MPs to cast a vote (regardless of the content of the proposal being voted on)
+
+- 4. Based on questioning/committee activity analysis (Harder 2022): Cross-parliamentary control mechanisms are especially made use of if the MP's own party is an opposition party in GL/FO. Transferring this finding onto another type of parliamentary activity, can the Northatlantic MP's voting behavior also be considered a form of cross-parliamentary control? Hypothesis: MPs are more likely to engage in parliamentary activity in FT, in this case taking part in voting, if their own party is in opposition in GL/FO.
+
+- is home gvt membership relevant for the activites? could indicate cross-parliamentary control
+  + @harderFaeroskeOgGronlandske2022 [10-11] suggests there is no effect on spørgeaktivitet (?), but "being in opposition at home seems to be a general prerequisite for posing questions that control at home. [@harderCrossparliamentaryControl2025, 11]. Formulated hypothesis: cross-parliamentary control especially when in opposition at home [@harderCrossparliamentaryControl2025, 12]
+  +  see [-@harderFaeroskeOgGronlandske2022, 9] for variable coding
+  + cross-parliamentary control using questioning activities seems to be a one-party phenomenon in the study [@harderCrossparliamentaryControl2025, 10]
+
+# Available Data
+
+* 40899 observations on 10227 roll call votes between 2004-10 and 2026-02 for 30 MPs (17 FO, 13 GL) of which 15 are (mostly short-term substitute MPs)
+* ca. 98% of observations are absent, non-absent records: 813
+* variables including
+  + MP origin (GL/FO), MP party
+  + roll call type (ca. 60% endelig vedtagelse, ca. 30% ændringsforslag, 10% other), vote counts (for/against/abstention/absent)
+  + topic of vote (non-standardised character strings), responsible ministry (semi-structured strings)
+  + 'home' cabinet status of MP party (boolean), DK cabinet bloc (red/blue/across)
+  + date of observation (2004-10 up until today)
