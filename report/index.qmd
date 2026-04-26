@@ -1,6 +1,6 @@
 ---
 title: "Counting to 90 in Greenlandic and Faroese"
-subtitle: Analysing the Northatlantic MPs Voting Behaviour in the Danish Parliament
+subtitle: Analysing the Northatlantic MPs' Voting Behaviour in the Danish Parliament
 authors:
   - name: Moritz Twente
     affiliation: University of Basel
