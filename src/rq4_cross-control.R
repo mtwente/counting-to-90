@@ -35,26 +35,42 @@ rq4_model_control <- glm(
   family = binomial
 )
 
+rq4_model_control_with_topic <- glm(
+  participation ~ opposition_home + cabinet_parties_seats + nord_topic,
+  data = northatlantic_ft,
+  family = binomial
+)
+
 rq4_interaction <- glm(
   participation ~ opposition_home * origin,
   data = northatlantic_ft,
   family = binomial
 )
 
+rq4_topic <- glm(
+  participation ~ opposition_home + opposition_home:origin + nord_topic,
+  data = northatlantic_ft,
+  family = binomial
+)
+
 # result tables
-all_models_rq4 <- list("Baseline" = rq4_model,
-                       "Cabinet Seats" = rq4_model_control,
-                       "Origin-Based" = rq4_interaction)
+all_models_rq4 <- list("Model 3a" = rq4_model,
+                       "Model 3b" = rq4_model_control,
+                       "Model 3c" = rq4_model_control_with_topic,
+                       "Model 3d" = rq4_interaction,
+                       "Model 3e" = rq4_topic)
 
 modelsummary(
   all_models_rq4,
   coef_map = c(
+    "(Intercept)" = "(Intercept)", 
     "opposition_home" = "Opposition Party in GL/FO",
     "cabinet_parties_seats" = "N° of Cabinet Parties'<br /> Seats in Parliament",
+    "nord_topicTRUE" = "Relevance",
     "originFO" = "Faroese MPs",
-    "opposition_home:originFO" = "Faroese MPs, Home Opposition Parties"
-  ),
+    "opposition_home:originFO" = "Faroese MPs × Home Opposition"
+    ),
   statistic = "({std.error})",
   ci_method = "wald",
-  stars = TRUE,
-  output = "markdown")
+  #output = "markdown",
+  stars = TRUE)
