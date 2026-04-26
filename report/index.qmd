@@ -630,6 +630,8 @@ all_models_rq4 <- list("Baseline" = rq4_model,
 
 # Dataset Description
 
+In the following section, I go through general characteristics of Northatlantic representation in Folketinget using the available dataset, e.g. showing how Greenland and the Faroe Islands have been represented in the timeframe covered by the data, and what types of metadata is connected to the roll call records.
+
 ## MPs {.unnumbered .unlisted}
 
 Since 1953, two MPs are elected in both Greenland and the Faroe Islands to join the 175 MPs from Denmark proper in Folketinget. Before the 1953 reform, Greenland did not have any parliamentary representation in Folketinget, as opposed to the Faroe Islands with one guaranteed seat since 1849 [@harderFaeroskeOgGronlandske2022, 8-9; @kjaerDanskeFolketingsmedlemmerParlamentarisk2004]. According to @harderFaeroskeOgGronlandske2022 [7], it is usually experienced politicians that are elected to represent the Faroe Islands constituency[^study], even though the job apparently has low priority compared to holding office 'at home' [@ackrenExploringRoleRegional2019, 22; cf. @harderCrossparliamentaryControl2025, 8; @johannesenUniHolmJohannesen2016].
