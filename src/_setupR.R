@@ -125,3 +125,10 @@ northatlantic_ft$close_vote <- abs(northatlantic_ft$ft_for - northatlantic_ft$ft
 northatlantic_ft <- northatlantic_ft %>%
   relocate(participation, .after = vote_type_id) %>%
   relocate(close_vote, .after = ft_absent)
+
+northatlantic_ft <- northatlantic_ft %>%
+  mutate(nord_topic = str_detect(ft_topic, regex("grønl.*|færø.*|arktis.*", ignore_case = TRUE))) %>%
+  relocate(nord_topic, .after = ft_topic)
+
+northatlantic_ft_without_absences <- northatlantic_ft_without_absences %>%
+  mutate(nord_topic = str_detect(ft_topic, regex("grønl.*|færø.*|arktis.*", ignore_case = TRUE)))

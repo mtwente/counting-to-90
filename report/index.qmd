@@ -482,6 +482,13 @@ rq3_closevote_gvt_dk <- glm(
   family = binomial
 )
 
+# Model 1c: Closeness/Participation plus Relevance
+rq3_closevote_topic <- glm(
+  participation ~ close_vote + cross_bloc_gvt + nord_topic,
+  data = northatlantic_ft,
+  family = binomial
+)
+
 # Model 2a: Cabinet Party Seats/Participation
 rq3_cabinet_seats <- glm(
   participation ~ cabinet_parties_seats,
@@ -496,16 +503,27 @@ rq3_cabinet_seats_with_bloc <- glm(
   family = binomial
 )
 
+# Model 2c: Cabinet Party Seats/Participation plus Relevance
+rq3_cabinet_seats_with_topic <- glm(
+  participation ~ cabinet_parties_seats + cross_bloc_gvt + nord_topic,
+  data = northatlantic_ft,
+  family = binomial
+)
+
 all_models_rq3 <- list("Model 1a" = rq3_closevote,
                        "Model 1b" = rq3_closevote_gvt_dk,
+                       "Model 1c" = rq3_closevote_topic,
                        "Model 2a" = rq3_cabinet_seats,
-                       "Model 2b" = rq3_cabinet_seats_with_bloc)
+                       "Model 2b" = rq3_cabinet_seats_with_bloc,
+                       "Model 2c" = rq3_cabinet_seats_with_topic)
 
-models_1ab_rq3 <- list("Model 1a" = rq3_closevote,
-                       "Model 1b" = rq3_closevote_gvt_dk)
+models_1abc_rq3 <- list("Model 1a" = rq3_closevote,
+                       "Model 1b" = rq3_closevote_gvt_dk,
+                       "Model 1c" = rq3_closevote_topic)
 
-models_2ab_rq3 <- list("Model 2a" = rq3_cabinet_seats,
-                       "Model 2b" = rq3_cabinet_seats_with_bloc)
+models_2abc_rq3 <- list("Model 2a" = rq3_cabinet_seats,
+                       "Model 2b" = rq3_cabinet_seats_with_bloc,
+                       "Model 2c" = rq3_cabinet_seats_with_topic)
 ```
 
 <!-- * H~3~: *The closer the parliamentary balance between government and opposition, the more often Northatlantic MPs participate in roll call votes.* -->
@@ -1290,13 +1308,13 @@ kable(
 
 <!-- * H~3~: *The closer the parliamentary balance between government and opposition, the more often Northatlantic MPs participate in roll call votes* -->
 
-Next, I tested the relation between voting participation and the parliamentary seat share distributon between party blocks using two different models (@tbl-pivotality-model). With the first model, I addressed the question of whether MPs participate more in votes with a close outcome, assuming that in most cases, close results can be anticipated. The results showed that there is no evidence to support the hypothesis based on this model (Model 1a).
+Next, I tested the relation between voting participation and the parliamentary seat share distributon between party blocks using two different models (@tbl-pivotality-model-1, @tbl-pivotality-model-2). With the first model, I addressed the question of whether MPs participate more in votes with a close outcome, assuming that in most cases, close results can be anticipated. The results showed that there is no evidence to support the hypothesis based on this model (Model 1a).
 
-Model 2a on the relation between the number of cabinet parties' seats in parliament and participation rates among Northatlantic MPs indicates a negative effect: As the number of parliamentary seats of cabinet parties increases, participation of Northatlantic MPs decreases. This is exactly as expected: When governing parties can rely on more votes from members of their own parties, there is less need for including Northatlantic MPs in building of parliamentary majorities.
+Model 2a on the relation between the number of cabinet parties' seats in parliament and participation rates among Northatlantic MPs indicates a small negative effect: As the number of parliamentary seats of cabinet parties increases, participation of Northatlantic MPs decreases. This is exactly as expected: When governing parties can rely on more votes from members of their own parties, there is less need for including Northatlantic MPs in building of parliamentary majorities.
 
-Model 1b and 2b, including the type of coalition, indicate that participation of Northatlantic MPs is higher in cross-bloc coalitions. This is also in line with my expectations. However, since there has only been one cross-bloc cabinet in the dataset, this is not really a generalisation to make. Additionally, the higher level of participation during this cabinet appears to be almost entirely the result of the voting behavior of Anna Falkenberg (B/FO), judging by a visual inspection of @fig-vote-share-per-year and @fig-votes-per-mp-filtered. Still, it could be interesting to compare participation patterns under other cross-bloc cabinets, e.g. the Anker Jørgensen III cabinet (1978--1979, Socialdemokratiet/Venstre). 
+Model 1b and 2b, including the type of coalition, indicate that participation of Northatlantic MPs is higher in cross-bloc coalitions. This is also in line with my expectations. However, since there has only been one cross-bloc cabinet in the dataset, this is not really a generalisation to make. Additionally, the higher level of participation during this cabinet appears to be almost entirely the result of the voting behavior of Anna Falkenberg (B/FO), judging by a visual inspection of @fig-vote-share-per-year and @fig-votes-per-mp-filtered. Still, it could be interesting to compare participation patterns under other cross-bloc cabinets, e.g. the Anker Jørgensen III cabinet (1978--1979, Socialdemokratiet/Venstre).
 
-* what do the log-odds mean exactly?
+Additionally, I tried modelling the relationship with a binary variable indicating whether the topic of the vote is of relevance for Greenland, the Faroe Islands or the Arctic (Models 1c and 2c). Because the way of assessing content relevance is just a crude pattern matching, this has to be read with a grain of salt. But, as expected, topics marked as relevant for the North Atlantic outperform all other predictors in the two models. However, the results still show values relatively similar to Models 1b and 2b.
 
 ## H~4~: Cross-Parliamentary Control {.unnumbered .unlisted}
 
@@ -1568,16 +1586,41 @@ patchworked_plot
 #| warning: false
 #| message: false
 #| output: asis
-#| label: tbl-pivotality-model
-#| tbl-cap: "Participation and Pivotality"
+#| label: tbl-pivotality-model-1
+#| tbl-cap: "Participation and Pivotality (Close Voting Result)"
 #| tbl-cap-location: top
 #| tbl-pos: "H"
 
 modelsummary(
-  all_models_rq3,
+  models_1abc_rq3,
   coef_map = c(
     "close_voteTRUE" = "Close Voting Result",
     "cross_bloc_gvt" = "Cross-Bloc Coalition",
+    "nord_topicTRUE" = "GL/FO Relevance"
+  ),
+  statistic = "({std.error})",
+  ci_method = "wald",
+  stars = TRUE,
+  output = "latex")
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| output: asis
+#| label: tbl-pivotality-model-2
+#| tbl-cap: "Participation and Pivotality (Cabinet Party Seats)"
+#| tbl-cap-location: top
+#| tbl-pos: "H"
+
+modelsummary(
+  models_2abc_rq3,
+  coef_map = c(
+    "close_voteTRUE" = "Close Voting Result",
+    "cross_bloc_gvt" = "Cross-Bloc Coalition",
+    "nord_topicTRUE" = "GL/FO Relevance",
     "cabinet_parties_seats" = "N° of Cabinet Parties' Folketinget Seats"
   ),
   statistic = "({std.error})",

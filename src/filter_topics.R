@@ -1,12 +1,5 @@
 # filter for 'northatlantic' topics
 
-northatlantic_ft <- northatlantic_ft %>%
-  mutate(nord_topic = str_detect(ft_topic, regex("grønl.*|færø.*|arktis.*", ignore_case = TRUE))) %>%
-  relocate(nord_topic, .after = ft_topic)
-
-northatlantic_ft_without_absences <- northatlantic_ft_without_absences %>%
-  mutate(nord_topic = str_detect(ft_topic, regex("grønl.*|færø.*|arktis.*", ignore_case = TRUE)))
-
 # as control variable
 northatlantic_ft <- northatlantic_ft %>%
   mutate(
