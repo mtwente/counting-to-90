@@ -1340,36 +1340,45 @@ As a result of the previously addressed hypothesis on parliamentary seat shares 
 
 ## Critical Assessment
 
-* maybe result overall: voting behavior is not a useful thing to look at
-* use of roll call votes as method
-* statement about working with population data
-* statement about how there are other influences not accounted for
-
-Danish parliamentarism: "peculiar mixture of cooperation and conflict" [@green-pedersenBlocPoliticsVs2005, 153]
-
-<!-- older section below -->
-- distribution of ft_process_step? (or later during empirical strategy)
-  - use tredje behandling? cf. @green-pedersenBlokpolitikOgNye2020 [315]
-- most frequent ministry values
-
-- voting records: ungewöhnlich, aber aufgrund öffentlichkeitswirksamkeit angebracht. "Desuden er de parlamentariske spørgsmål en interessant variabel, fordi de giver et indblik i, hvilke problematikker medlemmerne selv har valgt at sætte på dagsordenen" [@harderFaeroskeOgGronlandske2022, 9] > Argumentation für/gegen roll call data?
-
-* use data on party level for all hypotheses, cf.:
-  * "Fordi flere af de nordatlantiske medlemmer holder længere orlov fra Folketinget, er data herfor indhentet på parti- og ikke individniveau" [@harderFaeroskeOgGronlandske2022, 9]
-  * "However, in many of the West European parliaments, including Denmark, party discipline is very tight. Thus analysing individual legislator behaviour is of little use, and in such cases we should shift our focus to the parliamentary party groups and use these as the actors to be analysed." [@ejnarhansenReconsideringPartyDistances2008, 266]
-  * see @harderCrossparliamentaryControl2025 [8-9]: Not much research has been conducted [SEITENUMBRUCH] on the Greenlandic party discipline, yet, since crossing the party line in Greenlandic politics is heavily criticised when it occurs (Schultz-Nielsen, 2018), I may assume that party discipline is also a norm here.
-
-* regex search for relevant strings in `ft_topic` (færø*, grønl*, arktis*, ...) not that helpful other than for getting a general overview, since e.g. "Forslag til finanslov for finansåret 2016." is not caught but highly relevant. Only used for a general overivew. Ministry information also only a first indicator.
-
-### Implications, Future Research
+## Conclusion
 
 <!-- * intro&conclusion should speak to each other/mirror each other -->
 
 <!-- conclusion paragraph structure: refer to powner handbook again -->
 
-* go more in depth regarding inner-group differences. Perhaps not between origin GL/FO, but bloc-wise and independence-position-related? see:
-  * "Moreover, in line with our initial expectations, which are based on the former findings of Harder and West (Harder 2021; West 2019), we find that Greenlandic MPs make use of this possibility to a much larger extent than the Faroese members do. However, contrary to our expectations, *it is the members from the parties that are most critical towards the Danish Realm, which makes the most use of the opportunity to gain information on the actions of their home-governments from the Danish Authorities*. Especially, this tendency is particularly strong for Faroese members. We believe this to be a sign that partisan motives at home are more important to North Atlantic politicians in the Danish parliament than we initially expected them to be." [@harderCaseInnovativeParliamentary2022] 
+<!-- Under which conditions do Northatlantic MPs participate in roll call votes in Folketinget, and to what extent does their participation translate into pivotal voting power? -->
 
+<!-- 1. Does the emergence of party competition among MPs -- after the Northatlantic Party Group was dissolved -- lead to increased participation in roll call voting?
+2. To what extent do Northatlantic MPs vote cohesively as a group?
+3. How does the parliamentary balance of power affect whether Northatlantic MPs participate in roll call votes? <!--(In how many cases are North Atlantic MPs pivotal for the outcome of roll call votes?)
+4. How does the position of the MPs' parties in the political system of Greenland resp. the Faroe Islands affect their participation in Folketinget roll call votes? -->
+
+The aim of this analysis of voting behavior of all Greenlandic and Faroese members of Folketinget between `r format(min(northatlantic_ft$date), "%B %Y")` and `r format(file.info(here("data", "processed", "northatlantic_ft.rds"))$mtime, "%B %Y")` was to investigate the conditions under which those Northatlantic MPs participate in roll call votes and to what extent their participation translates into pivotal voting power. The dataset compiled for this analysis shows how MPs from Greenland and the Faroe Islands participated in parliamentary voting. Overall, MPs are listed as absent in `r mean(northatlantic_ft$vote_type_id == "3") %>% scales::percent(accuracy = 0.1)` of all recorded votes. Including a crude indicator for topic relevance, this number rises to `r nord_topic_table$participation_rate[2]`.
+
+In line with existing research on other areas of Northatlantic MPs' parliamentary work, my findings indicate that issue relevance is the most important factor in explaining when Northatlantic MPs take part in voting. Results for my hypotheses on cohesive voting as well as pivotality and cross-parliamentary control as incentive for participation are to somewhat extent supported by my analysis, but all indicators are dominated by whether the issue at hand is of direct relevance for the region.
+
+<!-- H1 -->With the existing data, I could not find the existence of formal cooperation in the Northatlantic Parliamentary Group up until 2001 to be a factor that influenced participation rates (H~1~). The hypothesis that party competition -- which would be limited by cooperation on party-group level -- is a prerequisite for increased activities, developed by @harderCrossparliamentaryControl2025 [11-12] on parliamentary questioning, does not apply for the plenary voting recorded in my dataset.
+
+<!-- H2 --> Voting cohesion among Northatlantic MPs has proven to be high with agreement rates over 80% (H~2~). Agreement rates barely change when taking into account the two different constituencies or each party's stance on independence from Denmark. However, agreement drops considerably when looking at MPs affiliated to different political blocs. The results indicate that while there is generally high agreement within the bloc, this is not based on a shared origin, but reflects party affiliations instead. But as the number of recorded non-absent votes is very low and as there has never been more than one MP from the right bloc at a time among the Northatlantic MPs, the explanatory value of this setup is limited.
+
+<!-- H3 -->In light of the fact that Northatlantic MPs receive most press coverage when their voting behavior might influence the outcome, H~3~ on pivotality of the recorded votes is the central part of this paper. Looking at how many outcomes of roll call votes could have been flipped by coordinated Northatlantic voting behavior, it is already obvious that this hardly plays a role in day-to-day parliamentary business (`r scales::percent(sum(northatlantic_ft$close_vote, na.rm = TRUE)/sum(!northatlantic_ft$close_vote, na.rm = TRUE), accuracy = 0.01)` of records with a margin of $\leq$ 4). While my analysis suggests that the most important factor in predicting participation again is issue relevance, there does seem to be some responsiveness to the institutional context: An increase in seat shares of cabinet parties has a small negative effect on Northatlantic participation. The existence of a cross-bloc cabinet seems to have a positive effect on participation. But given that there has only been one such cabinet, and voting records during that time are dominated by just one Faroese MP, this is most likely not a decisive factor per se. Overall, MPs respond to (potential) pivotality in some cases, but hardly systematically (H~3~).
+
+<!-- H4 -->Based on existing literature on the Northatlantic MPs' parliamentary behavior as control mechanism for their local governments, I hypothesised that taking part in votes in Folketinget could also serve such a purpose. With overall participation rates being at only `r mean(northatlantic_ft$vote_type_id != "3") %>% scales::percent(accuracy = 0.1)`, any vote that is actually been cast could, in this perspective, be seen as putting a spotlight on the issue at hand, potentially signalling importance to Greenland and the Faroe Islands and their governments. The data supports the hypothesis that MPs belonging to political parties who are in opposition 'at home' have higher voting participation rates. The effect is mostly unchanged when accounting for issue relevance and for the size of the cabinet parties' seat share in parliament. However, further analysis suggests that higher levels of participation for opposition-party MPs are largely a phenomenon for Faroese MPs. And again, issue relevance appears to be the most influential predictor. Overall, participation is higher for MPs whose party is in opposition in Greenland or the Faroe Islands, but MPs are not consistently strategic opposition actors. Additionally, further investigation is necessary to find out if voting behavior could actually be seen as control activity.
+
+In total, Northatlantic MPs are best understood as issue-driven representatives, whose behavior is only secondarily shaped by institutional incentives and strategic considerations, providing yet another ingredient to the "peculiar mixture of cooperation and conflict" [@green-pedersenBlocPoliticsVs2005, 153] of Danish parliamentarism. Referring to the four MPs collectively as one geographically defined block has to be taken with a grain of salt, as other ideological and policy issues are more relevant for defining a group -- at least in the context of voting behavior.
+
+### Critical Assessment
+
+For the questions addressed by me, there are more useful indicators to look at than individual voting records -- parliamentary questions or speeches come to mind. However, given the fact that I had already assembled the dataset, looking into this using a roll call voting perspective seemed justified enough, even though it was apparent from the start that the overall share of actually cast votes is very low and most analyses would rely on a rather low number of observations.
+
+As this was my first time both writing a political science paper *and* using quantitative methods, it was hard for me to choose appropriate tools, methods, indicators etc. This concerns finding reasonable control and interaction variables on regarding the content of my arguments and assessing the suitability of indicators both for the available data types as well as compared to other options leading to similar results. <!-- statement about working with population data -->
+
+While having the full set of voting records for a timespan of over twenty years available for analysis is a valuable asset -- and a perspective that has not been applied to this particular area yet -- the type of data would, according to my judgement, require further checks and cleaning before being fully usable. While keeping all records in the dataset, without distinguishing between the different steps of the parliamentary process, was a choice by myself to keep the number of observations high, even though only the third (last) vote on a proposal is normally used for this type of research [@green-pedersenBlokpolitikOgNye2020, 315], not least to filter out repeated votes on the same issues.
+
+<!-- section Implications, Future Research -->
+To gain further insights into the parliamentary activites of Northatlantic MPs in general and voting behavior in particular, it seems warranted to focus on the specific issues handled in Folketinget. The method to identifying issues of relevance for Northatlantic MPs used by me -- regex pattern matching -- can only be seen as a general overview and a starting point. For example, it could be interesting to investigate how issues relating to the Greenlandic resp. Faroese communities in continental Denmark are dealt with by Northatlantic MPs. To do so, additional data has to be procured to make the topics of parliamentary discussions and votes accessible.
+
+Secondly, and not only for research with voting records, any analysis of Northatlantic MPs should be more nuanced regardings differences between Greenlandic and Faroese behavior. While I referred to the four MPs collectively as one group in this paper, my own findings as well as pre-existing research detected differences in parliamentary activity between Greenlandic and Faroese members. On the other hand, considering the Northatlantic MPs as one (parliamentary) group, another avenue for research could be comparing their activity with Danish parties/groups in parliament. With regard to voting behavior, this can easily be done by extending my dataset with more MPs to scrape records for; and because of high party discipline, investigating party groups would make more sense overall than analysing individual behavior [@ejnarhansenReconsideringPartyDistances2008, 266].
 
 # References {.unnumbered}
 
