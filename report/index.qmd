@@ -7,7 +7,7 @@ authors:
     email: moritz.twente@unibas.ch
     orcid: 0009-0005-7187-9774
 abstract: > 
-    nordatlantisk-ft is compiled from data available on Folketingets Open Data Platform [@folketingetFolketingetsAbneData2026] and comprises 40899 records of votes cast by Northatlantic MPs as per the most recent update (February 06, 2026). The dataset documents voting behavior of MPs from Greenland and the Faroe Islands and also contains metadata on each record – e.g. date and topic of each vote or the overall voting result, covering votes on 10227 proposals in Folketinget. Refer to the [documentation](https://mtwente.github.io/nordatlantisk-ft) for details^[Both source code and data used for this paper are available on [GitHub](https://www.github.com/mtwente/counting-to-90).].
+    This paper presents an analysis of the voting behavior of the four 'Northatlantic' members of the parliament of Denmark. Using records from 2004 until today, I investigate the circumstances under which this group of MPs takes part in plenary voting, how this translates to actual voting power and whether this aspect of parliamentary activity could be considered as exercising cross-parliamentary control. My results indicate that issue relevance is the most important driver of voting participation, with institutional and political factors shaping behavior only in a secondary and context-dependent manner.
 date: last-modified
 date-format: long
 bibliography: ../assets/nordatlantisk-ft.bib
