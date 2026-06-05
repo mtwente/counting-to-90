@@ -14,17 +14,14 @@ This repository contains an analysis of voting behaviour of MPs from Greenland a
 
 The structure of this repository follows the [Advanced Structure for Data Analysis](https://book.the-turing-way.org/project-design/pd-overview/project-repo/project-repo-advanced/) of _The Turing Way_ and is organized as follows:
 
-- `analysis/`: scripts and notebooks used to analyze the data
 - `assets/`: images, logos, etc. used in the README and other documentation
-- `build/`: scripts and notebooks used to build the data
-- `data/`: data files
+- `data/`: data files used in the analysis
+- `report/`: report on Northatlantic MPs and their voting behavior
 - `src/`: source code for the data (e.g., scripts used to collect or process the data)
 
 ## Data Description
 
-- TODO Describe the data in this repository, including what it represents, how it was collected or obtained, any preprocessing or cleaning that was done, and any limitations or potential biases.
-- TODO Data models, including field names, descriptions, and controlled values, should be clearly documented in a static document that is maintained with the data and is part of the products.
-- TODO All rights and intellectual property issues should be clearly documented. Where possible, data and products should be released under open licenses (Creative Commons, GNU, BSD, MPL).
+For the analysis, I am using the nordatlantisk-ft dataset ([v0.2.0](https://doi.org/10.5281/zenodo.18805325), as of February 27, 2026). Refer to the [documentation](https://github.com/mtwente/nordatlantisk-ft) for more information on the data and collection process.
 
 ## Use
 
