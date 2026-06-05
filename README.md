@@ -5,8 +5,8 @@ This repository contains an analysis of voting behaviour of MPs from Greenland a
 [![GitHub issues](https://img.shields.io/github/issues/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/issues)
 [![GitHub forks](https://img.shields.io/github/forks/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/network)
 [![GitHub stars](https://img.shields.io/github/stars/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/stargazers)
-[![Code license](https://img.shields.io/github/license/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/blob/main/LICENSE-AGPL.md)
-[![Data license](https://img.shields.io/github/license/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/blob/main/LICENSE-CCBY.md)
+[![Code license](https://img.shields.io/badge/Code-AGPL--3.0-orange)](LICENSE-AGPL.md)
+[![Data license](https://img.shields.io/badge/Data-CC_BY--SA_4.0-green)](LICENSE-CCBY.md)
 
 <!-- [![DOI](https://zenodo.org/badge/1154420296.svg)](https://zenodo.org/badge/latestdoi/ZENODO_RECORD) -->
 
@@ -14,17 +14,14 @@ This repository contains an analysis of voting behaviour of MPs from Greenland a
 
 The structure of this repository follows the [Advanced Structure for Data Analysis](https://book.the-turing-way.org/project-design/pd-overview/project-repo/project-repo-advanced/) of _The Turing Way_ and is organized as follows:
 
-- `analysis/`: scripts and notebooks used to analyze the data
 - `assets/`: images, logos, etc. used in the README and other documentation
-- `build/`: scripts and notebooks used to build the data
-- `data/`: data files
+- `data/`: data files used in the analysis
+- `report/`: report on Northatlantic MPs and their voting behavior
 - `src/`: source code for the data (e.g., scripts used to collect or process the data)
 
 ## Data Description
 
-- TODO Describe the data in this repository, including what it represents, how it was collected or obtained, any preprocessing or cleaning that was done, and any limitations or potential biases.
-- TODO Data models, including field names, descriptions, and controlled values, should be clearly documented in a static document that is maintained with the data and is part of the products.
-- TODO All rights and intellectual property issues should be clearly documented. Where possible, data and products should be released under open licenses (Creative Commons, GNU, BSD, MPL).
+For the analysis, I am using the nordatlantisk-ft dataset ([v0.2.0](https://doi.org/10.5281/zenodo.18805325), as of February 27, 2026). Refer to the [documentation](https://github.com/mtwente/nordatlantisk-ft) for more information on the data and collection process.
 
 ## Use
 
@@ -72,7 +69,7 @@ We use [SemVer](http://semver.org/) for versioning. The available versions are l
 
 ## Authors and acknowledgment
 
-- **Moritz Twente** - _Initial work_ - [mtwente](https://github.com/mtwente)
+- **Moritz Twente** - _Initial work_ - [mtwente](https://github.com/mtwente) - [ORCID](https://orcid.org/0009-0005-7187-9774)
 
 See also the list of [contributors](https://github.com/mtwente/counting-to-90/graphs/contributors) who contributed to this project.
 
