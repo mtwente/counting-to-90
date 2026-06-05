@@ -3,8 +3,8 @@ title: "Reading Notes"
 author: "Moritz Twente"
 date: last-modified
 date-format: long
-bibliography: nordatlantisk-ft.bib
-csl: apa-cv.csl
+bibliography: ../nordatlantisk-ft.bib
+csl: ../apa-cv.csl
 suppress-bibliography: true
 link-citations: false
 citations-hover: false
@@ -14,7 +14,7 @@ format:
   pdf: 
     documentclass: article
     mainfont: Jost
-    filters: [quotation-marks.lua]
+    filters: [../quotation-marks.lua]
     quot-lang: de-CH
     colorlinks: true
     toc: true

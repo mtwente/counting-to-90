@@ -3,7 +3,7 @@ title: "Counting to 90 in Greenlandic and Faroese"
 author: "Moritz Twente"
 date: last-modified
 date-format: long
-bibliography: nordatlantisk-ft.bib
+bibliography: ../nordatlantisk-ft.bib
 reference-section-title: References
 link-citations: true
 lang: en
@@ -12,7 +12,7 @@ format:
   pdf: 
     documentclass: article
     mainfont: Jost
-    filters: [quotation-marks.lua]
+    filters: [../quotation-marks.lua]
     quot-lang: de-CH
     colorlinks: true
     toc: false
