@@ -296,7 +296,7 @@ format:
   + "Finally – and of importance for the theory building – all but one of the questions which carry out cross-parliamentary control were posed from 2011 and onwards. As I initially explained, from 2001–2011 the Greenlandic members of the Danish parliament belonged to the same North Atlantic [SEITENUMBRUCH] party group. Therefore, it seems that a prerequisite for cross-parliamentary control is that representatives find themselves in a relation of party competition within the parliament that questions are posed." [11-12]
   + "Hence, in the contexts that are of relevance here, representatives who belong to parties that compete at one government level (usually the more local one) may find themselves in a situation of cooperation at another level." [12]
   + formulated thesis based on observations: "Representatives will especially engage in cross-parliamentary control when they belong to parties that are in opposition within the government system where they seek to control the government." [12]
-- @staehrharderCaseInnovativeParliamentary2022
+- @harderCaseInnovativeParliamentary2022
   + "If applied this way, the Folketing could act as an alternative arena for control of the national periphery government, and we would be witnessing an example of what we term cross-parliamentary control."
   + "Thus far, this type of control in which representatives use the control tool of another country’s parliament to control their home government has not yet been an issue of much attention in the legislative literature."
   + "Corresponding to our expectations, our analyses show that most of the questions posed by the North Atlantic members of the Danish parliament, who are in opposition at home, concern the actions or inactions of the Danish government. Nevertheless, 7.8 pct. of these questions concern the actions or inactions of the members’ home government. Hence, they enact cross-parliamentary control."
@@ -309,7 +309,7 @@ format:
   + "In recent years, legislative institutions across the world have experienced a 'transparency rush' that has led to the opening of large and extremely diversified deposits of data. This trend has been paralleled by easier access to these deposits due to their increasing digitalisation" [41]
 - ~~@berntzenParliamentaryOpenData2019~~
 - ~~@mahrOneTemplateRule2025a~~
-- ~~@twenteNordatlantiskft2024~~
+- ~~@twenteNordatlantiskft2026~~
 - @doringParlGov2024Release2024
   + provides basic info for FO/GL parties that were at least once elected to FT.
   + for elections, only seat numbers, not vote shares are provided for FO/GL parties
@@ -326,7 +326,7 @@ format:
 - @buggeRegeringensIndenrigspolitiskeFlertal2023
 - @djorupViVaelterIkke2012
 - @frostLokkeRaserNordatlantiske2022
-- @hviidVittusQujaukitsoqMelder2025
+- @vestergaardhviidVittusQujaukitsoqMelder2025 
 - @joensenLagtingsformandenVilAfskaffe2019
 - @joensenNordatlantiskePartierVil2022
 - @kamstrupNuHarVi2017
