@@ -69,7 +69,7 @@ We use [SemVer](http://semver.org/) for versioning. The available versions are l
 
 ## Authors and acknowledgment
 
-- **Moritz Twente** - _Initial work_ - [mtwente](https://github.com/mtwente)
+- **Moritz Twente** - _Initial work_ - [mtwente](https://github.com/mtwente) - [ORCID](https://orcid.org/0009-0005-7187-9774)
 
 See also the list of [contributors](https://github.com/mtwente/counting-to-90/graphs/contributors) who contributed to this project.
 
