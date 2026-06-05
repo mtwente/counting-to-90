@@ -5,8 +5,8 @@ This repository contains an analysis of voting behaviour of MPs from Greenland a
 [![GitHub issues](https://img.shields.io/github/issues/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/issues)
 [![GitHub forks](https://img.shields.io/github/forks/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/network)
 [![GitHub stars](https://img.shields.io/github/stars/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/stargazers)
-[![Code license](https://img.shields.io/github/license/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/blob/main/LICENSE-AGPL.md)
-[![Data license](https://img.shields.io/github/license/mtwente/counting-to-90.svg)](https://github.com/mtwente/counting-to-90/blob/main/LICENSE-CCBY.md)
+[![Code license](https://img.shields.io/badge/Code-AGPL--3.0-orange)](LICENSE-AGPL.md)
+[![Data license](https://img.shields.io/badge/Data-CC_BY--SA_4.0-green)](LICENSE-CCBY.md)
 
 <!-- [![DOI](https://zenodo.org/badge/1154420296.svg)](https://zenodo.org/badge/latestdoi/ZENODO_RECORD) -->
 
