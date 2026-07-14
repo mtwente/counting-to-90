@@ -21,7 +21,8 @@ filters:
 wordcount:
   count-code-blocks: false
   count-inline-code: false
-format: 
+format:
+  html: default
   pdf: 
     documentclass: article
     classoption: twocolumn
