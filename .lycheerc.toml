@@ -12,6 +12,7 @@ exclude = [
   "https://www.gnu.org/licenses/",
   "https://www.gnu.org/licenses/agpl-3.0.html",
   "https://www.makeareadme.com/",
+  "https://fsf.org/",
 ]
 
 # Timeout for requests (seconds)
